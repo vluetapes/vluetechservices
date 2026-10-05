@@ -2,7 +2,7 @@
    vx-ui.css  v4  —  Vlue Tech Services
    Componentes compartidos por las 4 páginas (/, /catalogo/, /salud/, /contacto/) (prefijo vx- para no
    chocar con style_work2.css). Se carga DESPUÉS de style_work2.css:
-     <link rel="stylesheet" href="/vx-ui.css?v=7">
+     <link rel="stylesheet" href="/vx-ui.css?v=8">
    Al cambiar este archivo, sube el número (?v=3) para que el navegador
    no sirva la versión vieja desde caché.
    ===================================================================== */
@@ -64,9 +64,10 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
    Para destacar otra card, agrégale la clase vx-card--featured (o solo vx-card--glow si no quieres el borde azul en reposo). */
 .vx-card--featured *,.vx-card--glow *{transition:color .35s ease,background-color .35s ease,border-color .35s ease}
 .vx-card--featured,.vx-card--glow{isolation:isolate}
-.vx-card--featured::before,.vx-card--glow::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+/* inset negativo: la capa llega al borde exterior y la card la recorta justo por dentro del borde, sin dejar huecos en las esquinas */
+.vx-card--featured::before,.vx-card--glow::before{content:"";position:absolute;inset:-2px;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);opacity:0;transition:opacity .4s ease;pointer-events:none}
 @media (hover:hover){
-  .vx-card--featured:hover,.vx-card--glow:hover{border-color:var(--vx-blue);color:#fff;box-shadow:0 4px 10px rgba(31,75,255,.25),0 22px 48px rgba(31,75,255,.35)}
+  .vx-card--featured:hover,.vx-card--glow:hover{background-color:var(--vx-blue);border-color:var(--vx-blue);color:#fff;box-shadow:0 4px 10px rgba(31,75,255,.25),0 22px 48px rgba(31,75,255,.35)}
   :is(.vx-card--featured,.vx-card--glow):hover::before{opacity:1}
   :is(.vx-card--featured,.vx-card--glow):hover :is(h3,p,.vx-result,.vx-sep,.vx-price strong,.vx-price s,.vx-price small){color:#fff}
   :is(.vx-card--featured,.vx-card--glow):hover .vx-price s{opacity:.8}
