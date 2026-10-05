@@ -1,15 +1,16 @@
 /* =====================================================================
-   vx-ui.css  v2  —  Vlue Tech Services
+   vx-ui.css  v3  —  Vlue Tech Services
    Componentes compartidos por las 4 páginas (/, /catalogo/, /salud/, /contacto/) (prefijo vx- para no
    chocar con style_work2.css). Se carga DESPUÉS de style_work2.css:
-     <link rel="stylesheet" href="/vx-ui.css?v=2">
-   Al cambiar este archivo, sube el número (?v=2) para que el navegador
+     <link rel="stylesheet" href="/vx-ui.css?v=3">
+   Al cambiar este archivo, sube el número (?v=3) para que el navegador
    no sirva la versión vieja desde caché.
    ===================================================================== */
 
 :root{
   --vx-blue:#07209f;
   --vx-blue-dark:#05166f;
+  --vx-electric:#1f4bff;          /* azul eléctrico: hover de cards Pro/Recomendado y botón de auditoría */
   --vx-ink:#0b1020;
   --vx-muted:#505770;
   --vx-line:#e3e7f3;
@@ -48,15 +49,28 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-group{margin:30px 0 12px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
 .vx-group:first-of-type{margin-top:0}
 
-.vx-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);contain:content;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.vx-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);contain:content;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease,background-color .35s ease,color .35s ease}
 @media (hover:hover){.vx-card:hover{transform:translateY(-3px);border-color:#c5cdf0;box-shadow:0 2px 4px rgba(7,32,159,.08),0 16px 36px rgba(7,32,159,.14)}}
-.vx-card--featured{border:2px solid var(--vx-blue);background:linear-gradient(180deg,#fff 0%,var(--vx-tint) 100%)}
+.vx-card--featured{border:2px solid var(--vx-blue);background-color:#f8f9fe}   /* color sólido (no degradado) para que el paso a azul eléctrico sea suave */
 .vx-card h3{margin:0;font:800 1.15rem/1.25 Montserrat,system-ui,sans-serif;color:var(--vx-ink)}
 .vx-card p{margin:0;line-height:1.5}
 .vx-card .vx-result{color:var(--vx-muted);font-size:.97rem}
 
 .vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .vx-card--featured .vx-badge{background:var(--vx-blue);color:#fff}
+
+/* Cards Pro / Recomendado: al pasar el mouse se llenan de azul eléctrico con una transición suave.
+   Para destacar otra card, agrégale la clase vx-card--featured (o solo vx-card--glow si no quieres el borde azul en reposo). */
+.vx-card--featured *,.vx-card--glow *{transition:color .35s ease,background-color .35s ease,border-color .35s ease}
+@media (hover:hover){
+  .vx-card--featured:hover,.vx-card--glow:hover{background-color:var(--vx-electric);border-color:var(--vx-electric);color:#fff;box-shadow:0 4px 10px rgba(31,75,255,.25),0 22px 48px rgba(31,75,255,.35)}
+  :is(.vx-card--featured,.vx-card--glow):hover :is(h3,p,.vx-result,.vx-sep,.vx-price strong,.vx-price s,.vx-price small){color:#fff}
+  :is(.vx-card--featured,.vx-card--glow):hover .vx-price s{opacity:.8}
+  :is(.vx-card--featured,.vx-card--glow):hover .vx-badge{background:#fff;color:var(--vx-electric)}
+  :is(.vx-card--featured,.vx-card--glow):hover .btn-primary{background:#fff;color:var(--vx-electric)}
+  :is(.vx-card--featured,.vx-card--glow):hover .vx-more{background:transparent;border-color:#fff;color:#fff}
+  :is(.vx-card--featured,.vx-card--glow):hover .vx-more:hover{background:#fff;color:var(--vx-electric)}
+}
 
 .vx-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:2px 0 0}
 .vx-price s{color:var(--vx-muted);font-size:.95rem}
@@ -94,7 +108,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
   .vx-dialog::backdrop{background:rgba(5,16,64,.72)}
 }
 @media (prefers-reduced-motion:reduce){
-  .vx-card,.vx-dialog,.vx-dialog::backdrop{transition:none}
+  .vx-card,.vx-card *,.vx-dialog,.vx-dialog::backdrop,.vx-audit-btn{transition:none}
 }
 
 .vx-panel{display:flex;flex-direction:column;max-height:min(86vh,760px)}
@@ -191,3 +205,30 @@ body>footer .foot-links{flex-wrap:wrap;row-gap:6px}
 body>footer p+p{margin-top:2px}
 .vx-faq a,.vx-panel-body a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .logo:focus-visible{outline:3px solid #7aa2ff;outline-offset:4px;border-radius:4px}
+
+/* ---------- Auditoría gratis (botón y franja) ---------- */
+.btn.vx-audit-btn{background:var(--vx-electric);color:#fff;transition:background-color .3s ease,box-shadow .3s ease,transform .2s ease}
+.btn.vx-audit-btn:hover{background:#3a62ff;box-shadow:0 10px 26px rgba(31,75,255,.4);transform:translateY(-1px)}
+.hero-panel .btn.vx-audit-btn,.cta-panel .btn.vx-audit-btn{background:var(--vx-electric);color:#fff;box-shadow:0 0 0 1.5px rgba(255,255,255,.35) inset}
+.hero-panel .btn.vx-audit-btn:hover,.cta-panel .btn.vx-audit-btn:hover{background:#3a62ff}
+.vx-audit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding:22px 24px;border-radius:var(--vx-r);background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);color:#fff;box-shadow:var(--vx-shadow)}
+.vx-audit h2{margin:0 0 4px;font-size:1.25rem;color:#fff}
+.vx-audit p{margin:0;max-width:60ch;line-height:1.5;opacity:.95}
+.vx-audit .btn{background:#fff;color:var(--vx-blue);min-height:44px}
+.vx-audit .btn:hover{background:#eef1fb}
+
+/* ---------- Selector por situación (home): cards grandes que llevan al catálogo ---------- */
+.vx-paths{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:0;padding:0;list-style:none}
+.vx-paths a{display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 20px;background:#fff;border:1.5px solid var(--vx-line);border-radius:var(--vx-r);color:var(--vx-ink);text-decoration:none;transition:background-color .35s ease,border-color .35s ease,box-shadow .35s ease,transform .25s ease,color .35s ease}
+.vx-paths strong{font-family:Montserrat,system-ui,sans-serif;font-size:1.02rem;color:var(--vx-blue);transition:color .35s ease}
+.vx-paths span{color:var(--vx-muted);font-size:.92rem;line-height:1.5;transition:color .35s ease}
+.vx-paths em{margin-top:auto;font-style:normal;font-weight:700;font-size:.85rem;color:var(--vx-blue);transition:color .35s ease}
+.vx-paths a:hover,.vx-paths a:focus-visible{background:var(--vx-electric);border-color:var(--vx-electric);transform:translateY(-2px);box-shadow:0 18px 40px rgba(31,75,255,.3)}
+.vx-paths a:hover :is(strong,span,em),.vx-paths a:focus-visible :is(strong,span,em){color:#fff}
+.vx-paths a:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+
+/* ---------- Pie: redes y Google Maps ---------- */
+.vx-social{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px}
+.vx-social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid currentColor;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--vx-blue);transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+.vx-social a:hover{background:var(--vx-electric);border-color:var(--vx-electric);color:#fff}
+.vx-social svg{width:18px;height:18px;fill:currentColor;flex:none}
