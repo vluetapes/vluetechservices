@@ -1,0 +1,193 @@
+/* =====================================================================
+   vx-ui.css  v2  —  Vlue Tech Services
+   Componentes compartidos por las 4 páginas (/, /catalogo/, /salud/, /contacto/) (prefijo vx- para no
+   chocar con style_work2.css). Se carga DESPUÉS de style_work2.css:
+     <link rel="stylesheet" href="/vx-ui.css?v=2">
+   Al cambiar este archivo, sube el número (?v=2) para que el navegador
+   no sirva la versión vieja desde caché.
+   ===================================================================== */
+
+:root{
+  --vx-blue:#07209f;
+  --vx-blue-dark:#05166f;
+  --vx-ink:#0b1020;
+  --vx-muted:#505770;
+  --vx-line:#e3e7f3;
+  --vx-tint:#f4f6fd;
+  --vx-yes:#0a7d4f;
+  --vx-no:#9b3b3b;
+  --vx-r:16px;
+  --vx-shadow:0 1px 2px rgba(7,32,159,.06),0 10px 28px rgba(7,32,159,.08);
+}
+
+/* Seguridad: que el padding no ensanche los componentes aunque el CSS base no lo declare */
+.vx-card,.vx-calc,.vx-calc *,.vx-table,.vx-pilot,.vx-dialog,.vx-dialog *,.vx-steps li,.vx-faq details{box-sizing:border-box}
+
+/* ---------- Utilidades ---------- */
+html{scrollbar-gutter:stable;scroll-padding-top:84px}
+html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay un panel abierto */
+.vx-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.vx-skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;color:var(--vx-blue);padding:10px 14px;border-radius:8px;font-weight:700}
+.vx-skip:focus{left:8px}
+:where(.vx-more,.vx-chips a,.vx-close,.vx-faq summary):focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+
+.vx-crumbs{font-size:.85rem;margin:0 0 12px;opacity:.9}
+.vx-crumbs a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Aviso de precios piloto ---------- */
+.vx-pilot{max-width:960px;margin:0 auto;padding:14px 18px;background:var(--vx-tint);border:1px solid var(--vx-line);border-left:4px solid var(--vx-blue);border-radius:12px;font-size:.95rem;line-height:1.55;color:var(--vx-ink)}
+.vx-pilot strong{color:var(--vx-blue)}
+
+/* ---------- Selector por situación ---------- */
+.vx-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.vx-chips a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:999px;color:var(--vx-blue);font-weight:600;text-decoration:none;transition:background .18s,color .18s}
+.vx-chips a:hover,.vx-chips a:focus-visible{background:var(--vx-blue);color:#fff}
+
+/* ---------- Grid y cards compactas ---------- */
+.vx-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.vx-group{margin:30px 0 12px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-group:first-of-type{margin-top:0}
+
+.vx-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);contain:content;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+@media (hover:hover){.vx-card:hover{transform:translateY(-3px);border-color:#c5cdf0;box-shadow:0 2px 4px rgba(7,32,159,.08),0 16px 36px rgba(7,32,159,.14)}}
+.vx-card--featured{border:2px solid var(--vx-blue);background:linear-gradient(180deg,#fff 0%,var(--vx-tint) 100%)}
+.vx-card h3{margin:0;font:800 1.15rem/1.25 Montserrat,system-ui,sans-serif;color:var(--vx-ink)}
+.vx-card p{margin:0;line-height:1.5}
+.vx-card .vx-result{color:var(--vx-muted);font-size:.97rem}
+
+.vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.vx-card--featured .vx-badge{background:var(--vx-blue);color:#fff}
+
+.vx-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:2px 0 0}
+.vx-price s{color:var(--vx-muted);font-size:.95rem}
+.vx-price strong{font:800 1.65rem/1.1 Montserrat,system-ui,sans-serif;color:var(--vx-blue)}
+.vx-price small{color:var(--vx-muted);font-size:.85rem}
+.vx-sep{font-size:.85rem;color:var(--vx-muted)}
+
+.vx-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.vx-actions .btn{min-height:44px;padding:10px 16px;font-size:.95rem}
+.vx-more{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .18s,color .18s}
+.vx-more:hover,.vx-more:focus-visible{background:var(--vx-blue);color:#fff}
+
+/* ---------- Panel de detalle: <dialog> con fondo difuminado ---------- */
+.vx-dialog{width:min(680px,calc(100% - 32px));max-width:680px;margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--vx-ink);box-shadow:0 24px 80px rgba(5,22,111,.35);overflow:hidden;opacity:0;transform:translateY(12px) scale(.98)}
+.vx-dialog[open]{opacity:1;transform:none}
+.vx-dialog:focus{outline:none}   /* style_work2.css pone margin:0 a todo; aquí se recupera el centrado */
+.vx-dialog::backdrop{background:rgba(5,16,64,.45);-webkit-backdrop-filter:blur(8px) saturate(120%);backdrop-filter:blur(8px) saturate(120%);opacity:0}
+.vx-dialog[open]::backdrop{opacity:1}
+
+/* Animación de entrada y salida (se ignora sola en navegadores antiguos) */
+.vx-dialog,.vx-dialog::backdrop{transition:opacity .22s ease,transform .22s ease}
+@supports (transition-behavior:allow-discrete){
+  .vx-dialog,.vx-dialog::backdrop{transition:opacity .22s ease,transform .22s ease,overlay .22s allow-discrete,display .22s allow-discrete}
+}
+@starting-style{
+  .vx-dialog[open]{opacity:0;transform:translateY(12px) scale(.98)}
+  .vx-dialog[open]::backdrop{opacity:0}
+}
+
+/* Rendimiento y accesibilidad: sin blur si el usuario lo pide o no hay soporte */
+@media (prefers-reduced-transparency:reduce){
+  .vx-dialog::backdrop{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(5,16,64,.8)}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .vx-dialog::backdrop{background:rgba(5,16,64,.72)}
+}
+@media (prefers-reduced-motion:reduce){
+  .vx-card,.vx-dialog,.vx-dialog::backdrop{transition:none}
+}
+
+.vx-panel{display:flex;flex-direction:column;max-height:min(86vh,760px)}
+@supports (height:1dvh){.vx-panel{max-height:min(86dvh,760px)}}
+
+.vx-panel-head{position:relative;padding:26px 28px 18px;background:var(--vx-blue);color:#fff}
+.vx-panel-head .vx-eyebrow{margin:0 0 4px;font:700 .75rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.vx-panel-head h2{margin:0 44px 6px 0;font:800 1.45rem/1.2 Montserrat,system-ui,sans-serif;color:#fff}
+.vx-panel-head .vx-result{margin:0 0 12px;opacity:.95;line-height:1.5}
+.vx-panel-head .vx-price s{color:rgba(255,255,255,.72)}
+.vx-panel-head .vx-price strong{color:#fff}
+.vx-panel-head .vx-price small{color:rgba(255,255,255,.8)}
+.vx-panel-head .vx-sep{margin:6px 0 0;color:rgba(255,255,255,.85)}
+.vx-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer}
+.vx-close:hover{background:rgba(255,255,255,.28)}
+
+.vx-panel-body{padding:20px 28px;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.vx-panel-body h3{margin:20px 0 8px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-panel-body h3:first-of-type{margin-top:0}
+.vx-panel-body p,.vx-panel-body li{font-size:.97rem;line-height:1.55}
+.vx-media{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin:0 0 16px;border-radius:12px}
+.vx-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.vx-list li{position:relative;padding-left:26px}
+.vx-list li::before{position:absolute;left:0;top:0;font-weight:800}
+.vx-yes li::before{content:"✓";color:var(--vx-yes)}
+.vx-no li::before{content:"✕";color:var(--vx-no)}
+.vx-steps-list{display:grid;gap:6px;margin:0;padding-left:20px}
+.vx-note{margin:0;font-size:.85rem;color:var(--vx-muted)}
+.vx-panel-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 28px 20px;border-top:1px solid var(--vx-line);background:#fff}
+.vx-panel-foot .vx-note{flex:1 1 100%}
+
+/* Móvil: el panel sube desde abajo (bottom sheet) */
+@media (max-width:640px){
+  .vx-dialog{width:100%;max-width:100%;margin:auto 0 0;border-radius:20px 20px 0 0;transform:translateY(28px)}
+  .vx-panel{max-height:90vh}
+  @supports (height:1dvh){.vx-panel{max-height:90dvh}}
+  .vx-panel-head{padding:22px 20px 16px}
+  .vx-panel-body{padding:16px 20px}
+  .vx-panel-foot{padding:12px 20px calc(16px + env(safe-area-inset-bottom))}
+  .vx-panel-foot .btn{flex:1 1 100%;justify-content:center}   /* un solo botón grande */
+  .vx-panel-foot .vx-more{display:none}                       /* "Volver" sobra: ya está la X y el gesto Atrás */
+}
+
+/* ---------- Tablas comparativas ---------- */
+.vx-table-wrap{margin-top:24px;overflow-x:auto;-webkit-overflow-scrolling:touch}   /* en pantallas muy angostas la tabla se desliza sin ensanchar la página */
+.vx-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);overflow:hidden;font-size:.95rem}
+.vx-table caption{padding:0 0 10px;text-align:left;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue);caption-side:top}
+.vx-table th,.vx-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--vx-line);line-height:1.45}
+.vx-table thead th{background:var(--vx-blue);color:#fff}
+.vx-table tbody th{font-weight:600}
+.vx-table tbody tr:last-child>*{border-bottom:0}
+.vx-table .vx-yes-cell{color:var(--vx-yes);font-weight:600}
+.vx-table .vx-price-row>*{background:var(--vx-tint);font-weight:700}
+@media (max-width:560px){.vx-table{font-size:.85rem}.vx-table th,.vx-table td{padding:10px 8px}}
+
+/* ---------- Pasos ---------- */
+.vx-steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:0;padding:0;list-style:none;counter-reset:vxs}
+.vx-steps li{counter-increment:vxs;padding:18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);line-height:1.5}
+.vx-steps li::before{content:counter(vxs);display:inline-grid;place-items:center;width:34px;height:34px;margin-bottom:8px;border-radius:50%;background:var(--vx-blue);color:#fff;font-weight:800}
+.vx-steps strong{display:block;margin-bottom:4px}
+
+/* ---------- Preguntas frecuentes (sin JavaScript) ---------- */
+.vx-faq details{margin:0 0 10px;background:#fff;border:1px solid var(--vx-line);border-radius:12px}
+.vx-faq summary{position:relative;min-height:44px;padding:16px 48px 16px 18px;font-weight:600;line-height:1.4;list-style:none;cursor:pointer}
+.vx-faq summary::-webkit-details-marker{display:none}
+.vx-faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(--vx-blue);transition:transform .2s}
+.vx-faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.vx-faq details>div{padding:0 18px 16px;line-height:1.6}
+
+/* ---------- Calculadora de retorno (/salud/) ---------- */
+.vx-calc{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:640px;padding:20px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-calc label{display:grid;gap:6px;font-weight:600;min-width:0}
+.vx-calc input,.vx-calc select{width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1.5px solid var(--vx-line);border-radius:10px;font:inherit;background:#fff}
+.vx-calc input:focus,.vx-calc select:focus{outline:3px solid #7aa2ff;outline-offset:1px;border-color:var(--vx-blue)}
+.vx-calc output{display:block;padding:14px;border-radius:12px;background:var(--vx-tint);line-height:1.55}
+
+/* ---------- Bloques de texto cortos ---------- */
+.vx-lead{max-width:720px;margin:0 0 20px;line-height:1.6;color:var(--vx-muted)}
+.vx-lead a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.notes-strip h2{font-size:1.05rem;margin-bottom:14px}       /* el bloque "Antes de decidir" usa h2 para no saltar niveles */
+
+/* ---------- Enlace a otra sección (home: salud / catálogo) ---------- */
+.vx-links{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:18px}
+.vx-links a{display:block;padding:18px 20px;background:#fff;border:1.5px solid var(--vx-line);border-radius:var(--vx-r);transition:border-color .18s,box-shadow .18s}
+.vx-links a:hover,.vx-links a:focus-visible{border-color:var(--vx-blue);box-shadow:var(--vx-shadow)}
+.vx-links strong{display:block;margin-bottom:4px;color:var(--vx-blue);font-family:Montserrat,system-ui,sans-serif}
+.vx-links span{display:block;color:var(--vx-muted);font-size:.92rem;line-height:1.5}
+
+/* ---------- Navegadores sin <dialog> (muy antiguos): panel fijo simple ---------- */
+.vx-nodialog .vx-dialog[open]{position:fixed;inset:0;z-index:1000;margin:auto;height:fit-content;max-height:90vh;opacity:1;transform:none}
+
+/* ---------- Pie de página y enlaces dentro de textos ---------- */
+body>footer .foot-links{flex-wrap:wrap;row-gap:6px}
+body>footer p+p{margin-top:2px}
+.vx-faq a,.vx-panel-body a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.logo:focus-visible{outline:3px solid #7aa2ff;outline-offset:4px;border-radius:4px}

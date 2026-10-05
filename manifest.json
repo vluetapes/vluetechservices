@@ -1,0 +1,13 @@
+{
+  "name": "Vlue Tech Services",
+  "short_name": "Vlue",
+  "description": "Google Maps, tarjetas NFC y reseñas para negocios de Santiago.",
+  "start_url": "/",
+  "display": "browser",
+  "lang": "es-CL",
+  "theme_color": "#07209f",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}
