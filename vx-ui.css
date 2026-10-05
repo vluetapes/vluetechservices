@@ -1,8 +1,8 @@
 /* =====================================================================
-   vx-ui.css  v3  —  Vlue Tech Services
+   vx-ui.css  v4  —  Vlue Tech Services
    Componentes compartidos por las 4 páginas (/, /catalogo/, /salud/, /contacto/) (prefijo vx- para no
    chocar con style_work2.css). Se carga DESPUÉS de style_work2.css:
-     <link rel="stylesheet" href="/vx-ui.css?v=3">
+     <link rel="stylesheet" href="/vx-ui.css?v=7">
    Al cambiar este archivo, sube el número (?v=3) para que el navegador
    no sirva la versión vieja desde caché.
    ===================================================================== */
@@ -59,11 +59,15 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .vx-card--featured .vx-badge{background:var(--vx-blue);color:#fff}
 
-/* Cards Pro / Recomendado: al pasar el mouse se llenan de azul eléctrico con una transición suave.
+/* Cards Pro / Recomendado: al pasar el mouse se llenan con el degradado de la auditoría (.vx-audit) con una transición suave.
+   El degradado vive en ::before y aparece con opacity, porque un degradado no se puede animar desde un color sólido.
    Para destacar otra card, agrégale la clase vx-card--featured (o solo vx-card--glow si no quieres el borde azul en reposo). */
 .vx-card--featured *,.vx-card--glow *{transition:color .35s ease,background-color .35s ease,border-color .35s ease}
+.vx-card--featured,.vx-card--glow{isolation:isolate}
+.vx-card--featured::before,.vx-card--glow::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);opacity:0;transition:opacity .4s ease;pointer-events:none}
 @media (hover:hover){
-  .vx-card--featured:hover,.vx-card--glow:hover{background-color:var(--vx-electric);border-color:var(--vx-electric);color:#fff;box-shadow:0 4px 10px rgba(31,75,255,.25),0 22px 48px rgba(31,75,255,.35)}
+  .vx-card--featured:hover,.vx-card--glow:hover{border-color:var(--vx-blue);color:#fff;box-shadow:0 4px 10px rgba(31,75,255,.25),0 22px 48px rgba(31,75,255,.35)}
+  :is(.vx-card--featured,.vx-card--glow):hover::before{opacity:1}
   :is(.vx-card--featured,.vx-card--glow):hover :is(h3,p,.vx-result,.vx-sep,.vx-price strong,.vx-price s,.vx-price small){color:#fff}
   :is(.vx-card--featured,.vx-card--glow):hover .vx-price s{opacity:.8}
   :is(.vx-card--featured,.vx-card--glow):hover .vx-badge{background:#fff;color:var(--vx-electric)}
@@ -108,13 +112,17 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
   .vx-dialog::backdrop{background:rgba(5,16,64,.72)}
 }
 @media (prefers-reduced-motion:reduce){
-  .vx-card,.vx-card *,.vx-dialog,.vx-dialog::backdrop,.vx-audit-btn{transition:none}
+  .vx-card,.vx-card *,.vx-card::before,.vx-dialog,.vx-dialog::backdrop,.vx-audit-btn{transition:none}
 }
 
 .vx-panel{display:flex;flex-direction:column;max-height:min(86vh,760px)}
 @supports (height:1dvh){.vx-panel{max-height:min(86dvh,760px)}}
 
 .vx-panel-head{position:relative;padding:26px 28px 18px;background:var(--vx-blue);color:#fff}
+/* Paneles de las cards Pro/Recomendado: mismo degradado que el banner de auditoría (.vx-audit) */
+.vx-dialog--featured .vx-panel-head{background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%)}
+/* Pestaña Pro / Recomendado sobre el título de los paneles destacados */
+.vx-panel-tag{display:inline-block;margin:0 0 10px;padding:4px 12px;border-radius:999px;background:#fff;color:var(--vx-blue);font:800 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 12px rgba(5,22,111,.25)}
 .vx-panel-head .vx-eyebrow{margin:0 0 4px;font:700 .75rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
 .vx-panel-head h2{margin:0 44px 6px 0;font:800 1.45rem/1.2 Montserrat,system-ui,sans-serif;color:#fff}
 .vx-panel-head .vx-result{margin:0 0 12px;opacity:.95;line-height:1.5}
@@ -154,7 +162,26 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 
 /* ---------- Tablas comparativas ---------- */
 .vx-table-wrap{margin-top:24px;overflow-x:auto;-webkit-overflow-scrolling:touch}   /* en pantallas muy angostas la tabla se desliza sin ensanchar la página */
-.vx-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);overflow:hidden;font-size:.95rem}
+/* Esquinas redondeadas sin overflow:hidden (que recortaría texto): se redondea la tabla y cada celda de esquina */
+.vx-table{--vx-tr:14px;width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-tr);font-size:.95rem}
+.vx-table thead tr:first-child>:first-child{border-top-left-radius:calc(var(--vx-tr) - 1px)}
+.vx-table thead tr:first-child>:last-child{border-top-right-radius:calc(var(--vx-tr) - 1px)}
+.vx-table tbody tr:last-child>:first-child{border-bottom-left-radius:calc(var(--vx-tr) - 1px)}
+.vx-table tbody tr:last-child>:last-child{border-bottom-right-radius:calc(var(--vx-tr) - 1px)}
+.vx-table td.vx-ic{font-size:1.2rem;font-weight:800;line-height:1.2;font-variant-emoji:text}
+.vx-table td.vx-ic-yes{color:var(--vx-yes)}
+.vx-table td.vx-ic-no{color:var(--vx-no)}
+
+/* Comparación desplegable: la tabla se muestra solo al presionar "¿Cuál debería elegir?" */
+.vx-compare{margin-top:24px}
+.vx-compare>summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,system-ui,sans-serif;list-style:none;cursor:pointer;transition:background-color .2s,color .2s}
+.vx-compare>summary::-webkit-details-marker{display:none}
+.vx-compare>summary::after{content:"";width:8px;height:8px;margin-top:-4px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
+.vx-compare[open]>summary::after{margin-top:4px;transform:rotate(-135deg)}
+.vx-compare>summary:hover{background:var(--vx-blue);color:#fff}
+.vx-compare>summary:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+.vx-compare .vx-table-wrap{margin-top:16px}
+@media (prefers-reduced-motion:reduce){.vx-compare>summary,.vx-compare>summary::after{transition:none}}
 .vx-table caption{padding:0 0 10px;text-align:left;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue);caption-side:top}
 .vx-table th,.vx-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--vx-line);line-height:1.45}
 .vx-table thead th{background:var(--vx-blue);color:#fff}
@@ -217,12 +244,12 @@ body>footer p+p{margin-top:2px}
 .vx-audit .btn{background:#fff;color:var(--vx-blue);min-height:44px}
 .vx-audit .btn:hover{background:#eef1fb}
 
-/* ---------- Selector por situación (home): cards grandes que llevan al catálogo ---------- */
-.vx-paths{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:0;padding:0;list-style:none}
-.vx-paths a{display:flex;flex-direction:column;gap:6px;height:100%;padding:18px 20px;background:#fff;border:1.5px solid var(--vx-line);border-radius:var(--vx-r);color:var(--vx-ink);text-decoration:none;transition:background-color .35s ease,border-color .35s ease,box-shadow .35s ease,transform .25s ease,color .35s ease}
-.vx-paths strong{font-family:Montserrat,system-ui,sans-serif;font-size:1.02rem;color:var(--vx-blue);transition:color .35s ease}
-.vx-paths span{color:var(--vx-muted);font-size:.92rem;line-height:1.5;transition:color .35s ease}
-.vx-paths em{margin-top:auto;font-style:normal;font-weight:700;font-size:.85rem;color:var(--vx-blue);transition:color .35s ease}
+/* ---------- Selector por situación (home): cards compactas que llevan al catálogo ---------- */
+.vx-paths{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:0;padding:0;list-style:none}
+.vx-paths a{display:flex;flex-direction:column;gap:4px;height:100%;padding:12px 14px;background:#fff;border:1.5px solid var(--vx-line);border-radius:12px;color:var(--vx-ink);text-decoration:none;transition:background-color .35s ease,border-color .35s ease,box-shadow .35s ease,transform .25s ease,color .35s ease}
+.vx-paths strong{font-family:Montserrat,system-ui,sans-serif;font-size:.92rem;line-height:1.3;color:var(--vx-blue);transition:color .35s ease}
+.vx-paths span{color:var(--vx-muted);font-size:.82rem;line-height:1.45;transition:color .35s ease}
+.vx-paths em{margin-top:auto;padding-top:2px;font-style:normal;font-weight:700;font-size:.78rem;color:var(--vx-blue);transition:color .35s ease}
 .vx-paths a:hover,.vx-paths a:focus-visible{background:var(--vx-electric);border-color:var(--vx-electric);transform:translateY(-2px);box-shadow:0 18px 40px rgba(31,75,255,.3)}
 .vx-paths a:hover :is(strong,span,em),.vx-paths a:focus-visible :is(strong,span,em){color:#fff}
 .vx-paths a:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
@@ -232,3 +259,4 @@ body>footer p+p{margin-top:2px}
 .vx-social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid currentColor;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--vx-blue);transition:background-color .3s ease,color .3s ease,border-color .3s ease}
 .vx-social a:hover{background:var(--vx-electric);border-color:var(--vx-electric);color:#fff}
 .vx-social svg{width:18px;height:18px;fill:currentColor;flex:none}
+
