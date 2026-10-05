@@ -47,7 +47,8 @@ body>header{
 }
 body>header .wrap{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
 .logo{flex:none;}
-.logo img{height:30px; width:auto; max-width:140px; object-fit:contain; display:block;}
+.logo img{height:36px; width:auto; object-fit:contain; display:block;}
+@media (max-width:480px){.logo img{height:30px;}}
 .nav-links{display:flex; gap:20px; align-items:center; flex-wrap:wrap;}
 .nav-links a{font-size:.86rem; color:var(--muted); font-weight:600;}
 .nav-links a:hover, .nav-links a.active{color:var(--blue);}

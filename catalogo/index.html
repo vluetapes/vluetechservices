@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Catálogo Google Maps y Tarjetas NFC en Santiago | Vlue</title>
-<meta name="description" content="Packs y servicios para aparecer en Google Maps y conseguir reseñas con tarjetas NFC, sin pagar anuncios. Precios piloto de octubre 2026.">
+<title>Precios: Google Maps y Tarjetas NFC en Santiago | Vlue</title>
+<meta name="description" content="Packs, tarjetas NFC de reseñas y fichas de Google Maps con precios claros e IVA incluido. Precio piloto hasta el 31 de octubre.">
 <link rel="canonical" href="https://vluetechservices.cl/catalogo/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#07209f">
@@ -12,25 +12,39 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="Vlue Tech Services">
 <meta property="og:url" content="https://vluetechservices.cl/catalogo/">
-<meta property="og:title" content="Catálogo Google Maps y Tarjetas NFC en Santiago | Vlue">
-<meta property="og:description" content="Packs y servicios para aparecer en Google Maps y conseguir reseñas con tarjetas NFC, sin pagar anuncios.">
-<meta property="og:image" content="https://vluetechservices.cl/img/og-catalogo.jpg">
+<meta property="og:title" content="Precios: Google Maps y Tarjetas NFC en Santiago | Vlue">
+<meta property="og:description" content="Packs, tarjetas NFC de reseñas y fichas de Google Maps con precios claros e IVA incluido.">
+<meta property="og:image" content="https://vluetechservices.cl/img/og/catalogo.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Catálogo Vlue: Google Maps y tarjetas NFC para negocios en Santiago">
-<meta name="twitter:image:alt" content="Catálogo Vlue: Google Maps y tarjetas NFC para negocios en Santiago">
+<meta property="og:image:alt" content="Catálogo Vlue: Google Maps y tarjetas NFC para tu negocio en Santiago">
+<meta name="twitter:image:alt" content="Catálogo Vlue: Google Maps y tarjetas NFC para tu negocio en Santiago">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Catálogo Google Maps y Tarjetas NFC en Santiago | Vlue">
-<meta name="twitter:description" content="Packs y servicios para aparecer en Google Maps y conseguir reseñas con tarjetas NFC, sin pagar anuncios.">
-<meta name="twitter:image" content="https://vluetechservices.cl/img/og-catalogo.jpg">
+<meta name="twitter:title" content="Precios: Google Maps y Tarjetas NFC en Santiago | Vlue">
+<meta name="twitter:description" content="Packs, tarjetas NFC de reseñas y fichas de Google Maps con precios claros e IVA incluido.">
+<meta name="twitter:image" content="https://vluetechservices.cl/img/og/catalogo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=2">
-<link rel="stylesheet" href="/vx-ui.css?v=8">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" href="/style_work2.css?v=3">
+<link rel="stylesheet" href="/vx-ui.css?v=10">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.json">
+<script>
+/* Los productos sueltos ahora viven en su página de categoría. Los enlaces antiguos
+   (/catalogo/#tarjeta-individual, /catalogo/#card-maps-optimiza, /catalogo/#gestion...) se reenvían ahí;
+   si el enlace era a un panel, la página nueva lo abre igual. */
+(function () {
+  var h = location.hash.slice(1), c = h.replace(/^card-/, '');
+  var p = {'tarjeta-individual':'tarjetas-nfc-resenas','trio-tarjetas':'tarjetas-nfc-resenas',
+           'maps-crea':'ficha-google-maps','maps-optimiza':'ficha-google-maps','maps-completa':'ficha-google-maps',
+           'mensual-pro':'gestion-resenas-google','mensual-crecimiento':'gestion-resenas-google','gestion':'gestion-resenas-google',
+           'link-integrador':'tarjeta-digital'}[c];
+  if (p) location.replace('/catalogo/' + p + '/' + (c === 'gestion' ? '' : '#' + h));
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,8 +56,8 @@
       "legalName": "Vlue Tech Services SpA",
       "url": "https://vluetechservices.cl/",
       "logo": "https://vluetechservices.cl/img/icon-512.png",
-      "image": "https://vluetechservices.cl/img/og-inicio.jpg",
-      "description": "Posicionamiento digital orgánico: fichas de Google Maps, tarjetas NFC y gestión de reseñas para negocios de Santiago.",
+      "image": "https://vluetechservices.cl/img/og/inicio.jpg",
+      "description": "Fichas de Google Maps, tarjetas NFC y gestión de reseñas para negocios de Santiago.",
       "telephone": "+56926191935",
       "hasMap": "https://share.google/z5XjIMo0Oh4afTNmg",
       "sameAs": [
@@ -68,7 +82,7 @@
           {
             "@type": "Offer",
             "name": "Pack Despegue Vlue",
-            "description": "Sales en Google Maps y tus clientes te dejan reseñas con un toque.",
+            "description": "Para partir de cero: ficha creada y verificada + 1 Tarjeta Vlue.",
             "price": "79990",
             "priceCurrency": "CLP",
             "url": "https://vluetechservices.cl/catalogo/#pack-despegue",
@@ -84,7 +98,7 @@
           {
             "@type": "Offer",
             "name": "Pack Dominio Local",
-            "description": "Tu local aparece mejor posicionado y todo tu equipo pide reseñas de forma fácil.",
+            "description": "Para locales con equipo: ficha completa + 3 Tarjetas Vlue + capacitación.",
             "price": "99990",
             "priceCurrency": "CLP",
             "url": "https://vluetechservices.cl/catalogo/#pack-dominio",
@@ -100,7 +114,7 @@
           {
             "@type": "Offer",
             "name": "Consulta Visible",
-            "description": "Los pacientes te encuentran, te eligen y recomiendan tu consulta.",
+            "description": "Ficha lista, 2 tarjetas para recepción y box, y tu equipo capacitado.",
             "price": "129990",
             "priceCurrency": "CLP",
             "url": "https://vluetechservices.cl/salud/#consulta-visible",
@@ -116,10 +130,10 @@
           {
             "@type": "Offer",
             "name": "Reputación Pro",
-            "description": "Más reseñas nuevas cada mes y una reputación cuidada, sin esfuerzo de tu equipo. Precio por mes.",
-            "price": "110000",
+            "description": "Más reseñas cada mes y respuesta personalizada a cada una. Precio por mes.",
+            "price": "109990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#mensual-pro",
+            "url": "https://vluetechservices.cl/catalogo/gestion-resenas-google/#mensual-pro",
             "itemOffered": {
               "@type": "Service",
               "name": "Reputación Pro",
@@ -130,7 +144,7 @@
             "priceValidUntil": "2026-10-31",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
-              "price": "110000",
+              "price": "109990",
               "priceCurrency": "CLP",
               "unitCode": "MON",
               "referenceQuantity": {
@@ -143,10 +157,10 @@
           {
             "@type": "Offer",
             "name": "Crecimiento mensual",
-            "description": "Tu ficha activa todo el mes, sin que tengas que acordarte. Precio por mes.",
-            "price": "70000",
+            "description": "Publicaciones semanales y respuesta a tus reseñas. Precio por mes.",
+            "price": "69990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#mensual-crecimiento",
+            "url": "https://vluetechservices.cl/catalogo/gestion-resenas-google/#mensual-crecimiento",
             "itemOffered": {
               "@type": "Service",
               "name": "Crecimiento mensual",
@@ -157,7 +171,7 @@
             "priceValidUntil": "2026-10-31",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
-              "price": "70000",
+              "price": "69990",
               "priceCurrency": "CLP",
               "unitCode": "MON",
               "referenceQuantity": {
@@ -171,9 +185,9 @@
             "@type": "Offer",
             "name": "Tarjeta Vlue individual",
             "description": "Tu cliente acerca el celular y llega directo a lo que necesitas que vea.",
-            "price": "25000",
+            "price": "24990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#tarjeta-individual",
+            "url": "https://vluetechservices.cl/catalogo/tarjetas-nfc-resenas/#tarjeta-individual",
             "itemOffered": {
               "@type": "Service",
               "name": "Tarjeta Vlue individual",
@@ -186,10 +200,10 @@
           {
             "@type": "Offer",
             "name": "Trío de tarjetas",
-            "description": "Una tarjeta para cada punto de contacto de tu local: mesón, caja y equipo.",
-            "price": "55000",
+            "description": "Tres tarjetas para mesón, caja y equipo.",
+            "price": "54990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#trio-tarjetas",
+            "url": "https://vluetechservices.cl/catalogo/tarjetas-nfc-resenas/#trio-tarjetas",
             "itemOffered": {
               "@type": "Service",
               "name": "Trío de tarjetas",
@@ -201,14 +215,14 @@
           },
           {
             "@type": "Offer",
-            "name": "Link integrador",
-            "description": "Una página tuya, rápida, que reúne en un toque todo lo que tu cliente necesita.",
-            "price": "30000",
+            "name": "Página de enlaces",
+            "description": "Tu WhatsApp, ubicación, reseñas y redes en una sola página.",
+            "price": "29990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#link-integrador",
+            "url": "https://vluetechservices.cl/catalogo/tarjeta-digital/#link-integrador",
             "itemOffered": {
               "@type": "Service",
-              "name": "Link integrador",
+              "name": "Página de enlaces",
               "provider": {
                 "@id": "https://vluetechservices.cl/#negocio"
               }
@@ -217,10 +231,10 @@
           {
             "@type": "Offer",
             "name": "Crea tu ficha",
-            "description": "Tu negocio aparece en Google Maps, verificado.",
-            "price": "40000",
+            "description": "Tu negocio en Google Maps, verificado.",
+            "price": "39990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#maps-crea",
+            "url": "https://vluetechservices.cl/catalogo/ficha-google-maps/#maps-crea",
             "itemOffered": {
               "@type": "Service",
               "name": "Crea tu ficha",
@@ -233,10 +247,10 @@
           {
             "@type": "Offer",
             "name": "Optimiza tu ficha",
-            "description": "Tu ficha deja de verse abandonada y empieza a convencer a quien te busca.",
-            "price": "45000",
+            "description": "Fotos, categorías y descripción para que tu ficha convenza.",
+            "price": "44990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#maps-optimiza",
+            "url": "https://vluetechservices.cl/catalogo/ficha-google-maps/#maps-optimiza",
             "itemOffered": {
               "@type": "Service",
               "name": "Optimiza tu ficha",
@@ -249,10 +263,10 @@
           {
             "@type": "Offer",
             "name": "Ficha completa",
-            "description": "Creamos, verificamos y dejamos tu ficha lista para atraer clientes.",
-            "price": "65000",
+            "description": "Creamos, verificamos y optimizamos tu ficha.",
+            "price": "64990",
             "priceCurrency": "CLP",
-            "url": "https://vluetechservices.cl/catalogo/#maps-completa",
+            "url": "https://vluetechservices.cl/catalogo/ficha-google-maps/#maps-completa",
             "itemOffered": {
               "@type": "Service",
               "name": "Ficha completa",
@@ -265,8 +279,8 @@
           {
             "@type": "Offer",
             "name": "Asesoría virtual 1:1",
-            "description": "Un plan concreto para tu ficha, aunque tu negocio no esté en Santiago. Precio por hora.",
-            "price": "30000",
+            "description": "Una hora por videollamada para ordenar tu ficha, estés donde estés. Precio por hora.",
+            "price": "39990",
             "priceCurrency": "CLP",
             "url": "https://vluetechservices.cl/catalogo/#asesoria-1a1",
             "itemOffered": {
@@ -279,7 +293,7 @@
             "priceValidUntil": "2026-10-31",
             "priceSpecification": {
               "@type": "UnitPriceSpecification",
-              "price": "30000",
+              "price": "39990",
               "priceCurrency": "CLP",
               "unitCode": "HUR",
               "referenceQuantity": {
@@ -320,7 +334,7 @@
       "@type": "CollectionPage",
       "@id": "https://vluetechservices.cl/catalogo/#pagina",
       "url": "https://vluetechservices.cl/catalogo/",
-      "name": "Catálogo Google Maps y Tarjetas NFC en Santiago | Vlue",
+      "name": "Precios: Google Maps y Tarjetas NFC en Santiago | Vlue",
       "inLanguage": "es-CL",
       "isPartOf": {
         "@id": "https://vluetechservices.cl/#web"
@@ -355,66 +369,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Necesito una app para usar la tarjeta?",
+          "name": "¿Cuánto cuesta una tarjeta NFC para reseñas?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. El celular lee la tarjeta al acercarla; si no tiene NFC activado, usa el QR de respaldo."
+            "text": "$24.990 a precio piloto. Incluye tu logo, un QR de respaldo, la programación y 6 meses de garantía. Ver tarjetas."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué pasa si el celular de mi cliente no tiene NFC?",
+          "name": "¿Mi cliente necesita una app o un celular con NFC?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Usa el QR de respaldo de la misma tarjeta."
+            "text": "No. Acerca el celular y se abre solo; si no tiene NFC, escanea el QR de la misma tarjeta."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Puedo cambiar el enlace después?",
+          "name": "¿Puedo cambiar a dónde lleva la tarjeta?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. La tarjeta apunta a un enlace que nosotros podemos actualizar, así que el destino puede cambiar sin reemplazar la tarjeta."
+            "text": "Sí. La actualizamos sin cambiar la tarjeta."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Cuánto demora todo?",
+          "name": "¿Trabajan fuera de Santiago?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La entrega es en menos de 48 horas desde que confirmamos tus datos o desde la visita, según el servicio. La aprobación de Google no depende de nosotros."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Garantizan que voy a salir primero en Google?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Mejoramos todo lo que depende de tu ficha; la posición final la decide Google."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿La ficha queda a mi nombre?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. La ficha siempre es tuya: nosotros trabajamos con acceso de administrador."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Entregan boleta o factura?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí, la que necesites. Los precios incluyen IVA; si necesitas factura, te indicamos el neto."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Trabajan solo en Santiago?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "La visita presencial es en Santiago. Fuera de Santiago hacemos asesoría virtual 1:1."
+            "text": "La visita es en Santiago. Para regiones, asesoría 1:1 por videollamada y despacho de tarjetas a todo Chile."
           }
         },
         {
@@ -422,7 +404,7 @@
           "name": "¿Qué es el precio piloto?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Son precios de lanzamiento de octubre de 2026 para los primeros clientes. A cambio pedimos tu opinión sobre el servicio y permiso para mostrar el antes/después de tu ficha. Desde el 1 de noviembre rige el precio regular."
+            "text": "Es el precio de lanzamiento de octubre de 2026. Desde el 1 de noviembre rige el precio regular."
           }
         }
       ]
@@ -435,7 +417,7 @@
 <a class="vx-skip" href="#contenido">Saltar al contenido</a>
 <header>
   <div class="wrap">
-    <a class="logo" href="/"><img src="/img/logo-vlue-tech-services.webp" alt="Vlue Tech Services, inicio" width="539" height="160"></a>
+    <a class="logo" href="/"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services, inicio" width="708" height="120"></a>
     <nav class="nav-links" aria-label="Principal">
       <a href="/">Inicio</a>
       <a href="/catalogo/" class="active" aria-current="page">Catálogo</a>
@@ -449,57 +431,35 @@
 <section class="hero-panel pattern-dark" style="padding-bottom:30px;">
   <div class="wrap">
     <nav class="vx-crumbs" aria-label="Migas de pan"><a href="/">Inicio</a> &rsaquo; <span aria-current="page">Catálogo</span></nav>
-    <div class="eyebrow">Catálogo</div>
+    <div class="eyebrow">Catálogo y precios</div>
     <h1>Google Maps y tarjetas NFC para tu negocio en Santiago</h1>
-    <p class="sub">Consigue clientes orgánicos sin pagar anuncios. Elige lo que resuelve tu situación hoy, con precios claros y sin mensualidad obligatoria.</p>
+    <p class="sub">Precios con IVA incluido y sin mensualidad obligatoria.</p>
     <div class="cta-row">
       <a class="btn vx-audit-btn" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="hero" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
-      <a class="btn btn-outline" href="#packs">Ver packs y precios<span class="btn-arrow">&rarr;</span></a>
+      <a class="btn btn-outline" href="#packs">Ver packs<span class="btn-arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
 <section style="padding-bottom:0;">
   <div class="wrap">
     <aside class="vx-pilot" role="note">
-      <strong>Precios piloto de octubre 2026.</strong> Estamos en etapa de lanzamiento: los clientes de este mes acceden a precio piloto, y el precio regular aparece tachado. Desde el 1 de noviembre rige el precio regular. A cambio, te pedimos tu opinión sobre el servicio y permiso para mostrar el antes/después de tu ficha.
+      <strong>Precio piloto hasta el 31 de octubre de 2026.</strong> A cambio, te pedimos tu opinión y permiso para mostrar el antes y el después de tu ficha.
     </aside>
     <!-- [ACTUALIZAR el 1 de noviembre]: quitar este aviso, dejar solo el precio regular y quitar priceValidUntil del JSON-LD -->
     <!-- [PENDIENTE] Si quieres hablar de cupos limitados, agrega el número real; nunca urgencia falsa -->
   </div>
 </section>
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Empieza aquí</div>
-      <h2>¿Cuál es tu situación hoy?</h2>
-    </div>
-    <ul class="vx-chips">
-      <li><a href="#packs">No tengo ficha en Google Maps</a></li>
-      <li><a href="#individuales">Tengo ficha, pero está abandonada</a></li>
-      <li><a href="#gestion">Quiero que me la gestionen</a></li>
-      <li><a href="/salud/">Soy clínica o profesional de la salud</a></li>
-    </ul>
-    <aside class="vx-audit" style="margin-top:24px;">
-      <div>
-        <h2>¿No sabes por dónde partir? Auditoría gratis</h2>
-        <p>Revisamos tu ficha de Google Maps y te decimos qué mejorar primero. Sin costo y sin compromiso.</p>
-      </div>
-      <a class="btn" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="banner-auditoria" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
-    </aside>
-  </div>
-</section>
 <section id="packs">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Packs</div>
-      <h2>Todo tu negocio integrado, sin complicarte</h2>
+      <h2>Packs: ficha de Google Maps + tarjetas de reseñas</h2>
     </div>
     <div class="vx-grid">
 <article class="vx-card" id="card-pack-despegue">
   <h3>Pack Despegue Vlue</h3>
-  <p class="vx-result">Sales en Google Maps y tus clientes te dejan reseñas con un toque.</p>
+  <p class="vx-result">Para partir de cero: ficha creada y verificada + 1 Tarjeta Vlue.</p>
   <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$109.990</s> <strong><span class="vx-sr">Precio piloto </span>$79.990</strong></p>
-  <p class="vx-sep">Por separado: $90.000</p>
+  <p class="vx-sep">Por separado: $89.990</p>
   <div class="vx-actions">
     <button type="button" class="vx-more" data-open="pack-despegue" aria-haspopup="dialog" aria-label="Ver detalle: Pack Despegue Vlue">Ver detalle</button>
     <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Pack%20Despegue%20Vlue" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="pack-despegue">WhatsApp<span class="btn-arrow">&rarr;</span></a>
@@ -508,9 +468,9 @@
 <article class="vx-card vx-card--featured" id="card-pack-dominio">
   <span class="vx-badge">Recomendado</span>
   <h3>Pack Dominio Local</h3>
-  <p class="vx-result">Tu local aparece mejor posicionado y todo tu equipo pide reseñas de forma fácil.</p>
+  <p class="vx-result">Para locales con equipo: ficha completa + 3 Tarjetas Vlue + capacitación.</p>
   <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$149.990</s> <strong><span class="vx-sr">Precio piloto </span>$99.990</strong></p>
-  <p class="vx-sep">Por separado: $120.000 más la asesoría</p>
+  <p class="vx-sep">Por separado: $119.990 más la asesoría</p>
   <div class="vx-actions">
     <button type="button" class="vx-more" data-open="pack-dominio" aria-haspopup="dialog" aria-label="Ver detalle: Pack Dominio Local">Ver detalle</button>
     <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Pack%20Dominio%20Local" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="pack-dominio">WhatsApp<span class="btn-arrow">&rarr;</span></a>
@@ -519,9 +479,9 @@
 <article class="vx-card" id="card-consulta-visible">
   <span class="vx-badge">Salud</span>
   <h3>Consulta Visible</h3>
-  <p class="vx-result">Los pacientes te encuentran, te eligen y recomiendan tu consulta.</p>
+  <p class="vx-result">Ficha lista, 2 tarjetas para recepción y box, y tu equipo capacitado.</p>
   <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$179.990</s> <strong><span class="vx-sr">Precio piloto </span>$129.990</strong></p>
-  <p class="vx-sep">Por separado: $185.000</p>
+  <p class="vx-sep">Por separado: $184.990</p>
   <div class="vx-actions">
     <a class="vx-more" href="/salud/#consulta-visible">Ver para clínicas</a>
     <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20pack%20Consulta%20Visible%20para%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="consulta-visible">WhatsApp<span class="btn-arrow">&rarr;</span></a>
@@ -530,121 +490,46 @@
     </div>
   </div>
 </section>
-<section class="section-tint pattern-light" id="gestion">
+<section class="section-tint pattern-light" id="individuales">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Gestión mensual</div>
-      <h2>Mantén tu ficha creciendo, sin acordarte</h2>
+      <h2>Productos por separado</h2>
     </div>
-    <p class="vx-lead">Una ficha bien hecha se enfría si nadie la cuida. Elige cuánto quieres delegar. La ficha siempre es tuya y no hay garantía de posición: nadie puede prometerla.</p>
     <div class="vx-grid">
-<article class="vx-card vx-card--featured" id="card-mensual-pro">
-  <span class="vx-badge">Pro</span>
-  <h3>Reputación Pro</h3>
-  <p class="vx-result">Más reseñas nuevas cada mes y una reputación cuidada, sin esfuerzo de tu equipo.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$139.990</s> <strong><span class="vx-sr">Precio piloto </span>$110.000</strong><small>/mes</small></p>
+<article class="vx-card" id="card-cat-tarjetas">
+  <h3>Tarjetas NFC de reseñas</h3>
+  <p class="vx-result">Tus clientes acercan el celular y llegan directo a dejarte una reseña en Google.</p>
+  <p class="vx-sep">Tarjeta Vlue individual · Trío de tarjetas</p>
+  <p class="vx-price"><small>Desde</small> <strong>$24.990</strong></p>
   <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="mensual-pro" aria-haspopup="dialog" aria-label="Ver detalle: Reputación Pro">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Reputaci%C3%B3n%20Pro" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="mensual-pro">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+    <a class="btn btn-primary" href="/catalogo/tarjetas-nfc-resenas/">Ver tarjetas y precios<span class="btn-arrow">&rarr;</span></a>
   </div>
 </article>
-<article class="vx-card" id="card-mensual-crecimiento">
-  <h3>Crecimiento mensual</h3>
-  <p class="vx-result">Tu ficha activa todo el mes, sin que tengas que acordarte.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$89.990</s> <strong><span class="vx-sr">Precio piloto </span>$70.000</strong><small>/mes</small></p>
+<article class="vx-card" id="card-cat-ficha">
+  <h3>Ficha de Google Maps</h3>
+  <p class="vx-result">Creamos tu ficha o ponemos al día la que ya tienes.</p>
+  <p class="vx-sep">Crea tu ficha · Optimiza tu ficha · Ficha completa</p>
+  <p class="vx-price"><small>Desde</small> <strong>$39.990</strong></p>
   <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="mensual-crecimiento" aria-haspopup="dialog" aria-label="Ver detalle: Crecimiento mensual">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20mensual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="mensual-crecimiento">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+    <a class="btn btn-primary" href="/catalogo/ficha-google-maps/">Ver fichas y precios<span class="btn-arrow">&rarr;</span></a>
   </div>
 </article>
-    </div>
-<details class="vx-compare">
-<summary>¿Cuál debería elegir? Comparalos </summary>
-<div class="vx-table-wrap">
-<table class="vx-table">
-  <caption>Gestión mensual: Pro vs Esencial</caption>
-  <thead><tr><th scope="col">Qué incluye</th><th scope="col">Reputación Pro</th><th scope="col">Crecimiento mensual</th></tr></thead>
-  <tbody>
-    <tr><th scope="row">Publicaciones o actualizaciones</th><td>1 a 2 por semana</td><td>1 a 2 por semana</td></tr>
-    <tr><th scope="row">Respuesta a reseñas</th><td>Personalizada, en 24 a 48 h hábiles</td><td>Respuesta a cada reseña</td></tr>
-    <tr><th scope="row">Informe mensual</th><td>Comparado con 3 competidores</td><td>De tu crecimiento</td></tr>
-    <tr><th scope="row">Reportes a Google y monitoreo de cambios en tu ficha</th><td class="vx-ic vx-ic-yes"><span aria-hidden="true">✓</span><span class="vx-sr">Incluido</span></td><td class="vx-ic vx-ic-no"><span aria-hidden="true">✕</span><span class="vx-sr">No incluido</span></td></tr>
-    <tr><th scope="row">Apoyo para que tu equipo pida reseñas</th><td>Continuo</td><td class="vx-ic vx-ic-no"><span aria-hidden="true">✕</span><span class="vx-sr">No incluido</span></td></tr>
-    <tr><th scope="row">Reunión de estrategia</th><td>Trimestral</td><td class="vx-ic vx-ic-no"><span aria-hidden="true">✕</span><span class="vx-sr">No incluida</span></td></tr>
-    <tr><th scope="row">Link integrador de marca</th><td class="vx-ic vx-ic-yes"><span aria-hidden="true">✓</span><span class="vx-sr">Incluido</span></td><td>Se agrega aparte</td></tr>
-    <tr class="vx-price-row"><th scope="row">Precio piloto</th><td>$110.000/mes</td><td>$70.000/mes</td></tr>
-  </tbody>
-</table>
-</div>
-</details>
-  </div>
-</section>
-<section id="individuales">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Productos individuales</div>
-      <h2>Elige solo lo que necesitas</h2>
-    </div>
-    <p class="vx-group">Tarjetas Vlue</p>
-    <div class="vx-grid">
-<article class="vx-card" id="card-tarjeta-individual">
-  <h3>Tarjeta Vlue individual</h3>
-  <p class="vx-result">Tu cliente acerca el celular y llega directo a lo que necesitas que vea.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$29.990</s> <strong><span class="vx-sr">Precio piloto </span>$25.000</strong></p>
+<article class="vx-card" id="card-cat-gestion">
+  <h3>Gestión mensual</h3>
+  <p class="vx-result">Publicamos en tu ficha, respondemos tus reseñas y te mandamos un informe al mes.</p>
+  <p class="vx-sep">Crecimiento mensual · Reputación Pro</p>
+  <p class="vx-price"><small>Desde</small> <strong>$69.990</strong><small>/mes</small></p>
   <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="tarjeta-individual" aria-haspopup="dialog" aria-label="Ver detalle: Tarjeta Vlue individual">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20una%20Tarjeta%20Vlue%20individual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="tarjeta-individual">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+    <a class="btn btn-primary" href="/catalogo/gestion-resenas-google/">Ver planes mensuales<span class="btn-arrow">&rarr;</span></a>
   </div>
 </article>
-<article class="vx-card vx-card--glow" id="card-trio-tarjetas">
-  <span class="vx-badge">Más elegido</span>
-  <h3>Trío de tarjetas</h3>
-  <p class="vx-result">Una tarjeta para cada punto de contacto de tu local: mesón, caja y equipo.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$69.990</s> <strong><span class="vx-sr">Precio piloto </span>$55.000</strong></p>
-  <p class="vx-sep">Por separado: $75.000</p>
+<article class="vx-card" id="card-cat-digital">
+  <h3>Tarjeta digital</h3>
+  <p class="vx-result">Tu WhatsApp, agenda y ubicación en una página que se abre con un toque.</p>
+  <p class="vx-sep">Página de enlaces · Tarjeta Profesional</p>
+  <p class="vx-price"><small>Desde</small> <strong>$29.990</strong></p>
   <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="trio-tarjetas" aria-haspopup="dialog" aria-label="Ver detalle: Trío de tarjetas">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Tr%C3%ADo%20de%20tarjetas%20Vlue" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="trio-tarjetas">WhatsApp<span class="btn-arrow">&rarr;</span></a>
-  </div>
-</article>
-<article class="vx-card" id="card-link-integrador">
-  <h3>Link integrador</h3>
-  <p class="vx-result">Una página tuya, rápida, que reúne en un toque todo lo que tu cliente necesita.</p>
-  <p class="vx-price"><strong>$30.000</strong> <small>Con dominio externo: desde $50.000, según el caso.</small></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="link-integrador" aria-haspopup="dialog" aria-label="Ver detalle: Link integrador">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Link%20integrador" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="link-integrador">WhatsApp<span class="btn-arrow">&rarr;</span></a>
-  </div>
-</article>
-    </div>
-    <p class="vx-group">Google Maps</p>
-    <div class="vx-grid">
-<article class="vx-card vx-card--featured" id="card-maps-completa">
-  <span class="vx-badge">Recomendado</span>
-  <h3>Ficha completa</h3>
-  <p class="vx-result">Creamos, verificamos y dejamos tu ficha lista para atraer clientes.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$89.990</s> <strong><span class="vx-sr">Precio piloto </span>$65.000</strong></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="maps-completa" aria-haspopup="dialog" aria-label="Ver detalle: Ficha completa">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20Ficha%20completa%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="maps-completa">WhatsApp<span class="btn-arrow">&rarr;</span></a>
-  </div>
-</article>
-<article class="vx-card" id="card-maps-crea">
-  <h3>Crea tu ficha</h3>
-  <p class="vx-result">Tu negocio aparece en Google Maps, verificado.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$49.990</s> <strong><span class="vx-sr">Precio piloto </span>$39.990</strong></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="maps-crea" aria-haspopup="dialog" aria-label="Ver detalle: Crea tu ficha">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Crea%20tu%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="maps-crea">WhatsApp<span class="btn-arrow">&rarr;</span></a>
-  </div>
-</article>
-<article class="vx-card" id="card-maps-optimiza">
-  <h3>Optimiza tu ficha</h3>
-  <p class="vx-result">Tu ficha deja de verse abandonada y empieza a convencer a quien te busca.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$59.990</s> <strong><span class="vx-sr">Precio piloto </span>$45.000</strong></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="maps-optimiza" aria-haspopup="dialog" aria-label="Ver detalle: Optimiza tu ficha">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Optimiza%20tu%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="maps-optimiza">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+    <a class="btn btn-primary" href="/catalogo/tarjeta-digital/">Ver tarjeta digital<span class="btn-arrow">&rarr;</span></a>
   </div>
 </article>
     </div>
@@ -652,8 +537,8 @@
     <div class="vx-grid">
 <article class="vx-card" id="card-asesoria-1a1">
   <h3>Asesoría virtual 1:1</h3>
-  <p class="vx-result">Un plan concreto para tu ficha, aunque tu negocio no esté en Santiago.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$50.000</s> <strong><span class="vx-sr">Precio piloto </span>$40.000</strong><small>/hora</small></p>
+  <p class="vx-result">Una hora por videollamada para ordenar tu ficha, estés donde estés.</p>
+  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$49.990</s> <strong><span class="vx-sr">Precio piloto </span>$39.990</strong><small>/hora</small></p>
   <div class="vx-actions">
     <button type="button" class="vx-more" data-open="asesoria-1a1" aria-haspopup="dialog" aria-label="Ver detalle: Asesoría virtual 1:1">Ver detalle</button>
     <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20virtual%201%3A1" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="asesoria-1a1">WhatsApp<span class="btn-arrow">&rarr;</span></a>
@@ -678,14 +563,13 @@
 <section>
   <div class="wrap">
     <div class="notes-strip">
-      <h2>Antes de decidir</h2>
+      <h2>Antes de pagar</h2>
       <ul class="notes-list">
-        <li>Precios en pesos chilenos, IVA incluido. Si necesitas factura, te indicamos el neto.</li>
-        <li>Pagas con tarjeta o transferencia, y entregamos boleta o factura.</li>
-        <li>Entrega en menos de 48 horas desde que confirmamos tus datos; la aprobación de Google no depende de nosotros.</li>
-        <li>Tu ficha siempre es tuya: trabajamos con acceso de administrador.</li>
-        <li>Coordinamos todo por WhatsApp y cada propuesta se ajusta a la realidad de tu negocio.</li>
-        <li>No prometemos posición en Google: mejoramos todo lo que depende de tu ficha.</li>
+        <li>Precios en pesos chilenos, IVA incluido. Para factura te indicamos el neto.</li>
+        <li>Pagas con tarjeta, transferencia o efectivo; entregamos boleta o factura.</li>
+        <li>Entrega en menos de 48 horas. La aprobación de Google no depende de nosotros.</li>
+        <li>La ficha siempre es tuya: trabajamos con acceso de administrador.</li>
+        <li>No prometemos un lugar en Google: nadie puede hacerlo.</li>
       </ul>
     </div>
   </div>
@@ -694,18 +578,14 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Preguntas frecuentes</div>
-      <h2>Lo que más nos preguntan</h2>
+      <h2>Preguntas frecuentes sobre tarjetas NFC y fichas de Google</h2>
     </div>
 <div class="vx-faq">
-  <details><summary>¿Necesito una app para usar la tarjeta?</summary><div><p>No. El celular lee la tarjeta al acercarla; si no tiene NFC activado, usa el QR de respaldo.</p></div></details>
-  <details><summary>¿Qué pasa si el celular de mi cliente no tiene NFC?</summary><div><p>Usa el QR de respaldo de la misma tarjeta.</p></div></details>
-  <details><summary>¿Puedo cambiar el enlace después?</summary><div><p>Sí. La tarjeta apunta a un enlace que nosotros podemos actualizar, así que el destino puede cambiar sin reemplazar la tarjeta.</p></div></details>
-  <details><summary>¿Cuánto demora todo?</summary><div><p>La entrega es en menos de 48 horas desde que confirmamos tus datos o desde la visita, según el servicio. La aprobación de Google no depende de nosotros.</p></div></details>
-  <details><summary>¿Garantizan que voy a salir primero en Google?</summary><div><p>No. Mejoramos todo lo que depende de tu ficha; la posición final la decide Google.</p></div></details>
-  <details><summary>¿La ficha queda a mi nombre?</summary><div><p>Sí. La ficha siempre es tuya: nosotros trabajamos con acceso de administrador.</p></div></details>
-  <details><summary>¿Entregan boleta o factura?</summary><div><p>Sí, la que necesites. Los precios incluyen IVA; si necesitas factura, te indicamos el neto.</p></div></details>
-  <details><summary>¿Trabajan solo en Santiago?</summary><div><p>La visita presencial es en Santiago. Fuera de Santiago hacemos asesoría virtual 1:1.</p></div></details>
-  <details><summary>¿Qué es el precio piloto?</summary><div><p>Son precios de lanzamiento de octubre de 2026 para los primeros clientes. A cambio pedimos tu opinión sobre el servicio y permiso para mostrar el antes/después de tu ficha. Desde el 1 de noviembre rige el precio regular.</p></div></details>
+  <details><summary>¿Cuánto cuesta una tarjeta NFC para reseñas?</summary><div><p>$24.990 a precio piloto. Incluye tu logo, un QR de respaldo, la programación y 6 meses de garantía. <a href="/catalogo/tarjetas-nfc-resenas/">Ver tarjetas</a>.</p></div></details>
+  <details><summary>¿Mi cliente necesita una app o un celular con NFC?</summary><div><p>No. Acerca el celular y se abre solo; si no tiene NFC, escanea el QR de la misma tarjeta.</p></div></details>
+  <details><summary>¿Puedo cambiar a dónde lleva la tarjeta?</summary><div><p>Sí. La actualizamos sin cambiar la tarjeta.</p></div></details>
+  <details><summary>¿Trabajan fuera de Santiago?</summary><div><p>La visita es en Santiago. Para regiones, <a href="#asesoria-1a1">asesoría 1:1 por videollamada</a> y despacho de tarjetas a todo Chile.</p></div></details>
+  <details><summary>¿Qué es el precio piloto?</summary><div><p>Es el precio de lanzamiento de octubre de 2026. Desde el 1 de noviembre rige el precio regular.</p></div></details>
 </div>
   </div>
 </section>
@@ -717,19 +597,18 @@
     <div class="svc-card" style="border-style:dashed; opacity:.85;">
       <span class="svc-tag">Próximamente</span>
       <h3>Página Web Vlue</h3>
-      <p>Nada de páginas genéricas de IA. Tu página corporativa, con estadísticas de tu negocio y enfoque SEO para que los visitantes compren, no solo miren.</p>
-      <a class="svc-cta" href="https://wa.me/56926191935?text=Av%C3%ADsame%20cuando%20la%20página%20web%20Vlue%20est%C3%A9%20disponible" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="landing-espera">Solicitar cupo en lista de espera<span class="btn-arrow">&rarr;</span></a>
+      <p>Una web para tu negocio, pensada para vender y aparecer en Google.</p>
+      <a class="svc-cta" href="https://wa.me/56926191935?text=Av%C3%ADsame%20cuando%20la%20página%20web%20Vlue%20est%C3%A9%20disponible" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="landing-espera">Anotarme en la lista de espera<span class="btn-arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
 <section class="cta-panel pattern-dark">
   <div class="wrap">
     <h2>¿No sabes cuál elegir?</h2>
-    <p>Cuéntanos tu rubro y el tamaño de tu negocio, y te recomendamos el servicio o pack que más te conviene.</p>
+    <p>Cuéntanos tu rubro y te recomendamos uno. O parte por la auditoría gratis.</p>
     <div class="btn-row">
-      <a class="btn vx-audit-btn" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="cta-final" data-producto="auditoria-gratis">Auditoría gratis<span class="btn-arrow">&rarr;</span></a>
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20no%20s%C3%A9%20qu%C3%A9%20servicio%20me%20conviene%2C%20%C2%BFme%20pueden%20asesorar%3F" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="cta-final">Pedir recomendación<span class="btn-arrow">&rarr;</span></a>
-      <a class="btn btn-outline" href="/contacto/">Contacto<span class="btn-arrow">&rarr;</span></a>
+      <a class="btn vx-audit-btn" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="cta-final" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
+      <a class="btn btn-outline" href="https://wa.me/56926191935?text=Hola%2C%20no%20s%C3%A9%20qu%C3%A9%20servicio%20me%20conviene%2C%20%C2%BFme%20pueden%20asesorar%3F" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="cta-final">Escribir por WhatsApp<span class="btn-arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -741,9 +620,9 @@
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
       <p class="vx-eyebrow">Pack</p>
       <h2 id="pack-despegue-t">Pack Despegue Vlue</h2>
-      <p class="vx-result">Sales en Google Maps y tus clientes te dejan reseñas con un toque.</p>
+      <p class="vx-result">Para partir de cero: ficha creada y verificada + 1 Tarjeta Vlue.</p>
       <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$109.990</s> <strong><span class="vx-sr">Precio piloto </span>$79.990</strong></p>
-      <p class="vx-sep">Por separado: $90.000</p>
+      <p class="vx-sep">Por separado: $89.990</p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/pack-despegue-tarjeta-mesón.webp" alt="Tarjeta Vlue sobre un mesón con un celular acercándose" width="640" height="360" loading="lazy" decoding="async"> -->
@@ -752,7 +631,7 @@
       <h3>Incluye</h3>
       <ul class="vx-list vx-yes"><li>Ficha completa de Google Maps: creación, verificación en persona y optimización</li><li>1 Tarjeta Vlue a tu gusto, con tu logo (reseña, redes, wifi, menú u otra función)</li><li>Informe antes/después de tu ficha</li><li>Asesoría breve para mantener tu ficha ordenada desde el día uno</li><li>Garantía de 6 meses de la tarjeta por falla de funcionamiento</li></ul>
       <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Publicidad pagada</li><li>Garantía de posición en Google</li><li>Gestión mensual (se contrata aparte)</li></ul>
+      <ul class="vx-list vx-no"><li>Gestión mensual (se contrata aparte)</li></ul>
       <h3>Cómo funciona</h3>
       <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y datos.</li><li>Dejamos tu ficha lista y te entregamos la tarjeta.</li></ol>
       <h3>Entrega</h3>
@@ -761,7 +640,6 @@
     <footer class="vx-panel-foot">
       <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Pack%20Despegue%20Vlue" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="pack-despegue">Quiero el Pack Despegue<span class="btn-arrow">&rarr;</span></a>
       <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
     </footer>
   </article>
 </dialog>
@@ -772,9 +650,9 @@
       <span class="vx-panel-tag">Recomendado</span>
       <p class="vx-eyebrow">Pack</p>
       <h2 id="pack-dominio-t">Pack Dominio Local</h2>
-      <p class="vx-result">Tu local aparece mejor posicionado y todo tu equipo pide reseñas de forma fácil.</p>
+      <p class="vx-result">Para locales con equipo: ficha completa + 3 Tarjetas Vlue + capacitación.</p>
       <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$149.990</s> <strong><span class="vx-sr">Precio piloto </span>$99.990</strong></p>
-      <p class="vx-sep">Por separado: $120.000 más la asesoría</p>
+      <p class="vx-sep">Por separado: $119.990 más la asesoría</p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/pack-dominio-local-equipo.webp" alt="Equipo de un local mostrando las tarjetas Vlue a sus clientes" width="640" height="360" loading="lazy" decoding="async"> -->
@@ -783,7 +661,7 @@
       <h3>Incluye</h3>
       <ul class="vx-list vx-yes"><li>Ficha completa de Google Maps: creación, verificación y optimización</li><li>Trío de Tarjetas Vlue a tu gusto (por ejemplo: reseña, redes y wifi)</li><li>Capacitación breve a tu equipo para presentar las tarjetas</li><li>Informe antes/después de tu ficha</li><li>Asesoría breve enfocada en atraer clientes</li><li>Garantía de 6 meses de las tarjetas por falla de funcionamiento</li></ul>
       <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Publicidad pagada</li><li>Garantía de posición en Google</li><li>Gestión mensual (se contrata aparte)</li></ul>
+      <ul class="vx-list vx-no"><li>Gestión mensual (se contrata aparte)</li></ul>
       <h3>Cómo funciona</h3>
       <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y datos.</li><li>Dejamos tu ficha lista, entregamos las tarjetas y capacitamos a tu equipo.</li></ol>
       <h3>Entrega</h3>
@@ -792,242 +670,6 @@
     <footer class="vx-panel-foot">
       <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Pack%20Dominio%20Local" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="pack-dominio">Quiero el Pack Dominio Local<span class="btn-arrow">&rarr;</span></a>
       <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog vx-dialog--featured" id="mensual-pro" aria-labelledby="mensual-pro-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <span class="vx-panel-tag">Pro</span>
-      <p class="vx-eyebrow">Gestión mensual · Pro</p>
-      <h2 id="mensual-pro-t">Reputación Pro</h2>
-      <p class="vx-result">Más reseñas nuevas cada mes y una reputación cuidada, sin esfuerzo de tu equipo.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$139.990</s> <strong><span class="vx-sr">Precio piloto </span>$109.990</strong><small>/mes</small></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/reputacion-pro-informe.webp" alt="Informe mensual comparando tu ficha con 3 competidores" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Consultas y negocios donde cada cliente nuevo vale mucho.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Todo lo de Crecimiento mensual</li><li>Respuesta personalizada a cada reseña nueva en 24 a 48 h hábiles</li><li>Reporte a Google de reseñas que violan sus políticas y monitoreo de duplicados o cambios no autorizados en tu ficha</li><li>Apoyo continuo para que tu equipo pida reseñas</li><li>Informe mensual comparado con 3 competidores, mes a mes</li><li>Reunión de estrategia trimestral (30 a 45 minutos)</li><li>Link integrador de marca incluido (tu tarjeta de presentación digital)</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Publicidad pagada</li><li>Garantía de posición en Google</li><li>Eliminar reseñas (solo reportamos las que violan las políticas de Google)</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Nos das acceso de administrador a tu ficha (la ficha siempre es tuya).</li><li>Nos envías fotos y novedades del mes, tal como las tengas.</li><li>Publicamos, respondemos tus reseñas y cuidamos tu ficha.</li><li>Cada mes recibes un informe, y cada trimestre nos reunimos.</li></ol>
-      <h3>Entrega</h3>
-      <p>Se activa en cuanto confirmamos tus datos.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Reputaci%C3%B3n%20Pro" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="mensual-pro">Quiero Reputación Pro<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026. Los primeros 3 meses a precio piloto; después, precio regular con aviso previo.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog" id="mensual-crecimiento" aria-labelledby="mensual-crecimiento-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Gestión mensual · Esencial</p>
-      <h2 id="mensual-crecimiento-t">Crecimiento mensual</h2>
-      <p class="vx-result">Tu ficha activa todo el mes, sin que tengas que acordarte.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$89.990</s> <strong><span class="vx-sr">Precio piloto </span>$70.000</strong><small>/mes</small></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/crecimiento-mensual-calendario.webp" alt="Calendario de publicaciones de una ficha de Google Maps" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Negocios con ficha optimizada que quieren seguir creciendo.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>1 a 2 publicaciones semanales o actualizaciones en tu ficha</li><li>Respuesta a cada reseña</li><li>Informe mensual de tu crecimiento</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Gestión de redes sociales fuera de Google</li><li>Publicidad pagada</li><li>Garantía de posición en Google</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Nos das acceso de administrador a tu ficha (la ficha siempre es tuya).</li><li>Nos envías fotos y novedades del mes, tal como las tengas.</li><li>Publicamos, respondemos y te enviamos el informe.</li></ol>
-      <h3>Entrega</h3>
-      <p>Se activa en cuanto confirmamos tus datos.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20mensual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="mensual-crecimiento">Quiero Crecimiento mensual<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026. Los primeros 3 meses a precio piloto; después, precio regular con aviso previo.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog" id="tarjeta-individual" aria-labelledby="tarjeta-individual-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Tarjeta Vlue</p>
-      <h2 id="tarjeta-individual-t">Tarjeta Vlue individual</h2>
-      <p class="vx-result">Tu cliente acerca el celular y llega directo a lo que necesitas que vea.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$29.990</s> <strong><span class="vx-sr">Precio piloto </span>$24.990</strong></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/tarjeta-vlue-frente-reverso.webp" alt="Tarjeta Vlue NFC, frente y reverso, con QR de respaldo" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Cualquier negocio con atención presencial.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Tecnología contactless (NFC): acercar el celular y se abre solo</li><li>QR de respaldo para celulares sin NFC</li><li>Personalización con el logo de tu local</li><li>Función a tu elección: reseña en Google, wifi, redes sociales, menú digital, datos para transferir, link de pago o link integrador</li><li>Programación y prueba antes de entregarla</li><li>Guion de 1 página para presentarla a tus clientes</li><li>Garantía de 6 meses por falla de funcionamiento</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Link integrador personalizado de marca (ver Link integrador)</li><li>Tarjetas adicionales</li><li>Diseño de logo desde cero</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Eliges la función y nos envías tu logo.</li><li>Programamos y probamos la tarjeta.</li><li>Te la entregamos lista para usar.</li></ol>
-      <h3>Entrega</h3>
-      <p>En menos de 48 horas desde que confirmamos tus datos.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20una%20Tarjeta%20Vlue%20individual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="tarjeta-individual">Quiero una Tarjeta Vlue<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog vx-dialog--featured" id="trio-tarjetas" aria-labelledby="trio-tarjetas-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <span class="vx-panel-tag">Recomendado</span>
-      <p class="vx-eyebrow">Tarjeta Vlue</p>
-      <h2 id="trio-tarjetas-t">Trío de tarjetas</h2>
-      <p class="vx-result">Una tarjeta para cada punto de contacto de tu local: mesón, caja y equipo.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$69.990</s> <strong><span class="vx-sr">Precio piloto </span>$54.990</strong></p>
-      <p class="vx-sep">Por separado: $75.000</p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/trio-tarjetas-mesón-caja-equipo.webp" alt="Tres tarjetas Vlue rotuladas para mesón, caja y equipo" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Negocios con más de un punto de atención o más de una función que mostrar.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>3 tarjetas, con la función que elijas en cada una (pueden ser distintas)</li><li>QR de respaldo y logo de tu local en cada tarjeta</li><li>Programación y prueba antes de entregarlas</li><li>Guion breve para presentar las tarjetas a tu equipo</li><li>Garantía de 6 meses por falla de funcionamiento</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Link integrador personalizado de marca (ver Link integrador)</li><li>Diseño de logo desde cero</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Eliges la función de cada tarjeta y nos envías tu logo.</li><li>Programamos y probamos las tres.</li><li>Te las entregamos listas para usar.</li></ol>
-      <h3>Entrega</h3>
-      <p>En menos de 48 horas desde que confirmamos tus datos.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Tr%C3%ADo%20de%20tarjetas%20Vlue" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="trio-tarjetas">Quiero el Trío de tarjetas<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog" id="link-integrador" aria-labelledby="link-integrador-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Tarjeta Vlue</p>
-      <h2 id="link-integrador-t">Link integrador</h2>
-      <p class="vx-result">Una página tuya, rápida, que reúne en un toque todo lo que tu cliente necesita.</p>
-      <p class="vx-price"><strong>$30.000</strong> <small>Con dominio externo: desde $50.000, según el caso.</small></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/link-integrador-ejemplo.webp" alt="Página Link integrador abierta en un celular" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Negocios y profesionales que quieren mostrar varios enlaces (agendar, WhatsApp, ubicación, reseñas, redes) desde una sola tarjeta.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Página propia en HTML, liviana y rápida</li><li>Los botones que elijas: WhatsApp, agendar, ubicación, reseñas, redes, menú</li><li>Tu logo y tus colores</li><li>Botón &quot;Guardar contacto&quot; si es la tarjeta de un profesional</li><li>Prueba en celulares iOS y Android</li><li>Alojamiento incluido (condiciones al cotizar)</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Compra del dominio propio: la contratas tú y nosotros lo conectamos</li><li>Cambios de diseño posteriores (se cotizan)</li><li>Tarjeta física (ver Tarjeta Vlue individual)</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Nos cuentas qué quieres mostrar y nos envías tu logo.</li><li>Armamos la página y te la mostramos antes de grabar la tarjeta.</li><li>La conectamos a tu tarjeta y la probamos.</li></ol>
-      <h3>Entrega</h3>
-      <p>En menos de 48 horas desde que confirmamos tus datos y apruebas la página.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20Link%20integrador" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="link-integrador">Quiero un Link integrador<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog vx-dialog--featured" id="maps-completa" aria-labelledby="maps-completa-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <span class="vx-panel-tag">Recomendado</span>
-      <p class="vx-eyebrow">Google Maps</p>
-      <h2 id="maps-completa-t">Ficha completa</h2>
-      <p class="vx-result">Creamos, verificamos y dejamos tu ficha lista para atraer clientes.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$89.990</s> <strong><span class="vx-sr">Precio piloto </span>$65.000</strong></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/ficha-completa-tres-pasos.webp" alt="Tres pasos: crear, verificar y optimizar una ficha de Google Maps" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Negocios sin ficha que quieren partir bien, sin pasos sueltos.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Todo lo de Crea tu ficha</li><li>Todo lo de Optimiza tu ficha</li><li>Informe antes/después</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Gestión mensual (se contrata aparte)</li><li>Publicidad pagada y garantía de posición</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y verificación.</li><li>Entregamos tu ficha creada, verificada y optimizada.</li></ol>
-      <h3>Entrega</h3>
-      <p>En menos de 48 horas desde la visita (la verificación depende de Google).</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20Ficha%20completa%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="maps-completa">Quiero la Ficha completa<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog" id="maps-crea" aria-labelledby="maps-crea-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Google Maps</p>
-      <h2 id="maps-crea-t">Crea tu ficha</h2>
-      <p class="vx-result">Tu negocio aparece en Google Maps, verificado.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$49.990</s> <strong><span class="vx-sr">Precio piloto </span>$40.000</strong></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/crea-tu-ficha-verificada.webp" alt="Ficha de Google Maps verificada en un celular" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Negocios que todavía no tienen ficha.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Revisión previa para no duplicar fichas existentes</li><li>Creación de la ficha con nombre, dirección, categoría, teléfono y horarios</li><li>Verificación en persona (video)</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Optimización completa (fotos profesionales, catálogo, descripción trabajada)</li><li>Gestión mensual</li><li>Garantía de posición en Google</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Revisamos que no exista una ficha duplicada.</li><li>Vamos a tu local y grabamos el video de verificación.</li><li>Creamos y enviamos tu ficha a verificar.</li></ol>
-      <h3>Entrega</h3>
-      <p>Creación en menos de 48 horas desde la visita. El plazo de aprobación depende de Google.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Crea%20tu%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="maps-crea">Quiero crear mi ficha<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
-    </footer>
-  </article>
-</dialog>
-<dialog class="vx-dialog" id="maps-optimiza" aria-labelledby="maps-optimiza-t">
-  <article class="vx-panel">
-    <header class="vx-panel-head">
-      <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Google Maps</p>
-      <h2 id="maps-optimiza-t">Optimiza tu ficha</h2>
-      <p class="vx-result">Tu ficha deja de verse abandonada y empieza a convencer a quien te busca.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$59.990</s> <strong><span class="vx-sr">Precio piloto </span>$45.000</strong></p>
-    </header>
-    <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/optimiza-ficha-antes-despues.webp" alt="Comparación antes y después de una ficha de Google Maps" width="640" height="360" loading="lazy" decoding="async"> -->
-      <h3>Para quién</h3>
-      <p>Negocios que ya tienen ficha pero con pocas fotos, información incompleta o sin descripción.</p>
-      <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Revisión inicial con registro del estado &quot;antes&quot;</li><li>Visita para fotos y video del local</li><li>Categorías y atributos bien elegidos</li><li>Descripción del negocio, horarios y servicios o catálogo</li><li>Enlace directo para pedir reseñas</li><li>Informe antes/después con todo lo que se hizo</li></ul>
-      <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Creación o verificación de ficha (ver Crea tu ficha)</li><li>Gestión mensual</li><li>Publicidad pagada y garantía de posición</li><li>Sesión extendida de video y Link integrador (se agregan aparte)</li></ul>
-      <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Registramos cómo está tu ficha hoy.</li><li>Vamos a tu local: fotos y video.</li><li>Optimizamos tu ficha y te entregamos el informe antes/después.</li></ol>
-      <h3>Entrega</h3>
-      <p>En menos de 48 horas desde la visita.</p>
-    </div>
-    <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Optimiza%20tu%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="maps-optimiza">Quiero optimizar mi ficha<span class="btn-arrow">&rarr;</span></a>
-      <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
     </footer>
   </article>
 </dialog>
@@ -1037,8 +679,8 @@
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
       <p class="vx-eyebrow">Asesoría</p>
       <h2 id="asesoria-1a1-t">Asesoría virtual 1:1</h2>
-      <p class="vx-result">Un plan concreto para tu ficha, aunque tu negocio no esté en Santiago.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$35.000</s> <strong><span class="vx-sr">Precio piloto </span>$30.000</strong><small>/hora</small></p>
+      <p class="vx-result">Una hora por videollamada para ordenar tu ficha, estés donde estés.</p>
+      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$49.990</s> <strong><span class="vx-sr">Precio piloto </span>$39.990</strong><small>/hora</small></p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/asesoria-virtual.webp" alt="Sesión de asesoría virtual sobre una ficha de Google Maps" width="640" height="360" loading="lazy" decoding="async"> -->
@@ -1056,14 +698,13 @@
     <footer class="vx-panel-foot">
       <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20virtual%201%3A1" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="asesoria-1a1">Quiero agendar una asesoría<span class="btn-arrow">&rarr;</span></a>
       <button type="button" class="vx-more" data-close>Volver</button>
-      <p class="vx-note">Precio piloto vigente hasta el 31 de octubre de 2026.</p>
     </footer>
   </article>
 </dialog>
 <footer>
   <div class="wrap">
-    <div class="logo"><img src="/img/logo-vlue-tech-services.webp" alt="Vlue Tech Services" width="539" height="160" loading="lazy" decoding="async"></div>
-    <p>Posicionamiento digital orgánico &mdash; Google Maps &middot; Tarjetas NFC &middot; Reseñas</p>
+    <div class="logo"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services" width="708" height="120" loading="lazy" decoding="async"></div>
+    <p>Reseñas y Google Maps para negocios de Santiago</p>
     <p>Vlue Tech Services SpA &middot; Santiago, Chile</p>
     <nav class="foot-links" aria-label="Secciones">
       <a href="/catalogo/">Catálogo</a>
