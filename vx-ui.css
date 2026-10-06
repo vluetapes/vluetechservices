@@ -1,10 +1,9 @@
 /* =====================================================================
    vx-ui.css  v4  —  Vlue Tech Services
    Componentes compartidos por las 4 páginas (/, /catalogo/, /salud/, /contacto/) (prefijo vx- para no
-   chocar con style_work2.css). Se carga DESPUÉS de style_work2.css:
-     <link rel="stylesheet" href="/vx-ui.css?v=9">
-   Al cambiar este archivo, sube el número (?v=3) para que el navegador
-   no sirva la versión vieja desde caché.
+   chocar con style_work2.css). Se carga DESPUÉS de style_work2.css.
+   El ?v= de cada página lo actualiza solo herramientas/revisar.py
+   (córrelo antes de publicar).
    ===================================================================== */
 
 :root{
@@ -284,8 +283,51 @@ body>footer p+p{margin-top:2px}
    La grilla es un contenedor (container query); solo cuando tiene espacio para 2 columnas,
    la última card impar (que quedaría sola a la izquierda) se centra con el mismo ancho que las demás. */
 .vx-grid,.vx-steps{container-type:inline-size}
-@container (min-width:536px){.vx-grid>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}}
-@container (min-width:454px){.vx-steps>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}}
+@container (min-width:536px) and (max-width:900px){.vx-grid>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}}
+@container (min-width:454px) and (max-width:900px){.vx-steps>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}}
 
 /* Etiqueta de grupo (ej. "Asesoría") después de una grilla: separación para que no quede pegada a las cards */
 .vx-grid+.vx-group{margin-top:40px}
+
+/* ---------- Página legal (/privacidad/) y notas pequeñas ---------- */
+.vx-legal h2{margin:32px 0 10px;font-size:1.2rem}
+.vx-legal h2:first-child{margin-top:0}
+.vx-legal p,.vx-legal li{line-height:1.6}
+.vx-legal ul{display:grid;gap:8px;margin:0;padding-left:20px}
+.vx-legal a,.vx-note a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.vx-note{margin:-8px 0 22px;color:var(--vx-muted);font-size:.9rem}
+
+/* ---------- Menú hamburguesa en celular ----------
+   La clase vx-js la pone un script en el <head>; sin JavaScript el menú se ve como siempre. */
+.vx-burger{display:none}
+@media (max-width:640px){
+  .vx-js .vx-burger{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:1.5px solid var(--vx-line);border-radius:10px;background:#fff;color:var(--vx-blue);cursor:pointer;order:2}
+  .vx-burger svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .vx-burger .vx-burger-close,.vx-nav-open .vx-burger .vx-burger-open{display:none}
+  .vx-nav-open .vx-burger .vx-burger-close{display:inline}
+  .vx-burger:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+  .vx-js body>header .wrap{flex-wrap:wrap;gap:10px}
+  .vx-js .nav-cta{order:1;margin-left:auto;padding:10px 14px;font-size:.85rem}
+  .vx-js .nav-links{display:none;order:3;width:100%;flex-direction:column;align-items:stretch;gap:0;margin:6px 0 0;padding:4px 0 0;border-top:1px solid var(--vx-line)}
+  .vx-js .vx-nav-open .nav-links{display:flex}
+  .vx-js .nav-links a,.vx-js .nav-links a.active{padding:13px 4px;font-size:1rem;border-bottom:1px solid var(--vx-line)}
+  .vx-js .nav-links a:last-child{border-bottom:0}
+  .vx-js .nav-links a.active{color:var(--vx-blue)}
+}
+@media (max-width:380px){.vx-js .logo img{height:26px}}
+
+/* ---------- Computador (desde 1024 px): contenido más ancho ----------
+   En celular y tablet todo queda igual. Los textos largos mantienen un ancho cómodo de lectura
+   y las grillas pasan a 3 columnas, con la última fila centrada (2 o 4 cards van de a 2). */
+@media (min-width:1024px){
+  .wrap{max-width:1120px;padding:0 32px}
+  .hero-panel h1{max-width:22ch;font-size:2.7rem}
+  .hero-panel p.sub{max-width:60ch;font-size:1.08rem}
+  .section-head,.vx-lead,.vx-faq,.vx-legal,.ps-block,.vx-pilot,.vx-note,.notes-strip{max-width:860px}
+  .vx-grid{--g:16px}.vx-steps{--g:14px}.vx-links{--g:12px}.vx-paths{--g:10px}
+  :is(.vx-grid,.vx-steps,.vx-links,.vx-paths){display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g)}
+  :is(.vx-grid,.vx-steps,.vx-links,.vx-paths)>*{flex:0 0 calc((100% - 2 * var(--g)) / 3);min-width:0}
+  :is(.vx-grid,.vx-steps,.vx-links,.vx-paths):is(:has(>:last-child:nth-child(1)),:has(>:last-child:nth-child(2)),:has(>:last-child:nth-child(4)))>*{flex-basis:calc((100% - var(--g)) / 2)}
+  .vx-canales{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
+  .vx-canales .pack-card{margin-bottom:0!important}
+}

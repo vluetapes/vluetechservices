@@ -1,14 +1,13 @@
 /* =====================================================================
    vx-ui.js  v1  —  Vlue Tech Services
-   Se carga al final de cada página con defer:
-     <script src="/vx-ui.js?v=1" defer></script>
+   Se carga al final de cada página con defer. El ?v= lo actualiza
+   herramientas/revisar.py (córrelo antes de publicar).
    Hace 3 cosas:
      1. Paneles de detalle (<dialog>) con fondo difuminado: abrir, cerrar,
         enlace propio (#pack-despegue) y botón Atrás del celular.
      2. Calculadora de retorno de /salud/.
-     3. Reenvía los clics marcados con data-evento a Google Analytics 4
-        (solo si GA4 está instalado; si no, no hace nada).
-   Al cambiar este archivo, sube el número (?v=2) en todas las páginas.
+     3. Carga Google Analytics 4 (si GA4_ID tiene tu ID) y le envía los clics
+        marcados con data-evento. Sin ID no carga nada ni envía nada.
    ===================================================================== */
 (function () {
   'use strict';
@@ -20,7 +19,22 @@
 
   if (!hasDialog) html.classList.add('vx-nodialog');
 
-  /* ---------- Medición ---------- */
+  /* ---------- Medición ----------
+     Pega aquí tu ID de medición de Google Analytics 4 (empieza con "G-").
+     Vacío = no se carga GA4 y los clics no se envían a ningún lado. */
+  var GA4_ID = 'G-LJNVK597JG';
+
+  if (GA4_ID && typeof window.gtag !== 'function') {
+    var ga = d.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+    d.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID);
+  }
+
   function track(evento, datos) {
     if (typeof window.gtag !== 'function') return;
     datos = datos || {};
@@ -36,6 +50,28 @@
       producto: el.getAttribute('data-producto') || ''
     });
   });
+
+  /* ---------- Menú hamburguesa (solo se ve en celular, por CSS) ---------- */
+  var header = d.querySelector('body > header');
+  var burger = header && header.querySelector('.vx-burger');
+  if (burger) {
+    var setMenu = function (open) {
+      header.classList.toggle('vx-nav-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
+    var menuOpen = function () { return header.classList.contains('vx-nav-open'); };
+    burger.addEventListener('click', function () { setMenu(!menuOpen()); });
+    header.querySelector('.nav-links').addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    d.addEventListener('click', function (e) {
+      if (menuOpen() && !header.contains(e.target)) setMenu(false);
+    });
+    d.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuOpen()) { setMenu(false); burger.focus(); }
+    });
+  }
 
   /* ---------- Paneles de detalle ---------- */
   var current = null;   // panel abierto

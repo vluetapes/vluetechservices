@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('vx-js')</script>
 <title>Contacto: cotiza Google Maps y NFC en Santiago | Vlue</title>
 <meta name="description" content="Cotiza fichas de Google Maps, tarjetas NFC o gestión de reseñas para tu negocio en Santiago. Escríbenos por WhatsApp: respondemos el mismo día hábil.">
 <link rel="canonical" href="https://vluetechservices.cl/contacto/">
@@ -26,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=3">
-<link rel="stylesheet" href="/vx-ui.css?v=14">
+<link rel="stylesheet" href="/style_work2.css?v=de46afb1">
+<link rel="stylesheet" href="/vx-ui.css?v=f3f363e3">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -155,13 +156,14 @@
 <header>
   <div class="wrap">
     <a class="logo" href="/"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services, inicio" width="708" height="120"></a>
-    <nav class="nav-links" aria-label="Principal">
+    <nav class="nav-links" id="menu-principal" aria-label="Principal">
       <a href="/">Inicio</a>
       <a href="/catalogo/">Catálogo</a>
       <a href="/salud/">Salud</a>
       <a href="/contacto/" class="active" aria-current="page">Contacto</a>
     </nav>
     <a class="btn btn-primary nav-cta" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="header">WhatsApp</a>
+    <button type="button" class="vx-burger" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="vx-burger-open" d="M4 7h16M4 12h16M4 17h16"/><path class="vx-burger-close" d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
 </header>
 <main id="contenido">
@@ -184,6 +186,7 @@
       <h2>Elige cómo escribirnos</h2>
     </div>
 
+    <div class="vx-canales">
     <a class="pack-card featured" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" style="margin-bottom:22px;" data-evento="clic_whatsapp" data-ubicacion="opciones">
       <div class="pack-tier">Más rápido</div>
       <h3>WhatsApp</h3>
@@ -203,6 +206,8 @@
       <p class="includes">Respuesta en 24 horas.</p>
       <div class="pack-cta">Enviar correo<span class="btn-arrow">&rarr;</span></div>
     </a>
+    </div>
+    <p class="vx-note">Así usamos los datos que nos dejas por cualquiera de estos canales: <a href="/privacidad/">política de privacidad</a>.</p>
 
     <p class="vx-lead" style="margin:0;">Escribirnos no tiene costo ni compromiso.</p>
     <!-- [PENDIENTE: nombre de quien responde y horario de atención] Ej.: "Te responde [nombre], de lunes a viernes de 9:00 a 18:00." -->
@@ -255,6 +260,7 @@
       <a href="/catalogo/">Catálogo</a>
       <a href="/salud/">Clínicas y consultas</a>
       <a href="/contacto/">Contacto</a>
+      <a href="/privacidad/">Privacidad</a>
     </nav>
     <div class="foot-links">
       <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a>
@@ -272,6 +278,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
-<script src="/vx-ui.js?v=1" defer></script>
+<script src="/vx-ui.js?v=72f6e51a" defer></script>
 </body>
 </html>
