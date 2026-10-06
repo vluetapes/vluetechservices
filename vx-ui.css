@@ -297,10 +297,10 @@ body>footer p+p{margin-top:2px}
 .vx-legal a,.vx-note a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .vx-note{margin:-8px 0 22px;color:var(--vx-muted);font-size:.9rem}
 
-/* ---------- Menú hamburguesa en celular ----------
+/* ---------- Menú hamburguesa en celular y tablet (hasta 1023 px) ----------
    La clase vx-js la pone un script en el <head>; sin JavaScript el menú se ve como siempre. */
 .vx-burger{display:none}
-@media (max-width:640px){
+@media (max-width:1023px){
   .vx-js .vx-burger{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:1.5px solid var(--vx-line);border-radius:10px;background:#fff;color:var(--vx-blue);cursor:pointer;order:2}
   .vx-burger svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
   .vx-burger .vx-burger-close,.vx-nav-open .vx-burger .vx-burger-open{display:none}
@@ -315,7 +315,8 @@ body>footer p+p{margin-top:2px}
   .vx-js .nav-links a.active{color:var(--vx-blue)}
 }
 /* En celular el logo ocupa el espacio que dejan WhatsApp y el menú, y se achica si hace falta, para que los tres queden en una línea */
-@media (max-width:640px){.vx-js .logo{flex:1 1 0;min-width:0}.vx-js .logo img{height:auto;max-height:26px;max-width:100%}}
+@media (max-width:1023px){.vx-js .logo{flex:1 1 0;min-width:0}.vx-js .logo img{height:auto;max-height:26px;max-width:100%}}
+@media (min-width:641px) and (max-width:1023px){.vx-js .logo img{max-height:32px}}
 @media (max-width:400px){.vx-js .nav-cta{padding:9px 12px}}
 
 /* ---------- Computador (desde 1024 px): contenido más ancho ----------
