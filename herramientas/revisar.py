@@ -23,7 +23,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 PAGINAS = sorted(p for p in RAIZ.rglob("*.html") if ".git" not in p.parts and "herramientas" not in p.parts)
-ASSETS_VERSIONADOS = ["style_work2.css", "vx-ui.css", "vx-ui.js"]
+ASSETS_VERSIONADOS = ["estilos.css", "vx-ui.js"]
 
 
 def leer(p):
