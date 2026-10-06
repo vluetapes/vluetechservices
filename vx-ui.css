@@ -314,7 +314,9 @@ body>footer p+p{margin-top:2px}
   .vx-js .nav-links a:last-child{border-bottom:0}
   .vx-js .nav-links a.active{color:var(--vx-blue)}
 }
-@media (max-width:380px){.vx-js .logo img{height:26px}}
+/* En celular el logo ocupa el espacio que dejan WhatsApp y el menú, y se achica si hace falta, para que los tres queden en una línea */
+@media (max-width:640px){.vx-js .logo{flex:1 1 0;min-width:0}.vx-js .logo img{height:auto;max-height:26px;max-width:100%}}
+@media (max-width:400px){.vx-js .nav-cta{padding:9px 12px}}
 
 /* ---------- Computador (desde 1024 px): contenido más ancho ----------
    En celular y tablet todo queda igual. Los textos largos mantienen un ancho cómodo de lectura
