@@ -3,13 +3,15 @@
 Uso (desde la carpeta del sitio):
     python herramientas/revisar.py
 
-Hace cuatro cosas:
+Hace cinco cosas:
   1. Actualiza el ?v= de los CSS y JS en todas las páginas según su contenido,
      para que los navegadores no muestren una versión vieja. Ya no hay que
      cambiar el número a mano.
   2. Revisa que los datos para Google (JSON-LD) de cada página no tengan errores.
   3. Revisa que cada enlace interno, imagen, CSS y JS exista.
   4. Lista los marcadores [PENDIENTE] y [CONFIRMAR] que quedan en el código.
+  5. Pone la fecha de hoy en el sitemap.xml (lastmod) de cada página con cambios
+     sin commit, para que Google sepa qué páginas cambiaron.
 
 Si encuentra errores, termina con código 1 (útil si algún día se automatiza).
 """
@@ -45,6 +47,34 @@ def actualizar_versiones():
                 escribir(p, nuevo)
                 cambios += 1
     return cambios
+
+
+def actualizar_lastmod():
+    """Pone la fecha de hoy en el <lastmod> del sitemap de cada página con cambios sin commit."""
+    import datetime
+    import subprocess
+    try:
+        salida = subprocess.run(["git", "status", "--porcelain"], cwd=RAIZ, capture_output=True,
+                                text=True, encoding="utf-8").stdout
+    except OSError:
+        return []
+    hoy = datetime.date.today().isoformat()
+    sitemap = RAIZ / "sitemap.xml"
+    texto = leer(sitemap)
+    cambiadas = []
+    for linea in salida.splitlines():
+        archivo = linea[3:].strip().strip('"')
+        if not archivo.endswith("index.html"):
+            continue
+        ruta = "/" + archivo[: -len("index.html")]
+        patron = re.compile(r"(<loc>https?://[^<]+?" + re.escape(ruta) + r"</loc>\s*<lastmod>)[^<]*(</lastmod>)")
+        nuevo = patron.sub(r"\g<1>" + hoy + r"\2", texto)
+        if nuevo != texto:
+            texto = nuevo
+            cambiadas.append(ruta)
+    if cambiadas:
+        escribir(sitemap, texto)
+    return cambiadas
 
 
 def revisar_jsonld():
@@ -87,6 +117,10 @@ def pendientes():
 
 def main():
     print(f"Versiones de CSS/JS actualizadas en {actualizar_versiones()} archivo(s).")
+    fechas = actualizar_lastmod()
+    if fechas:
+        print("Fecha del sitemap (lastmod) actualizada a hoy en: " + ", ".join(fechas))
+        print("Después de publicar, pide en Search Console la indexación de esas páginas.")
     errores = revisar_jsonld() + revisar_enlaces()
     if errores:
         print(f"\n{len(errores)} error(es):")
