@@ -1,193 +1,10 @@
 /* =====================================================================
-   estilos.css  —  Vlue Tech Services
-   Único archivo de estilos del sitio, en tres partes:
-     1. Fuentes guardadas en /fonts/ (Montserrat y Poppins, solo caracteres latinos).
-        Se sirven desde la propia web para no esperar a Google Fonts al cargar.
-     2. Estilos base (antes style_work2.css).
-     3. Componentes compartidos con prefijo vx- (antes vx-ui.css).
-   El ?v= de cada página lo actualiza solo herramientas/revisar.py (córrelo antes de publicar).
+   vx-ui.css  v4  —  Vlue Tech Services
+   Componentes compartidos por las 4 páginas (/, /catalogo/, /salud/, /contacto/) (prefijo vx- para no
+   chocar con style_work2.css). Se carga DESPUÉS de style_work2.css.
+   El ?v= de cada página lo actualiza solo herramientas/revisar.py
+   (córrelo antes de publicar).
    ===================================================================== */
-
-/* ---------- 1. Fuentes ---------- */
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:700 800;font-display:swap;src:url(/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/poppins-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/poppins-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/poppins-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-
-/* Letras de reemplazo con las medidas de Montserrat (ajustada a sus grosores 700 y 800, los que usa el sitio) y Poppins: mientras cargan las fuentes,
-   el texto ocupa el mismo espacio y no "salta" al cambiar de letra (menos CLS).
-   El unicode-range deja fuera símbolos como la flecha →, que siguen saliendo con la letra del sistema. */
-@font-face{font-family:'Montserrat Fallback';src:local('Arial'),local('Helvetica'),local('Liberation Sans');size-adjust:117.5%;ascent-override:82.44%;descent-override:21.37%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Poppins Fallback';src:local('Arial'),local('Helvetica'),local('Liberation Sans');size-adjust:112.16%;ascent-override:93.62%;descent-override:31.21%;line-gap-override:8.92%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2212,U+2215,U+FEFF,U+FFFD}
-
-/* ---------- 2. Estilos base ---------- */
-:root{
-  --white:#ffffff;
-  --tint:#eef1fb;
-  --ink:#0b0e1a;
-  --muted:#5c6478;
-  --line:#e3e6f0;
-  --blue:#07209f;
-  --blue-hover:#0a2ac2;
-  --blue-deep:#051871;
-  --good:#0f8f5f;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-*{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-padding-top:74px; scroll-behavior:smooth;}
-body{
-  background:var(--white); color:var(--ink);
-  font-family:'Poppins','Poppins Fallback',system-ui,sans-serif;
-  font-weight:400; line-height:1.6; font-size:16px;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3{font-family:'Montserrat','Montserrat Fallback',system-ui,sans-serif; font-weight:800; letter-spacing:-0.01em; line-height:1.15;}
-a{color:inherit; text-decoration:none;}
-img{max-width:100%; display:block;}
-
-.wrap{max-width:640px; margin:0 auto; padding:0 22px;}
-
-.pattern-light{
-  background-image:radial-gradient(circle at 50% 22%, rgba(7,32,159,.10) 0 7px, transparent 8px),
-    radial-gradient(circle at 33% 55%, rgba(7,32,159,.10) 0 7px, transparent 8px),
-    radial-gradient(circle at 67% 55%, rgba(7,32,159,.10) 0 7px, transparent 8px);
-  background-size:90px 90px;
-}
-.pattern-dark{
-  background-image:radial-gradient(circle at 50% 22%, rgba(255,255,255,.16) 0 7px, transparent 8px),
-    radial-gradient(circle at 33% 55%, rgba(255,255,255,.16) 0 7px, transparent 8px),
-    radial-gradient(circle at 67% 55%, rgba(255,255,255,.16) 0 7px, transparent 8px);
-  background-size:70px 70px;
-}
-
-body>header{
-  position:sticky; top:0; z-index:50;
-  padding-top:calc(14px + env(safe-area-inset-top,0px));
-  padding-bottom:14px;
-  background:rgba(255,255,255,.92); backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-body>header .wrap{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
-.logo{flex:none;}
-.logo img{height:36px; width:auto; object-fit:contain; display:block;}
-@media (max-width:480px){.logo img{height:30px;}}
-.nav-links{display:flex; gap:20px; align-items:center; flex-wrap:wrap;}
-.nav-links a{font-size:.86rem; color:var(--muted); font-weight:600;}
-.nav-links a:hover, .nav-links a.active{color:var(--blue);}
-.nav-links a.active{border-bottom:2px solid var(--blue); padding-bottom:2px;}
-.nav-cta{margin-left:auto;}
-@media (max-width:480px){ .nav-links{order:3; width:100%; justify-content:center; padding-top:10px; border-top:1px solid var(--line); margin-top:8px;} }
-
-.btn{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:13px 20px; border-radius:8px;
-  font-family:'Poppins','Poppins Fallback',sans-serif; font-weight:600; font-size:.92rem;
-  border:none; cursor:pointer; transition:background-color .2s ease, transform .15s ease, box-shadow .2s ease;
-}
-.btn-primary{background:var(--blue); color:#fff;}
-.btn-primary:hover{background:var(--blue-hover); transform:translateY(-1px); box-shadow:0 8px 20px rgba(7,32,159,.25);}
-.btn-outline{border:1.5px solid var(--blue); color:var(--blue); background:transparent;}
-.btn-outline:hover{background:var(--blue); color:#fff;}
-.btn-arrow{width:0; margin-left:0; opacity:0; transform:translateX(-6px); overflow:hidden; transition:width .25s ease, margin-left .25s ease, opacity .25s ease, transform .25s ease; display:inline-flex;}
-.btn:hover .btn-arrow{width:1rem; margin-left:2px; opacity:1; transform:translateX(0);}
-
-.hero-panel{background:var(--blue); color:#fff; padding:52px 0 44px;}
-.hero-panel .eyebrow{color:#b9c3f2; font-weight:600; font-size:.82rem; letter-spacing:.03em; text-transform:uppercase; margin-bottom:14px;}
-.hero-panel h1{font-size:2rem; margin-bottom:16px; color:#fff;}
-.hero-panel p.sub{color:#d6dcf7; max-width:48ch; margin-bottom:26px; font-size:1rem;}
-.cta-row{display:flex; flex-direction:column; gap:12px;}
-.hero-panel .btn-primary{background:#fff; color:var(--blue); justify-content:center; padding:15px 20px;}
-.hero-panel .btn-primary:hover{background:#eef1fb;}
-.hero-panel .btn-outline{border-color:rgba(255,255,255,.5); color:#fff; justify-content:center;}
-.hero-panel .btn-outline:hover{background:rgba(255,255,255,.12);}
-
-section{padding:46px 0;}
-.section-tint{background:var(--tint);}
-.section-head{margin-bottom:26px;}
-.eyebrow{color:var(--blue); font-weight:700; font-size:.78rem; letter-spacing:.04em; text-transform:uppercase; margin-bottom:10px;}
-.section-head h2{font-size:1.5rem;}
-.section-head p{color:var(--muted); margin-top:10px; max-width:56ch; font-size:.95rem;}
-
-.ps-block{border-left:3px solid var(--line); padding:16px 0 16px 18px; margin-bottom:4px;}
-.ps-block.solved{border-left-color:var(--blue);}
-.ps-block h3{font-size:1rem; font-weight:700; margin-bottom:6px;}
-.ps-block p{color:var(--muted); font-size:.92rem;}
-.ps-block .arrow-line{color:var(--blue); font-weight:700; font-size:.85rem; margin-top:6px;}
-
-.notes-strip{background:var(--tint); border:1px solid var(--line); border-radius:12px; padding:22px;}
-.notes-strip h3{font-family:'Montserrat','Montserrat Fallback',sans-serif; font-size:.95rem; margin-bottom:14px;}
-.notes-list{list-style:none; display:flex; flex-direction:column; gap:10px;}
-.notes-list li{display:flex; gap:10px; font-size:.87rem; color:var(--ink); align-items:flex-start;}
-.notes-list li::before{content:"✓"; color:var(--blue); font-weight:800; flex:none;}
-
-.svc-card{
-  display:block; border:1px solid var(--line); border-radius:12px; padding:20px;
-  margin-bottom:12px; transition:border-color .2s ease, box-shadow .2s ease, transform .15s ease;
-}
-.svc-card:hover{border-color:var(--blue); box-shadow:0 10px 24px rgba(7,32,159,.12); transform:translateY(-2px);}
-
-.svc-card h3{font-size:1.02rem;}
-
-.svc-card p{color:var(--muted); font-size:.88rem; margin-top:6px;}
-
-.svc-cta{display:inline-flex; align-items:center; gap:6px; color:var(--blue); font-weight:700; font-size:.83rem; margin-top:12px; transition:gap .2s ease;}
-.svc-card:hover .svc-cta{gap:10px;}
-.svc-tag{display:inline-block; background:var(--tint); color:var(--blue); font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:20px; margin-bottom:10px;}
-
-.pack-card{
-  display:block; background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:24px;
-  margin-bottom:16px; transition:border-color .2s ease, box-shadow .2s ease, transform .15s ease, background-color .3s ease;
-}
-.pack-card:hover{border-color:var(--blue); box-shadow:0 14px 30px rgba(7,32,159,.14); transform:translateY(-2px);}
-.pack-card.featured{border-color:var(--blue); border-width:2px;}
-.pack-card.featured:hover{background:var(--blue); border-color:var(--blue);}
-.pack-card.featured:hover *{color:#fff !important;}
-.pack-tier{font-size:.74rem; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:.03em; margin-bottom:6px;}
-.pack-card h3{font-size:1.12rem; margin-bottom:8px;}
-.pack-card .includes{color:var(--muted); font-size:.88rem; margin-bottom:14px;}
-
-.pack-cta{display:inline-flex; align-items:center; gap:6px; color:var(--blue); font-weight:700; font-size:.85rem; transition:gap .2s ease;}
-.pack-card:hover .pack-cta{gap:10px;}
-
-.cta-panel{background:var(--blue); color:#fff; padding:46px 0;}
-.cta-panel h2{color:#fff; font-size:1.5rem; margin-bottom:12px;}
-.cta-panel p{color:#d6dcf7; margin-bottom:22px; max-width:50ch;}
-.cta-panel .btn-primary{background:#fff; color:var(--blue);}
-.cta-panel .btn-primary:hover{background:#eef1fb;}
-.cta-panel .btn-row{display:flex; flex-direction:column; gap:12px;}
-.cta-panel .btn-outline{border-color:rgba(255,255,255,.5); color:#fff; justify-content:center;}
-.cta-panel .btn-outline:hover{background:rgba(255,255,255,.12);}
-
-body>footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px)); text-align:center; border-top:1px solid var(--line);}
-body>footer .logo{display:flex; justify-content:center; margin-bottom:10px;}
-body>footer p{color:var(--muted); font-size:.8rem;}
-body>footer .foot-links{display:flex; gap:16px; justify-content:center; margin-top:10px; font-size:.8rem;}
-body>footer .foot-links a{color:var(--muted);}
-body>footer .foot-links a:hover{color:var(--blue);}
-
-.wa-fab{
-  position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:60;
-  width:54px; height:54px; border-radius:50%; background:var(--blue);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 6px 20px rgba(7,32,159,.4); transition:transform .2s ease;
-}
-.wa-fab:hover{transform:scale(1.08);}
-.wa-fab svg{width:26px; height:26px; fill:#fff;}
-
-@media (min-width:640px){
-  .wrap{max-width:600px;}
-  .hero-panel h1{font-size:2.3rem;}
-  .cta-row, .cta-panel .btn-row{flex-direction:row;}
-  .hero-panel .btn-primary, .hero-panel .btn-outline, .cta-panel .btn-primary, .cta-panel .btn-outline{width:auto;}
-  
-}
-@media (min-width:900px){
-  .wrap{max-width:680px;}
-}
-
-/* ---------- 3. Componentes vx- ---------- */
-/* Prefijo vx- para no chocar con los estilos base. */
 
 :root{
   --vx-blue:#07209f;
@@ -212,7 +29,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .vx-skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;color:var(--vx-blue);padding:10px 14px;border-radius:8px;font-weight:700}
 .vx-skip:focus{left:8px}
-:where(.vx-more,.vx-close,.vx-faq summary):focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+:where(.vx-more,.vx-chips a,.vx-close,.vx-faq summary):focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
 
 .vx-crumbs{font-size:.85rem;margin:0 0 12px;opacity:.9}
 .vx-crumbs a{color:inherit;text-decoration:underline;text-underline-offset:3px}
@@ -222,20 +39,23 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-pilot strong{color:var(--vx-blue)}
 
 /* ---------- Selector por situación ---------- */
+.vx-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.vx-chips a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:999px;color:var(--vx-blue);font-weight:600;text-decoration:none;transition:background .18s,color .18s}
+.vx-chips a:hover,.vx-chips a:focus-visible{background:var(--vx-blue);color:#fff}
 
 /* ---------- Grid y cards compactas ---------- */
 .vx-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.vx-group{margin:30px 0 12px;font:700 .8rem Montserrat,'Montserrat Fallback',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-group{margin:30px 0 12px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
 .vx-group:first-of-type{margin-top:0}
 
 .vx-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);contain:content;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease,background-color .35s ease,color .35s ease}
 @media (hover:hover){.vx-card:hover{transform:translateY(-3px);border-color:#c5cdf0;box-shadow:0 2px 4px rgba(7,32,159,.08),0 16px 36px rgba(7,32,159,.14)}}
 .vx-card--featured{border:2px solid var(--vx-blue);background-color:#f8f9fe}   /* color sólido (no degradado) para que el paso a azul eléctrico sea suave */
-.vx-card h3{margin:0;font:800 1.15rem/1.25 Montserrat,'Montserrat Fallback',system-ui,sans-serif;color:var(--vx-ink)}
+.vx-card h3{margin:0;font:800 1.15rem/1.25 Montserrat,system-ui,sans-serif;color:var(--vx-ink)}
 .vx-card p{margin:0;line-height:1.5}
 .vx-card .vx-result{color:var(--vx-muted);font-size:.97rem}
 
-.vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,'Montserrat Fallback',system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .vx-card--featured .vx-badge{background:var(--vx-blue);color:#fff}
 
 /* Cards Pro / Recomendado: al pasar el mouse se llenan con el degradado de la auditoría (.vx-audit) con una transición suave.
@@ -258,19 +78,19 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 
 .vx-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:2px 0 0}
 .vx-price s{color:var(--vx-muted);font-size:.95rem}
-.vx-price strong{font:800 1.65rem/1.1 Montserrat,'Montserrat Fallback',system-ui,sans-serif;color:var(--vx-blue)}
+.vx-price strong{font:800 1.65rem/1.1 Montserrat,system-ui,sans-serif;color:var(--vx-blue)}
 .vx-price small{color:var(--vx-muted);font-size:.85rem}
 .vx-sep{font-size:.85rem;color:var(--vx-muted)}
 
 .vx-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
 .vx-actions .btn{min-height:44px;padding:10px 16px;font-size:.95rem}
-.vx-more{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,'Poppins Fallback',system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .18s,color .18s}
+.vx-more{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .18s,color .18s}
 .vx-more:hover,.vx-more:focus-visible{background:var(--vx-blue);color:#fff}
 
 /* ---------- Panel de detalle: <dialog> con fondo difuminado ---------- */
 .vx-dialog{width:min(680px,calc(100% - 32px));max-width:680px;margin:auto;padding:0;border:0;border-radius:20px;background:#fff;color:var(--vx-ink);box-shadow:0 24px 80px rgba(5,22,111,.35);overflow:hidden;opacity:0;transform:translateY(12px) scale(.98)}
 .vx-dialog[open]{opacity:1;transform:none}
-.vx-dialog:focus{outline:none}   /* Los estilos base ponen margin:0 a todo; aquí se recupera el centrado */
+.vx-dialog:focus{outline:none}   /* style_work2.css pone margin:0 a todo; aquí se recupera el centrado */
 .vx-dialog::backdrop{background:rgba(5,16,64,.45);-webkit-backdrop-filter:blur(8px) saturate(120%);backdrop-filter:blur(8px) saturate(120%);opacity:0}
 .vx-dialog[open]::backdrop{opacity:1}
 
@@ -302,9 +122,9 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 /* Paneles de las cards Pro/Recomendado: mismo degradado que el banner de auditoría (.vx-audit) */
 .vx-dialog--featured .vx-panel-head{background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%)}
 /* Pestaña Pro / Recomendado sobre el título de los paneles destacados */
-.vx-panel-tag{display:inline-block;margin:0 0 10px;padding:4px 12px;border-radius:999px;background:#fff;color:var(--vx-blue);font:800 .72rem Montserrat,'Montserrat Fallback',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 12px rgba(5,22,111,.25)}
-.vx-panel-head .vx-eyebrow{margin:0 0 4px;font:700 .75rem Montserrat,'Montserrat Fallback',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
-.vx-panel-head h2{margin:0 44px 6px 0;font:800 1.45rem/1.2 Montserrat,'Montserrat Fallback',system-ui,sans-serif;color:#fff}
+.vx-panel-tag{display:inline-block;margin:0 0 10px;padding:4px 12px;border-radius:999px;background:#fff;color:var(--vx-blue);font:800 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 12px rgba(5,22,111,.25)}
+.vx-panel-head .vx-eyebrow{margin:0 0 4px;font:700 .75rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.vx-panel-head h2{margin:0 44px 6px 0;font:800 1.45rem/1.2 Montserrat,system-ui,sans-serif;color:#fff}
 .vx-panel-head .vx-result{margin:0 0 12px;opacity:.95;line-height:1.5}
 .vx-panel-head .vx-price s{color:rgba(255,255,255,.72)}
 .vx-panel-head .vx-price strong{color:#fff}
@@ -314,7 +134,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-close:hover{background:rgba(255,255,255,.28)}
 
 .vx-panel-body{padding:20px 28px;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.vx-panel-body h3{margin:20px 0 8px;font:700 .8rem Montserrat,'Montserrat Fallback',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-panel-body h3{margin:20px 0 8px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
 .vx-panel-body h3:first-of-type{margin-top:0}
 .vx-panel-body p,.vx-panel-body li{font-size:.97rem;line-height:1.55}
 .vx-media{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin:0 0 16px;border-radius:12px}
@@ -354,7 +174,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 
 /* Comparación desplegable: la tabla se muestra solo al presionar "¿Cuál debería elegir?" */
 .vx-compare{margin-top:24px}
-.vx-compare>summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,'Poppins Fallback',system-ui,sans-serif;list-style:none;cursor:pointer;transition:background-color .2s,color .2s}
+.vx-compare>summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,system-ui,sans-serif;list-style:none;cursor:pointer;transition:background-color .2s,color .2s}
 .vx-compare>summary::-webkit-details-marker{display:none}
 .vx-compare>summary::after{content:"";width:8px;height:8px;margin-top:-4px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
 .vx-compare[open]>summary::after{margin-top:4px;transform:rotate(-135deg)}
@@ -362,12 +182,12 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-compare>summary:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
 .vx-compare .vx-table-wrap{margin-top:16px}
 @media (prefers-reduced-motion:reduce){.vx-compare>summary,.vx-compare>summary::after{transition:none}}
-.vx-table caption{padding:0 0 10px;text-align:left;font:700 .8rem Montserrat,'Montserrat Fallback',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue);caption-side:top}
+.vx-table caption{padding:0 0 10px;text-align:left;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue);caption-side:top}
 .vx-table th,.vx-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--vx-line);line-height:1.45}
 .vx-table thead th{background:var(--vx-blue);color:#fff}
 .vx-table tbody th{font-weight:600}
 .vx-table tbody tr:last-child>*{border-bottom:0}
-
+.vx-table .vx-yes-cell{color:var(--vx-yes);font-weight:600}
 .vx-table .vx-price-row>*{background:var(--vx-tint);font-weight:700}
 @media (max-width:560px){.vx-table{font-size:.85rem}.vx-table th,.vx-table td{padding:10px 8px}}
 
@@ -400,7 +220,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 /* ---------- Enlace a otra sección (home: salud / catálogo) ---------- */
 .vx-links{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:18px}
 .vx-links a{display:block;padding:18px 20px;background:#fff;border:1.5px solid var(--vx-line);border-radius:var(--vx-r)}
-.vx-links strong{display:block;margin-bottom:4px;padding-right:48px;color:var(--vx-blue);font-family:Montserrat,'Montserrat Fallback',system-ui,sans-serif}
+.vx-links strong{display:block;margin-bottom:4px;padding-right:48px;color:var(--vx-blue);font-family:Montserrat,system-ui,sans-serif}
 .vx-links span{display:block;color:var(--vx-muted);font-size:.92rem;line-height:1.5}
 
 /* ---------- Navegadores sin <dialog> (muy antiguos): panel fijo simple ---------- */
@@ -421,11 +241,16 @@ body>footer p+p{margin-top:2px}
 .btn.vx-audit-btn:hover{filter:brightness(1.15);box-shadow:0 10px 26px rgba(31,75,255,.4);transform:translateY(-1px)}
 .hero-panel .btn.vx-audit-btn,.cta-panel .btn.vx-audit-btn{box-shadow:0 0 0 1.5px rgba(255,255,255,.45) inset}
 .hero-panel .btn.vx-audit-btn:hover,.cta-panel .btn.vx-audit-btn:hover{box-shadow:0 0 0 1.5px rgba(255,255,255,.6) inset,0 10px 26px rgba(31,75,255,.45)}
+.vx-audit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding:22px 24px;border-radius:var(--vx-r);background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);color:#fff;box-shadow:var(--vx-shadow)}
+.vx-audit h2{margin:0 0 4px;font-size:1.25rem;color:#fff}
+.vx-audit p{margin:0;max-width:60ch;line-height:1.5;opacity:.95}
+.vx-audit .btn{background:#fff;color:var(--vx-blue);min-height:44px}
+.vx-audit .btn:hover{background:#eef1fb}
 
 /* ---------- Selector por situación (home): cards compactas que llevan al catálogo ---------- */
 .vx-paths{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:0;padding:0;list-style:none}
 .vx-paths a{display:flex;align-items:center;height:100%;padding:16px 18px;background:#fff;border:1.5px solid var(--vx-line);border-radius:12px;color:var(--vx-ink);text-decoration:none}
-.vx-paths strong{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:Montserrat,'Montserrat Fallback',system-ui,sans-serif;font-size:.92rem;line-height:1.3;color:var(--vx-blue)}
+.vx-paths strong{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:Montserrat,system-ui,sans-serif;font-size:.92rem;line-height:1.3;color:var(--vx-blue)}
 .vx-paths strong::after{content:"\2192";font-weight:700}
 
 /* ---------- Efecto de cards enlace (selector del inicio y "También te puede servir") ----------
@@ -449,6 +274,7 @@ body>footer p+p{margin-top:2px}
 .vx-social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid currentColor;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--vx-blue);transition:background-color .3s ease,color .3s ease,border-color .3s ease}
 .vx-social a:hover{background:var(--vx-electric);border-color:var(--vx-electric);color:#fff}
 .vx-social svg{width:18px;height:18px;fill:currentColor;flex:none}
+
 
 /* ---------- Encabezados azules (.hero-panel): símbolo de Vlue de fondo ----------
    Reemplaza el patrón de puntitos. El símbolo (SVG, nítido en cualquier pantalla) es blanco y muy tenue, cortado en la esquina inferior derecha.

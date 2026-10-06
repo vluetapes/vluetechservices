@@ -1,3 +1,0 @@
-Montserrat (Copyright The Montserrat Project Authors) y Poppins (Copyright Indian Type Foundry)
-se distribuyen bajo la SIL Open Font License 1.1: https://openfontlicense.org
-Archivos descargados de Google Fonts (subconjunto latino, formato woff2) para servirlos desde este sitio.

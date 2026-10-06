@@ -25,26 +25,14 @@
   var GA4_ID = 'G-LJNVK597JG';
 
   if (GA4_ID && typeof window.gtag !== 'function') {
-    // gtag y la cola existen desde ya: la visita y los clics se registran aunque el
-    // script de Google todavía no haya llegado, y se envían cuando carga.
+    var ga = d.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+    d.head.appendChild(ga);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', GA4_ID);
-    // El script de Google se descarga cuando la página ya terminó de cargar y el navegador
-    // está libre, para no competir con lo que el visitante ve primero.
-    var cargarGA = function () {
-      var ga = d.createElement('script');
-      ga.async = true;
-      ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
-      d.head.appendChild(ga);
-    };
-    var cuandoLibre = function () {
-      if ('requestIdleCallback' in window) window.requestIdleCallback(cargarGA, { timeout: 3000 });
-      else setTimeout(cargarGA, 1500);
-    };
-    if (d.readyState === 'complete') cuandoLibre();
-    else window.addEventListener('load', cuandoLibre, { once: true });
   }
 
   function track(evento, datos) {

@@ -14,8 +14,8 @@ HTML, CSS y JavaScript sin framework ni compilación. Se publica con GitHub Page
 | `salud/` | Planes para clínicas y consultas |
 | `contacto/` | Canales de contacto (WhatsApp, formulario Tally, correo) |
 | `privacidad/` | Política de privacidad |
-| `estilos.css` | Todos los estilos: fuentes, base y componentes compartidos (cards, paneles, preguntas frecuentes) |
-| `fonts/` | Fuentes Montserrat y Poppins guardadas en la web (licencia OFL) |
+| `style_work2.css` | Estilos base |
+| `vx-ui.css` | Componentes compartidos (cards, paneles, preguntas frecuentes) |
 | `vx-ui.js` | Paneles de detalle, calculadora de salud y Google Analytics 4 |
 | `img/` | Logo, íconos e imágenes; `img/og/` tiene una imagen para redes por página |
 | `herramientas/revisar.py` | Revisión antes de publicar |
@@ -26,7 +26,7 @@ HTML, CSS y JavaScript sin framework ni compilación. Se publica con GitHub Page
 python herramientas/revisar.py
 ```
 
-Actualiza solo el `?v=` del CSS y el JS en todas las páginas (para que nadie vea una versión vieja guardada), revisa los datos para Google (JSON-LD) y los enlaces internos, y lista los `[PENDIENTE]` que quedan en el código. Si muestra errores, corrígelos antes de hacer el commit.
+Actualiza solo el `?v=` de los CSS y JS en todas las páginas (para que nadie vea una versión vieja guardada), revisa los datos para Google (JSON-LD) y los enlaces internos, y lista los `[PENDIENTE]` que quedan en el código. Si muestra errores, corrígelos antes de hacer el commit.
 
 ## Convenciones
 
