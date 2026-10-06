@@ -233,10 +233,14 @@ body>footer p+p{margin-top:2px}
 .logo:focus-visible{outline:3px solid #7aa2ff;outline-offset:4px;border-radius:4px}
 
 /* ---------- Auditoría gratis (botón y franja) ---------- */
-.btn.vx-audit-btn{background:var(--vx-electric);color:#fff;transition:background-color .3s ease,box-shadow .3s ease,transform .2s ease}
-.btn.vx-audit-btn:hover{background:#3a62ff;box-shadow:0 10px 26px rgba(31,75,255,.4);transform:translateY(-1px)}
-.hero-panel .btn.vx-audit-btn,.cta-panel .btn.vx-audit-btn{background:var(--vx-electric);color:#fff;box-shadow:0 0 0 1.5px rgba(255,255,255,.35) inset}
-.hero-panel .btn.vx-audit-btn:hover,.cta-panel .btn.vx-audit-btn:hover{background:#3a62ff}
+/* Todos los botones con el texto centrado: en celular ocupan todo el ancho y el texto quedaba a la izquierda */
+.btn{justify-content:center;text-align:center}
+/* Botón de auditoría: el mismo degradado de las cards Pro/Recomendado (azul Vlue → azul eléctrico).
+   Al pasar el mouse se aclara un poco (filter) y sube, porque un degradado no se puede animar de color a color. */
+.btn.vx-audit-btn{background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);color:#fff;transition:filter .3s ease,box-shadow .3s ease,transform .2s ease}
+.btn.vx-audit-btn:hover{filter:brightness(1.15);box-shadow:0 10px 26px rgba(31,75,255,.4);transform:translateY(-1px)}
+.hero-panel .btn.vx-audit-btn,.cta-panel .btn.vx-audit-btn{box-shadow:0 0 0 1.5px rgba(255,255,255,.45) inset}
+.hero-panel .btn.vx-audit-btn:hover,.cta-panel .btn.vx-audit-btn:hover{box-shadow:0 0 0 1.5px rgba(255,255,255,.6) inset,0 10px 26px rgba(31,75,255,.45)}
 .vx-audit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding:22px 24px;border-radius:var(--vx-r);background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);color:#fff;box-shadow:var(--vx-shadow)}
 .vx-audit h2{margin:0 0 4px;font-size:1.25rem;color:#fff}
 .vx-audit p{margin:0;max-width:60ch;line-height:1.5;opacity:.95}
