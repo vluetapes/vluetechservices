@@ -2,12 +2,14 @@
    vx-ui.js  v1  —  Vlue Tech Services
    Se carga al final de cada página con defer. El ?v= lo actualiza
    herramientas/revisar.py (córrelo antes de publicar).
-   Hace 3 cosas:
+   Hace 4 cosas:
      1. Paneles de detalle (<dialog>) con fondo difuminado: abrir, cerrar,
         enlace propio (#pack-despegue) y botón Atrás del celular.
      2. Calculadora de retorno de /salud/.
      3. Carga Google Analytics 4 (si GA4_ID tiene tu ID) y le envía los clics
         marcados con data-evento. Sin ID no carga nada ni envía nada.
+     4. En celular y tablet, enciende las cards destacadas al pasar por el
+        centro de la pantalla (en computador lo hace el hover del CSS).
    ===================================================================== */
 (function () {
   'use strict';
@@ -18,6 +20,16 @@
                   typeof HTMLDialogElement.prototype.showModal === 'function';
 
   if (!hasDialog) html.classList.add('vx-nodialog');
+
+  /* ---------- Cards destacadas en pantallas táctiles ----------
+     Sin mouse no hay :hover, así que la card se pone azul (.is-lit) mientras
+     cruza la franja central de la pantalla y vuelve a blanco al salir. */
+  if (window.matchMedia && window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+    var lit = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('is-lit', e.isIntersecting); });
+    }, { rootMargin: '-40% 0px -40% 0px' });
+    d.querySelectorAll('.vx-card--featured, .vx-card--glow').forEach(function (c) { lit.observe(c); });
+  }
 
   /* ---------- Medición ----------
      Pega aquí tu ID de medición de Google Analytics 4 (empieza con "G-").

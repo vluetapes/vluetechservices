@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('vx-js')</script>
-<title>Precios: Google Maps y Tarjetas NFC en Santiago | Vlue</title>
+<title>Precios: Tarjetas NFC y Google Maps en Chile | Vlue</title>
 <meta name="description" content="Packs, tarjetas NFC de reseñas y fichas de Google Maps con precios claros e IVA incluido. Precio piloto hasta el 31 de octubre.">
 <link rel="canonical" href="https://vluetechservices.cl/catalogo/">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="Vlue Tech Services">
 <meta property="og:url" content="https://vluetechservices.cl/catalogo/">
-<meta property="og:title" content="Precios: Google Maps y Tarjetas NFC en Santiago | Vlue">
+<meta property="og:title" content="Precios: Tarjetas NFC y Google Maps en Chile | Vlue">
 <meta property="og:description" content="Packs, tarjetas NFC de reseñas y fichas de Google Maps con precios claros e IVA incluido.">
 <meta property="og:image" content="https://vluetechservices.cl/img/og/catalogo.jpg">
 <meta property="og:image:width" content="1200">
@@ -21,14 +21,14 @@
 <meta property="og:image:alt" content="Catálogo Vlue: Google Maps y tarjetas NFC para tu negocio en Santiago">
 <meta name="twitter:image:alt" content="Catálogo Vlue: Google Maps y tarjetas NFC para tu negocio en Santiago">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Precios: Google Maps y Tarjetas NFC en Santiago | Vlue">
+<meta name="twitter:title" content="Precios: Tarjetas NFC y Google Maps en Chile | Vlue">
 <meta name="twitter:description" content="Packs, tarjetas NFC de reseñas y fichas de Google Maps con precios claros e IVA incluido.">
 <meta name="twitter:image" content="https://vluetechservices.cl/img/og/catalogo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=de46afb1">
-<link rel="stylesheet" href="/vx-ui.css?v=50cbc640">
+<link rel="stylesheet" href="/style_work2.css?v=880f04e8">
+<link rel="stylesheet" href="/vx-ui.css?v=61c6050b">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -58,8 +58,22 @@
       "url": "https://vluetechservices.cl/",
       "logo": "https://vluetechservices.cl/img/icon-512.png",
       "image": "https://vluetechservices.cl/img/og/inicio.jpg",
-      "description": "Fichas de Google Maps, tarjetas NFC y gestión de reseñas para negocios de Santiago.",
+      "description": "Fichas de Google Maps con visita en Santiago, y tarjetas NFC y gestión de reseñas para negocios de todo Chile.",
       "telephone": "+56926191935",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "15:00"
+        }
+      ],
       "hasMap": "https://maps.google.com/?cid=330250948353902531",
       "sameAs": [
         "https://maps.google.com/?cid=330250948353902531",
@@ -72,10 +86,16 @@
         "addressRegion": "Región Metropolitana",
         "addressCountry": "CL"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Santiago"
-      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Santiago"
+        },
+        {
+          "@type": "Country",
+          "name": "Chile"
+        }
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Catálogo Vlue Tech Services",
@@ -280,7 +300,7 @@
           {
             "@type": "Offer",
             "name": "Asesoría virtual 1:1",
-            "description": "Una hora por videollamada para ordenar tu ficha, estés donde estés. Precio por hora.",
+            "description": "Una hora por videollamada para ordenar tu perfil de Google, estés donde estés en Chile. Precio por hora.",
             "price": "39990",
             "priceCurrency": "CLP",
             "url": "https://vluetechservices.cl/catalogo/#asesoria-1a1",
@@ -335,7 +355,7 @@
       "@type": "CollectionPage",
       "@id": "https://vluetechservices.cl/catalogo/#pagina",
       "url": "https://vluetechservices.cl/catalogo/",
-      "name": "Precios: Google Maps y Tarjetas NFC en Santiago | Vlue",
+      "name": "Precios: Tarjetas NFC y Google Maps en Chile | Vlue",
       "inLanguage": "es-CL",
       "isPartOf": {
         "@id": "https://vluetechservices.cl/#web"
@@ -394,10 +414,10 @@
         },
         {
           "@type": "Question",
-          "name": "¿Trabajan fuera de Santiago?",
+          "name": "¿Envían las tarjetas a regiones?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La visita es en Santiago. Para regiones, asesoría 1:1 por videollamada y despacho de tarjetas a todo Chile."
+            "text": "Sí, enviamos las tarjetas NFC a todo Chile. La visita para la ficha de Google Maps es solo en Santiago; si estás en regiones, pide la auditoría gratis o toma la asesoría 1:1 por videollamada."
           }
         },
         {
@@ -435,7 +455,7 @@
     <nav class="vx-crumbs" aria-label="Migas de pan"><a href="/">Inicio</a> &rsaquo; <span aria-current="page">Catálogo</span></nav>
     <div class="eyebrow">Catálogo y servicios</div>
     <h1>Precios de tarjetas NFC y fichas de Google Maps</h1>
-    <p class="sub">Tarjetas NFC para reseñas desde 24.990, fichas de Google Maps desde 39.990. <br> Precios con IVA incluido y sin mensualidad obligatoria.</p>
+    <p class="sub">Tarjetas NFC para reseñas desde $24.990, fichas de Google Maps desde $39.990. <br> Precios con IVA incluido y sin mensualidad obligatoria.</p>
     <div class="cta-row">
       <a class="btn vx-audit-btn" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="hero" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
       <a class="btn btn-outline" href="#packs">Ver packs<span class="btn-arrow">&rarr;</span></a>
@@ -445,7 +465,7 @@
 <section style="padding-bottom:0;">
   <div class="wrap">
     <aside class="vx-pilot" role="note">
-      <strong>Precio piloto hasta el 31 de octubre de 2026.</strong> A cambio, te pedimos tu opinión y permiso para mostrar el antes y el después de tu ficha.
+      <strong>Precio piloto hasta el 31 de octubre de 2026.</strong> A cambio, te pedimos tu opinión y permiso para mostrar el antes y el después de tu perfil en Google.
     </aside>
     <!-- [ACTUALIZAR el 1 de noviembre]: quitar este aviso, dejar solo el precio regular y quitar priceValidUntil del JSON-LD -->
     <!-- [PENDIENTE] Si quieres hablar de cupos limitados, agrega el número real; nunca urgencia falsa -->
@@ -509,7 +529,7 @@
 </article>
 <article class="vx-card" id="card-cat-ficha">
   <h3>Ficha de Google Maps</h3>
-  <p class="vx-result">Creamos tu ficha o ponemos al día la que ya tienes.</p>
+  <p class="vx-result">Te ponemos en Google Maps o dejamos al día el perfil que ya tienes.</p>
   <p class="vx-sep">Crea tu ficha · Optimiza tu ficha · Ficha completa</p>
   <p class="vx-price"><small>Desde</small> <strong>$39.990</strong></p>
   <div class="vx-actions">
@@ -518,7 +538,7 @@
 </article>
 <article class="vx-card" id="card-cat-gestion">
   <h3>Gestión mensual</h3>
-  <p class="vx-result">Publicamos en tu ficha, respondemos tus reseñas y te mandamos un informe al mes.</p>
+  <p class="vx-result">Publicamos en tu Perfil de Empresa de Google, respondemos tus reseñas y te mandamos un informe al mes. A distancia, en todo Chile.</p>
   <p class="vx-sep">Crecimiento mensual · Reputación Pro</p>
   <p class="vx-price"><small>Desde</small> <strong>$69.990</strong><small>/mes</small></p>
   <div class="vx-actions">
@@ -539,7 +559,7 @@
     <div class="vx-grid">
 <article class="vx-card" id="card-asesoria-1a1">
   <h3>Asesoría virtual 1:1</h3>
-  <p class="vx-result">Una hora por videollamada para ordenar tu ficha, estés donde estés.</p>
+  <p class="vx-result">Una hora por videollamada para ordenar tu perfil de Google, estés donde estés en Chile.</p>
   <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$49.990</s> <strong><span class="vx-sr">Precio piloto </span>$39.990</strong><small>/hora</small></p>
   <div class="vx-actions">
     <button type="button" class="vx-more" data-open="asesoria-1a1" aria-haspopup="dialog" aria-label="Ver detalle: Asesoría virtual 1:1">Ver detalle</button>
@@ -557,8 +577,8 @@
     </div>
     <ol class="vx-steps">
       <li><strong>Hablamos por WhatsApp</strong>Nos cuentas tu negocio y confirmamos qué necesitas.</li>
-      <li><strong>Visitamos tu local</strong>En Santiago: fotos, video y datos de tu ficha.</li>
-      <li><strong>Entregamos</strong>Ficha lista, tarjetas probadas y un informe antes/después.</li>
+      <li><strong>Visitamos tu local</strong>En Santiago: fotos, video y los datos de tu negocio.</li>
+      <li><strong>Entregamos</strong>Perfil listo, tarjetas probadas y un informe antes/después.</li>
     </ol>
   </div>
 </section>
@@ -570,7 +590,7 @@
         <li>Precios en pesos chilenos, IVA incluido. Para factura te indicamos el neto.</li>
         <li>Pagas con tarjeta, transferencia o efectivo; entregamos boleta o factura.</li>
         <li>Entrega en menos de 48 horas. La aprobación de Google no depende de nosotros.</li>
-        <li>La ficha siempre es tuya: trabajamos con acceso de administrador.</li>
+        <li>El perfil siempre es tuyo: trabajamos con acceso de administrador.</li>
         <li>No prometemos un lugar en Google: nadie puede hacerlo.</li>
       </ul>
     </div>
@@ -586,7 +606,7 @@
   <details><summary>¿Cuánto cuesta una tarjeta NFC para reseñas?</summary><div><p>$24.990 a precio piloto. Incluye tu logo, un QR de respaldo, la programación y 6 meses de garantía. <a href="/catalogo/tarjetas-nfc-resenas/">Ver tarjetas</a>.</p></div></details>
   <details><summary>¿Mi cliente necesita una app o un celular con NFC?</summary><div><p>No. Acerca el celular y se abre solo; si no tiene NFC, escanea el QR de la misma tarjeta.</p></div></details>
   <details><summary>¿Puedo cambiar a dónde lleva la tarjeta?</summary><div><p>Sí. La actualizamos sin cambiar la tarjeta.</p></div></details>
-  <details><summary>¿Trabajan fuera de Santiago?</summary><div><p>La visita es en Santiago. Para regiones, <a href="#asesoria-1a1">asesoría 1:1 por videollamada</a> y despacho de tarjetas a todo Chile.</p></div></details>
+  <details><summary>¿Envían las tarjetas a regiones?</summary><div><p>Sí, enviamos las tarjetas NFC a todo Chile. La visita para la ficha de Google Maps es solo en Santiago; si estás en regiones, pide la auditoría gratis o toma la <a href="#asesoria-1a1">asesoría 1:1 por videollamada</a>.</p></div></details>
   <details><summary>¿Qué es el precio piloto?</summary><div><p>Es el precio de lanzamiento de octubre de 2026. Desde el 1 de noviembre rige el precio regular.</p></div></details>
 </div>
   </div>
@@ -629,13 +649,13 @@
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/pack-despegue-tarjeta-meson.webp" alt="Tarjeta Vlue sobre un mesón con un celular acercándose" width="640" height="360" loading="lazy" decoding="async"> -->
       <h3>Para quién</h3>
-      <p>Negocios que aún no tienen ficha y quieren partir completos.</p>
+      <p>Negocios que aún no aparecen en Google Maps y quieren partir completos.</p>
       <h3>Incluye</h3>
       <ul class="vx-list vx-yes"><li>Ficha completa de Google Maps: creación, verificación en persona y optimización</li><li>1 Tarjeta Vlue a tu gusto, con tu logo (reseña, redes, wifi, menú u otra función)</li><li>Informe antes/después de tu ficha</li><li>Asesoría breve para mantener tu ficha ordenada desde el día uno</li><li>Garantía de 6 meses de la tarjeta por falla de funcionamiento</li></ul>
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Gestión mensual (se contrata aparte)</li></ul>
       <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y datos.</li><li>Dejamos tu ficha lista y te entregamos la tarjeta.</li></ol>
+      <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y datos.</li><li>Dejamos tu perfil listo y te entregamos la tarjeta.</li></ol>
       <h3>Entrega</h3>
       <p>En menos de 48 horas desde la visita. La verificación depende de la aprobación de Google.</p>
     </div>
@@ -681,7 +701,7 @@
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
       <p class="vx-eyebrow">Asesoría</p>
       <h2 id="asesoria-1a1-t">Asesoría virtual 1:1</h2>
-      <p class="vx-result">Una hora por videollamada para ordenar tu ficha, estés donde estés.</p>
+      <p class="vx-result">Una hora por videollamada para ordenar tu perfil de Google, estés donde estés en Chile.</p>
       <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$49.990</s> <strong><span class="vx-sr">Precio piloto </span>$39.990</strong><small>/hora</small></p>
     </header>
     <div class="vx-panel-body">
@@ -706,7 +726,7 @@
 <footer>
   <div class="wrap">
     <div class="logo"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services" width="708" height="120" loading="lazy" decoding="async"></div>
-    <p>Reseñas y Google Maps para negocios de Santiago</p>
+    <p>Reseñas y Google Maps para negocios de Chile</p>
     <p>Vlue Tech Services SpA &middot; Santiago, Chile</p>
     <nav class="foot-links" aria-label="Secciones">
       <a href="/catalogo/">Catálogo</a>
@@ -719,6 +739,7 @@
       <a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a>
       <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="pie">WhatsApp</a>
     </div>
+    <p class="vx-hours">Atención: lunes a viernes de 10:00 a 19:00<br>Sábado y domingo de 10:00 a 15:00</p>
     <div class="vx-social">
       <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Vlue en Google Maps</a>
       <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg>@vluetechservices</a>
@@ -730,6 +751,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
-<script src="/vx-ui.js?v=72f6e51a" defer></script>
+<script src="/vx-ui.js?v=e2f4edbe" defer></script>
 </body>
 </html>

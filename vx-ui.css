@@ -75,6 +75,15 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
   :is(.vx-card--featured,.vx-card--glow):hover .vx-more{background:transparent;border-color:#fff;color:#fff}
   :is(.vx-card--featured,.vx-card--glow):hover .vx-more:hover{background:#fff;color:var(--vx-electric)}
 }
+/* Celular y tablet no tienen hover: vx-ui.js le pone .is-lit a la card cuando llega al centro de la pantalla,
+   y se ve igual que con el mouse encima en el computador. */
+.is-lit:is(.vx-card--featured,.vx-card--glow){background-color:var(--vx-blue);border-color:var(--vx-blue);color:#fff;box-shadow:0 4px 10px rgba(31,75,255,.25),0 22px 48px rgba(31,75,255,.35)}
+.is-lit:is(.vx-card--featured,.vx-card--glow)::before{opacity:1}
+.is-lit:is(.vx-card--featured,.vx-card--glow) :is(h3,p,.vx-result,.vx-sep,.vx-price strong,.vx-price s,.vx-price small){color:#fff}
+.is-lit:is(.vx-card--featured,.vx-card--glow) .vx-price s{opacity:.8}
+.is-lit:is(.vx-card--featured,.vx-card--glow) .vx-badge{background:#fff;color:var(--vx-electric)}
+.is-lit:is(.vx-card--featured,.vx-card--glow) .btn-primary{background:#fff;color:var(--vx-electric)}
+.is-lit:is(.vx-card--featured,.vx-card--glow) .vx-more{background:transparent;border-color:#fff;color:#fff}
 
 .vx-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:2px 0 0}
 .vx-price s{color:var(--vx-muted);font-size:.95rem}
@@ -229,6 +238,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 /* ---------- Pie de página y enlaces dentro de textos ---------- */
 body>footer .foot-links{flex-wrap:wrap;row-gap:6px}
 body>footer p+p{margin-top:2px}
+body>footer .vx-hours{margin-top:12px}
 .vx-faq a,.vx-panel-body a,.notes-list a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .logo:focus-visible{outline:3px solid #7aa2ff;outline-offset:4px;border-radius:4px}
 

@@ -27,8 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=de46afb1">
-<link rel="stylesheet" href="/vx-ui.css?v=50cbc640">
+<link rel="stylesheet" href="/style_work2.css?v=880f04e8">
+<link rel="stylesheet" href="/vx-ui.css?v=61c6050b">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -43,6 +43,20 @@
       "name": "Vlue Tech Services",
       "url": "https://vluetechservices.cl/",
       "telephone": "+56926191935",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "15:00"
+        }
+      ],
       "email": "contacto@vluetechservices.cl",
       "address": {
         "@type": "PostalAddress",
@@ -50,10 +64,16 @@
         "addressRegion": "Región Metropolitana",
         "addressCountry": "CL"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": "Santiago"
-      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Santiago"
+        },
+        {
+          "@type": "Country",
+          "name": "Chile"
+        }
+      ],
       "sameAs": [
         "https://maps.google.com/?cid=330250948353902531",
         "https://www.instagram.com/vluetechservices/"
@@ -171,7 +191,7 @@
           "name": "¿Qué es una ficha de Google Maps?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Es el perfil de empresa en Google: lo que aparece cuando alguien busca tu negocio o tu rubro en Google Maps, con tu dirección, horario, fotos, teléfono y reseñas. Es gratis tenerla; lo que cuesta es dejarla completa y verificada."
+            "text": "Es tu Perfil de Empresa de Google: lo que aparece cuando alguien busca tu negocio o tu rubro en Google Maps, con tu dirección, horario, fotos, teléfono y reseñas. Es gratis tenerla; lo que cuesta es dejarla completa y verificada."
           }
         },
         {
@@ -203,15 +223,23 @@
           "name": "¿Garantizan que voy a salir primero en Google?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, nadie puede hacerlo. Mejoramos todo lo que depende de tu ficha; la posición final la decide Google."
+            "text": "No, nadie puede hacerlo. Mejoramos todo lo que depende de tu perfil; la posición final la decide Google."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Y si mi negocio no está en Santiago?",
+          "name": "¿Y si mi negocio está en regiones?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La visita es en Santiago. Para regiones tenemos una asesoría 1:1 por videollamada para que ordenes tu ficha con guía."
+            "text": "La visita a tu local es solo en Santiago. Si estás en regiones, pide la auditoría gratis: revisamos tu ficha a distancia y te decimos si te sirve la asesoría 1:1 por videollamada. Las tarjetas NFC de reseñas sí las enviamos a todo Chile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hago si suspendieron mi ficha de Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No crees una ficha nueva: eso suele empeorar el caso. Revisa que el nombre no tenga palabras de más y que la dirección y la categoría sean reales, y después presenta una apelación desde tu Perfil de Empresa de Google. Si tienes la gestión mensual con nosotros, revisamos la causa y hacemos la apelación contigo."
           }
         }
       ]
@@ -240,8 +268,8 @@
   <div class="wrap">
     <nav class="vx-crumbs" aria-label="Migas de pan"><a href="/">Inicio</a> &rsaquo; <a href="/catalogo/">Catálogo</a> &rsaquo; <span aria-current="page">Ficha de Google Maps</span></nav>
     <div class="eyebrow">Ficha de Google Maps · Santiago</div>
-    <h1>Tu ficha de Google Maps, creada y al día</h1>
-    <p class="sub">Vamos a tu local, tomamos fotos y video, y dejamos tu ficha completa.</p>
+    <h1>Aparece en Google Maps con tu ficha creada y al día</h1>
+    <p class="sub">Vamos a tu local en Santiago, tomamos fotos y video, y dejamos tu ficha verificada y completa. Desde $39.990.</p>
     <div class="cta-row">
       <a class="btn vx-audit-btn" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google%20Maps" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="hero" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
       <a class="btn btn-outline" href="#precios">Ver precios<span class="btn-arrow">&rarr;</span></a>
@@ -253,7 +281,7 @@
     <div class="section-head">
       <h2>Qué ve un cliente cuando te busca en Google Maps</h2>
     </div>
-    <p class="vx-lead">Antes de llamarte o de ir a tu local, la persona compara fichas: fotos, horario, reseñas y categorías. Una ficha sin fotos o con datos viejos se ve abandonada. Y si no tienes ficha, no apareces en el mapa. Hay una opción para cada caso:</p>
+    <p class="vx-lead">Antes de llamarte o de ir a tu local, la persona compara negocios en el mapa: fotos, horario, reseñas y categorías. Un perfil sin fotos o con datos viejos se ve abandonado, y si no tienes ficha, ni siquiera apareces en el mapa. Pero hay una opción para cada caso:</p>
     <div class="vx-grid">
       <article class="vx-card"><h3>No tienes ficha</h3><p><strong>Crea tu ficha</strong> te pone en el mapa, verificado.</p></article>
       <article class="vx-card"><h3>Tu ficha está abandonada</h3><p><strong>Optimiza tu ficha</strong> la pone al día: fotos, horario y descripción.</p></article>
@@ -268,7 +296,7 @@
       <h2>Ficha de Google Maps: elige según cómo está la tuya</h2>
     </div>
     <!-- [ACTUALIZAR el 1 de noviembre]: dejar solo el precio regular y quitar priceValidUntil del JSON-LD -->
-    <p class="vx-lead">Si no sabes en qué estado está tu ficha, parte por la auditoría gratis: la revisamos y te decimos cuál de las tres te conviene.</p>
+    <p class="vx-lead">Si no sabes en qué estado está tu Perfil de Empresa de Google, parte por la auditoría gratis: lo revisamos y te decimos cuál de las tres te conviene. La visita a tu local es solo en Santiago.</p>
     <div class="vx-grid">
 <article class="vx-card vx-card--featured" id="card-maps-completa">
   <span class="vx-badge">Recomendado</span>
@@ -308,12 +336,12 @@
       <h2>Así dejamos lista tu ficha</h2>
     </div>
     <ol class="vx-steps">
-      <li><strong>Revisamos tu ficha</strong>Vemos si ya existe una (para no duplicarla) y registramos cómo está hoy.</li>
+      <li><strong>Revisamos tu perfil</strong>Vemos si ya existe un Perfil de Empresa de Google a tu nombre (para no duplicarlo) y registramos cómo está hoy.</li>
       <li><strong>Vamos a tu local</strong>En Santiago: fotos, video y, si hace falta, el video de verificación que pide Google.</li>
-      <li><strong>Entregamos con informe</strong>Ficha creada u optimizada en menos de 48 horas desde la visita, con un informe antes/después.</li>
+      <li><strong>Entregamos con informe</strong>Perfil creado u optimizado en menos de 48 horas desde la visita, con un informe antes/después.</li>
     </ol>
     <div class="notes-strip" style="margin-top:24px;">
-      <h2>Qué dejamos al día en tu ficha</h2>
+      <h2>¿Qué revisamos para posicionarte en Google Maps?</h2>
       <ul class="notes-list">
         <li>Nombre, dirección, teléfono, horarios y categoría principal correctos</li>
         <li>Categorías secundarias y atributos bien elegidos</li>
@@ -331,8 +359,8 @@
       <h2>Después de tener tu ficha</h2>
     </div>
     <div class="vx-links">
-      <a href="/catalogo/tarjetas-nfc-resenas/"><strong>Tarjetas NFC de reseñas</strong><span>Una ficha convence más con reseñas recientes. Tus clientes las dejan con un toque.</span></a>
-      <a href="/catalogo/gestion-resenas-google/"><strong>Gestión mensual</strong><span>Publicamos en tu ficha, respondemos tus reseñas y te mandamos un informe cada mes.</span></a>
+      <a href="/catalogo/tarjetas-nfc-resenas/"><strong>Tarjetas NFC de reseñas</strong><span>Un perfil convence más con reseñas recientes. Tus clientes las dejan con un toque.</span></a>
+      <a href="/catalogo/gestion-resenas-google/"><strong>Gestión mensual</strong><span>¿No tienes tiempo de mantenerla al día? Publicamos en tu perfil, respondemos tus reseñas y te mandamos un informe cada mes, a distancia.</span></a>
       <a href="/catalogo/#pack-despegue"><strong>Pack Despegue Vlue</strong><span>Ficha completa + 1 Tarjeta Vlue, por menos que comprarlos por separado.</span></a>
     </div>
   </div>
@@ -344,12 +372,13 @@
       <h2>Preguntas frecuentes sobre fichas de Google Maps</h2>
     </div>
 <div class="vx-faq">
-  <details><summary>¿Qué es una ficha de Google Maps?</summary><div><p>Es el perfil de empresa en Google: lo que aparece cuando alguien busca tu negocio o tu rubro en Google Maps, con tu dirección, horario, fotos, teléfono y reseñas. Es gratis tenerla; lo que cuesta es dejarla completa y verificada.</p></div></details>
+  <details><summary>¿Qué es una ficha de Google Maps?</summary><div><p>Es tu Perfil de Empresa de Google: lo que aparece cuando alguien busca tu negocio o tu rubro en Google Maps, con tu dirección, horario, fotos, teléfono y reseñas. Es gratis tenerla; lo que cuesta es dejarla completa y verificada.</p></div></details>
   <details><summary>¿Cuánto cuesta crear una ficha de Google Maps?</summary><div><p>Crea tu ficha cuesta $39.990 a precio piloto e incluye la creación y la verificación en persona. Si además quieres fotos, descripción y categorías trabajadas, la Ficha completa cuesta $64.990.</p></div></details>
   <details><summary>¿La ficha queda a mi nombre?</summary><div><p>Sí. Trabajamos con acceso de administrador, que puedes quitar cuando quieras.</p></div></details>
   <details><summary>¿Cuánto demora la verificación?</summary><div><p>Dejamos la ficha creada en menos de 48 horas desde la visita. El plazo de aprobación lo pone Google y no depende de nosotros.</p></div></details>
-  <details><summary>¿Garantizan que voy a salir primero en Google?</summary><div><p>No, nadie puede hacerlo. Mejoramos todo lo que depende de tu ficha; la posición final la decide Google.</p></div></details>
-  <details><summary>¿Y si mi negocio no está en Santiago?</summary><div><p>La visita es en Santiago. Para regiones tenemos una <a href="/catalogo/#asesoria-1a1">asesoría 1:1 por videollamada</a> para que ordenes tu ficha con guía.</p></div></details>
+  <details><summary>¿Garantizan que voy a salir primero en Google?</summary><div><p>No, nadie puede hacerlo. Mejoramos todo lo que depende de tu perfil; la posición final la decide Google.</p></div></details>
+  <details><summary>¿Y si mi negocio está en regiones?</summary><div><p>La visita a tu local es solo en Santiago. Si estás en regiones, pide la auditoría gratis: revisamos tu ficha a distancia y te decimos si te sirve la <a href="/catalogo/#asesoria-1a1">asesoría 1:1 por videollamada</a>. Las <a href="/catalogo/tarjetas-nfc-resenas/">tarjetas NFC de reseñas</a> sí las enviamos a todo Chile.</p></div></details>
+  <details><summary>¿Qué hago si suspendieron mi ficha de Google?</summary><div><p>No crees una ficha nueva: eso suele empeorar el caso. Revisa que el nombre no tenga palabras de más y que la dirección y la categoría sean reales, y después presenta una apelación desde tu Perfil de Empresa de Google. Si tienes la <a href="/catalogo/gestion-resenas-google/">gestión mensual</a> con nosotros, revisamos la causa y hacemos la apelación contigo.</p></div></details>
 </div>
   </div>
 </section>
@@ -384,7 +413,7 @@
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Gestión mensual (se contrata aparte)</li></ul>
       <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y verificación.</li><li>Entregamos tu ficha creada, verificada y optimizada.</li></ol>
+      <ol class="vx-steps-list"><li>Coordinamos por WhatsApp.</li><li>Vamos a tu local: fotos, video y verificación.</li><li>Entregamos tu perfil creado, verificado y optimizado.</li></ol>
       <h3>Entrega</h3>
       <p>En menos de 48 horas desde la visita (la verificación depende de Google).</p>
     </div>
@@ -412,7 +441,7 @@
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Optimización completa (fotos profesionales, catálogo, descripción trabajada)</li><li>Gestión mensual</li></ul>
       <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Revisamos que no exista una ficha duplicada.</li><li>Vamos a tu local y grabamos el video de verificación.</li><li>Creamos y enviamos tu ficha a verificar.</li></ol>
+      <ol class="vx-steps-list"><li>Revisamos que no exista una ficha duplicada.</li><li>Vamos a tu local y grabamos el video de verificación.</li><li>Creamos tu perfil y lo enviamos a verificar.</li></ol>
       <h3>Entrega</h3>
       <p>Creación en menos de 48 horas desde la visita. El plazo de aprobación depende de Google.</p>
     </div>
@@ -434,13 +463,13 @@
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/optimiza-ficha-antes-despues.webp" alt="Comparación antes y después de una ficha de Google Maps" width="640" height="360" loading="lazy" decoding="async"> -->
       <h3>Para quién</h3>
-      <p>Negocios que ya tienen ficha pero con pocas fotos, información incompleta o sin descripción.</p>
+      <p>Negocios que ya tienen su Perfil de Empresa de Google, pero con pocas fotos, información incompleta o sin descripción.</p>
       <h3>Incluye</h3>
       <ul class="vx-list vx-yes"><li>Revisión inicial con registro del estado &quot;antes&quot;</li><li>Visita para fotos y video del local</li><li>Categorías y atributos bien elegidos</li><li>Descripción del negocio, horarios y servicios o catálogo</li><li>Enlace directo para pedir reseñas</li><li>Informe antes/después con todo lo que se hizo</li></ul>
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Creación o verificación de ficha (ver Crea tu ficha)</li><li>Gestión mensual</li><li>Sesión extendida de video y Página de enlaces (se agregan aparte)</li></ul>
       <h3>Cómo funciona</h3>
-      <ol class="vx-steps-list"><li>Registramos cómo está tu ficha hoy.</li><li>Vamos a tu local: fotos y video.</li><li>Optimizamos tu ficha y te entregamos el informe antes/después.</li></ol>
+      <ol class="vx-steps-list"><li>Registramos cómo está tu ficha hoy.</li><li>Vamos a tu local: fotos y video.</li><li>Lo optimizamos y te entregamos el informe antes/después.</li></ol>
       <h3>Entrega</h3>
       <p>En menos de 48 horas desde la visita.</p>
     </div>
@@ -453,7 +482,7 @@
 <footer>
   <div class="wrap">
     <div class="logo"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services" width="708" height="120" loading="lazy" decoding="async"></div>
-    <p>Reseñas y Google Maps para negocios de Santiago</p>
+    <p>Reseñas y Google Maps para negocios de Chile</p>
     <p>Vlue Tech Services SpA &middot; Santiago, Chile</p>
     <nav class="foot-links" aria-label="Secciones">
       <a href="/catalogo/">Catálogo</a>
@@ -466,6 +495,7 @@
       <a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a>
       <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="pie">WhatsApp</a>
     </div>
+    <p class="vx-hours">Atención: lunes a viernes de 10:00 a 19:00<br>Sábado y domingo de 10:00 a 15:00</p>
     <div class="vx-social">
       <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Vlue en Google Maps</a>
       <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg>@vluetechservices</a>
@@ -477,6 +507,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
-<script src="/vx-ui.js?v=72f6e51a" defer></script>
+<script src="/vx-ui.js?v=e2f4edbe" defer></script>
 </body>
 </html>
