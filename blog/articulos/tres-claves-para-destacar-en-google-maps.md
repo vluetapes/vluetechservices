@@ -62,7 +62,6 @@ Una ficha que nadie toca hace meses se nota. Mantenerla activa toma poco tiempo:
 - **Cambios al día:** si cambias de horario, de teléfono o agregas un servicio, actualízalo en la ficha ese mismo día.
 - **Publicaciones:** desde tu Perfil de Negocio puedes publicar novedades y ofertas. Una al mes ya muestra que estás activo.
 
-*[PENDIENTE: captura de una ficha bien completa, con fotos y horario. 1200 px de ancho, WebP]*
 
 ## Revisa tu ficha en 10 minutos
 

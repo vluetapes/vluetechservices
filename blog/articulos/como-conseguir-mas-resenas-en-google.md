@@ -47,7 +47,6 @@ Cada paso extra hace que alguien se arrepienta: abrir Google, buscar tu negocio,
 3. En el panel de tu negocio, toca **Pedir reseñas** (a veces aparece como "Obtener más reseñas").
 4. Copia el enlace que te muestra. Ese es el que vas a compartir.
 
-*[PENDIENTE: captura del botón "Pedir reseñas" en el Perfil de Negocio. 1200 px de ancho, WebP]*
 
 ### Dónde poner el enlace
 
