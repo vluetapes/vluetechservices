@@ -1,0 +1,51 @@
+{
+  "titulo": "Lo que hace que te elijan en Google",
+  "bajada": "Guías cortas para negocios de Chile: cómo destacar en Google Maps, cómo conseguir reseñas y qué evitar. Para leer en cinco minutos y aplicar el mismo día.",
+  "categorias": [
+    { "slug": "google-maps", "nombre": "Google Maps" },
+    { "slug": "resenas", "nombre": "Reseñas" },
+    { "slug": "tarjetas-nfc", "nombre": "Tarjetas NFC" },
+    { "slug": "salud", "nombre": "Salud" }
+  ],
+  "servicios": {
+    "tarjetas-nfc": {
+      "titulo": "Tarjeta Vlue para reseñas",
+      "texto": "Tu cliente acerca el celular y llega directo a escribir la reseña. Trae un QR por si el celular no lee NFC, y funciona en iPhone y Android sin instalar nada.",
+      "url": "/catalogo/tarjetas-nfc-resenas/",
+      "boton": "Ver tarjetas y precios",
+      "enlace": "Tarjetas NFC de reseñas",
+      "resumen": "Tu cliente acerca el celular y deja la reseña en segundos."
+    },
+    "ficha-google-maps": {
+      "titulo": "¿Tu ficha está a medias?",
+      "texto": "Te ponemos en Google Maps o dejamos al día el perfil que ya tienes: categorías, servicios, fotos y horarios.",
+      "url": "/catalogo/ficha-google-maps/",
+      "boton": "Ver opciones de ficha",
+      "enlace": "Ficha de Google Maps",
+      "resumen": "Te ponemos en Google Maps o dejamos al día tu perfil."
+    },
+    "gestion-resenas": {
+      "titulo": "Gestión de reseñas",
+      "texto": "Respondemos tus reseñas y cuidamos tu ficha todos los meses, para que no tengas que acordarte.",
+      "url": "/catalogo/gestion-resenas-google/",
+      "boton": "Ver gestión mensual",
+      "enlace": "Gestión de reseñas",
+      "resumen": "Respondemos tus reseñas y cuidamos tu ficha todos los meses."
+    },
+    "salud": {
+      "titulo": "Planes para clínicas y consultas",
+      "texto": "Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta de presentación digital, pensados para la salud.",
+      "url": "/salud/",
+      "boton": "Ver planes para salud",
+      "enlace": "Clínicas y consultas",
+      "resumen": "Reseñas y Google Maps para clínicas y consultas."
+    }
+  },
+  "autor": {
+    "nombre": "Cristian Carrasco",
+    "nombreCompleto": "Cristian Carrasco",
+    "inicial": "C",
+    "foto": "",
+    "bio": "Fundador de Vlue Tech Services. Ayuda a negocios de Chile a conseguir reseñas y a aparecer en Google Maps."
+  }
+}

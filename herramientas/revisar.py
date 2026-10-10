@@ -4,25 +4,36 @@ Uso (desde la carpeta del sitio):
     python herramientas/revisar.py
 
 Hace cinco cosas:
-  1. Actualiza el ?v= de los CSS y JS en todas las páginas según su contenido,
-     para que los navegadores no muestren una versión vieja. Ya no hay que
-     cambiar el número a mano.
-  2. Revisa que los datos para Google (JSON-LD) de cada página no tengan errores.
-  3. Revisa que cada enlace interno, imagen, CSS y JS exista.
-  4. Lista los marcadores [PENDIENTE] y [CONFIRMAR] que quedan en el código.
-  5. Pone la fecha de hoy en el sitemap.xml (lastmod) de cada página con cambios
-     sin commit, para que Google sepa qué páginas cambiaron.
+  1. Actualiza el ?v= de los CSS y JS en las páginas .html según su contenido,
+     para que los navegadores no muestren una versión vieja. (Las páginas del
+     blog lo calculan solas al armarse.)
+  2. Arma el sitio con Eleventy en la carpeta _site/, igual que GitHub al publicar.
+  3. Revisa que los datos para Google (JSON-LD) de cada página armada no tengan errores.
+  4. Revisa que cada enlace interno, imagen, CSS y JS exista en el sitio armado.
+  5. Lista los marcadores [PENDIENTE] y [CONFIRMAR] que quedan en el código y en los artículos.
+
+El sitemap.xml ya no se toca a mano: Eleventy lo arma en cada publicación con la
+fecha del último cambio de cada página.
 
 Si encuentra errores, termina con código 1 (útil si algún día se automatiza).
 """
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-PAGINAS = sorted(p for p in RAIZ.rglob("*.html") if ".git" not in p.parts and "herramientas" not in p.parts)
+SITIO = RAIZ / "_site"
+FUERA = {".git", "herramientas", "node_modules", "_site"}
+
+
+def fuentes(*patrones):
+    return sorted(p for patron in patrones for p in RAIZ.rglob(patron) if not FUERA & set(p.relative_to(RAIZ).parts))
+
+
+PAGINAS = fuentes("*.html")
 ASSETS_VERSIONADOS = ["style_work2.css", "vx-ui.css", "vx-ui.js"]
 
 
@@ -49,74 +60,51 @@ def actualizar_versiones():
     return cambios
 
 
-def actualizar_lastmod():
-    """Pone la fecha de hoy en el <lastmod> del sitemap de cada página con cambios sin commit."""
-    import datetime
-    import subprocess
-    try:
-        salida = subprocess.run(["git", "status", "--porcelain"], cwd=RAIZ, capture_output=True,
-                                text=True, encoding="utf-8").stdout
-    except OSError:
-        return []
-    hoy = datetime.date.today().isoformat()
-    sitemap = RAIZ / "sitemap.xml"
-    texto = leer(sitemap)
-    cambiadas = []
-    for linea in salida.splitlines():
-        archivo = linea[3:].strip().strip('"')
-        if not archivo.endswith("index.html"):
-            continue
-        # Si lo único que cambió es el ?v= del CSS o el JS, el contenido de la página no cambió
-        dif = subprocess.run(["git", "diff", "-U0", "--", archivo], cwd=RAIZ, capture_output=True,
-                             text=True, encoding="utf-8").stdout.splitlines()
-        quitadas = sorted(re.sub(r"\?v=[\w.-]+", "", l[1:]) for l in dif if l.startswith("-") and not l.startswith("---"))
-        agregadas = sorted(re.sub(r"\?v=[\w.-]+", "", l[1:]) for l in dif if l.startswith("+") and not l.startswith("+++"))
-        if dif and quitadas == agregadas:
-            continue
-        ruta = "/" + archivo[: -len("index.html")]
-        # [^/<]+ = solo el dominio: así "/" (el inicio) no calza con todas las direcciones del sitemap
-        patron = re.compile(r"(<loc>https?://[^/<]+" + re.escape(ruta) + r"</loc>\s*<lastmod>)[^<]*(</lastmod>)")
-        nuevo = patron.sub(r"\g<1>" + hoy + r"\2", texto)
-        if nuevo != texto:
-            texto = nuevo
-            cambiadas.append(ruta)
-    if cambiadas:
-        escribir(sitemap, texto)
-    return cambiadas
+def armar():
+    """Arma el sitio con Eleventy. Devuelve el mensaje de error si falla."""
+    r = subprocess.run("npx @11ty/eleventy --quiet", cwd=RAIZ, shell=True, capture_output=True,
+                       text=True, encoding="utf-8")
+    return None if r.returncode == 0 else (r.stderr or r.stdout)
+
+
+def paginas_armadas():
+    return sorted(SITIO.rglob("*.html"))
 
 
 def revisar_jsonld():
     errores = []
-    for p in PAGINAS:
+    for p in paginas_armadas():
         for bloque in re.findall(r'(?s)<script type="application/ld\+json">(.*?)</script>', leer(p)):
             try:
                 json.loads(bloque)
             except json.JSONDecodeError as e:
-                errores.append(f"{p.relative_to(RAIZ)}: JSON-LD inválido ({e})")
+                errores.append(f"{p.relative_to(SITIO)}: JSON-LD inválido ({e})")
     return errores
 
 
 def existe(ruta):
     ruta = ruta.split("#")[0].split("?")[0]
     if not ruta or ruta == "/":
-        return (RAIZ / "index.html").exists()
-    destino = RAIZ / ruta.lstrip("/")
-    return destino.exists() if destino.suffix else (destino / "index.html").exists()
+        return (SITIO / "index.html").exists()
+    destino = SITIO / ruta.lstrip("/")
+    return destino.is_file() or (destino / "index.html").is_file()
 
 
 def revisar_enlaces():
     errores = []
-    for p in PAGINAS:
+    for p in paginas_armadas():
         texto = re.sub(r"(?s)<!--.*?-->", "", leer(p))
         for ruta in re.findall(r'(?:href|src)="(/[^"/][^"]*|/)"', texto):
             if not existe(ruta):
-                errores.append(f"{p.relative_to(RAIZ)}: no existe {ruta}")
+                errores.append(f"{p.relative_to(SITIO)}: no existe {ruta}")
     return sorted(set(errores))
 
 
 def pendientes():
     lista = []
-    for p in PAGINAS:
+    for p in fuentes("*.html", "*.md", "*.njk", "*.json"):
+        if p.parent == RAIZ and p.suffix in (".md", ".json"):   # README, package.json...
+            continue
         for n, linea in enumerate(leer(p).splitlines(), 1):
             for m in re.finditer(r"\[(PENDIENTE|CONFIRMAR)[^\]]*\][^>]{0,80}", linea):
                 lista.append(f"{p.relative_to(RAIZ)}:{n}  {m.group(0).strip()}")
@@ -125,10 +113,11 @@ def pendientes():
 
 def main():
     print(f"Versiones de CSS/JS actualizadas en {actualizar_versiones()} archivo(s).")
-    fechas = actualizar_lastmod()
-    if fechas:
-        print("Fecha del sitemap (lastmod) actualizada a hoy en: " + ", ".join(fechas))
-        print("Después de publicar, pide en Search Console la indexación de esas páginas.")
+    error = armar()
+    if error:
+        print("\nEleventy no pudo armar el sitio:\n" + error)
+        sys.exit(1)
+    print(f"Sitio armado en _site/ ({len(paginas_armadas())} páginas).")
     errores = revisar_jsonld() + revisar_enlaces()
     if errores:
         print(f"\n{len(errores)} error(es):")

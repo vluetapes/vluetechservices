@@ -1,0 +1,162 @@
+{#- Molde de cada artículo. Los datos vienen de los campos que se llenan en Pages CMS
+    (blog/articulos/*.md). No hace falta tocar este archivo para publicar. -#}
+{% extends "base.njk" %}
+{%- set cat = blog.categorias | porSlug(categoria) -%}
+{%- set servicioCta = blog.servicios[servicio] if servicio else null -%}
+{%- set cuerpo = content | conIds -%}
+{%- set subtitulos = cuerpo | indice -%}
+{%- set minutos = content | minutosLectura -%}
+{%- set urlPagina = sitio.url + page.url -%}
+{%- set fechaMod = actualizado | fechaISO if actualizado else page | actualizado -%}
+{%- set fechaMod = fechaMod if fechaMod > (page.date | fechaISO) else page.date | fechaISO -%}
+
+{% block metaExtra %}
+<meta name="author" content="{{ blog.autor.nombre }}, {{ sitio.nombre }}">
+<meta property="article:published_time" content="{{ page.date | fechaISO }}">
+<meta property="article:modified_time" content="{{ fechaMod }}">
+<meta property="article:section" content="{{ cat.nombre }}">
+{% endblock %}
+
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "ProfessionalService", "@id": "{{ sitio.url }}/#negocio", "name": {{ sitio.nombre | dump | safe }}, "url": "{{ sitio.url }}/", "logo": "{{ sitio.logo }}"},
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ urlPagina }}#articulo",
+      "mainEntityOfPage": "{{ urlPagina }}",
+      "headline": {{ title | dump | safe }},
+      "description": {{ description | dump | safe }},
+      "image": "{{ sitio.url }}{{ imagen_redes }}",
+      "datePublished": "{{ page.date | fechaISO }}",
+      "dateModified": "{{ fechaMod }}",
+      "inLanguage": "es-CL",
+      "articleSection": {{ cat.nombre | dump | safe }},
+      "wordCount": {{ minutos * 200 }},
+      "author": {"@type": "Person", "name": {{ blog.autor.nombre | dump | safe }}, "worksFor": {"@id": "{{ sitio.url }}/#negocio"}, "url": "{{ sitio.url }}/contacto/"},
+      "publisher": {"@id": "{{ sitio.url }}/#negocio"},
+      "isPartOf": {"@id": "{{ sitio.url }}/blog/#blog"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ sitio.url }}/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ sitio.url }}/blog/"},
+        {"@type": "ListItem", "position": 3, "name": {{ title | dump | safe }}}
+      ]
+    }
+    {%- if preguntas and preguntas.length %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for p in preguntas %}
+        {"@type": "Question", "name": {{ p.pregunta | dump | safe }}, "acceptedAnswer": {"@type": "Answer", "text": {{ p.respuesta | dump | safe }}}}{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+  ]
+}
+{% endblock %}
+
+{% block contenido %}
+{%- set cajaCta -%}
+{%- if servicioCta %}
+<aside class="bl-cta" aria-label="{{ servicioCta.enlace }}">
+  <p><strong>{{ servicioCta.titulo }}</strong>{{ servicioCta.texto }}</p>
+  <a class="btn btn-primary" href="{{ servicioCta.url }}" data-evento="clic_servicio" data-ubicacion="articulo-medio" data-producto="{{ servicio }}">{{ servicioCta.boton }}<span class="btn-arrow">&rarr;</span></a>
+</aside>
+{%- endif %}
+{%- endset -%}
+<article>
+<section class="bb-hero bb-hero--articulo">
+  <div class="wrap">
+    <nav class="vx-crumbs" aria-label="Migas de pan"><a href="/">Inicio</a> › <a href="/blog/">Blog</a> › {{ cat.nombre }}</nav>
+    <div class="bb-kicker">{{ cat.nombre }}</div>
+    <h1>{{ titulo_h1 or title }}</h1>
+    <p class="bl-meta"><span>Por {{ blog.autor.nombre }}, {{ sitio.nombre }}</span><span><time datetime="{{ page.date | fechaISO }}">{{ page.date | fechaLarga }}</time></span><span>{{ minutos }} min de lectura</span></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="bl-read">
+    {%- if respuesta %}
+    <div class="bl-answer">
+      <strong>Respuesta rápida</strong>
+      <p>{{ respuesta }}</p>
+    </div>
+    {%- endif %}
+
+    {%- if miniatura %}
+    <figure class="bl-cover">
+      <img src="{{ miniatura }}" alt="{{ miniatura_alt }}" width="1200" height="630" fetchpriority="high">
+    </figure>
+    {%- endif %}
+
+    {%- if subtitulos.length > 2 %}
+    <details class="bl-toc">
+      <summary>En este artículo</summary>
+      <ol>
+        {%- for s in subtitulos %}
+        <li><a href="#{{ s.id }}">{{ s.texto }}</a></li>
+        {%- endfor %}
+        {%- if preguntas and preguntas.length %}<li><a href="#preguntas">Preguntas frecuentes</a></li>{% endif %}
+      </ol>
+    </details>
+    {%- endif %}
+
+    <div class="bl-prose">
+{{ cuerpo | insertarCta(cajaCta) | safe }}
+    {%- if preguntas and preguntas.length %}
+      <h2 id="preguntas">Preguntas frecuentes</h2>
+    {%- endif %}
+    </div>
+
+    {%- if preguntas and preguntas.length %}
+    <div class="vx-faq">
+      {%- for p in preguntas %}
+      <details><summary>{{ p.pregunta }}</summary><div><p>{{ p.respuesta }}</p></div></details>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+
+    <div class="bl-author">
+      {%- if blog.autor.foto %}
+      <img src="{{ blog.autor.foto }}" alt="{{ blog.autor.nombre }}" width="64" height="64" loading="lazy" decoding="async">
+      {%- else %}
+      <span class="bl-avatar" aria-hidden="true">{{ blog.autor.inicial }}</span>
+      {%- endif %}
+      <p><strong>{{ blog.autor.nombreCompleto }}</strong>{{ blog.autor.bio }}</p>
+    </div>
+    <p class="bl-updated">Publicado el <time datetime="{{ page.date | fechaISO }}">{{ page.date | fechaLarga }}</time>{% if fechaMod != (page.date | fechaISO) %}. Actualizado el <time datetime="{{ fechaMod }}">{{ fechaMod | fechaLarga }}</time>{% endif %}.</p>
+    </div>
+
+    {%- set otros = collections.articulos | relacionados(page.url, categoria, 2) %}
+    <div class="section-head" style="margin-top:40px">
+      <h2>También te puede servir</h2>
+    </div>
+    <div class="vx-links">
+      {%- for a in otros %}
+      <a href="{{ a.url }}"><strong>{{ a.data.title }}</strong><span>{{ a.data.description }}</span></a>
+      {%- endfor %}
+      {%- if servicioCta %}
+      <a href="{{ servicioCta.url }}"><strong>{{ servicioCta.enlace }}</strong><span>{{ servicioCta.resumen }}</span></a>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+</article>
+
+<section class="cta-panel pattern-dark">
+  <div class="wrap">
+    <h2>Empieza con una auditoría gratis</h2>
+    <p>Revisamos tu ficha y te decimos qué mejorar primero. Sin costo y sin compromiso.</p>
+    <div class="btn-row">
+      <a class="btn vx-audit-btn" href="https://wa.me/{{ sitio.whatsapp }}?text={{ ('Hola, leí el artículo «' + title + '» y quiero la auditoría gratis de mi ficha') | urlencode }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="blog-cta-final" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
+      <a class="btn btn-outline" href="{{ sitio.instagram }}" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="blog-cta-final">Síguenos en Instagram<span class="btn-arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

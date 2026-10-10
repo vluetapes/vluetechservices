@@ -1,0 +1,14 @@
+{
+  "name": "vluetechservices",
+  "version": "1.0.0",
+  "description": "Sitio de Vlue Tech Services (HTML + blog con Eleventy)",
+  "scripts": {
+    "armar": "eleventy",
+    "ver": "eleventy --serve --port=8080"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "private": true
+}

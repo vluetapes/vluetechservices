@@ -1,0 +1,26 @@
+---
+permalink: /blog/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Blog de {{ sitio.nombre }}</title>
+  <link>{{ sitio.url }}/blog/</link>
+  <atom:link href="{{ sitio.url }}/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>{{ blog.bajada }}</description>
+  <language>es-CL</language>
+  {%- if collections.articulos.length %}
+  <lastBuildDate>{{ collections.articulos[0].date | fechaRSS }}</lastBuildDate>
+  {%- endif %}
+  {%- for a in collections.articulos %}
+  <item>
+    <title>{{ a.data.title }}</title>
+    <link>{{ sitio.url }}{{ a.url }}</link>
+    <guid>{{ sitio.url }}{{ a.url }}</guid>
+    <pubDate>{{ a.date | fechaRSS }}</pubDate>
+    <description>{{ a.data.description }}</description>
+  </item>
+  {%- endfor %}
+</channel>
+</rss>

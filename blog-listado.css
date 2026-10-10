@@ -1,0 +1,129 @@
+/* =====================================================================
+   blog-b.css  —  Borrador B "Editorial"
+   Mismo sitio, pero con aire de revista: portada blanca con brillo azul,
+   índice numerado (01, 02...) como filtro y cards limpias con una barra
+   azul que crece al pasar el mouse. Prefijo bb- para no chocar con nada.
+   ===================================================================== */
+
+/* Red Hat Display (solo Black) para los números grandes. Licencia OFL en /fonts/. */
+@font-face{font-family:"Red Hat Display";src:url(/fonts/red-hat-display-black.woff2) format("woff2");font-weight:900;font-style:normal;font-display:swap}
+
+/* ---------- Portada blanca ---------- */
+.bb-hero{position:relative;overflow:hidden;isolation:isolate;padding:48px 0 34px;background:#fff;border-bottom:1px solid var(--vx-line)}
+.bb-hero::before{content:"";position:absolute;z-index:-1;inset:auto -10% -55% 35%;height:120%;background:radial-gradient(closest-side,rgba(31,75,255,.22),rgba(31,75,255,0));pointer-events:none}
+.bb-hero::after{content:"";position:absolute;z-index:-1;right:-40px;top:24px;width:300px;aspect-ratio:652/456;background:var(--vx-blue);opacity:.06;-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+.bb-hero .vx-crumbs{color:var(--vx-muted)}
+.bb-kicker{display:flex;align-items:center;gap:12px;margin-bottom:14px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--vx-blue)}
+.bb-kicker::after{content:"";flex:0 0 60px;height:2px;background:var(--vx-blue)}
+.bb-hero h1{max-width:18ch;font-size:2.2rem;line-height:1.08;letter-spacing:-.02em;color:var(--vx-ink)}
+.bb-hero h1 em{font-style:normal;color:var(--vx-blue)}
+.bb-hero .bb-sub{max-width:56ch;margin-top:14px;color:var(--vx-muted);font-size:1rem}
+@media (min-width:1024px){.bb-hero{padding:70px 0 44px}.bb-hero h1{font-size:3.3rem}.bb-hero::after{width:440px;right:-20px}}
+
+/* ---------- Índice numerado (filtro) ---------- */
+.bb-index{display:flex;gap:4px;overflow-x:auto;margin:30px 0 0;padding:0;border-top:1px solid var(--vx-line);list-style:none;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.bb-index::-webkit-scrollbar{display:none}
+.bb-index button{position:relative;flex:none;display:flex;align-items:baseline;gap:8px;min-height:48px;padding:14px 14px 12px 0;margin-right:14px;border:0;background:none;color:var(--vx-muted);font:600 .92rem Poppins,system-ui,sans-serif;cursor:pointer;transition:color .25s ease}
+.bb-index button small{font:700 .72rem Montserrat,system-ui,sans-serif;color:#9aa3bf;transition:color .25s ease}
+.bb-index button::before{content:"";position:absolute;left:0;top:-1px;width:0;height:3px;background:var(--vx-blue);transition:width .3s ease}
+.bb-index button:hover,.bb-index button.is-active{color:var(--vx-ink)}
+.bb-index button.is-active small,.bb-index button:hover small{color:var(--vx-blue)}
+.bb-index button.is-active::before{width:calc(100% - 14px)}
+.bb-index button:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+
+/* ---------- Artículo destacado ---------- */
+.bb-feature{position:relative;display:grid;grid-template-columns:32px minmax(0,1fr);margin-bottom:34px;border:1px solid var(--vx-line);border-radius:20px;overflow:hidden;background:#fff;transition:border-color .3s ease,box-shadow .3s ease}
+@media (min-width:700px){.bb-feature{grid-template-columns:44px minmax(0,1fr)}}
+/* La portada se muestra completa (las portadas traen texto): sin recortes */
+.bb-feature-img{position:relative;grid-column:2;grid-row:1;aspect-ratio:1200/630;overflow:hidden;background:var(--vx-tint)}
+.bb-feature-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+/* Franja azul vertical con la etiqueta, al lado de la portada (no encima) */
+.bb-strip{grid-column:1;grid-row:1;display:flex;align-items:center;justify-content:center;background:var(--vx-blue);color:#fff;font:800 .7rem Montserrat,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
+.bb-feature-body{grid-column:1/-1;display:flex;flex-direction:column;gap:10px;padding:22px 22px 24px}
+.bb-feature-top{display:flex;align-items:flex-end;gap:14px}
+/* Computador: portada a la izquierda y texto a la derecha, del mismo alto que la portada */
+@media (min-width:900px){
+  .bb-feature{grid-template-columns:44px minmax(0,1.45fr) minmax(0,1fr)}
+  .bb-feature-body{grid-column:3;grid-row:1;justify-content:center;padding:24px 30px}
+  .bb-feature h2{font-size:1.5rem;line-height:1.2}
+  .bb-feature p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:.95rem}
+}
+.bb-num{font:900 3rem/.8 "Red Hat Display",Montserrat,system-ui,sans-serif;color:transparent;-webkit-text-stroke:1.5px var(--vx-blue);letter-spacing:-.01em}
+.bb-cat{font:700 .75rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--vx-blue)}
+.bb-feature h2{font-size:1.45rem;line-height:1.2;color:var(--vx-ink)}
+.bb-feature p{color:var(--vx-muted);line-height:1.6}
+.bb-date{font-size:.82rem;color:var(--vx-muted)}
+.bb-feature h2 a::after,.bb-card h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.bb-feature:has(a:focus-visible),.bb-card:has(a:focus-visible){outline:3px solid #7aa2ff;outline-offset:3px}
+.bb-feature h2 a:focus-visible,.bb-card h3 a:focus-visible{outline:none}
+
+/* Botón "Ver más": se rellena de azul al pasar el mouse por la card */
+.bb-btn{position:relative;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;min-height:44px;padding:10px 18px;border:1.5px solid var(--vx-blue);border-radius:10px;color:var(--vx-blue);font:600 .92rem Poppins,system-ui,sans-serif;overflow:hidden;isolation:isolate;transition:color .3s ease,gap .25s ease}
+.bb-btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--vx-blue);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+
+@media (hover:hover){
+  .bb-feature:hover{border-color:var(--vx-blue);box-shadow:0 18px 44px rgba(7,32,159,.14)}
+  .bb-feature:hover .bb-feature-img img{transform:scale(1.05)}
+  :is(.bb-feature,.bb-card:not(.bb-card--soon)):hover .bb-btn{color:#fff;gap:12px}
+  :is(.bb-feature,.bb-card:not(.bb-card--soon)):hover .bb-btn::before{transform:scaleX(1)}
+}
+
+/* ---------- Grilla de artículos ---------- */
+.bb-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 16px}
+.bb-head h2{font-size:1.3rem}
+.bb-head span{font-size:.85rem;color:var(--vx-muted)}
+.bb-grid{display:grid;gap:20px;grid-template-columns:minmax(0,1fr);margin:0;padding:0;list-style:none}
+@media (min-width:700px){.bb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.bb-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}}
+.bb-grid>[hidden],.bb-feature[hidden]{display:none}
+
+.bb-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--vx-line);border-radius:16px;overflow:hidden;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+/* Barra azul superior que crece de izquierda a derecha */
+.bb-card::before{content:"";position:absolute;left:0;top:0;z-index:2;width:0;height:4px;background:linear-gradient(90deg,var(--vx-blue),var(--vx-electric));transition:width .45s ease}
+.bb-thumb{position:relative;aspect-ratio:1200/630;overflow:hidden;background:var(--vx-tint)}
+.bb-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+/* Velo azul que sube sobre la miniatura */
+.bb-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,32,159,.55),rgba(7,32,159,0) 70%);opacity:0;transition:opacity .4s ease}
+.bb-tag{position:absolute;right:14px;top:14px;z-index:1;padding:5px 10px;border-radius:999px;background:#fff;color:var(--vx-blue);font:800 .75rem Montserrat,system-ui,sans-serif;box-shadow:0 4px 12px rgba(5,22,111,.15)}
+.bb-body{display:flex;flex-direction:column;gap:10px;flex:1;padding:18px 20px 20px}
+.bb-card h3{margin:0;font:800 1.12rem/1.3 Montserrat,system-ui,sans-serif;color:var(--vx-ink);transition:color .25s ease}
+.bb-card p{margin:0;color:var(--vx-muted);font-size:.93rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bb-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:6px}
+
+@media (hover:hover){
+  .bb-card:not(.bb-card--soon):hover{transform:translateY(-4px);border-color:#c5cdf0;box-shadow:0 18px 40px rgba(7,32,159,.13)}
+  .bb-card:not(.bb-card--soon):hover::before{width:100%}
+  .bb-card:not(.bb-card--soon):hover .bb-thumb img{transform:scale(1.07)}
+  .bb-card:not(.bb-card--soon):hover .bb-thumb::after{opacity:1}
+  .bb-card:not(.bb-card--soon):hover h3{color:var(--vx-blue)}
+}
+
+.bb-card--soon{border-style:dashed}
+.bb-card--soon .bb-thumb img{opacity:.5;filter:saturate(.5)}
+.bb-soon{padding:6px 12px;border-radius:999px;background:var(--vx-tint);color:var(--vx-muted);font-size:.8rem;font-weight:600}
+.bb-empty{display:none;margin-top:16px;color:var(--vx-muted)}
+
+/* ---------- Cierre partido: auditoría + canales ---------- */
+.bb-cta{display:grid;border-radius:22px;overflow:hidden;border:1px solid var(--vx-line);box-shadow:var(--vx-shadow)}
+@media (min-width:860px){.bb-cta{grid-template-columns:1.1fr 1fr}}
+.bb-cta-main{position:relative;overflow:hidden;isolation:isolate;padding:32px 26px;background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%);color:#fff}
+.bb-cta-main::after{content:"";position:absolute;z-index:-1;right:-40px;bottom:-50px;width:260px;aspect-ratio:652/456;background:#fff;opacity:.1;-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+@media (min-width:860px){.bb-cta-main{padding:44px 40px}}
+.bb-cta-main h2{color:#fff;font-size:1.6rem;margin-bottom:10px}
+.bb-cta-main p{color:#dbe3ff;max-width:44ch;margin-bottom:22px}
+.bb-cta-main .btn{background:#fff;color:var(--vx-blue)}
+.bb-cta-main .btn:hover{background:#eef1fb}
+.bb-channels{display:flex;flex-direction:column;background:#fff;padding:12px 0}
+.bb-channels p{padding:14px 26px 6px;font:700 .75rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--vx-blue)}
+.bb-channels a{display:flex;align-items:center;gap:14px;min-height:56px;padding:12px 26px;border-top:1px solid var(--vx-line);color:var(--vx-ink);transition:background-color .25s ease}
+.bb-channels a:first-of-type{border-top:0}
+.bb-channels a svg{width:22px;height:22px;flex:none;fill:var(--vx-blue)}
+.bb-channels a span{flex:1;display:flex;flex-direction:column;line-height:1.3}
+.bb-channels a strong{font-family:Montserrat,system-ui,sans-serif;font-size:.95rem}
+.bb-channels a small{color:var(--vx-muted);font-size:.85rem}
+.bb-channels a::after{content:"\2192";color:var(--vx-blue);font-weight:700;transition:transform .25s ease}
+.bb-channels a:hover{background:var(--vx-tint)}
+.bb-channels a:hover::after{transform:translateX(4px)}
+.bb-channels a:focus-visible{outline:3px solid #7aa2ff;outline-offset:-3px}
+
+@media (prefers-reduced-motion:reduce){.bb-card,.bb-card *,.bb-card::before,.bb-feature *,.bb-btn,.bb-btn::before{transition:none}}

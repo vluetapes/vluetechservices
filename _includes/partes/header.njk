@@ -1,0 +1,15 @@
+{# Copia del header de las páginas .html (con Blog activo). Si cambias el menú, cámbialo también aquí. #}
+<header>
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services, inicio" width="708" height="120"></a>
+    <nav class="nav-links" id="menu-principal" aria-label="Principal">
+      <a href="/">Inicio</a>
+      <a href="/catalogo/">Catálogo</a>
+      <a href="/salud/">Salud</a>
+      <a href="/blog/" class="active"{% if page.url == "/blog/" %} aria-current="page"{% endif %}>Blog</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="header">WhatsApp</a>
+    <button type="button" class="vx-burger" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="vx-burger-open" d="M4 7h16M4 12h16M4 17h16"/><path class="vx-burger-close" d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>

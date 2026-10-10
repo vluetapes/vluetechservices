@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@500;600&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{position:relative;background:#fff;font-family:Poppins,sans-serif;color:#0b0e1a}
+.glow{position:absolute;inset:0;background:
+  radial-gradient(ellipse 620px 520px at 88% 112%, rgba(31,75,255,.42), rgba(31,75,255,0) 70%),
+  radial-gradient(ellipse 520px 380px at 104% 18%, rgba(7,32,159,.16), rgba(7,32,159,0) 70%),
+  linear-gradient(115deg,#fff 0%,#fff 46%,#f1f4ff 100%)}
+.simbolo{position:absolute;right:-70px;top:70px;width:620px;aspect-ratio:652/456;background:#07209f;opacity:.09;
+  -webkit-mask:url(SIMBOLO) center/contain no-repeat;mask:url(SIMBOLO) center/contain no-repeat}
+.franja{position:absolute;left:0;top:0;bottom:0;width:18px;background:linear-gradient(180deg,#07209f,#1f4bff)}
+.contenido{position:absolute;left:84px;top:78px;right:300px}
+.pill{display:inline-block;padding:10px 22px;border-radius:999px;background:#eef1fb;color:#07209f;font:800 22px Montserrat,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+h1{margin-top:34px;font:800 76px/1.04 Montserrat,sans-serif;letter-spacing:-.02em;color:#0b0e1a}
+h1 em{font-style:normal;color:#07209f}
+.linea{width:90px;height:5px;margin-top:34px;background:#07209f;border-radius:3px}
+.pie{position:absolute;left:84px;bottom:56px;display:flex;align-items:center;gap:18px}
+.pie img{height:44px;width:auto}
+.pie span{font:600 24px Poppins,sans-serif;color:#5c6478}
+</style></head>
+<body>
+<div class="glow"></div>
+<div class="simbolo"></div>
+<div class="franja"></div>
+<div class="contenido">
+  <span class="pill">Blog Vlue</span>
+  <h1>Lo que hace que te elijan en <em>Google</em></h1>
+  <div class="linea"></div>
+</div>
+<div class="pie"><img src="LOGO" alt=""><span>vluetechservices.cl/blog</span></div>
+</body></html>

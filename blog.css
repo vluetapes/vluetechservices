@@ -1,0 +1,103 @@
+/* =====================================================================
+   blog.css  v1  —  Vlue Tech Services
+   Estilos propios del blog (prefijo bl- para no chocar con los demás).
+   Se carga DESPUÉS de style_work2.css y vx-ui.css:
+     <link rel="stylesheet" href="/blog.css?v=1">
+   Todo lo demás (header, footer, botones, preguntas, colores) viene de
+   los CSS que ya usa el sitio.
+   ===================================================================== */
+
+/* ---------- Encabezado del artículo / listado ---------- */
+.hero-panel .vx-crumbs{color:#d6dcf7}
+.bl-meta{display:flex;flex-wrap:wrap;gap:4px 14px;color:#d6dcf7;font-size:.88rem}
+.bl-meta span:first-child{flex-basis:100%}
+.bl-meta span+span+span::before{content:"·";margin-right:14px;opacity:.7}
+
+/* ---------- Filtros por categoría (reutiliza .tab-bar y .tab-btn) ---------- */
+.bl-filters{margin-bottom:24px}
+.bl-filters .tab-btn{min-height:40px}
+
+/* ---------- Tarjetas del listado ---------- */
+.bl-list{display:grid;gap:16px;margin:0;padding:0;list-style:none}
+.bl-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+@media (hover:hover){.bl-card:hover{transform:translateY(-3px);border-color:#c5cdf0;box-shadow:0 2px 4px rgba(7,32,159,.08),0 16px 36px rgba(7,32,159,.14)}}
+.bl-card img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;background:var(--vx-tint)}
+.bl-card-body{display:flex;flex-direction:column;gap:8px;padding:18px 20px 20px}
+.bl-card h2{font-size:1.12rem;line-height:1.3}
+.bl-card h2 a::after{content:"";position:absolute;inset:0}      /* toda la tarjeta es clicable, con un solo enlace */
+.bl-card h2 a:focus-visible{outline:none}
+.bl-card:has(a:focus-visible){outline:3px solid #7aa2ff;outline-offset:2px}
+.bl-card p{color:var(--vx-muted);font-size:.93rem;line-height:1.55}
+.bl-card .bl-small{font-size:.8rem;color:var(--vx-muted)}
+.bl-card--featured h2{font-size:1.4rem}
+.bl-card--soon{box-shadow:none;border-style:dashed}
+.bl-card--soon:hover{transform:none;box-shadow:none;border-color:var(--vx-line)}
+@media (min-width:640px){
+  .bl-card:not(.bl-card--featured){flex-direction:row}
+  .bl-card:not(.bl-card--featured) img{width:200px;flex:none;aspect-ratio:auto;height:auto;min-height:100%}
+}
+.bl-list>[hidden]{display:none}
+.bl-empty{display:none;color:var(--vx-muted);padding:20px 0}
+
+/* ---------- Respuesta rápida (lo primero que lee Google y las IA) ---------- */
+.bl-answer{margin:0 0 26px;padding:18px 20px;background:var(--vx-tint);border:1px solid var(--vx-line);border-left:4px solid var(--vx-blue);border-radius:12px}
+.bl-answer strong{display:block;margin-bottom:6px;font:700 .78rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.bl-answer p{margin:0;line-height:1.65}
+
+/* ---------- Portada ---------- */
+.bl-cover{margin:0 0 26px;border-radius:var(--vx-r);overflow:hidden;border:1px solid var(--vx-line)}
+.bl-cover img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}
+
+/* ---------- Índice ---------- */
+.bl-toc{margin:0 0 30px;border:1px solid var(--vx-line);border-radius:12px;background:#fff}
+.bl-toc summary{min-height:44px;padding:14px 18px;font:700 .9rem Montserrat,system-ui,sans-serif;color:var(--vx-blue);cursor:pointer}
+.bl-toc ol{margin:0;padding:0 18px 16px 38px;display:grid;gap:6px;font-size:.93rem}
+.bl-toc a{color:var(--vx-ink);text-decoration:underline;text-decoration-color:var(--vx-line);text-underline-offset:3px}
+.bl-toc a:hover{color:var(--vx-blue);text-decoration-color:currentColor}
+
+/* ---------- Texto del artículo ---------- */
+.bl-prose{font-size:1.06rem;line-height:1.75}
+.bl-prose>*+*{margin-top:1em}
+.bl-prose h2{margin-top:2.1em;font-size:1.4rem;line-height:1.25;scroll-margin-top:90px}
+.bl-prose h3{margin-top:1.6em;font-size:1.1rem}
+.bl-prose ul,.bl-prose ol{padding-left:1.3em;display:grid;gap:.4em}
+.bl-prose li::marker{color:var(--vx-blue);font-weight:700}
+.bl-prose a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.bl-prose strong{font-weight:600;color:var(--vx-ink)}
+.bl-prose blockquote{padding:4px 0 4px 18px;border-left:3px solid var(--vx-blue);color:var(--vx-muted);font-style:italic}
+.bl-prose figure img{width:100%;height:auto;border-radius:12px;border:1px solid var(--vx-line)}
+.bl-prose figcaption{margin-top:8px;font-size:.85rem;color:var(--vx-muted);text-align:center}
+.bl-prose .vx-table-wrap{margin-top:1.2em}
+.bl-prose .vx-table th,.bl-prose .vx-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--vx-line);line-height:1.5}
+.bl-prose .vx-table thead th{font:700 .85rem Montserrat,system-ui,sans-serif;color:var(--vx-blue);background:var(--vx-tint)}
+.bl-prose .vx-table tbody tr:last-child>*{border-bottom:0}
+
+/* Caja provisoria para imágenes que faltan (solo en el prototipo) */
+.bl-placeholder{display:grid;place-items:center;aspect-ratio:16/9;padding:20px;border:2px dashed #c5cdf0;border-radius:12px;background:var(--vx-tint);color:var(--vx-muted);font-size:.9rem;text-align:center}
+
+/* ---------- Llamado a la acción dentro del artículo ---------- */
+.bl-cta{margin:2em 0;padding:20px 22px;border:1.5px solid var(--vx-blue);border-radius:var(--vx-r);background:#f8f9fe}
+.bl-cta p{margin:0 0 14px;line-height:1.55}
+.bl-cta p strong{display:block;font:800 1.05rem Montserrat,system-ui,sans-serif;color:var(--vx-ink);margin-bottom:4px}
+.bl-prose .bl-cta a.btn{color:#fff;text-decoration:none;font-weight:600}
+
+/* ---------- Autor ---------- */
+.bl-author{display:flex;gap:16px;align-items:flex-start;margin-top:40px;padding:20px;border:1px solid var(--vx-line);border-radius:var(--vx-r)}
+.bl-author img,.bl-author .bl-avatar{width:64px;height:64px;border-radius:50%;flex:none;object-fit:cover}
+.bl-avatar{display:grid;place-items:center;background:var(--vx-blue);color:#fff;font:800 1.4rem Montserrat,system-ui,sans-serif}
+.bl-author p{margin:0;font-size:.92rem;line-height:1.55;color:var(--vx-muted)}
+.bl-author p strong{display:block;color:var(--vx-ink);font-size:1rem}
+
+/* ---------- Fechas ---------- */
+.bl-updated{margin-top:24px;font-size:.85rem;color:var(--vx-muted)}
+
+@media (prefers-reduced-motion:reduce){.bl-card{transition:none}}
+
+/* ---------- Computador: el texto del artículo mantiene un ancho cómodo de lectura ---------- */
+.bl-read{max-width:760px}
+@media (min-width:1024px){.hero-panel .bl-meta{max-width:760px}}
+
+/* ---------- Portada del artículo: blanca con brillo azul, igual que el listado (.bb-hero en blog-listado.css) ---------- */
+.bb-hero--articulo h1{max-width:24ch;font-size:2rem;line-height:1.12}
+@media (min-width:1024px){.bb-hero--articulo h1{font-size:2.7rem}}
+.bb-hero .bl-meta{margin-top:18px;color:var(--vx-muted)}

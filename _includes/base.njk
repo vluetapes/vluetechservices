@@ -1,0 +1,63 @@
+{#- Molde común del blog: head con SEO automático, header y pie del sitio.
+    Lo usan blog/index.njk y articulo.njk con {% extends "base.njk" %}. -#}
+{%- set tituloPagina = titulo_seo or (title + sitio.sufijoTitulo) -%}
+{%- set urlPagina = sitio.url + page.url -%}
+{%- set imagen = imagen_redes or sitio.imagenRedes -%}
+{%- set imagenAbs = imagen if imagen.startsWith("http") else sitio.url + imagen -%}
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('vx-js')</script>
+<title>{{ tituloPagina }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ urlPagina }}">
+<meta name="robots" content="{{ 'noindex, follow' if noindex else 'index, follow, max-image-preview:large' }}">
+<meta name="theme-color" content="#07209f">
+<meta property="og:type" content="{{ og_tipo or 'website' }}">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="{{ sitio.nombre }}">
+<meta property="og:url" content="{{ urlPagina }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ imagenAbs }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ imagen_alt or title }}">
+{% block metaExtra %}{% endblock %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ imagenAbs }}">
+<meta name="twitter:image:alt" content="{{ imagen_alt or title }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style_work2.css?v={{ 'style_work2.css' | version }}">
+<link rel="stylesheet" href="/vx-ui.css?v={{ 'vx-ui.css' | version }}">
+{%- for css in estilos %}
+<link rel="stylesheet" href="/{{ css }}?v={{ css | version }}">
+{%- endfor %}
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="alternate" type="application/rss+xml" title="Blog de {{ sitio.nombre }}" href="/blog/feed.xml">
+<script type="application/ld+json">
+{% block jsonld %}{% endblock %}
+</script>
+</head>
+<body>
+<a class="vx-skip" href="#contenido">Saltar al contenido</a>
+{% include "partes/header.njk" %}
+<main id="contenido">
+{% block contenido %}{% endblock %}
+</main>
+
+{% include "partes/pie.njk" %}
+
+{% block scripts %}{% endblock %}
+<script src="/vx-ui.js?v={{ 'vx-ui.js' | version }}" defer></script>
+</body>
+</html>

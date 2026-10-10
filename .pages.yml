@@ -1,0 +1,108 @@
+# Configuración de Pages CMS (app.pagescms.org)
+# Define lo que se ve en el panel: la sección "Blog" con un formulario por artículo.
+# Cada artículo se guarda como un archivo .md en blog/articulos/ y GitHub publica la web solo.
+
+media:
+  input: img/blog          # carpeta donde se guardan las imágenes que subas
+  output: /img/blog        # cómo se escriben en la web
+
+content:
+  - name: articulos
+    label: Blog
+    type: collection
+    path: blog/articulos
+    filename: "{primary}.md"        # el nombre del archivo (y la dirección web) sale del título
+    view:
+      primary: title
+      fields: [title, categoria, date, borrador]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+        description: "Lo que se ve en la card y arriba del artículo. Ideal: menos de 60 caracteres."
+
+      - name: description
+        label: Descripción para Google
+        type: text
+        required: true
+        description: "Entre 120 y 155 caracteres. Sale en Google y en la card del blog."
+
+      - name: resumen
+        label: Resumen para la card (opcional)
+        type: text
+        description: "1 o 2 frases que invitan a leer. Si lo dejas vacío, se usa la descripción para Google."
+
+      - name: respuesta
+        label: Respuesta rápida
+        type: text
+        description: "2 o 3 frases que respondan el título. Va en el recuadro de arriba y es lo que más citan Google y las IA."
+
+      - name: date
+        label: Fecha de publicación
+        type: date
+        required: true
+
+      - name: categoria
+        label: Tema
+        type: select
+        required: true
+        options:
+          values:
+            - { value: google-maps, label: Google Maps }
+            - { value: resenas, label: Reseñas }
+            - { value: tarjetas-nfc, label: Tarjetas NFC }
+            - { value: salud, label: Salud }
+
+      - name: servicio
+        label: Servicio que se ofrece a mitad del artículo
+        type: select
+        options:
+          values:
+            - { value: tarjetas-nfc, label: Tarjetas NFC de reseñas }
+            - { value: ficha-google-maps, label: Ficha de Google Maps }
+            - { value: gestion-resenas, label: Gestión de reseñas }
+            - { value: salud, label: Planes para salud }
+
+      - name: miniatura
+        label: Miniatura
+        type: image
+        description: "1200 x 630 px, JPG, menos de 200 KB. Sale en la card, arriba del artículo y al compartir en WhatsApp o redes."
+
+      - name: miniatura_alt
+        label: Descripción de la miniatura
+        type: string
+        description: "Qué muestra la imagen, para quien no la ve. Ej.: Tarjeta NFC sobre el mesón de una peluquería."
+
+      - name: body
+        label: Contenido
+        type: rich-text
+        description: "Usa Título 2 para cada sección. El recuadro del servicio se pone solo a mitad del texto."
+
+      - name: preguntas
+        label: Preguntas frecuentes
+        type: object
+        list: true
+        description: "De 3 a 5 preguntas reales de tus clientes, con respuestas de 1 a 3 frases."
+        fields:
+          - { name: pregunta, label: Pregunta, type: string }
+          - { name: respuesta, label: Respuesta, type: text }
+
+      - name: destacado
+        label: Destacar arriba en el blog
+        type: boolean
+        default: false
+        description: "Si no marcas ninguno, se destaca el más nuevo."
+
+      - name: titulo_seo
+        label: Título para Google (opcional)
+        type: string
+        description: "Solo si quieres que en Google salga distinto. Termina en | Vlue. Máximo 60 caracteres."
+
+      - name: borrador
+        label: Borrador (no publicar todavía)
+        type: boolean
+        default: false

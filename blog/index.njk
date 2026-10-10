@@ -1,0 +1,126 @@
+---
+title: Blog de reseñas y Google Maps para negocios
+titulo_seo: Blog de reseñas y Google Maps para negocios | Vlue
+description: Guías prácticas para destacar en Google Maps y conseguir más reseñas en Google. Escritas para negocios de Chile, para aplicar el mismo día.
+imagen_alt: "Blog de Vlue Tech Services: reseñas y Google Maps para negocios"
+permalink: /blog/
+estilos: ["blog-listado.css"]
+---
+{#- Listado del blog (estilo "Editorial"). Se llena solo con los artículos de blog/articulos/.
+    Destacado: el artículo con "Destacar arriba" marcado o, si no hay, el más nuevo. -#}
+{% extends "base.njk" %}
+
+
+{% block jsonld %}
+{%- set todos = collections.articulos -%}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "ProfessionalService", "@id": "{{ sitio.url }}/#negocio", "name": {{ sitio.nombre | dump | safe }}, "url": "{{ sitio.url }}/", "logo": "{{ sitio.logo }}"},
+    {
+      "@type": "Blog",
+      "@id": "{{ sitio.url }}/blog/#blog",
+      "url": "{{ sitio.url }}/blog/",
+      "name": {{ ("Blog de " + sitio.nombre) | dump | safe }},
+      "description": {{ description | dump | safe }},
+      "inLanguage": "es-CL",
+      "publisher": {"@id": "{{ sitio.url }}/#negocio"},
+      "blogPost": [
+        {%- for a in todos %}
+        {"@type": "BlogPosting", "@id": "{{ sitio.url }}{{ a.url }}#articulo", "headline": {{ a.data.title | dump | safe }}, "url": "{{ sitio.url }}{{ a.url }}", "datePublished": "{{ a.date | fechaISO }}"}{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ sitio.url }}/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog"}
+      ]
+    }
+  ]
+}
+{% endblock %}
+
+{% block contenido %}
+{%- set todos = collections.articulos -%}
+{%- set destacado = todos | destacadoDe -%}
+{%- set resto = todos | sinArticulo(destacado) -%}
+<section class="bb-hero">
+  <div class="wrap">
+    <nav class="vx-crumbs" aria-label="Migas de pan"><a href="/">Inicio</a> › Blog</nav>
+    <div class="bb-kicker">Blog Vlue</div>
+    <h1>{{ blog.titulo | replace("Google", "<em>Google</em>") | safe }}</h1>
+    <p class="bb-sub">{{ blog.bajada }}</p>
+    {#- Solo aparecen los temas que tienen artículos -#}
+    <div class="bb-index" role="group" aria-label="Filtrar por tema">
+      <button type="button" class="is-active" data-filtro="todos" aria-pressed="true"><small>00</small>Todos</button>
+      {%- for c in blog.categorias | conArticulos(todos) %}
+      <button type="button" data-filtro="{{ c.slug }}" aria-pressed="false"><small>{{ loop.index | dosCifras }}</small>{{ c.nombre }}</button>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    {%- if destacado %}
+    {%- set cat = blog.categorias | porSlug(destacado.data.categoria) %}
+    <article class="bb-feature" data-categoria="{{ destacado.data.categoria }}">
+      <span class="bb-strip" aria-hidden="true">{{ "Nuevo" if destacado.url == todos[0].url else "Destacado" }}</span>
+      <div class="bb-feature-img">
+        {%- if destacado.data.miniatura %}<img src="{{ destacado.data.miniatura }}" alt="" width="1200" height="630" fetchpriority="high">{% endif %}
+      </div>
+      <div class="bb-feature-body">
+        <div class="bb-feature-top"><span class="bb-num" aria-hidden="true">01</span><span class="bb-cat">{{ cat.nombre }}</span></div>
+        <h2><a href="{{ destacado.url }}">{{ destacado.data.title }}</a></h2>
+        <p>{{ destacado.data.resumen or destacado.data.description }}</p>
+        <span class="bb-date"><time datetime="{{ destacado.date | fechaISO }}">{{ destacado.date | fechaCorta }}</time> · {{ destacado.content | minutosLectura }} min de lectura</span>
+        <span class="bb-btn" aria-hidden="true">Ver más <span>&rarr;</span></span>
+      </div>
+    </article>
+    {%- else %}
+    <p class="bb-sub">Pronto publicaremos el primer artículo.</p>
+    {%- endif %}
+
+    {%- if resto.length %}
+    <div class="bb-head"><h2>Más artículos</h2><span>{{ todos.length }} publicados</span></div>
+    <ul class="bb-grid">
+      {%- for a in resto %}
+      {%- set cat = blog.categorias | porSlug(a.data.categoria) %}
+      <li class="bb-card" data-categoria="{{ a.data.categoria }}">
+        <div class="bb-thumb">{% if a.data.miniatura %}<img src="{{ a.data.miniatura }}" alt="" width="1200" height="630" loading="lazy" decoding="async">{% endif %}<span class="bb-tag" aria-hidden="true">{{ (loop.index + 1) | dosCifras }}</span></div>
+        <div class="bb-body">
+          <span class="bb-cat">{{ cat.nombre }}</span>
+          <h3><a href="{{ a.url }}">{{ a.data.title }}</a></h3>
+          <p>{{ a.data.resumen or a.data.description }}</p>
+          <div class="bb-foot"><span class="bb-date"><time datetime="{{ a.date | fechaISO }}">{{ a.date | fechaCorta }}</time> · {{ a.content | minutosLectura }} min</span><span class="bb-btn" aria-hidden="true">Ver más <span>&rarr;</span></span></div>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    <p class="bb-empty" data-vacio role="status">Todavía no hay artículos de este tema. Mira los demás mientras tanto.</p>
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="wrap">
+    <div class="bb-cta">
+      <div class="bb-cta-main">
+        <h2>¿Quieres que tu negocio destaque en Google Maps?</h2>
+        <p>Revisamos tu ficha y te decimos qué mejorar primero. Sin costo y sin compromiso.</p>
+        <a class="btn" href="https://wa.me/{{ sitio.whatsapp }}?text=Hola%2C%20vengo%20del%20blog%20y%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="blog-cta-final" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
+      </div>
+      <nav class="bb-channels" aria-label="Otros canales">
+        <p>O síguenos y revisa lo que hacemos</p>
+        <a href="{{ sitio.instagram }}" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="blog-cta-final"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg><span><strong>Instagram</strong><small>@vluetechservices</small></span></a>
+        <a href="{{ sitio.googleMaps }}" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="blog-cta-final"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span><strong>Google Maps</strong><small>Mira nuestra ficha y reseñas</small></span></a>
+        <a href="/catalogo/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 0h7v7h-7z"/></svg><span><strong>Servicios y precios</strong><small>Tarjetas NFC, fichas y gestión mensual</small></span></a>
+      </nav>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}<script src="/blog-filtro.js?v={{ 'blog-filtro.js' | version }}" defer></script>{% endblock %}
