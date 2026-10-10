@@ -66,8 +66,16 @@ def actualizar_lastmod():
         archivo = linea[3:].strip().strip('"')
         if not archivo.endswith("index.html"):
             continue
+        # Si lo único que cambió es el ?v= del CSS o el JS, el contenido de la página no cambió
+        dif = subprocess.run(["git", "diff", "-U0", "--", archivo], cwd=RAIZ, capture_output=True,
+                             text=True, encoding="utf-8").stdout.splitlines()
+        quitadas = sorted(re.sub(r"\?v=[\w.-]+", "", l[1:]) for l in dif if l.startswith("-") and not l.startswith("---"))
+        agregadas = sorted(re.sub(r"\?v=[\w.-]+", "", l[1:]) for l in dif if l.startswith("+") and not l.startswith("+++"))
+        if dif and quitadas == agregadas:
+            continue
         ruta = "/" + archivo[: -len("index.html")]
-        patron = re.compile(r"(<loc>https?://[^<]+?" + re.escape(ruta) + r"</loc>\s*<lastmod>)[^<]*(</lastmod>)")
+        # [^/<]+ = solo el dominio: así "/" (el inicio) no calza con todas las direcciones del sitemap
+        patron = re.compile(r"(<loc>https?://[^/<]+" + re.escape(ruta) + r"</loc>\s*<lastmod>)[^<]*(</lastmod>)")
         nuevo = patron.sub(r"\g<1>" + hoy + r"\2", texto)
         if nuevo != texto:
             texto = nuevo

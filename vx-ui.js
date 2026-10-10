@@ -90,9 +90,13 @@
   var opener = null;    // botón que lo abrió (para devolverle el foco)
   var pushed = false;   // true si agregamos una entrada al historial al abrir
 
+  // Anclas antiguas que siguen funcionando después de renombrar un panel (enlaces ya compartidos)
+  var ALIAS = { 'asesoria-1a1': 'sesion-estrategica' };
+
   function getDialog(id) {
     if (!id) return null;
     try { id = decodeURIComponent(id); } catch (err) {}
+    if (ALIAS[id]) id = ALIAS[id];
     var el = d.getElementById(id);
     return el && el.classList.contains('vx-dialog') ? el : null;
   }

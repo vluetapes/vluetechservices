@@ -300,7 +300,7 @@ body>footer .vx-hours{margin-top:12px}
 @container (min-width:536px) and (max-width:900px){.vx-grid>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}}
 @container (min-width:454px) and (max-width:900px){.vx-steps>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}}
 
-/* Etiqueta de grupo (ej. "Asesoría") después de una grilla: separación para que no quede pegada a las cards */
+/* Etiqueta de grupo (ej. "Sesión estratégica") después de una grilla: separación para que no quede pegada a las cards */
 .vx-grid+.vx-group{margin-top:40px}
 
 /* ---------- Página legal (/privacidad/) y notas pequeñas ---------- */
