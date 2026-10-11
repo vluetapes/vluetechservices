@@ -3,7 +3,9 @@
 Uso (desde la carpeta del sitio):
     python herramientas/revisar.py
 
-Hace cinco cosas:
+Hace seis cosas:
+  0. Trae a esta carpeta los cambios hechos en GitHub (por ejemplo, artículos
+     guardados en Pages CMS), para que nunca trabajes sobre una versión atrasada.
   1. Actualiza el ?v= de los CSS y JS en las páginas .html según su contenido,
      para que los navegadores no muestren una versión vieja. (Las páginas del
      blog lo calculan solas al armarse.)
@@ -111,7 +113,25 @@ def pendientes():
     return lista
 
 
+def traer_cambios():
+    """Trae los cambios de GitHub (git pull). Si hay cambios tuyos sin subir, los guarda y los vuelve a poner."""
+    try:
+        r = subprocess.run(["git", "pull", "--ff-only", "--autostash"], cwd=RAIZ, capture_output=True,
+                           text=True, encoding="utf-8")
+    except OSError:
+        return True, "Git no está instalado: no se trajeron los cambios de GitHub."
+    if r.returncode != 0:
+        return False, "No se pudieron traer los cambios de GitHub:\n" + (r.stderr or r.stdout)
+    al_dia = "Already up to date" in r.stdout or "actualizado" in r.stdout
+    return True, "Carpeta al día con GitHub." if al_dia else "Se trajeron los cambios de GitHub (Pages CMS)."
+
+
 def main():
+    ok, mensaje = traer_cambios()
+    print(mensaje)
+    if not ok:
+        print("Revisa esto antes de seguir (o pídele ayuda a Claude): tu carpeta y GitHub tienen cambios distintos.")
+        sys.exit(1)
     print(f"Versiones de CSS/JS actualizadas en {actualizar_versiones()} archivo(s).")
     error = armar()
     if error:
