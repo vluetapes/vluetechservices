@@ -134,6 +134,18 @@ export default function (eleventyConfig) {
     return cacheVersiones.get(archivo);
   });
 
+  // Agrega ?v=... a una imagen del sitio según su contenido. Cloudflare guarda las imágenes
+  // un año en el navegador: así, si cambias una imagen sin cambiarle el nombre, se ve la nueva.
+  eleventyConfig.addFilter("conVersion", (url) => {
+    if (!url || /^https?:/.test(url)) return url;
+    const archivo = url.replace(/^\//, "").split("?")[0];
+    if (!fs.existsSync(archivo)) return url;
+    if (!cacheVersiones.has(archivo)) {
+      cacheVersiones.set(archivo, createHash("sha1").update(fs.readFileSync(archivo)).digest("hex").slice(0, 8));
+    }
+    return `${url.split("?")[0]}?v=${cacheVersiones.get(archivo)}`;
+  });
+
   return {
     dir: { input: ".", includes: "_includes", data: "_data", output: "_site" },
     templateFormats: ["njk", "md", "html"],

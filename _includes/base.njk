@@ -3,7 +3,7 @@
 {%- set tituloPagina = titulo_seo or (title + sitio.sufijoTitulo) -%}
 {%- set urlPagina = sitio.url + page.url -%}
 {%- set imagen = imagen_redes or sitio.imagenRedes -%}
-{%- set imagenAbs = imagen if imagen.startsWith("http") else sitio.url + imagen -%}
+{%- set imagenAbs = imagen if imagen.startsWith("http") else sitio.url + (imagen | conVersion) -%}
 <!DOCTYPE html>
 <html lang="es-CL">
 <head>
