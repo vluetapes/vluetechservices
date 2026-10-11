@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- Portada de artículo con poco texto: el visual de la derecha + 2 o 3 palabras grandes + el símbolo de Vlue.
+     FONDO = imagen 1200x630 con el visual a la derecha. PALABRAS = texto corto (usar <br> para cortar).
+     TAPAR = ancho (px) de la zona blanca que se limpia a la izquierda. -->
+<html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden;background:#fff}
+.fondo{position:absolute;inset:0;background:url(FONDO) 0 0/1200px 630px no-repeat}
+/* Limpia el texto original de la izquierda sin tocar el visual */
+.tapa{position:absolute;left:0;top:0;bottom:0;width:TAPARpx;background:#fff}
+.brillo{position:absolute;left:0;top:0;bottom:0;width:TAPARpx;background:radial-gradient(ellipse 520px 360px at 0% 108%,rgba(31,75,255,.20),rgba(31,75,255,0) 70%)}
+h1{position:absolute;left:84px;top:50%;transform:translateY(-58%);font:800 112px/1 Montserrat,sans-serif;letter-spacing:-.03em;color:#07209f}
+.simbolo{position:absolute;left:84px;bottom:56px;width:92px;aspect-ratio:652/456;background:#07209f;-webkit-mask:url(SIMBOLO) center/contain no-repeat;mask:url(SIMBOLO) center/contain no-repeat}
+</style></head>
+<body>
+<div class="fondo"></div>
+<div class="tapa"></div>
+<div class="brillo"></div>
+<h1>PALABRAS</h1>
+<div class="simbolo"></div>
+</body></html>
