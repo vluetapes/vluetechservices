@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>document.documentElement.classList.add('vx-js')</script>
 <title>Reseñas y Google Maps para Clínicas en Santiago | Vlue</title>
-<meta name="description" content="Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta digital para dentistas, psicólogos, kinesiólogos y consultas de Santiago. Auditoría gratis.">
+<meta name="description" content="Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta profesional para dentistas, psicólogos, kinesiólogos y consultas de Santiago. Auditoría gratis.">
 <link rel="canonical" href="https://vluetechservices.cl/salud/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#07209f">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Vlue Tech Services">
 <meta property="og:url" content="https://vluetechservices.cl/salud/">
 <meta property="og:title" content="Reseñas y Google Maps para Clínicas en Santiago | Vlue">
-<meta property="og:description" content="Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta digital para dentistas, psicólogos, kinesiólogos y otros profesionales de la salud.">
+<meta property="og:description" content="Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta profesional para dentistas, psicólogos, kinesiólogos y otros profesionales de la salud.">
 <meta property="og:image" content="https://vluetechservices.cl/img/og/salud.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,13 +22,11 @@
 <meta name="twitter:image:alt" content="Vlue para clínicas: antes de pedir hora, tus pacientes leen tus reseñas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Reseñas y Google Maps para Clínicas en Santiago | Vlue">
-<meta name="twitter:description" content="Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta digital para dentistas, psicólogos, kinesiólogos y otros profesionales de la salud.">
+<meta name="twitter:description" content="Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta profesional para dentistas, psicólogos, kinesiólogos y otros profesionales de la salud.">
 <meta name="twitter:image" content="https://vluetechservices.cl/img/og/salud.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=880f04e8">
-<link rel="stylesheet" href="/vx-ui.css?v=853c24aa">
+<link rel="preload" href="/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style_work2.css?v=afc81abb">
+<link rel="stylesheet" href="/vx-ui.css?v=7d7f7df0">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -129,7 +127,7 @@
       "@id": "https://vluetechservices.cl/salud/#servicio",
       "name": "Google Maps y reseñas para clínicas y consultas",
       "serviceType": "Posicionamiento en Google Maps y gestión de reseñas",
-      "description": "Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta de presentación digital para clínicas y profesionales de la salud en Santiago.",
+      "description": "Ficha de Google Maps, reseñas con tarjeta NFC y tarjeta de presentación profesional para clínicas y profesionales de la salud en Santiago.",
       "provider": {
         "@id": "https://vluetechservices.cl/#negocio"
       },
@@ -174,7 +172,7 @@
           "@type": "Offer",
           "name": "Tarjeta Profesional",
           "description": "Tu consulta, tu agenda y tus reseñas en un toque, para pacientes y colegas.",
-          "price": "79990",
+          "price": "54990",
           "priceCurrency": "CLP",
           "url": "https://vluetechservices.cl/salud/#tarjeta-profesional",
           "itemOffered": {
@@ -183,8 +181,7 @@
             "provider": {
               "@id": "https://vluetechservices.cl/#negocio"
             }
-          },
-          "priceValidUntil": "2026-10-31"
+          }
         }
       ]
     },
@@ -280,6 +277,7 @@
       <a href="/">Inicio</a>
       <a href="/catalogo/">Catálogo</a>
       <a href="/salud/" class="active" aria-current="page">Salud</a>
+      <a href="/paginas-web/">Páginas web</a>
       <a href="/blog/">Blog</a>
       <a href="/contacto/">Contacto</a>
     </nav>
@@ -315,10 +313,23 @@
     </div>
     <p class="vx-lead">Trabajamos con dentistas, psicólogos, kinesiólogos, nutricionistas y otros profesionales de la salud, en consulta propia o en centros médicos.</p>
     <div class="vx-grid">
-      <article class="vx-card"><h3>Tu ficha es tu primera impresión</h3><p>Pocas fotos y reseñas antiguas hacen ver abandonada una consulta excelente.</p></article>
-      <article class="vx-card"><h3>Se olvidan de pedir reseñas</h3><p>Con la consulta llena, nadie se acuerda de pedirlas. Con una tarjeta en recepción, basta con acercar el celular.</p></article>
-      <article class="vx-card"><h3>No tienes tiempo para esto</h3><p>Nos encargamos de tu perfil de Google y de las reseñas. Tu recepción solo pasa la tarjeta.</p></article>
+      <article class="vx-card vx-prob"><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-3h5L16 6"/></svg><h3>Tu ficha es tu primera impresión</h3><p>Pocas fotos y reseñas antiguas hacen ver abandonada una consulta excelente.</p><p class="vx-prob-fix">Fotos y video en la visita</p></article>
+      <article class="vx-card vx-prob"><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 21l2.2-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg><h3>Se olvidan de pedir reseñas</h3><p>Con la consulta llena, nadie se acuerda de pedirlas. Con una tarjeta en recepción, basta con acercar el celular.</p><p class="vx-prob-fix">Una tarjeta en recepción</p></article>
+      <article class="vx-card vx-prob"><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3v3l5 6-5 6v3M17 3v3l-5 6 5 6v3"/></svg><h3>No tienes tiempo para esto</h3><p>Nos encargamos de tu perfil de Google y de las reseñas. Tu recepción solo pasa la tarjeta.</p><p class="vx-prob-fix">Nos encargamos nosotros</p></article>
     </div>
+  </div>
+</section>
+<section id="especialidades" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Por especialidad</div>
+      <h2>Elige tu especialidad</h2>
+    </div>
+    <div class="vx-links">
+      <a href="/salud/dentistas/"><strong>Dentistas y clínicas dentales</strong></a>
+      <a href="/salud/psicologos/"><strong>Psicólogos</strong></a>
+    </div>
+    <p class="vx-lead" style="margin-top:16px;">¿Eres kinesiólogo, nutricionista o médico? Los planes de esta página también son para ti. <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20la%20ficha%20de%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="especialidades" data-producto="auditoria-gratis">Escríbenos y revisamos tu caso</a>.</p>
   </div>
 </section>
 <section class="section-tint pattern-light" id="como-trabajamos">
@@ -339,30 +350,36 @@
     <div class="section-head">
       <h2>Planes para clínicas y consultas</h2>
     </div>
-    <p class="vx-lead">Consulta Visible deja todo listo. Consulta Visible Pro suma 90 días de gestión y medición.</p>
+    <p class="vx-lead">Los dos dejan tu ficha lista con una visita fuera de horario. El Pro suma 3 meses en que respondemos tus reseñas y medimos cuánto crece.</p>
+    <p class="vx-plan-note"><strong>Precio piloto</strong> hasta el 31-oct-2026 · IVA incluido</p>
     <div class="vx-grid">
-<article class="vx-card vx-card--featured" id="card-consulta-visible-pro">
-  <span class="vx-badge">Más completo</span>
-  <h3>Consulta Visible Pro (90 días)</h3>
-  <p class="vx-result">Tu consulta lista, cuidada y medida durante 90 días.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$499.990</s> <strong><span class="vx-sr">Precio piloto </span>$389.990</strong></p>
-  <p class="vx-sep">Por separado: $554.920 (Ficha completa, 2 Tarjetas Vlue, 3 meses de Reputación Pro, Página de enlaces y Tarjeta Profesional)</p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="consulta-visible-pro" aria-haspopup="dialog" aria-label="Ver detalle: Consulta Visible Pro (90 días)">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Consulta%20Visible%20Pro%20para%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="consulta-visible-pro">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+<article class="vx-card vx-card--featured vx-plan" id="card-consulta-visible-pro">
+  <span class="vx-badge">Recomendado</span>
+  <h3>Consulta Visible Pro</h3>
+  <p class="vx-plan-sub">Tu ficha lista y 3 meses creciendo en Google</p>
+  <p class="vx-price"><strong>$389.990</strong></p>
+  <p class="vx-plan-after">Luego $499.990</p>
+  <p class="vx-plan-lead">Todo lo de Consulta Visible, más:</p>
+  <ul class="vx-incluye"><li>Reseñas respondidas en 24 a 48&nbsp;h</li><li>Informes a los 30, 60 y 90 días</li><li>Tu Tarjeta Profesional</li></ul>
+  <div class="vx-plan-cta">
+    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Consulta%20Visible%20Pro%20(90%20d%C3%ADas)" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="consulta-visible-pro">Pedir por WhatsApp</a>
+    <button type="button" class="vx-plan-link" data-open="consulta-visible-pro" aria-haspopup="dialog" aria-label="Ver todo lo que incluye Consulta Visible Pro">Ver todo lo que incluye</button>
   </div>
 </article>
-<article class="vx-card" id="card-consulta-visible">
+<article class="vx-card vx-plan" id="card-consulta-visible">
   <h3>Consulta Visible</h3>
-  <p class="vx-result">Ficha lista, 2 tarjetas para recepción y box, y tu equipo capacitado.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$179.990</s> <strong><span class="vx-sr">Precio piloto </span>$129.990</strong></p>
-  <p class="vx-sep">Por separado: $184.960 (Ficha completa, 2 Tarjetas Vlue y 1 mes de Crecimiento mensual)</p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="consulta-visible" aria-haspopup="dialog" aria-label="Ver detalle: Consulta Visible">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20pack%20Consulta%20Visible%20para%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="consulta-visible">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+  <p class="vx-plan-sub">Tu consulta lista en Google Maps</p>
+  <p class="vx-price"><strong>$129.990</strong></p>
+  <p class="vx-plan-after">Luego $179.990</p>
+  <p class="vx-plan-lead">Incluye:</p>
+  <ul class="vx-incluye"><li>Ficha completa con visita fuera de horario</li><li>2 tarjetas de reseña: recepción y box</li><li>1 mes de gestión de tu ficha</li></ul>
+  <div class="vx-plan-cta">
+    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Consulta%20Visible" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="consulta-visible">Pedir por WhatsApp</a>
+    <button type="button" class="vx-plan-link" data-open="consulta-visible" aria-haspopup="dialog" aria-label="Ver todo lo que incluye Consulta Visible">Ver todo lo que incluye</button>
   </div>
 </article>
     </div>
+    <p class="vx-plan-foot">¿Atiendes solo, sin recepción? Va 1 tarjeta en vez de 2 y te descontamos $24.990.</p>
 <details class="vx-compare">
 <summary>¿Cuál debería elegir? Compáralos</summary>
 <div class="vx-table-wrap">
@@ -374,7 +391,7 @@
     <tr><th scope="row">Tarjetas Vlue</th><td>2 de reseña + Tarjeta Profesional del titular</td><td>2 de reseña (recepción y box)</td></tr>
     <tr><th scope="row">Guion y capacitación a recepción</th><td>Con refuerzo a los 30 días</td><td class="vx-ic vx-ic-yes"><span aria-hidden="true">✓</span><span class="vx-sr">Incluidos</span></td></tr>
     <tr><th scope="row">Informe antes/después</th><td class="vx-ic vx-ic-yes"><span aria-hidden="true">✓</span><span class="vx-sr">Incluido</span></td><td class="vx-ic vx-ic-yes"><span aria-hidden="true">✓</span><span class="vx-sr">Incluido</span></td></tr>
-    <tr><th scope="row">Gestión mensual</th><td>3 meses de Reputación Pro</td><td>1 mes de Crecimiento mensual</td></tr>
+    <tr><th scope="row">Gestión mensual</th><td>3 meses de Crecimiento Pro</td><td>1 mes de Crecimiento mensual</td></tr>
     <tr><th scope="row">Respuesta a reseñas</th><td>Personalizada, en 24 a 48 h hábiles</td><td>Respuesta a cada reseña</td></tr>
     <tr><th scope="row">Informe mensual comparado con 3 competidores</th><td class="vx-ic vx-ic-yes"><span aria-hidden="true">✓</span><span class="vx-sr">Incluido</span></td><td class="vx-ic vx-ic-no"><span aria-hidden="true">✕</span><span class="vx-sr">No incluido</span></td></tr>
     <tr><th scope="row">Fotos y video</th><td>Sesión extendida con recorrido editado</td><td>Fotos y video básicos</td></tr>
@@ -386,29 +403,48 @@
 </table>
 </div>
 </details>
-    <p class="vx-lead" style="margin-top:20px;">¿Quieres seguir después? Mira la <a href="/catalogo/gestion-resenas-google/">gestión mensual: Crecimiento mensual y Reputación Pro</a>.</p>
+    <h3 style="margin:36px 0 26px;">Así son los 90 días del plan Pro</h3>
+    <ol class="vx-tl">
+      <li><span class="vx-tl-when">Día 1</span><div><strong>Visita fuera de horario</strong><p>Vamos cuando no hay pacientes y dejamos tu ficha completa.</p><ul class="vx-tl-chips"><li>Fotos</li><li>Video del recorrido</li><li>Ficha completa</li></ul></div></li>
+      <li><span class="vx-tl-when">Semana 1</span><div><strong>Tarjetas y capacitación</strong><p>Dejamos las tarjetas instaladas y a tu recepción lista para pedir reseñas.</p><ul class="vx-tl-chips"><li>Tarjetas en recepción y box</li><li>Guion</li><li>Capacitación a tu recepción</li></ul></div></li>
+      <li><span class="vx-tl-when">Días 30 y 60</span><div><strong>Informe de crecimiento</strong><p>Comparado con 3 consultas de tu zona.</p><ul class="vx-tl-chips"><li>Reseñas nuevas</li><li>Llamadas</li><li>Rutas</li><li>Visitas</li></ul></div></li>
+      <li><span class="vx-tl-when">Día 90</span><div><strong>Informe final y reunión</strong><p>Una reunión de 30 a 45 minutos para decidir cómo seguir.</p><ul class="vx-tl-chips"><li>Informe final</li><li>Reunión de 30 a 45 min</li></ul></div></li>
+    </ol>
+    <p class="vx-lead" style="margin-top:20px;">¿Quieres seguir después? Mira la <a href="/catalogo/gestion-resenas-google/">gestión mensual: Crecimiento mensual y Crecimiento Pro</a>.</p>
   </div>
 </section>
 <section class="section-tint pattern-light" id="tarjeta-profesional-seccion">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Para cada profesional</div>
-      <h2>Tarjeta de presentación digital para médicos y profesionales de la salud</h2>
+      <h2>Tarjeta de presentación profesional para médicos y profesionales de la salud</h2>
     </div>
     <p class="vx-lead">Un paciente o un colega acerca el celular y guarda tu contacto, tu agenda, tu ubicación y tus reseñas. Sin app.</p>
     <!-- [PENDIENTE] Agregar un ejemplo real de tarjeta profesional en tu dominio (ej. /ejemplo-profesional/) y enlazarlo aquí -->
     <div class="vx-grid">
-<article class="vx-card" id="card-tarjeta-profesional">
-  <span class="vx-badge">Nuevo</span>
+<article class="vx-card vx-plan" id="card-tarjeta-profesional">
   <h3>Tarjeta Profesional</h3>
-  <p class="vx-result">Tu consulta, tu agenda y tus reseñas en un toque, para pacientes y colegas.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$99.990</s> <strong><span class="vx-sr">Precio piloto </span>$79.990</strong></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="tarjeta-profesional" aria-haspopup="dialog" aria-label="Ver detalle: Tarjeta Profesional">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20Tarjeta%20Profesional%20para%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="tarjeta-profesional">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+  <p class="vx-plan-sub">Tu contacto y tu agenda en un toque</p>
+  <p class="vx-price"><strong>$54.990</strong></p>
+  <p class="vx-plan-after">IVA incluido</p>
+  <p class="vx-plan-lead">Incluye:</p>
+  <ul class="vx-incluye"><li>1 tarjeta NFC con tu nombre y especialidad</li><li>Tu página con agenda, WhatsApp y ubicación</li><li>Botón «Guardar contacto»</li></ul>
+  <div class="vx-plan-cta">
+    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20Tarjeta%20Profesional" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="tarjeta-profesional">Pedir por WhatsApp</a>
+    <button type="button" class="vx-plan-link" data-open="tarjeta-profesional" aria-haspopup="dialog" aria-label="Ver todo lo que incluye Tarjeta Profesional">Ver todo lo que incluye</button>
   </div>
 </article>
     </div>
+  </div>
+</section>
+<section id="pagina-web">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Página web para tu consulta</div>
+      <h2>Tu ficha manda a tu web, y tu web a tu agenda</h2>
+    </div>
+    <p class="vx-lead">La ficha muestra horario y reseñas; la web explica cómo trabajas, tus prestaciones y tus valores. Una landing para tu consulta cuesta $99.990 y un sitio con una página por prestación parte en $300.000. Si atiendes solo en línea, Google no te permite ficha en Maps y la web pasa a ser tu consulta.</p>
+    <div class="vx-actions-row"><a class="btn btn-outline" href="/paginas-web/">Ver páginas web<span class="btn-arrow">&rarr;</span></a></div>
   </div>
 </section>
 <section id="retorno">
@@ -424,8 +460,8 @@
       <label>Plan
         <select data-calc-plan>
           <option value="129990">Consulta Visible ($129.990)</option>
-          <option value="389990">Consulta Visible Pro, 90 días ($389.990)</option>
-          <option value="79990">Tarjeta Profesional ($79.990)</option>
+          <option value="389990">Consulta Visible Pro con 3 meses de Crecimiento Pro ($389.990)</option>
+          <option value="54990">Tarjeta Profesional ($54.990)</option>
         </select>
       </label>
       <output aria-live="polite">Escribe cuánto vale un paciente nuevo para tu consulta y te mostramos el cálculo.</output>
@@ -436,22 +472,20 @@
 <section class="section-tint pattern-light" id="cuidado">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Transparencia</div>
       <h2>Lo que no hacemos</h2>
     </div>
-    <ul class="vx-list vx-no" style="max-width:720px;">
-      <li>No prometemos posición en Google: nadie puede hacerlo.</li>
-      <li>No eliminamos reseñas: reportamos las que violan las políticas de Google.</li>
-      <li>No ofrecemos incentivos ni filtramos a quién se le pide una reseña: Google lo prohíbe.</li>
-      <li>No confirmamos que alguien fue tu paciente al responder una reseña.</li>
-      <li>No publicamos fotos de pacientes ni prometemos resultados clínicos.</li>
+    <ul class="vx-feats vx-feats--no">
+      <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><div><strong>No prometemos posición en Google</strong><span>Nadie puede hacerlo.</span></div></li>
+      <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><div><strong>No eliminamos reseñas</strong><span>Reportamos las que violan las políticas de Google.</span></div></li>
+      <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8S10.5 3 8 4s0 4 4 4zM12 8s1.5-5 4-4 0 4-4 4z"/></svg><div><strong>No damos incentivos por reseñas</strong><span>Ni filtramos a quién se le pide una: Google lo prohíbe.</span></div></li>
+      <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z"/></svg><div><strong>No confirmamos quién es tu paciente</strong><span>Al responder una reseña cuidamos la confidencialidad.</span></div></li>
+      <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg><div><strong>No publicamos fotos de pacientes</strong><span>Ni prometemos resultados clínicos.</span></div></li>
     </ul>
   </div>
 </section>
 <section id="preguntas">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Preguntas frecuentes</div>
       <h2>Preguntas frecuentes de clínicas y consultas</h2>
     </div>
 <div class="vx-faq">
@@ -481,25 +515,27 @@
   <article class="vx-panel">
     <header class="vx-panel-head">
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <span class="vx-panel-tag">Pro</span>
-      <p class="vx-eyebrow">Pack Pro para salud</p>
-      <h2 id="consulta-visible-pro-t">Consulta Visible Pro (90 días)</h2>
+      <p class="vx-eyebrow">Consulta Visible Pro · 90 días</p>
+      <h2 id="consulta-visible-pro-t">3 meses de Crecimiento Pro para tu consulta</h2>
       <p class="vx-result">Tu consulta lista, cuidada y medida durante 90 días.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$499.990</s> <strong><span class="vx-sr">Precio piloto </span>$389.990</strong></p>
-      <p class="vx-sep">Por separado: $554.920 (Ficha completa, 2 Tarjetas Vlue, 3 meses de Reputación Pro, Página de enlaces y Tarjeta Profesional)</p>
+      <p class="vx-price"><strong>$389.990</strong></p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/consulta-visible-pro-informe.webp" alt="Informe mensual de reputación en Google Maps de una consulta" width="640" height="360" loading="lazy" decoding="async"> -->
       <h3>Para quién</h3>
       <p>Consultas y clínicas donde cada paciente nuevo vale mucho y prefieren delegar todo.</p>
       <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Todo lo de Consulta Visible: ficha completa, tarjetas para recepción y box, informe antes/después</li><li>3 meses de Reputación Pro: respuesta personalizada a reseñas en 24 a 48 h hábiles, reporte de reseñas que violan las políticas de Google y monitoreo de duplicados y cambios no autorizados</li><li>Informe mensual comparado con 3 competidores</li><li>Sesión extendida de fotos y video: recorrido editado de 30 a 60 segundos</li><li>Página de enlaces de tu consulta (tu tarjeta de presentación digital)</li><li>1 Tarjeta Profesional del titular (profesionales adicionales a precio de equipo)</li><li>Guion y capacitación a recepción, con refuerzo a los 30 días</li><li>Garantía de 12 meses en las tarjetas, con reposición express</li><li>Medición a 30, 60 y 90 días, y reunión de estrategia al día 90 (30 a 45 minutos)</li></ul>
+      <ul class="vx-list vx-yes"><li>Todo lo de Consulta Visible: ficha completa, tarjetas para recepción y box, informe antes/después</li><li>3 meses de Crecimiento Pro: respuesta personalizada a reseñas en 24 a 48 h hábiles, reporte de reseñas que violan las políticas de Google y monitoreo de duplicados y cambios no autorizados</li><li>Informe mensual comparado con 3 competidores</li><li>Sesión extendida de fotos y video: recorrido editado de 30 a 60 segundos</li><li>Página de enlaces de tu consulta (tu tarjeta de presentación profesional)</li><li>1 Tarjeta Profesional del titular (cada profesional adicional: $54.990)</li><li>Guion y capacitación a recepción, con refuerzo a los 30 días</li><li>Garantía de 12 meses en las tarjetas, con reposición express</li><li>Medición a 30, 60 y 90 días, y reunión de estrategia al día 90 (30 a 45 minutos)</li></ul>
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Eliminar reseñas (solo reportamos las que violan las políticas de Google)</li><li>Gestión de redes sociales</li></ul>
       <h3>Cómo funciona</h3>
       <ol class="vx-steps-list"><li>Hacemos un diagnóstico y definimos contigo qué te preocupa y qué mediremos.</li><li>Visita fuera de horario: ficha, fotos, video y capacitación a recepción.</li><li>Gestionamos tu ficha y respondemos tus reseñas mes a mes.</li><li>A los 30, 60 y 90 días medimos juntos y, al día 90, definimos el siguiente paso.</li></ol>
       <h3>Entrega</h3>
       <p>Ficha y tarjetas en menos de 48 horas desde la visita. La gestión corre durante 90 días.</p>
+      <h3>Precio</h3>
+      <p>Precio piloto · desde el 1-nov-2026: $499.990</p>
+      <p>Por separado: $529.920 (Ficha completa, 2 Tarjetas Vlue, 3 meses de Crecimiento Pro, Página de enlaces y Tarjeta Profesional)</p>
+      <p><span class="vx-ahorro">Ahorras $139.930</span></p>
     </div>
     <footer class="vx-panel-foot">
       <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20Consulta%20Visible%20Pro%20para%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="consulta-visible-pro">Quiero Consulta Visible Pro<span class="btn-arrow">&rarr;</span></a>
@@ -512,11 +548,10 @@
   <article class="vx-panel">
     <header class="vx-panel-head">
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Pack para salud</p>
-      <h2 id="consulta-visible-t">Consulta Visible</h2>
+      <p class="vx-eyebrow">Consulta Visible</p>
+      <h2 id="consulta-visible-t">Tu consulta lista en Google Maps</h2>
       <p class="vx-result">Ficha lista, 2 tarjetas para recepción y box, y tu equipo capacitado.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$179.990</s> <strong><span class="vx-sr">Precio piloto </span>$129.990</strong></p>
-      <p class="vx-sep">Por separado: $184.960 (Ficha completa, 2 Tarjetas Vlue y 1 mes de Crecimiento mensual)</p>
+      <p class="vx-price"><strong>$129.990</strong></p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/consulta-visible-recepcion.webp" alt="Recepción de una consulta con una tarjeta Vlue sobre el mesón" width="640" height="360" loading="lazy" decoding="async"> -->
@@ -525,11 +560,15 @@
       <h3>Incluye</h3>
       <ul class="vx-list vx-yes"><li>Ficha completa de Google Maps: creación, verificación y optimización</li><li>2 Tarjetas Vlue de reseña (recepción y box)</li><li>Guion breve y capacitación a recepción para pedir reseñas</li><li>Informe antes/después de tu ficha</li><li>1 mes de Crecimiento mensual incluido</li><li>Garantía de 6 meses de las tarjetas por falla de funcionamiento</li></ul>
       <h3>No incluye</h3>
-      <ul class="vx-list vx-no"><li>Gestión de redes sociales</li><li>Gestión después del primer mes (sigue con Reputación Pro o Crecimiento mensual)</li><li>Página de enlaces y sesión extendida de fotos y video (se agregan aparte)</li></ul>
+      <ul class="vx-list vx-no"><li>Gestión de redes sociales</li><li>Gestión después del primer mes (sigue con Crecimiento Pro o Crecimiento mensual)</li><li>Página de enlaces y sesión extendida de fotos y video (se agregan aparte)</li></ul>
       <h3>Cómo funciona</h3>
       <ol class="vx-steps-list"><li>Coordinamos con quien administra la consulta, aunque no sea el profesional.</li><li>Hacemos la visita fuera del horario de atención si hace falta.</li><li>Dejamos la ficha lista y capacitamos a recepción en pocos minutos.</li><li>A los 30 días te entregamos un informe y te proponemos cómo continuar.</li></ol>
       <h3>Entrega</h3>
       <p>Ficha y tarjetas en menos de 48 horas desde la visita. La verificación depende de la aprobación de Google.</p>
+      <h3>Precio</h3>
+      <p>Precio piloto · desde el 1-nov-2026: $179.990</p>
+      <p>Por separado: $184.960 (Ficha completa, 2 Tarjetas Vlue y 1 mes de Crecimiento mensual)</p>
+      <p><span class="vx-ahorro">Ahorras $54.970</span></p>
     </div>
     <footer class="vx-panel-foot">
       <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20el%20pack%20Consulta%20Visible%20para%20mi%20consulta" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="consulta-visible">Quiero Consulta Visible<span class="btn-arrow">&rarr;</span></a>
@@ -541,23 +580,21 @@
   <article class="vx-panel">
     <header class="vx-panel-head">
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <p class="vx-eyebrow">Para profesionales de la salud</p>
-      <h2 id="tarjeta-profesional-t">Tarjeta Profesional</h2>
+      <p class="vx-eyebrow">Tarjeta Profesional</p>
+      <h2 id="tarjeta-profesional-t">Tu contacto y tu agenda en un toque</h2>
       <p class="vx-result">Tu consulta, tu agenda y tus reseñas en un toque, para pacientes y colegas.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$99.990</s> <strong><span class="vx-sr">Precio piloto </span>$79.990</strong></p>
+      <p class="vx-price"><strong>$54.990</strong></p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/tarjeta-profesional-medico.webp" alt="Tarjeta Profesional de un médico y su página personal en el celular" width="640" height="360" loading="lazy" decoding="async"> -->
       <h3>Para quién</h3>
       <p>Médicos, odontólogos, psicólogos, kinesiólogos y especialistas que reciben pacientes y derivaciones de colegas.</p>
       <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>2 tarjetas NFC/QR con tu nombre y especialidad (una para el bolsillo y otra para tu consulta)</li><li>Página personal (página de enlaces) con foto, especialidad, un &quot;sobre mí&quot; breve y botones de agendar, WhatsApp, ubicación, reseñas y redes</li><li>Botón &quot;Guardar contacto&quot; para que pacientes y colegas te guarden con un toque</li><li>Redacción del texto de tu página</li><li>Estuche de presentación</li><li>Alojamiento incluido (condiciones al cotizar)</li><li>Prueba en celulares iOS y Android y garantía de 6 meses de las tarjetas</li></ul>
+      <ul class="vx-list vx-yes"><li>1 tarjeta NFC/QR con tu nombre y especialidad</li><li>Página personal (página de enlaces) con foto, especialidad, un &quot;sobre mí&quot; breve y botones de agendar, WhatsApp, ubicación, reseñas y redes</li><li>Botón &quot;Guardar contacto&quot; para que pacientes y colegas te guarden con un toque</li><li>Redacción del texto de tu página</li><li>Estuche de presentación</li><li>Alojamiento incluido (condiciones al cotizar)</li><li>Prueba en celulares iOS y Android y garantía de 6 meses de las tarjetas</li></ul>
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Dominio propio: desde +$19.990; el dominio lo contratas tú y nosotros lo conectamos</li><li>Fotografía profesional (puedes enviarnos una foto o te damos una guía)</li></ul>
       <h3>Cómo la usan los profesionales</h3>
       <ul class="vx-list vx-yes"><li>Se la entregas al paciente al terminar la consulta, para que guarde tu contacto y agende su control</li><li>La dejas a colegas y laboratorios que te derivan pacientes</li></ul>
-      <h3>Equipos</h3>
-      <ul class="vx-list vx-yes"><li>3 o más profesionales de una misma consulta: $79.990 por profesional (piloto de octubre: $64.990)</li></ul>
       <h3>Cómo funciona</h3>
       <ol class="vx-steps-list"><li>Nos envías tu foto, tu especialidad y los datos que quieras mostrar.</li><li>Preparamos tu página y te la mostramos antes de grabar la tarjeta.</li><li>Grabamos y probamos la tarjeta, y te la entregamos.</li></ol>
       <h3>Entrega</h3>
@@ -570,27 +607,57 @@
     </footer>
   </article>
 </dialog>
-<footer>
+<footer class="vx-foot">
   <div class="wrap">
-    <div class="logo"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services" width="708" height="120" loading="lazy" decoding="async"></div>
-    <p>Reseñas y Google Maps para negocios de Chile</p>
-    <p>Vlue Tech Services SpA &middot; Santiago, Chile</p>
-    <nav class="foot-links" aria-label="Secciones">
-      <a href="/catalogo/">Catálogo</a>
-      <a href="/salud/">Clínicas y consultas</a>
-      <a href="/blog/">Blog</a>
-      <a href="/contacto/">Contacto</a>
-      <a href="/privacidad/">Privacidad</a>
-    </nav>
-    <div class="foot-links">
-      <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a>
-      <a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a>
-      <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="pie">WhatsApp</a>
+    <div class="vx-foot-top">
+      <div class="vx-foot-brand">
+        <a class="vx-foot-logo" href="/"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services, inicio" width="708" height="120" loading="lazy" decoding="async"></a>
+        <p>Reseñas, Google Maps y páginas web para negocios y consultas de Chile.</p>
+        <div class="vx-foot-social">
+          <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" aria-label="Vlue en Google Maps" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
+          <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" aria-label="Instagram de Vlue, @vluetechservices" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg></a>
+          <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" aria-label="WhatsApp de Vlue" data-evento="clic_whatsapp" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></a>
+          <a href="mailto:contacto@vluetechservices.cl" aria-label="Correo de Vlue: contacto@vluetechservices.cl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.2 19.4 7H4.6zM20 8.3l-7.4 5.2a1 1 0 0 1-1.2 0L4 8.3V17h16V8.3z"/></svg></a>
+        </div>
+      </div>
+      <nav class="vx-foot-cols" aria-label="Pie de página">
+        <div>
+          <h2>Servicios</h2>
+          <ul>
+            <li><a href="/catalogo/tarjetas-nfc-resenas/">Tarjetas NFC</a></li>
+            <li><a href="/catalogo/ficha-google-maps/">Ficha de Google Maps</a></li>
+            <li><a href="/catalogo/gestion-resenas-google/">Gestión mensual</a></li>
+            <li><a href="/paginas-web/">Páginas web</a></li>
+            <li><a href="/catalogo/">Catálogo y precios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Salud</h2>
+          <ul>
+            <li><a href="/salud/">Clínicas y consultas</a></li>
+            <li><a href="/salud/dentistas/">Dentistas</a></li>
+            <li><a href="/salud/psicologos/">Psicólogos</a></li>
+            <li><a href="/catalogo/tarjeta-profesional/">Tarjeta Profesional</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Vlue</h2>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+            <li><a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a></li>
+            <li class="vx-foot-hours">Lun a vie 10:00 a 19:00<br>Sáb y dom 10:00 a 15:00</li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <p class="vx-hours">Atención: lunes a viernes de 10:00 a 19:00<br>Sábado y domingo de 10:00 a 15:00</p>
-    <div class="vx-social">
-      <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Vlue en Google Maps</a>
-      <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg>@vluetechservices</a>
+    <div class="vx-foot-bottom">
+      <p>&copy; 2026 Vlue Tech Services SpA &middot; RUT 78.514.356-6 &middot; Ahumada 131, Santiago</p>
+      <nav aria-label="Legal">
+        <a href="/terminos/">Términos y condiciones</a>
+        <a href="/privacidad/">Privacidad</a>
+        <a href="/privacidad/#cookies" data-cookies>Cookies</a>
+      </nav>
     </div>
   </div>
 </footer>
@@ -599,6 +666,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
-<script src="/vx-ui.js?v=20ef50e8" defer></script>
+<script src="/vx-ui.js?v=f104f590" defer></script>
 </body>
 </html>

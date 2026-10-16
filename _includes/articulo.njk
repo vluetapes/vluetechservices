@@ -139,10 +139,10 @@
     </div>
     <div class="vx-links">
       {%- for a in otros %}
-      <a href="{{ a.url }}"><strong>{{ a.data.title }}</strong><span>{{ a.data.description }}</span></a>
+      <a href="{{ a.url }}"><strong>{{ a.data.title }}</strong></a>
       {%- endfor %}
       {%- if servicioCta %}
-      <a href="{{ servicioCta.url }}"><strong>{{ servicioCta.enlace }}</strong><span>{{ servicioCta.resumen }}</span></a>
+      <a href="{{ servicioCta.url }}"><strong>{{ servicioCta.enlace }}</strong></a>
       {%- endif %}
     </div>
   </div>

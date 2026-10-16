@@ -1,0 +1,23 @@
+{#- Bloque de cierre: botón de WhatsApp + canales y redes. Se usa en el inicio, el blog y los artículos. -#}
+{%- set wa = "https://wa.me/" + negocio.whatsapp + "?text=" + (negocio.mensajeWhatsapp | urlencode) -%}
+<section class="fondo-suave" id="contacto">
+  <div class="wrap">
+    <div class="contacto">
+      <div class="cta-caja">
+        <h2>¿Agendamos?</h2>
+        <p>Escríbenos por WhatsApp y te respondemos con las horas disponibles. {{ negocio.horario }}.</p>
+        <a class="btn btn-claro" href="{{ wa }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="contacto">{{ inicio.boton }}</a>
+      </div>
+      <div class="canales">
+        <a href="tel:{{ negocio.telefono }}" data-evento="clic_llamada" data-ubicacion="contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span><strong>Llámanos</strong><small>{{ negocio.telefonoVisible }}</small></span></a>
+        {%- if negocio.mostrarDireccion and negocio.direccion %}
+        <a href="{{ negocio.googleMaps }}" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span><strong>Cómo llegar</strong><small>{{ negocio.direccion }}</small></span></a>
+        {%- endif %}
+        {%- if negocio.instagram %}
+        <a href="{{ negocio.instagram }}" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg><span><strong>Instagram</strong><small>Mira nuestros trabajos</small></span></a>
+        {%- endif %}
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg><span><strong>Horario</strong><small>{{ negocio.horario }}</small></span></div>
+      </div>
+    </div>
+  </div>
+</section>

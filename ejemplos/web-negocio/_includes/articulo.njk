@@ -1,0 +1,117 @@
+{#- Molde de cada artículo. Los datos vienen de los campos que se llenan en Pages CMS. -#}
+{% extends "base.njk" %}
+{%- set cat = blog.categorias | porSlug(categoria) -%}
+{%- set cuerpo = content | conIds -%}
+{%- set subtitulos = cuerpo | indice -%}
+{%- set minutos = content | minutosLectura -%}
+{%- set urlPagina = negocio.url + page.url -%}
+{%- set fechaPub = page.date | fechaISO -%}
+{%- set fechaMod = page | actualizado -%}
+{%- set fechaMod = fechaMod if fechaMod > fechaPub else fechaPub -%}
+{%- set wa = "https://wa.me/" + negocio.whatsapp + "?text=" + (negocio.mensajeWhatsapp | urlencode) -%}
+
+{% block metaExtra %}
+<meta name="author" content="{{ blog.autor.nombre }}">
+<meta property="article:published_time" content="{{ fechaPub }}">
+<meta property="article:modified_time" content="{{ fechaMod }}">
+{% endblock %}
+
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": {{ (negocio.tipoSchema or "LocalBusiness") | dump | safe }}, "@id": "{{ negocio.url }}/#negocio", "name": {{ negocio.nombre | dump | safe }}, "url": "{{ negocio.url }}/"},
+    {
+      "@type": "BlogPosting",
+      "@id": "{{ urlPagina }}#articulo",
+      "mainEntityOfPage": "{{ urlPagina }}",
+      "headline": {{ title | dump | safe }},
+      "description": {{ description | dump | safe }},
+      "image": "{{ negocio.url }}{{ imagen_redes or negocio.imagenRedes }}",
+      "datePublished": "{{ fechaPub }}",
+      "dateModified": "{{ fechaMod }}",
+      "inLanguage": "es-CL",
+      "articleSection": {{ (cat.nombre or "Blog") | dump | safe }},
+      "author": {"@type": "Organization", "name": {{ blog.autor.nombre | dump | safe }}, "url": "{{ negocio.url }}/"},
+      "publisher": {"@id": "{{ negocio.url }}/#negocio"},
+      "isPartOf": {"@id": "{{ negocio.url }}/blog/#blog"}
+    },
+    {"@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ negocio.url }}/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ negocio.url }}/blog/"},
+      {"@type": "ListItem", "position": 3, "name": {{ title | dump | safe }}}
+    ]}
+    {%- if preguntas and preguntas.length %},
+    {"@type": "FAQPage", "mainEntity": [
+      {%- for p in preguntas %}
+      {"@type": "Question", "name": {{ p.pregunta | dump | safe }}, "acceptedAnswer": {"@type": "Answer", "text": {{ p.respuesta | dump | safe }}}}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]}
+    {%- endif %}
+  ]
+}
+{% endblock %}
+
+{% block contenido %}
+{%- set cajaCta -%}
+<aside class="caja-cta" aria-label="Agenda tu hora">
+  <p><strong>{{ cta_titulo or "¿Te ayudamos?" }}</strong>{{ cta_texto or ("Escríbenos por WhatsApp y te respondemos dentro del horario de atención.") }}</p>
+  <a class="btn btn-principal" href="{{ wa }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="articulo-medio">{{ inicio.boton }}</a>
+</aside>
+{%- endset -%}
+<article>
+<header class="portada articulo-cabeza">
+  <div class="wrap">
+    <nav class="migas" aria-label="Migas de pan"><a href="/">Inicio</a> › <a href="/blog/">Blog</a> › {{ cat.nombre }}</nav>
+    <div class="antetitulo">{{ cat.nombre }}</div>
+    <h1>{{ title }}</h1>
+    <p class="meta"><span>Por {{ blog.autor.nombre }}</span><span><time datetime="{{ fechaPub }}">{{ page.date | fechaLarga }}</time></span><span>{{ minutos }} min de lectura</span></p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="lectura">
+      {%- if respuesta %}
+      <div class="respuesta"><strong>En corto</strong><p>{{ respuesta }}</p></div>
+      {%- endif %}
+      {%- if miniatura %}
+      <figure class="portada-art"><img src="{{ miniatura }}" alt="{{ miniatura_alt }}" width="1200" height="630" fetchpriority="high"></figure>
+      {%- endif %}
+      {%- if subtitulos.length > 2 %}
+      <details class="toc"><summary>En este artículo</summary><ol>
+        {%- for s in subtitulos %}<li><a href="#{{ s.id }}">{{ s.texto }}</a></li>{% endfor %}
+        {%- if preguntas and preguntas.length %}<li><a href="#preguntas">Preguntas frecuentes</a></li>{% endif %}
+      </ol></details>
+      {%- endif %}
+
+      <div class="texto">
+{{ cuerpo | insertarCta(cajaCta) | safe }}
+      {%- if preguntas and preguntas.length %}
+        <h2 id="preguntas">Preguntas frecuentes</h2>
+      {%- endif %}
+      </div>
+      {%- if preguntas and preguntas.length %}
+      <div class="preguntas" style="margin-top:16px">
+        {%- for p in preguntas %}<details><summary>{{ p.pregunta }}</summary><div><p>{{ p.respuesta }}</p></div></details>{% endfor %}
+      </div>
+      {%- endif %}
+
+      <div class="autor">
+        {%- if blog.autor.foto %}<img src="{{ blog.autor.foto }}" alt="{{ blog.autor.nombre }}" width="64" height="64" loading="lazy">{% else %}<span class="avatar" aria-hidden="true">{{ blog.autor.nombre | first }}</span>{% endif %}
+        <p><strong>{{ blog.autor.nombre }}</strong>{{ blog.autor.bio }}</p>
+      </div>
+    </div>
+
+    {%- set otros = collections.articulos | relacionados(page.url, categoria, 3) %}
+    {%- if otros.length %}
+    <div class="cabeza" style="margin-top:48px"><h2>Sigue leyendo</h2></div>
+    <ul class="cards">
+      {%- for a in otros %}{% set n = loop.index %}{% include "partes/card.njk" %}{% endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>
+</article>
+{% include "partes/contacto.njk" %}
+{% endblock %}

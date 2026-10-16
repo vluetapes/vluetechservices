@@ -2,10 +2,10 @@
    vx-ui.js  v1  —  Vlue Tech Services
    Se carga al final de cada página con defer. El ?v= lo actualiza
    herramientas/revisar.py (córrelo antes de publicar).
-   Hace 4 cosas:
+   Hace 4 cosas (más el aviso de cookies, que carga GA4 solo si la persona acepta):
      1. Paneles de detalle (<dialog>) con fondo difuminado: abrir, cerrar,
         enlace propio (#pack-despegue) y botón Atrás del celular.
-     2. Calculadora de retorno de /salud/.
+     2. Calculadoras: retorno (/salud/), cantidad de tarjetas NFC y "arma tu sitio" (/paginas-web/sitio-web/).
      3. Carga Google Analytics 4 (si GA4_ID tiene tu ID) y le envía los clics
         marcados con data-evento. Sin ID no carga nada ni envía nada.
      4. En celular y tablet, enciende las cards destacadas al pasar por el
@@ -21,6 +21,31 @@
 
   if (!hasDialog) html.classList.add('vx-nodialog');
 
+  /* ---------- Línea de tiempo (.vx-tl) ----------
+     Al bajar, la línea se llena hasta la altura del 60% de la pantalla y cada
+     punto que queda por encima se enciende. */
+  Array.prototype.forEach.call(d.querySelectorAll('.vx-tl'), function (tl) {
+    var steps = tl.querySelectorAll(':scope > li');
+    var last = steps[steps.length - 1];
+    var queued = false;
+    tl.classList.add('vx-tl--js');
+    function update() {
+      queued = false;
+      var top = tl.getBoundingClientRect().top;
+      var mark = window.innerHeight * 0.6;
+      var h = last.offsetTop;
+      tl.style.setProperty('--h', h + 'px');
+      tl.style.setProperty('--fill', Math.min(1, Math.max(0, (mark - top - 11) / (h || 1))).toFixed(3));
+      Array.prototype.forEach.call(steps, function (s) {
+        s.classList.toggle('is-on', top + s.offsetTop + 11 <= mark);
+      });
+    }
+    function queue() { if (!queued) { queued = true; window.requestAnimationFrame(update); } }
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    update();
+  });
+
   /* ---------- Cards destacadas en pantallas táctiles ----------
      Sin mouse no hay :hover, así que la card se pone azul (.is-lit) mientras
      cruza la franja central de la pantalla y vuelve a blanco al salir. */
@@ -31,12 +56,32 @@
     d.querySelectorAll('.vx-card--featured, .vx-card--glow').forEach(function (c) { lit.observe(c); });
   }
 
+  /* ---------- Pasos: la línea se dibuja cuando la lista entra en pantalla ---------- */
+  if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    var pasos = d.querySelectorAll('.vx-steps');
+    if (pasos.length) {
+      d.documentElement.classList.add('vx-anim');
+      var verPasos = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); verPasos.unobserve(e.target); } });
+      }, { threshold: 0.35 });
+      pasos.forEach(function (p) { verPasos.observe(p); });
+    }
+  }
+
   /* ---------- Medición ----------
      Pega aquí tu ID de medición de Google Analytics 4 (empieza con "G-").
      Vacío = no se carga GA4 y los clics no se envían a ningún lado. */
   var GA4_ID = 'G-LJNVK597JG';
 
-  if (GA4_ID && typeof window.gtag !== 'function') {
+  /* Consentimiento (Ley 21.719): GA4 se carga solo si la persona acepta en el aviso.
+     La respuesta queda en este navegador ("si" o "no"); cualquier elemento con
+     data-cookies (por ejemplo, el enlace del pie) vuelve a mostrar el aviso. */
+  var CLAVE = 'vx-consentimiento';
+  function leer() { try { return localStorage.getItem(CLAVE); } catch (e) { return null; } }
+  function guardar(v) { try { localStorage.setItem(CLAVE, v); } catch (e) { /* sin almacenamiento: se pregunta en cada visita */ } }
+
+  function cargarGA() {
+    if (!GA4_ID || typeof window.gtag === 'function') return;
     var ga = d.createElement('script');
     ga.async = true;
     ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
@@ -46,6 +91,38 @@
     window.gtag('js', new Date());
     window.gtag('config', GA4_ID);
   }
+
+  var aviso = null;
+  function mostrarAviso() {
+    if (aviso) { aviso.hidden = false; return; }
+    aviso = d.createElement('div');
+    aviso.className = 'vx-cookies';
+    aviso.setAttribute('role', 'region');
+    aviso.setAttribute('aria-label', 'Aviso de cookies');
+    aviso.innerHTML = '<p>Usamos Google Analytics para saber qué partes de la web sirven. Solo se activa si aceptas. ' +
+      '<a href="/privacidad/#cookies">Más información</a></p>' +
+      '<div class="vx-cookies-btns"><button type="button" class="vx-cookies-no">Rechazar</button>' +
+      '<button type="button" class="vx-cookies-si">Aceptar</button></div>';
+    aviso.addEventListener('click', function (e) {
+      var si = e.target.closest('.vx-cookies-si'), no = e.target.closest('.vx-cookies-no');
+      if (!si && !no) return;
+      guardar(si ? 'si' : 'no');
+      aviso.hidden = true;
+      if (si) cargarGA();
+      else if (typeof window.gtag === 'function') location.reload(); // quitar GA si ya estaba cargado
+    });
+    d.body.appendChild(aviso);
+  }
+
+  var respuesta = leer();
+  if (respuesta === 'si') cargarGA();
+  else if (respuesta !== 'no' && GA4_ID) mostrarAviso();
+  d.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-cookies]');
+    if (!t) return;
+    e.preventDefault();
+    mostrarAviso();
+  });
 
   function track(evento, datos) {
     if (typeof window.gtag !== 'function') return;
@@ -59,7 +136,8 @@
     if (!el) return;
     track(el.getAttribute('data-evento'), {
       ubicacion: el.getAttribute('data-ubicacion') || '',
-      producto: el.getAttribute('data-producto') || ''
+      producto: el.getAttribute('data-producto') || '',
+      cantidad: el.getAttribute('data-cantidad') || ''
     });
   });
 
@@ -257,5 +335,113 @@
     // Formato con punto de miles al salir del campo (no mientras escribe, para no mover el cursor)
     input.addEventListener('blur', function () { var v = valor(); input.value = v ? fmt.format(v) : ''; });
     input.addEventListener('focus', function () { var v = valor(); input.value = v ? String(v) : ''; });
+  });
+
+  /* ---------- Calculadora de cantidad de tarjetas (/catalogo/tarjetas-nfc-resenas/) ----------
+     data-tramos="1:24990,3:18330,6:16990" = desde cuántas tarjetas rige cada precio por unidad.
+     Sobre data-max no hay precio: se ofrece cotizar por WhatsApp. */
+  Array.prototype.forEach.call(d.querySelectorAll('[data-vx-qty]'), function (box) {
+    var input = box.querySelector('[data-qty-input]');
+    var out = box.querySelector('[data-qty-out]');
+    var wa = box.querySelector('[data-qty-wa]');
+    if (!input || !out || !wa) return;
+
+    var tramos = box.getAttribute('data-tramos').split(',').map(function (t) {
+      var p = t.split(':'); return { desde: parseInt(p[0], 10), precio: parseInt(p[1], 10) };
+    }).sort(function (a, b) { return a.desde - b.desde; });
+    var max = parseInt(box.getAttribute('data-max'), 10) || 10;
+    var base = tramos[0].precio;
+    var waBase = wa.href.split('?')[0];
+
+    function unitario(n) {
+      var p = base;
+      tramos.forEach(function (t) { if (n >= t.desde) p = t.precio; });
+      return p;
+    }
+    function cantidad() { return Math.min(99, Math.max(1, parseInt(input.value, 10) || 1)); }
+
+    function update() {
+      var n = cantidad();
+      var palabra = n === 1 ? ' tarjeta' : ' tarjetas';
+      var strong = d.createElement('strong');
+      var msg;
+      out.textContent = '';
+      if (n > max) {
+        strong.textContent = n + palabra + ': te cotizamos';
+        out.appendChild(strong);
+        out.appendChild(d.createTextNode('. Sobre ' + max + ' tarjetas armamos un precio especial según el diseño y la entrega.'));
+        msg = 'Hola, quiero cotizar ' + n + ' tarjetas NFC de reseñas';
+        wa.firstChild.nodeValue = 'Cotizar ' + n + ' tarjetas por WhatsApp';
+      } else {
+        var u = unitario(n), total = u * n, ahorro = base * n - total;
+        strong.textContent = n + palabra + ': ' + pesos(total);
+        out.appendChild(strong);
+        out.appendChild(d.createTextNode(n === 1 ? '.' : ' (' + pesos(u) + ' cada una).'));
+        if (ahorro > 0) out.appendChild(d.createTextNode(' Te ahorras ' + pesos(ahorro) + ' frente a comprarlas de a una.'));
+        msg = 'Hola, quiero ' + n + palabra + ' NFC de reseñas (' + pesos(total) + ')';
+        wa.firstChild.nodeValue = 'Pedir ' + n + palabra + ' por WhatsApp';
+      }
+      wa.href = waBase + '?text=' + encodeURIComponent(msg);
+      wa.setAttribute('data-cantidad', String(n));
+      Array.prototype.forEach.call(box.querySelectorAll('[data-qty-set]'), function (b) {
+        b.setAttribute('aria-pressed', String(parseInt(b.getAttribute('data-qty-set'), 10) === n));
+      });
+    }
+    function set(n) { input.value = Math.min(99, Math.max(1, n)); update(); }
+
+    box.addEventListener('click', function (e) {
+      var step = e.target.closest('[data-qty-step]');
+      var pick = e.target.closest('[data-qty-set]');
+      if (step) set(cantidad() + parseInt(step.getAttribute('data-qty-step'), 10));
+      if (pick) set(parseInt(pick.getAttribute('data-qty-set'), 10));
+    });
+    input.addEventListener('input', function () { if (input.value !== '') update(); });
+    input.addEventListener('blur', function () { input.value = cantidad(); update(); });
+    update();
+  });
+
+  /* ---------- Calculadora "arma tu sitio" (/paginas-web/sitio-web/) ----------
+     data-base = precio del sitio con data-base-paginas páginas; data-extra = cada página extra;
+     data-blog = blog autoadministrable; data-seo = textos especializados para SEO, por página. */
+  Array.prototype.forEach.call(d.querySelectorAll('[data-vx-webcalc]'), function (box) {
+    var num = function (a) { return parseInt(box.getAttribute(a), 10) || 0; };
+    var base = num('data-base'), incluidas = num('data-base-paginas'), extra = num('data-extra');
+    var precioBlog = num('data-blog'), precioSeo = num('data-seo'), max = num('data-max') || 15;
+    var st = { paginas: incluidas, seo: 0 };
+    var blog = box.querySelector('[data-w-blog]');
+    var total = box.querySelector('[data-w-total]');
+    var wa = box.querySelector('[data-w-wa]');
+    if (!blog || !total || !wa) return;
+    var waBase = wa.href.split('?')[0];
+
+    function update() {
+      st.paginas = Math.min(max, Math.max(incluidas, st.paginas));
+      st.seo = Math.min(st.paginas, Math.max(0, st.seo));
+      box.querySelector('[data-w-out="paginas"]').textContent = st.paginas;
+      box.querySelector('[data-w-out="seo"]').textContent = st.seo;
+      var extras = st.paginas - incluidas;
+      var suma = base + extras * extra + (blog.checked ? precioBlog : 0) + st.seo * precioSeo;
+      var partes = [incluidas + ' páginas ' + pesos(base)];
+      if (extras) partes.push(extras + (extras === 1 ? ' página extra ' : ' páginas extra ') + pesos(extras * extra));
+      if (blog.checked) partes.push('blog ' + pesos(precioBlog));
+      if (st.seo) partes.push('textos para SEO en ' + st.seo + (st.seo === 1 ? ' página ' : ' páginas ') + pesos(st.seo * precioSeo));
+      total.textContent = '';
+      var strong = d.createElement('strong');
+      strong.textContent = 'Total: ' + pesos(suma);
+      total.appendChild(strong);
+      total.appendChild(d.createTextNode(' (' + partes.join(' + ') + '). IVA incluido.'));
+      var msg = 'Hola, quiero cotizar un sitio web de ' + st.paginas + ' páginas' + (blog.checked ? ', con blog' : '') +
+        (st.seo ? ' y textos para SEO en ' + st.seo + (st.seo === 1 ? ' página' : ' páginas') : '') + ' (' + pesos(suma) + ')';
+      wa.href = waBase + '?text=' + encodeURIComponent(msg);
+      wa.setAttribute('data-cantidad', String(st.paginas));
+    }
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-w-step]');
+      if (!b) return;
+      st[b.getAttribute('data-w-step')] += parseInt(b.getAttribute('data-d'), 10);
+      update();
+    });
+    blog.addEventListener('change', update);
+    update();
   });
 })();

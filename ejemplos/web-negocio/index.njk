@@ -1,0 +1,109 @@
+---
+permalink: /
+eleventyComputed:
+  title: "{{ inicio.titulo }}"
+  titulo_seo: "{{ inicio.tituloSeo }}"
+  description: "{{ inicio.descripcionSeo }}"
+---
+{#- Página de inicio. Todos los textos salen de _data/inicio.json y _data/negocio.json. -#}
+{% extends "base.njk" %}
+
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": {{ (negocio.tipoSchema or "LocalBusiness") | dump | safe }},
+      "@id": "{{ negocio.url }}/#negocio",
+      "name": {{ negocio.nombre | dump | safe }},
+      "description": {{ negocio.descripcion | dump | safe }},
+      "url": "{{ negocio.url }}/",
+      "image": "{{ negocio.url }}{{ negocio.imagenRedes }}",
+      "telephone": "{{ negocio.telefono }}",
+      {%- if negocio.email %}"email": "{{ negocio.email }}",{% endif %}
+      "address": {
+        "@type": "PostalAddress",
+        {%- if negocio.mostrarDireccion and negocio.direccion %}"streetAddress": {{ negocio.direccion | dump | safe }},{% endif %}
+        "addressLocality": {{ negocio.comuna | dump | safe }},
+        "addressRegion": {{ negocio.region | dump | safe }},
+        "addressCountry": "CL"
+      },
+      "areaServed": {"@type": "City", "name": {{ negocio.ciudad | dump | safe }}},
+      "sameAs": {{ [negocio.instagram, negocio.facebook, negocio.tiktok, negocio.googleMaps] | sinVacios | dump | safe }}
+    },
+    {"@type": "WebSite", "@id": "{{ negocio.url }}/#web", "url": "{{ negocio.url }}/", "name": {{ negocio.nombre | dump | safe }}, "inLanguage": "es-CL", "publisher": {"@id": "{{ negocio.url }}/#negocio"}}
+    {%- if inicio.preguntas.length %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for p in inicio.preguntas %}
+        {"@type": "Question", "name": {{ p.pregunta | dump | safe }}, "acceptedAnswer": {"@type": "Answer", "text": {{ p.respuesta | dump | safe }}}}{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+  ]
+}
+{% endblock %}
+
+{% block metaExtra %}{% if inicio.fotoPortada %}<link rel="preload" as="image" href="{{ inicio.fotoPortada }}" fetchpriority="high">{% endif %}{% endblock %}
+
+{% block contenido %}
+{%- set wa = "https://wa.me/" + negocio.whatsapp + "?text=" + (negocio.mensajeWhatsapp | urlencode) -%}
+<section class="portada{% if inicio.fotoPortada %} con-foto{% endif %}">
+  <div class="wrap portada-grid">
+    <div class="portada-texto">
+      <div class="antetitulo">{{ inicio.antetitulo }}</div>
+      <h1>{{ inicio.titulo }}</h1>
+      <p class="bajada">{{ inicio.bajada }}</p>
+      <div class="botones">
+        <a class="btn btn-principal" href="{{ wa }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="portada">{{ inicio.boton }}</a>
+        <a class="btn btn-borde" href="#servicios">Ver servicios</a>
+      </div>
+      {%- if inicio.datos %}
+      <ul class="portada-datos">{% for d in inicio.datos %}<li><strong>{{ d.valor }}</strong> {{ d.texto }}</li>{% endfor %}</ul>
+      {%- endif %}
+    </div>
+    {%- if inicio.fotoPortada %}
+    <figure class="portada-foto"><img src="{{ inicio.fotoPortada }}" alt="{{ inicio.fotoAlt }}" width="{{ inicio.fotoAncho or 1200 }}" height="{{ inicio.fotoAlto or 800 }}" fetchpriority="high" decoding="async"></figure>
+    {%- endif %}
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="cabeza"><h2>Servicios</h2></div>
+    <ul class="servicios">
+      {%- for s in inicio.servicios %}
+      <li class="servicio"><span class="servicio-n">{{ loop.index | dosCifras }}</span><h3>{{ s.titulo }}</h3><p>{{ s.texto }}</p>{% if s.precio %}<span class="precio">{{ s.precio }}</span>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- if collections.articulos.length %}
+<section class="fondo-suave">
+  <div class="wrap">
+    <div class="cabeza"><h2>Del blog</h2><a href="/blog/">Ver todos los artículos &rarr;</a></div>
+    <ul class="cards">
+      {%- for a in collections.articulos | primeros(3) %}{% set n = loop.index %}{% include "partes/card.njk" %}{% endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- if inicio.preguntas.length %}
+<section>
+  <div class="wrap">
+    <div class="cabeza"><h2>Preguntas frecuentes</h2></div>
+    <div class="preguntas">
+      {%- for p in inicio.preguntas %}
+      <details><summary>{{ p.pregunta }}</summary><div><p>{{ p.respuesta }}</p></div></details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{% include "partes/contacto.njk" %}
+{% endblock %}

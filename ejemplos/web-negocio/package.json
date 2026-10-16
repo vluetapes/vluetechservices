@@ -1,0 +1,14 @@
+{
+  "name": "plantilla-web-cliente",
+  "version": "1.0.0",
+  "description": "Web de negocio local con blog autoadministrable (Eleventy + Pages CMS + Cloudflare Pages)",
+  "scripts": {
+    "armar": "eleventy",
+    "ver": "eleventy --serve --port=8090"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "private": true
+}

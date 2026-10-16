@@ -28,7 +28,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 SITIO = RAIZ / "_site"
-FUERA = {".git", "herramientas", "node_modules", "_site"}
+FUERA = {".git", "herramientas", "node_modules", "_site", "ejemplos"}
 
 
 def fuentes(*patrones):

@@ -24,11 +24,9 @@
 <meta name="twitter:title" content="Gestión de Reseñas y Perfil de Google en Chile | Vlue">
 <meta name="twitter:description" content="Publicamos en tu Perfil de Empresa de Google, respondemos tus reseñas y te enviamos un informe cada mes. A distancia, en todo Chile. Desde $69.990/mes.">
 <meta name="twitter:image" content="https://vluetechservices.cl/img/og/gestion-resenas-google.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=880f04e8">
-<link rel="stylesheet" href="/vx-ui.css?v=853c24aa">
+<link rel="preload" href="/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style_work2.css?v=afc81abb">
+<link rel="stylesheet" href="/vx-ui.css?v=7d7f7df0">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -122,7 +120,7 @@
     },
     {
       "@type": "Service",
-      "name": "Reputación Pro",
+      "name": "Crecimiento Pro",
       "serviceType": "Gestión de reseñas y ficha de Google",
       "description": "Respuesta personalizada a cada reseña, reportes a Google, informe mensual comparado con 3 competidores y reunión trimestral. Precio por mes.",
       "provider": {
@@ -208,7 +206,7 @@
           "name": "¿Cuánto cuesta la gestión mensual?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Crecimiento mensual cuesta $69.990 al mes y Reputación Pro $109.990 al mes, a precio piloto."
+            "text": "Crecimiento mensual cuesta $69.990 al mes y Crecimiento Pro $109.990 al mes, a precio piloto."
           }
         },
         {
@@ -250,6 +248,7 @@
       <a href="/">Inicio</a>
       <a href="/catalogo/" class="active">Catálogo</a>
       <a href="/salud/">Salud</a>
+      <a href="/paginas-web/">Páginas web</a>
       <a href="/blog/">Blog</a>
       <a href="/contacto/">Contacto</a>
     </nav>
@@ -285,25 +284,32 @@
       <h2>Gestión mensual: elige cuánto quieres delegar</h2>
     </div>
     <!-- [ACTUALIZAR el 1 de noviembre]: dejar solo el precio regular y quitar priceValidUntil del JSON-LD -->
-    <p class="vx-lead">Crecimiento mensual mantiene tu perfil activo. Reputación Pro suma respuestas personalizadas, reportes a Google y una reunión cada trimestre.</p>
+    <p class="vx-lead">Crecimiento mensual mantiene tu perfil activo. Crecimiento Pro suma respuestas personalizadas, reportes a Google y una reunión cada trimestre.</p>
+    <p class="vx-plan-note"><strong>Precio piloto</strong> los primeros 3 meses · IVA incluido</p>
     <div class="vx-grid">
-<article class="vx-card vx-card--featured" id="card-mensual-pro">
-  <span class="vx-badge">Pro</span>
-  <h3>Reputación Pro</h3>
-  <p class="vx-result">Más reseñas cada mes y respuesta personalizada a cada una.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$139.990</s> <strong><span class="vx-sr">Precio piloto </span>$109.990</strong><small>/mes</small></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="mensual-pro" aria-haspopup="dialog" aria-label="Ver detalle: Reputación Pro">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Reputaci%C3%B3n%20Pro" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="mensual-pro">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+<article class="vx-card vx-card--featured vx-plan" id="card-mensual-pro">
+  <span class="vx-badge">Recomendado</span>
+  <h3>Crecimiento Pro</h3>
+  <p class="vx-plan-sub">Más reseñas cada mes y respuestas a tu medida</p>
+  <p class="vx-price"><strong>$109.990</strong><small>/mes</small></p>
+  <p class="vx-plan-after">Luego $139.990/mes</p>
+  <p class="vx-plan-lead">Todo lo de Crecimiento mensual, más:</p>
+  <ul class="vx-incluye"><li>Respuesta personalizada en 24 a 48&nbsp;h</li><li>Informe comparado con 3 competidores</li><li>Reunión de estrategia cada trimestre</li></ul>
+  <div class="vx-plan-cta">
+    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20Pro" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="mensual-pro">Pedir por WhatsApp</a>
+    <button type="button" class="vx-plan-link" data-open="mensual-pro" aria-haspopup="dialog" aria-label="Ver todo lo que incluye Crecimiento Pro">Ver todo lo que incluye</button>
   </div>
 </article>
-<article class="vx-card" id="card-mensual-crecimiento">
+<article class="vx-card vx-plan" id="card-mensual-crecimiento">
   <h3>Crecimiento mensual</h3>
-  <p class="vx-result">Publicaciones semanales y respuesta a tus reseñas.</p>
-  <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$89.990</s> <strong><span class="vx-sr">Precio piloto </span>$69.990</strong><small>/mes</small></p>
-  <div class="vx-actions">
-    <button type="button" class="vx-more" data-open="mensual-crecimiento" aria-haspopup="dialog" aria-label="Ver detalle: Crecimiento mensual">Ver detalle</button>
-    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20mensual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="mensual-crecimiento">WhatsApp<span class="btn-arrow">&rarr;</span></a>
+  <p class="vx-plan-sub">Tu ficha activa todas las semanas</p>
+  <p class="vx-price"><strong>$69.990</strong><small>/mes</small></p>
+  <p class="vx-plan-after">Luego $89.990/mes</p>
+  <p class="vx-plan-lead">Incluye:</p>
+  <ul class="vx-incluye"><li>1 a 2 publicaciones por semana</li><li>Respuesta a cada reseña</li><li>Informe mensual de tu crecimiento</li></ul>
+  <div class="vx-plan-cta">
+    <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20mensual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="card" data-producto="mensual-crecimiento">Pedir por WhatsApp</a>
+    <button type="button" class="vx-plan-link" data-open="mensual-crecimiento" aria-haspopup="dialog" aria-label="Ver todo lo que incluye Crecimiento mensual">Ver todo lo que incluye</button>
   </div>
 </article>
     </div>
@@ -311,8 +317,8 @@
 <summary>¿Cuál debería elegir? Compáralos</summary>
 <div class="vx-table-wrap">
 <table class="vx-table">
-  <caption>Reputación Pro vs Crecimiento mensual</caption>
-  <thead><tr><th scope="col">Qué incluye</th><th scope="col">Reputación Pro</th><th scope="col">Crecimiento mensual</th></tr></thead>
+  <caption>Crecimiento Pro vs Crecimiento mensual</caption>
+  <thead><tr><th scope="col">Qué incluye</th><th scope="col">Crecimiento Pro</th><th scope="col">Crecimiento mensual</th></tr></thead>
   <tbody>
     <tr><th scope="row">Publicaciones o actualizaciones</th><td>1 a 2 por semana</td><td>1 a 2 por semana</td></tr>
     <tr><th scope="row">Respuesta a reseñas</th><td>Personalizada, en 24 a 48 h hábiles</td><td>Respuesta a cada reseña</td></tr>
@@ -345,10 +351,10 @@
   <div class="wrap">
     <div class="notes-strip">
       <h2>Antes de contratar</h2>
-      <ul class="notes-list">
-        <li>No prometemos un lugar en Google: nadie puede hacerlo.</li>
-        <li>Los primeros 3 meses van a precio piloto; después rige el precio regular, con aviso previo.</li>
-        <li><span>Si tu ficha todavía no está completa, conviene partir por <a href="/catalogo/ficha-google-maps/">dejarla lista</a>.</span></li>
+      <ul class="vx-tiles">
+        <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg><strong>Sin promesas de ranking</strong><span>No prometemos un lugar en Google: nadie puede hacerlo.</span></li>
+        <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><strong>Precio piloto por 3 meses</strong><span>Después rige el precio regular, con aviso previo.</span></li>
+        <li><svg class="vx-feat-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><strong>¿Tu ficha no está completa?</strong><span>Conviene partir por <a href="/catalogo/ficha-google-maps/">dejarla lista</a>.</span></li>
       </ul>
     </div>
   </div>
@@ -356,26 +362,24 @@
 <section>
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">También te puede servir</div>
-      <h2>Para sacarle más provecho</h2>
+      <h2>También te puede servir</h2>
     </div>
     <div class="vx-links">
-      <a href="/catalogo/tarjetas-nfc-resenas/"><strong>Tarjetas NFC de reseñas</strong><span>Más reseñas nuevas para responder: tus clientes las dejan con un toque.</span></a>
-      <a href="/catalogo/ficha-google-maps/"><strong>Ficha de Google Maps</strong><span>¿Todavía no tienes ficha o está a medias? La dejamos lista antes de empezar la gestión (visita en Santiago).</span></a>
-      <a href="/salud/"><strong>Planes para clínicas y consultas</strong><span>Consulta Visible Pro incluye 3 meses de Reputación Pro.</span></a>
+      <a href="/catalogo/tarjetas-nfc-resenas/"><strong>Tarjetas NFC de reseñas</strong></a>
+      <a href="/paginas-web/"><strong>Páginas web</strong></a>
+      <a href="/salud/"><strong>Planes para clínicas y consultas</strong></a>
     </div>
   </div>
 </section>
 <section class="section-tint pattern-light" id="preguntas">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Preguntas frecuentes</div>
       <h2>Preguntas frecuentes sobre la gestión de reseñas</h2>
     </div>
 <div class="vx-faq">
   <details><summary>¿Pueden borrar las reseñas negativas?</summary><div><p>No. Las respondemos con calma y, si violan las políticas de Google, las reportamos. Google decide si las elimina.</p></div></details>
   <details><summary>¿Tengo que darles mi contraseña?</summary><div><p>No. Nos das acceso de administrador a tu Perfil de Empresa de Google desde tu propia cuenta. El perfil sigue siendo tuyo y puedes quitarnos el acceso cuando quieras.</p></div></details>
-  <details><summary>¿Cuánto cuesta la gestión mensual?</summary><div><p>Crecimiento mensual cuesta $69.990 al mes y Reputación Pro $109.990 al mes, a precio piloto.</p></div></details>
+  <details><summary>¿Cuánto cuesta la gestión mensual?</summary><div><p>Crecimiento mensual cuesta $69.990 al mes y Crecimiento Pro $109.990 al mes, a precio piloto.</p></div></details>
   <details><summary>¿Qué tengo que hacer yo?</summary><div><p>Enviarnos fotos y novedades del mes, tal como las tengas. Del resto nos encargamos nosotros.</p></div></details>
   <details><summary>¿Cómo responden una reseña negativa?</summary><div><p>Con calma y sin discutir: agradecemos el comentario, reconocemos lo que corresponda y ofrecemos seguir la conversación por un canal privado. Si la reseña es falsa o viola las políticas de Google, además la reportamos.</p></div></details>
   <details><summary>¿Trabajan con negocios de regiones?</summary><div><p>Sí. La gestión mensual se hace completa a distancia: nos das acceso a tu perfil, nos mandas fotos y novedades por WhatsApp y el informe te llega cada mes. Atendemos negocios de todo Chile.</p></div></details>
@@ -398,27 +402,28 @@
   <article class="vx-panel">
     <header class="vx-panel-head">
       <button type="button" class="vx-close" data-close aria-label="Cerrar detalle">&times;</button>
-      <span class="vx-panel-tag">Pro</span>
       <p class="vx-eyebrow">Gestión mensual · Pro</p>
-      <h2 id="mensual-pro-t">Reputación Pro</h2>
+      <h2 id="mensual-pro-t">Crecimiento Pro</h2>
       <p class="vx-result">Más reseñas cada mes y respuesta personalizada a cada una.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$139.990</s> <strong><span class="vx-sr">Precio piloto </span>$109.990</strong><small>/mes</small></p>
+      <p class="vx-price"><strong>$109.990</strong><small>/mes</small></p>
     </header>
     <div class="vx-panel-body">
-      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/reputacion-pro-informe.webp" alt="Informe mensual comparando tu ficha con 3 competidores" width="640" height="360" loading="lazy" decoding="async"> -->
+      <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/crecimiento-pro-informe.webp" alt="Informe mensual comparando tu ficha con 3 competidores" width="640" height="360" loading="lazy" decoding="async"> -->
       <h3>Para quién</h3>
       <p>Consultas y negocios donde cada cliente nuevo vale mucho.</p>
       <h3>Incluye</h3>
-      <ul class="vx-list vx-yes"><li>Todo lo de Crecimiento mensual</li><li>Respuesta personalizada a cada reseña nueva en 24 a 48 h hábiles</li><li>Reporte a Google de reseñas que violan sus políticas y monitoreo de duplicados o cambios no autorizados en tu ficha</li><li>Apoyo continuo para que tu equipo pida reseñas</li><li>Informe mensual comparado con 3 competidores, mes a mes</li><li>Reunión de estrategia trimestral (30 a 45 minutos)</li><li>Página de enlaces con tu marca, incluida (tu tarjeta de presentación digital)</li></ul>
+      <ul class="vx-list vx-yes"><li>Todo lo de Crecimiento mensual</li><li>Respuesta personalizada a cada reseña nueva en 24 a 48 h hábiles</li><li>Reporte a Google de reseñas que violan sus políticas y monitoreo de duplicados o cambios no autorizados en tu ficha</li><li>Apoyo continuo para que tu equipo pida reseñas</li><li>Informe mensual comparado con 3 competidores, mes a mes</li><li>Reunión de estrategia trimestral (30 a 45 minutos)</li><li>Página de enlaces con tu marca, incluida (tu tarjeta de presentación profesional)</li></ul>
       <h3>No incluye</h3>
       <ul class="vx-list vx-no"><li>Eliminar reseñas (solo reportamos las que violan las políticas de Google)</li></ul>
       <h3>Cómo funciona</h3>
       <ol class="vx-steps-list"><li>Nos das acceso de administrador a tu Perfil de Empresa de Google (el perfil siempre es tuyo).</li><li>Nos envías fotos y novedades del mes, tal como las tengas.</li><li>Publicamos, respondemos tus reseñas y cuidamos tu ficha.</li><li>Cada mes recibes un informe, y cada trimestre nos reunimos.</li></ol>
       <h3>Entrega</h3>
       <p>Se activa en cuanto confirmamos tus datos.</p>
+      <h3>Precio</h3>
+      <p>Precio piloto los primeros 3 meses · después $139.990/mes</p>
     </div>
     <footer class="vx-panel-foot">
-      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Reputaci%C3%B3n%20Pro" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="mensual-pro">Quiero Reputación Pro<span class="btn-arrow">&rarr;</span></a>
+      <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20Pro" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="mensual-pro">Quiero Crecimiento Pro<span class="btn-arrow">&rarr;</span></a>
       <button type="button" class="vx-more" data-close>Volver</button>
       <p class="vx-note">Los primeros 3 meses van a precio piloto; después rige el precio regular, con aviso previo.</p>
     </footer>
@@ -431,7 +436,7 @@
       <p class="vx-eyebrow">Gestión mensual</p>
       <h2 id="mensual-crecimiento-t">Crecimiento mensual</h2>
       <p class="vx-result">Publicaciones semanales y respuesta a tus reseñas.</p>
-      <p class="vx-price"><s><span class="vx-sr">Precio regular </span>$89.990</s> <strong><span class="vx-sr">Precio piloto </span>$69.990</strong><small>/mes</small></p>
+      <p class="vx-price"><strong>$69.990</strong><small>/mes</small></p>
     </header>
     <div class="vx-panel-body">
       <!-- [PENDIENTE imagen] <img class="vx-media" src="/img/crecimiento-mensual-calendario.webp" alt="Calendario de publicaciones de una ficha de Google Maps" width="640" height="360" loading="lazy" decoding="async"> -->
@@ -445,6 +450,8 @@
       <ol class="vx-steps-list"><li>Nos das acceso de administrador a tu Perfil de Empresa de Google (el perfil siempre es tuyo).</li><li>Nos envías fotos y novedades del mes, tal como las tengas.</li><li>Publicamos, respondemos y te enviamos el informe.</li></ol>
       <h3>Entrega</h3>
       <p>Se activa en cuanto confirmamos tus datos.</p>
+      <h3>Precio</h3>
+      <p>Precio piloto los primeros 3 meses · después $89.990/mes</p>
     </div>
     <footer class="vx-panel-foot">
       <a class="btn btn-primary" href="https://wa.me/56926191935?text=Hola%2C%20me%20interesa%20la%20gesti%C3%B3n%20mensual%20Crecimiento%20mensual" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="panel" data-producto="mensual-crecimiento">Quiero Crecimiento mensual<span class="btn-arrow">&rarr;</span></a>
@@ -453,27 +460,57 @@
     </footer>
   </article>
 </dialog>
-<footer>
+<footer class="vx-foot">
   <div class="wrap">
-    <div class="logo"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services" width="708" height="120" loading="lazy" decoding="async"></div>
-    <p>Reseñas y Google Maps para negocios de Chile</p>
-    <p>Vlue Tech Services SpA &middot; Santiago, Chile</p>
-    <nav class="foot-links" aria-label="Secciones">
-      <a href="/catalogo/">Catálogo</a>
-      <a href="/salud/">Clínicas y consultas</a>
-      <a href="/blog/">Blog</a>
-      <a href="/contacto/">Contacto</a>
-      <a href="/privacidad/">Privacidad</a>
-    </nav>
-    <div class="foot-links">
-      <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a>
-      <a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a>
-      <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="pie">WhatsApp</a>
+    <div class="vx-foot-top">
+      <div class="vx-foot-brand">
+        <a class="vx-foot-logo" href="/"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services, inicio" width="708" height="120" loading="lazy" decoding="async"></a>
+        <p>Reseñas, Google Maps y páginas web para negocios y consultas de Chile.</p>
+        <div class="vx-foot-social">
+          <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" aria-label="Vlue en Google Maps" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
+          <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" aria-label="Instagram de Vlue, @vluetechservices" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg></a>
+          <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" aria-label="WhatsApp de Vlue" data-evento="clic_whatsapp" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></a>
+          <a href="mailto:contacto@vluetechservices.cl" aria-label="Correo de Vlue: contacto@vluetechservices.cl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.2 19.4 7H4.6zM20 8.3l-7.4 5.2a1 1 0 0 1-1.2 0L4 8.3V17h16V8.3z"/></svg></a>
+        </div>
+      </div>
+      <nav class="vx-foot-cols" aria-label="Pie de página">
+        <div>
+          <h2>Servicios</h2>
+          <ul>
+            <li><a href="/catalogo/tarjetas-nfc-resenas/">Tarjetas NFC</a></li>
+            <li><a href="/catalogo/ficha-google-maps/">Ficha de Google Maps</a></li>
+            <li><a href="/catalogo/gestion-resenas-google/">Gestión mensual</a></li>
+            <li><a href="/paginas-web/">Páginas web</a></li>
+            <li><a href="/catalogo/">Catálogo y precios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Salud</h2>
+          <ul>
+            <li><a href="/salud/">Clínicas y consultas</a></li>
+            <li><a href="/salud/dentistas/">Dentistas</a></li>
+            <li><a href="/salud/psicologos/">Psicólogos</a></li>
+            <li><a href="/catalogo/tarjeta-profesional/">Tarjeta Profesional</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Vlue</h2>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+            <li><a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a></li>
+            <li class="vx-foot-hours">Lun a vie 10:00 a 19:00<br>Sáb y dom 10:00 a 15:00</li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <p class="vx-hours">Atención: lunes a viernes de 10:00 a 19:00<br>Sábado y domingo de 10:00 a 15:00</p>
-    <div class="vx-social">
-      <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Vlue en Google Maps</a>
-      <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg>@vluetechservices</a>
+    <div class="vx-foot-bottom">
+      <p>&copy; 2026 Vlue Tech Services SpA &middot; RUT 78.514.356-6 &middot; Ahumada 131, Santiago</p>
+      <nav aria-label="Legal">
+        <a href="/terminos/">Términos y condiciones</a>
+        <a href="/privacidad/">Privacidad</a>
+        <a href="/privacidad/#cookies" data-cookies>Cookies</a>
+      </nav>
     </div>
   </div>
 </footer>
@@ -482,6 +519,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
-<script src="/vx-ui.js?v=20ef50e8" defer></script>
+<script src="/vx-ui.js?v=f104f590" defer></script>
 </body>
 </html>

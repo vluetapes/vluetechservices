@@ -1,0 +1,12 @@
+{
+  "colorPrincipal": "#2f4a2c",
+  "colorAcento": "#e0a15a",
+  "colorTexto": "#1f1d1a",
+  "colorFondoSuave": "#f5efe6",
+  "fuenteTitulos": "Erode",
+  "pesoTitulos": "600",
+  "fuenteTexto": "Satoshi",
+  "radio": "10px",
+  "diseno": "foto",
+  "fontshare": "f[]=erode@500,600,700&f[]=satoshi@400,500,700"
+}

@@ -41,7 +41,7 @@
 
 /* ---------- Respuesta rápida (lo primero que lee Google y las IA) ---------- */
 .bl-answer{margin:0 0 26px;padding:18px 20px;background:var(--vx-tint);border:1px solid var(--vx-line);border-left:4px solid var(--vx-blue);border-radius:12px}
-.bl-answer strong{display:block;margin-bottom:6px;font:700 .78rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.bl-answer strong{display:block;margin-bottom:6px;font:700 .78rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
 .bl-answer p{margin:0;line-height:1.65}
 
 /* ---------- Portada ---------- */
@@ -50,7 +50,7 @@
 
 /* ---------- Índice ---------- */
 .bl-toc{margin:0 0 30px;border:1px solid var(--vx-line);border-radius:12px;background:#fff}
-.bl-toc summary{min-height:44px;padding:14px 18px;font:700 .9rem Montserrat,system-ui,sans-serif;color:var(--vx-blue);cursor:pointer}
+.bl-toc summary{min-height:44px;padding:14px 18px;font:700 .9rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue);cursor:pointer}
 .bl-toc ol{margin:0;padding:0 18px 16px 38px;display:grid;gap:6px;font-size:.93rem}
 .bl-toc a{color:var(--vx-ink);text-decoration:underline;text-decoration-color:var(--vx-line);text-underline-offset:3px}
 .bl-toc a:hover{color:var(--vx-blue);text-decoration-color:currentColor}
@@ -69,7 +69,7 @@
 .bl-prose figcaption{margin-top:8px;font-size:.85rem;color:var(--vx-muted);text-align:center}
 .bl-prose .vx-table-wrap{margin-top:1.2em}
 .bl-prose .vx-table th,.bl-prose .vx-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--vx-line);line-height:1.5}
-.bl-prose .vx-table thead th{font:700 .85rem Montserrat,system-ui,sans-serif;color:var(--vx-blue);background:var(--vx-tint)}
+.bl-prose .vx-table thead th{font:700 .85rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue);background:var(--vx-tint)}
 .bl-prose .vx-table tbody tr:last-child>*{border-bottom:0}
 
 /* Caja provisoria para imágenes que faltan (solo en el prototipo) */
@@ -78,13 +78,13 @@
 /* ---------- Llamado a la acción dentro del artículo ---------- */
 .bl-cta{margin:2em 0;padding:20px 22px;border:1.5px solid var(--vx-blue);border-radius:var(--vx-r);background:#f8f9fe}
 .bl-cta p{margin:0 0 14px;line-height:1.55}
-.bl-cta p strong{display:block;font:800 1.05rem Montserrat,system-ui,sans-serif;color:var(--vx-ink);margin-bottom:4px}
+.bl-cta p strong{display:block;font:800 1.05rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink);margin-bottom:4px}
 .bl-prose .bl-cta a.btn{color:#fff;text-decoration:none;font-weight:600}
 
 /* ---------- Autor ---------- */
 .bl-author{display:flex;gap:16px;align-items:flex-start;margin-top:40px;padding:20px;border:1px solid var(--vx-line);border-radius:var(--vx-r)}
 .bl-author img,.bl-author .bl-avatar{width:64px;height:64px;border-radius:50%;flex:none;object-fit:cover}
-.bl-avatar{display:grid;place-items:center;background:var(--vx-blue);color:#fff;font:800 1.4rem Montserrat,system-ui,sans-serif}
+.bl-avatar{display:grid;place-items:center;background:var(--vx-blue);color:#fff;font:800 1.4rem Montserrat,"Montserrat Fallback",system-ui,sans-serif}
 .bl-author p{margin:0;font-size:.92rem;line-height:1.55;color:var(--vx-muted)}
 .bl-author p strong{display:block;color:var(--vx-ink);font-size:1rem}
 

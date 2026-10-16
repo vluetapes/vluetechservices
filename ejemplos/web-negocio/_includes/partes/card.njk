@@ -1,0 +1,14 @@
+{#- Card de un artículo. Necesita: a (el artículo) y n (su número). -#}
+{%- set cat = blog.categorias | porSlug(a.data.categoria) -%}
+<li class="card" data-categoria="{{ a.data.categoria }}">
+  <div class="miniatura">
+    {%- if a.data.miniatura %}<img src="{{ a.data.miniatura }}" alt="" width="1200" height="630" loading="lazy" decoding="async">{% else %}<span class="sin-imagen" aria-hidden="true">{{ cat.nombre }}</span>{% endif %}
+    <span class="numero" aria-hidden="true">{{ n | dosCifras }}</span>
+  </div>
+  <div class="card-cuerpo">
+    <span class="tema">{{ cat.nombre }}</span>
+    <h3><a href="{{ a.url }}">{{ a.data.title }}</a></h3>
+    <p>{{ a.data.resumen or a.data.description }}</p>
+    <div class="card-pie"><span class="fecha"><time datetime="{{ a.date | fechaISO }}">{{ a.date | fechaCorta }}</time> · {{ a.content | minutosLectura }} min</span><span class="ver-mas" aria-hidden="true">Ver más <span>&rarr;</span></span></div>
+  </div>
+</li>

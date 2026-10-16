@@ -1,2 +1,5 @@
 node_modules/
 _site/
+
+# Documentos internos: quedan solo en el computador, no se suben a GitHub (repositorio público)
+herramientas/plantilla-propuesta.md

@@ -49,7 +49,7 @@ export default function (eleventyConfig) {
   ].forEach((ruta) => eleventyConfig.addPassthroughCopy(ruta));
 
   /* ---------- Lo que no es parte del sitio ---------- */
-  ["README.md", "LEEME.md", "herramientas/**", "_site/**"].forEach((r) => eleventyConfig.ignores.add(r));
+  ["README.md", "LEEME.md", "herramientas/**", "_site/**", "ejemplos/**"].forEach((r) => eleventyConfig.ignores.add(r));
 
   /* ---------- Colección de artículos (sin borradores, el más nuevo primero) ---------- */
   eleventyConfig.addCollection("articulos", (api) =>

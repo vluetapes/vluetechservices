@@ -1,0 +1,22 @@
+---
+permalink: /404.html
+title: Página no encontrada
+description: La página que buscas no existe o cambió de dirección.
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+{% block jsonld %}{"@context": "https://schema.org", "@type": "WebPage", "name": "Página no encontrada"}{% endblock %}
+{% block contenido %}
+<section class="portada">
+  <div class="wrap">
+    <div class="antetitulo">Error 404</div>
+    <h1>Esta página no existe</h1>
+    <p class="bajada">Puede que la dirección haya cambiado. Vuelve al inicio o mira el blog.</p>
+    <div class="botones">
+      <a class="btn btn-principal" href="/">Ir al inicio</a>
+      <a class="btn btn-borde" href="/blog/">Ver el blog</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

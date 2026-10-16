@@ -1,0 +1,44 @@
+{
+  "tituloSeo": "Cafetería en Providencia, café de especialidad | Café Ejemplo",
+  "descripcionSeo": "Cafetería de barrio en Providencia: café de especialidad y pan del día desde las 8:00. Pide para llevar por WhatsApp.",
+  "antetitulo": "Cafetería · Providencia",
+  "titulo": "Sabor a casa, desde las 8:00",
+  "bajada": "Café de especialidad y pan recién horneado.",
+  "boton": "Pedir para llevar",
+  "servicios": [
+    {
+      "titulo": "Desayunos",
+      "texto": "Café, jugo y tostadas con palta o huevo.",
+      "precio": "$5.900"
+    },
+    {
+      "titulo": "Pastelería",
+      "texto": "Kuchen, queques y alfajores hechos aquí.",
+      "precio": "Desde $2.500"
+    },
+    {
+      "titulo": "Café en grano",
+      "texto": "Molido a tu gusto para la casa.",
+      "precio": "$9.900"
+    }
+  ],
+  "preguntas": [
+    {
+      "pregunta": "¿Necesito agendar hora?",
+      "respuesta": "Sí, trabajamos con hora para que no esperes. Puedes agendar por WhatsApp."
+    },
+    {
+      "pregunta": "¿Cómo puedo pagar?",
+      "respuesta": "Efectivo, transferencia y tarjetas de débito o crédito."
+    },
+    {
+      "pregunta": "¿Atienden a niños?",
+      "respuesta": "Sí, cortamos a niños desde los 3 años."
+    }
+  ],
+  "fotoPortada": "/img/portadas/cafe.webp",
+  "fotoAlt": "Barista preparando café en una barra de madera",
+  "fotoAncho": 1800,
+  "fotoAlto": 1200,
+  "datos": []
+}

@@ -45,17 +45,17 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 
 /* ---------- Grid y cards compactas ---------- */
 .vx-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.vx-group{margin:30px 0 12px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-group{margin:30px 0 12px;font:700 .8rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
 .vx-group:first-of-type{margin-top:0}
 
 .vx-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);contain:content;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease,background-color .35s ease,color .35s ease}
 @media (hover:hover){.vx-card:hover{transform:translateY(-3px);border-color:#c5cdf0;box-shadow:0 2px 4px rgba(7,32,159,.08),0 16px 36px rgba(7,32,159,.14)}}
 .vx-card--featured{border:2px solid var(--vx-blue);background-color:#f8f9fe}   /* color sólido (no degradado) para que el paso a azul eléctrico sea suave */
-.vx-card h3{margin:0;font:800 1.15rem/1.25 Montserrat,system-ui,sans-serif;color:var(--vx-ink)}
+.vx-card h3{margin:0;font:800 1.15rem/1.25 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
 .vx-card p{margin:0;line-height:1.5}
 .vx-card .vx-result{color:var(--vx-muted);font-size:.97rem}
 
-.vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.vx-badge{align-self:flex-start;padding:4px 10px;border-radius:999px;background:var(--vx-tint);color:var(--vx-blue);font:700 .72rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .vx-card--featured .vx-badge{background:var(--vx-blue);color:#fff}
 
 /* Cards Pro / Recomendado: al pasar el mouse se llenan con el degradado de la auditoría (.vx-audit) con una transición suave.
@@ -87,13 +87,13 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 
 .vx-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:2px 0 0}
 .vx-price s{color:var(--vx-muted);font-size:.95rem}
-.vx-price strong{font:800 1.65rem/1.1 Montserrat,system-ui,sans-serif;color:var(--vx-blue)}
+.vx-price strong{font:800 1.65rem/1.1 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue)}
 .vx-price small{color:var(--vx-muted);font-size:.85rem}
 .vx-sep{font-size:.85rem;color:var(--vx-muted)}
 
 .vx-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
 .vx-actions .btn{min-height:44px;padding:10px 16px;font-size:.95rem}
-.vx-more{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .18s,color .18s}
+.vx-more{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,"Poppins Fallback",system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .18s,color .18s}
 .vx-more:hover,.vx-more:focus-visible{background:var(--vx-blue);color:#fff}
 
 /* ---------- Panel de detalle: <dialog> con fondo difuminado ---------- */
@@ -131,9 +131,9 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 /* Paneles de las cards Pro/Recomendado: mismo degradado que el banner de auditoría (.vx-audit) */
 .vx-dialog--featured .vx-panel-head{background:linear-gradient(120deg,var(--vx-blue) 0%,var(--vx-electric) 100%)}
 /* Pestaña Pro / Recomendado sobre el título de los paneles destacados */
-.vx-panel-tag{display:inline-block;margin:0 0 10px;padding:4px 12px;border-radius:999px;background:#fff;color:var(--vx-blue);font:800 .72rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 12px rgba(5,22,111,.25)}
-.vx-panel-head .vx-eyebrow{margin:0 0 4px;font:700 .75rem Montserrat,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
-.vx-panel-head h2{margin:0 44px 6px 0;font:800 1.45rem/1.2 Montserrat,system-ui,sans-serif;color:#fff}
+.vx-panel-tag{display:inline-block;margin:0 0 10px;padding:4px 12px;border-radius:999px;background:#fff;color:var(--vx-blue);font:800 .72rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 12px rgba(5,22,111,.25)}
+.vx-panel-head .vx-eyebrow{margin:0 0 4px;font:700 .75rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.vx-panel-head h2{margin:0 44px 6px 0;font:800 1.45rem/1.2 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:#fff}
 .vx-panel-head .vx-result{margin:0 0 12px;opacity:.95;line-height:1.5}
 .vx-panel-head .vx-price s{color:rgba(255,255,255,.72)}
 .vx-panel-head .vx-price strong{color:#fff}
@@ -143,7 +143,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-close:hover{background:rgba(255,255,255,.28)}
 
 .vx-panel-body{padding:20px 28px;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.vx-panel-body h3{margin:20px 0 8px;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-panel-body h3{margin:20px 0 8px;font:700 .8rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
 .vx-panel-body h3:first-of-type{margin-top:0}
 .vx-panel-body p,.vx-panel-body li{font-size:.97rem;line-height:1.55}
 .vx-media{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin:0 0 16px;border-radius:12px}
@@ -152,6 +152,109 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-list li::before{position:absolute;left:0;top:0;font-weight:800}
 .vx-yes li::before{content:"✓";color:var(--vx-yes)}
 .vx-no li::before{content:"✕";color:var(--vx-no)}
+/* Lo que incluye / no incluye en la página (no en los paneles): grilla de íconos sin caja */
+.vx-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 40px;margin:0;padding:0;list-style:none}
+.vx-feats li{display:flex;gap:14px;align-items:flex-start;min-width:0}
+.vx-feat-ic{flex:none;box-sizing:border-box;width:44px;height:44px;padding:11px;border-radius:12px;background:#fff;box-shadow:0 0 0 1px var(--vx-line),0 4px 12px rgba(7,32,159,.08);color:var(--vx-blue);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vx-feats strong{display:block;font:700 1rem/1.35 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-feats span{display:block;margin-top:4px;font-size:.95rem;line-height:1.5;color:var(--vx-muted)}
+.vx-feats a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.vx-feats--no .vx-feat-ic{background:transparent;box-shadow:inset 0 0 0 1px #cfd4e6;color:#8a90a6}
+.vx-feats--one{grid-template-columns:1fr;gap:18px}   /* columna angosta, p. ej. al lado de una foto */
+.vx-feats-head{margin:36px 0 22px}
+.vx-feats + .vx-feats-head{padding-top:30px;border-top:1px solid var(--vx-line)}
+@media (max-width:640px){.vx-feats{grid-template-columns:1fr;gap:20px}}
+/* "Radiografía": resultado de Google de ejemplo con puntos numerados + índice numerado.
+   En celular solo queda el índice. */
+.vx-xray{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:start}
+.vx-serp{position:sticky;top:100px;margin:0 0 0 14px;padding:22px 26px 20px;background:#fff;border-radius:18px;box-shadow:var(--vx-shadow);font-family:Arial,Helvetica,sans-serif;color:#202124}
+.vx-serp-q{display:flex;align-items:center;gap:10px;margin:0 0 18px;padding:10px 16px;border:1px solid #dfe1e5;border-radius:999px;font-size:.92rem}
+.vx-serp-q svg{width:16px;height:16px;fill:none;stroke:#70757a;stroke-width:2;stroke-linecap:round}
+.vx-serp-zone{position:relative}
+.vx-serp-map{display:flex;gap:12px;align-items:center;margin:0 0 18px;padding:0 0 16px;border-bottom:1px solid #ebedf0}
+.vx-serp-mapimg{flex:none;width:64px;height:52px;border-radius:10px;background:linear-gradient(135deg,#e7eefb 0 40%,#d9f0e3 40% 60%,#e7eefb 60%);display:flex;align-items:center;justify-content:center}
+.vx-serp-mapimg svg{width:20px;height:20px;fill:#ea4335}
+.vx-serp-name{margin:0;font-size:.95rem;color:#1a0dab}
+.vx-serp-small{margin:2px 0 0;font-size:.78rem;line-height:1.45;color:#4d5156}
+.vx-serp-star{color:#e7a200;letter-spacing:1px}
+.vx-serp-res{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:14px}
+.vx-serp-site{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:.78rem;color:#4d5156;line-height:1.3}
+.vx-serp-site i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--vx-tint);box-shadow:inset 0 0 0 1px #dfe1e5}
+.vx-serp-site b{display:block;font-weight:400;color:#202124}
+.vx-serp-title{margin:0;font-size:1.15rem;line-height:1.3;color:#1a0dab}
+.vx-serp-desc{margin:4px 0 0;font-size:.85rem;line-height:1.5;color:#4d5156}
+.vx-serp-links{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.vx-serp-links span:not(.vx-pin){padding:4px 10px;border:1px solid #dadce0;border-radius:999px;font-size:.75rem;color:#1a0dab}
+.vx-serp-thumb{align-self:start;width:76px;height:76px;margin-top:30px;border-radius:10px;background:linear-gradient(160deg,#cfe0ff,#8fb0f5)}
+.vx-serp-speed{display:flex;align-items:center;gap:10px;margin:18px 0 0;padding:14px 0 0;border-top:1px solid #ebedf0;font-size:.78rem;color:#4d5156}
+.vx-serp-speed span:not(.vx-pin){flex:1;height:8px;border-radius:99px;background:#e6f4ee;overflow:hidden}
+.vx-serp-speed span:not(.vx-pin)::before{content:"";display:block;width:88%;height:100%;border-radius:99px;background:#0cce6b}
+.vx-serp-speed b{font-weight:700;color:var(--vx-yes)}
+.vx-serp-note{margin:14px 0 0;font:600 .7rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9aa0b4;text-align:right}
+.vx-pin{position:absolute;left:-40px;top:0;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--vx-blue);color:#fff;font:800 .75rem/1 Montserrat,"Montserrat Fallback",system-ui,sans-serif;box-shadow:0 0 0 4px #fff,0 4px 10px rgba(7,32,159,.25);transition:transform .2s}
+.vx-pin--r{left:auto;right:-13px;top:-13px}
+.vx-xray-list{display:grid;margin:0;padding:0;list-style:none;counter-reset:none}
+.vx-xray-list li{display:flex;gap:18px;padding:16px 0;border-top:1px solid #cfd4e6}
+.vx-xray-list li:last-child{border-bottom:1px solid #cfd4e6}
+.vx-xray-n{flex:none;min-width:2.2ch;font:800 1.6rem/1 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue);font-variant-numeric:tabular-nums}
+.vx-xray-list strong{display:block;font:700 1rem/1.35 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-xray-list span:not(.vx-xray-n){display:block;margin-top:4px;font-size:.95rem;line-height:1.5;color:var(--vx-muted)}
+/* Al pasar por un ítem de la lista, se marca su punto en el ejemplo */
+.vx-xray:has(li:nth-child(1):hover) .vx-pin[data-n="1"],.vx-xray:has(li:nth-child(2):hover) .vx-pin[data-n="2"],.vx-xray:has(li:nth-child(3):hover) .vx-pin[data-n="3"],.vx-xray:has(li:nth-child(4):hover) .vx-pin[data-n="4"],.vx-xray:has(li:nth-child(5):hover) .vx-pin[data-n="5"],.vx-xray:has(li:nth-child(6):hover) .vx-pin[data-n="6"],.vx-xray:has(li:nth-child(7):hover) .vx-pin[data-n="7"]{transform:scale(1.3);background:var(--vx-electric)}
+@media (max-width:960px){
+  .vx-xray{grid-template-columns:1fr}
+  .vx-serp{display:none}
+  .vx-xray-list{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+  .vx-xray-list li:last-child{border-bottom:0}
+}
+@media (max-width:640px){.vx-xray-list{grid-template-columns:1fr}.vx-xray-list li:last-child{border-bottom:1px solid #cfd4e6}}
+@media (prefers-reduced-motion:reduce){.vx-pin{transition:none}}
+/* Hoy / Con Vlue: el problema en gris a la izquierda y la solución en azul a la derecha */
+.vx-ba{max-width:980px}
+.vx-ba-head,.vx-ba-list > li{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);column-gap:28px;align-items:center}
+.vx-ba-head{padding:0 0 12px;font:800 .75rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8a90a6}
+.vx-ba-head span:last-child{color:var(--vx-blue)}
+.vx-ba-list{margin:0;padding:0;list-style:none}
+.vx-ba-list > li{padding:22px 0;border-top:1px solid #d6dbec}
+.vx-ba-list > li:last-child{border-bottom:1px solid #d6dbec}
+.vx-ba-now h3{margin:0;font:700 1.05rem/1.35 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:#5c6380}
+.vx-ba-now p{margin:4px 0 0;font-size:.95rem;line-height:1.5;color:#7a8099}
+.vx-ba-arrow{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--vx-blue);box-shadow:0 6px 16px rgba(7,32,159,.22)}
+.vx-ba-arrow svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.vx-ba-then strong{display:block;font:800 1.15rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue)}
+.vx-ba-then p{margin:4px 0 0;font-size:.95rem;line-height:1.5;color:var(--vx-ink)}
+@media (max-width:700px){
+  .vx-ba-head{display:none}
+  .vx-ba-list > li{grid-template-columns:1fr;row-gap:12px;justify-items:start}
+  .vx-ba-arrow{width:34px;height:34px;transform:rotate(90deg)}
+  .vx-ba-arrow svg{width:16px;height:16px}
+  .vx-ba-now::before,.vx-ba-then::before{display:block;margin:0 0 4px;font:800 .7rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .vx-ba-now::before{content:"Hoy";content:"Hoy" / "";color:#8a90a6}
+  .vx-ba-then::before{content:"Con Vlue";content:"Con Vlue" / "";color:var(--vx-blue)}
+}
+
+/* Línea de tiempo vertical. vx-ui.js la va "llenando" al bajar (--fill) y enciende cada punto (.is-on);
+   sin JS se ve completa. --x es dónde va la línea; --h, su largo (hasta el último punto). */
+.vx-tl{--x:170px;--fill:1;--h:calc(100% - 90px);position:relative;max-width:820px;margin:0;padding:0;list-style:none}
+.vx-tl::before,.vx-tl::after{content:"";position:absolute;left:calc(var(--x) - 1px);top:11px;width:2px;height:var(--h);border-radius:2px;background:#d6dbec}
+.vx-tl::after{background:linear-gradient(var(--vx-blue),var(--vx-electric));transform-origin:top;transform:scaleY(var(--fill))}
+.vx-tl > li{position:relative;display:grid;grid-template-columns:calc(var(--x) - 34px) minmax(0,1fr);column-gap:68px;padding:0 0 40px}
+.vx-tl > li:last-child{padding-bottom:0}
+.vx-tl > li::before{content:"";position:absolute;z-index:1;left:calc(var(--x) - 11px);top:0;box-sizing:border-box;width:22px;height:22px;border-radius:50%;background:var(--vx-blue);border:2px solid var(--vx-blue);box-shadow:0 0 0 6px #fff,0 0 0 11px rgba(7,32,159,.1);transition:background .3s,border-color .3s,box-shadow .3s}
+.vx-tl--js > li:not(.is-on)::before{background:#fff;border-color:#cfd4e6;box-shadow:0 0 0 6px #fff}
+.vx-tl-when{padding-top:3px;text-align:right;font:800 .8rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue)}
+.vx-tl strong{display:block;font:800 1.15rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-tl p{margin:6px 0 0;color:var(--vx-muted);line-height:1.55}
+.vx-tl-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.vx-tl-chips li{padding:6px 12px;border-radius:999px;background:var(--vx-tint);box-shadow:inset 0 0 0 1px var(--vx-line);color:var(--vx-blue);font-size:.85rem;font-weight:600;line-height:1.2}
+.vx-tl--js > li > div{transition:opacity .4s}
+.vx-tl--js > li:not(.is-on) > div{opacity:.55}
+@media (max-width:640px){
+  .vx-tl{--x:11px}
+  .vx-tl > li{grid-template-columns:1fr;padding:0 0 32px 44px}
+  .vx-tl-when{margin:0 0 4px;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){.vx-tl > li::before,.vx-tl--js > li > div{transition:none}}
 .vx-steps-list{display:grid;gap:6px;margin:0;padding-left:20px}
 .vx-note{margin:0;font-size:.85rem;color:var(--vx-muted)}
 .vx-panel-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 28px 20px;border-top:1px solid var(--vx-line);background:#fff}
@@ -183,7 +286,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 
 /* Comparación desplegable: la tabla se muestra solo al presionar "¿Cuál debería elegir?" */
 .vx-compare{margin-top:24px}
-.vx-compare>summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,system-ui,sans-serif;list-style:none;cursor:pointer;transition:background-color .2s,color .2s}
+.vx-compare>summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:600 .95rem Poppins,"Poppins Fallback",system-ui,sans-serif;list-style:none;cursor:pointer;transition:background-color .2s,color .2s}
 .vx-compare>summary::-webkit-details-marker{display:none}
 .vx-compare>summary::after{content:"";width:8px;height:8px;margin-top:-4px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
 .vx-compare[open]>summary::after{margin-top:4px;transform:rotate(-135deg)}
@@ -191,7 +294,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-compare>summary:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
 .vx-compare .vx-table-wrap{margin-top:16px}
 @media (prefers-reduced-motion:reduce){.vx-compare>summary,.vx-compare>summary::after{transition:none}}
-.vx-table caption{padding:0 0 10px;text-align:left;font:700 .8rem Montserrat,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue);caption-side:top}
+.vx-table caption{padding:0 0 10px;text-align:left;font:700 .8rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--vx-blue);caption-side:top}
 .vx-table th,.vx-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--vx-line);line-height:1.45}
 .vx-table thead th{background:var(--vx-blue);color:#fff}
 .vx-table tbody th{font-weight:600}
@@ -201,10 +304,42 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 @media (max-width:560px){.vx-table{font-size:.85rem}.vx-table th,.vx-table td{padding:10px 8px}}
 
 /* ---------- Pasos ---------- */
-.vx-steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:0;padding:0;list-style:none;counter-reset:vxs}
-.vx-steps li{counter-increment:vxs;padding:18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);line-height:1.5}
-.vx-steps li::before{content:counter(vxs);display:inline-grid;place-items:center;width:34px;height:34px;margin-bottom:8px;border-radius:50%;background:var(--vx-blue);color:#fff;font-weight:800}
-.vx-steps strong{display:block;margin-bottom:4px}
+/* Pasos como línea de tiempo: círculos numerados unidos por una línea que se dibuja al entrar en pantalla (16-oct-2026) */
+.vx-steps{--g:28px;--d:46px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:var(--g);margin:8px 0 0;padding:0;list-style:none;counter-reset:vxs}
+.vx-steps li{position:relative;counter-increment:vxs;padding:0;line-height:1.5;color:var(--vx-muted);font-size:.95rem}
+.vx-steps li::before{content:counter(vxs);display:grid;place-items:center;width:var(--d);height:var(--d);margin-bottom:16px;border-radius:50%;background:var(--vx-blue);color:#fff;font:800 1.05rem Montserrat,"Montserrat Fallback",system-ui,sans-serif;box-shadow:0 0 0 6px rgba(7,32,159,.08),0 8px 18px rgba(7,32,159,.22);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .3s ease}
+.vx-steps li:not(:last-child)::after{content:"";position:absolute;top:calc(var(--d) / 2 - 1.5px);left:calc(var(--d) + 12px);right:calc(-1 * var(--g) + 12px);height:3px;border-radius:3px;background:linear-gradient(90deg,var(--vx-blue),var(--vx-electric));transform-origin:left center;transition:transform .55s ease}
+.vx-steps strong{display:block;margin-bottom:6px;font:700 1.05rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-steps li>*{transition:opacity .4s ease,transform .4s ease}
+/* animación: solo si el JS la activó; sin JS o con movimiento reducido se ve completo */
+.vx-anim .vx-steps:not(.is-in) li::before{transform:scale(.4);opacity:0}
+.vx-anim .vx-steps:not(.is-in) li::after{transform:scaleX(0)}
+.vx-anim .vx-steps:not(.is-in) li{color:transparent}
+.vx-anim .vx-steps:not(.is-in) strong{opacity:0;transform:translateY(8px)}
+.vx-steps li{transition:color .4s ease}
+.vx-steps li:nth-child(2)::before,.vx-steps li:nth-child(2) strong,.vx-steps li:nth-child(2){transition-delay:.45s}
+.vx-steps li:nth-child(3)::before,.vx-steps li:nth-child(3) strong,.vx-steps li:nth-child(3){transition-delay:.9s}
+.vx-steps li:nth-child(4)::before,.vx-steps li:nth-child(4) strong,.vx-steps li:nth-child(4){transition-delay:1.35s}
+.vx-steps li:nth-child(1)::after{transition-delay:.2s}
+.vx-steps li:nth-child(2)::after{transition-delay:.65s}
+.vx-steps li:nth-child(3)::after{transition-delay:1.1s}
+@media (max-width:700px){
+  .vx-steps{--g:26px;grid-auto-flow:row;grid-auto-columns:auto}
+  .vx-steps li{padding-left:calc(var(--d) + 18px);min-height:var(--d)}
+  .vx-steps li::before{position:absolute;left:0;top:0;margin:0}
+  .vx-steps strong{padding-top:11px}
+  .vx-steps li:not(:last-child)::after{top:calc(var(--d) + 8px);bottom:calc(-1 * var(--g) + 8px);left:calc(var(--d) / 2 - 1.5px);right:auto;width:3px;height:auto;background:linear-gradient(180deg,var(--vx-blue),var(--vx-electric));transform-origin:center top}
+  .vx-anim .vx-steps:not(.is-in) li::after{transform:scaleY(0)}
+}
+@media (min-width:701px) and (max-width:960px){
+  .vx-steps:has(>li:nth-child(4)){--g:26px;grid-auto-flow:row;grid-auto-columns:auto}
+  .vx-steps:has(>li:nth-child(4)) li{padding-left:calc(var(--d) + 18px);min-height:var(--d)}
+  .vx-steps:has(>li:nth-child(4)) li::before{position:absolute;left:0;top:0;margin:0}
+  .vx-steps:has(>li:nth-child(4)) strong{padding-top:11px}
+  .vx-steps:has(>li:nth-child(4)) li:not(:last-child)::after{top:calc(var(--d) + 8px);bottom:calc(-1 * var(--g) + 8px);left:calc(var(--d) / 2 - 1.5px);right:auto;width:3px;height:auto;background:linear-gradient(180deg,var(--vx-blue),var(--vx-electric));transform-origin:center top}
+  .vx-anim .vx-steps:has(>li:nth-child(4)):not(.is-in) li::after{transform:scaleY(0)}
+}
+@media (prefers-reduced-motion:reduce){.vx-steps li,.vx-steps li::before,.vx-steps li::after,.vx-steps li>*{transition:none!important}}
 
 /* ---------- Preguntas frecuentes (sin JavaScript) ---------- */
 .vx-faq details{margin:0 0 10px;background:#fff;border:1px solid var(--vx-line);border-radius:12px}
@@ -221,6 +356,30 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 .vx-calc input:focus,.vx-calc select:focus{outline:3px solid #7aa2ff;outline-offset:1px;border-color:var(--vx-blue)}
 .vx-calc output{display:block;padding:14px;border-radius:12px;background:var(--vx-tint);line-height:1.55}
 
+/* ---------- Calculadora de cantidad de tarjetas (/catalogo/tarjetas-nfc-resenas/) ---------- */
+.vx-qty,.vx-qty *{box-sizing:border-box}
+.vx-qty{display:grid;gap:14px;max-width:720px;margin-top:22px;padding:22px 20px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-qty h3{margin:0;font:800 1.15rem/1.25 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-qty-help{margin:-6px 0 0;color:var(--vx-muted);line-height:1.5}
+.vx-qty-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.vx-qty-btn{width:44px;height:44px;border:1.5px solid var(--vx-blue);border-radius:10px;background:#fff;color:var(--vx-blue);font:700 1.3rem/1 system-ui,sans-serif;cursor:pointer}
+.vx-qty-btn:hover,.vx-qty-btn:focus-visible{background:var(--vx-blue);color:#fff}
+.vx-qty-field input{width:76px;min-height:44px;padding:8px;border:1.5px solid var(--vx-line);border-radius:10px;font:700 1.15rem/1 Montserrat,"Montserrat Fallback",system-ui,sans-serif;text-align:center;-moz-appearance:textfield;appearance:textfield}
+.vx-qty-field input::-webkit-inner-spin-button,.vx-qty-field input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.vx-qty-field input:focus{outline:3px solid #7aa2ff;outline-offset:1px;border-color:var(--vx-blue)}
+.vx-qty-chips{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.vx-qty-chips button{min-width:44px;min-height:44px;padding:0 12px;border:1.5px solid var(--vx-line);border-radius:999px;background:#fff;color:var(--vx-ink);font-weight:600;cursor:pointer}
+.vx-qty-chips button:hover,.vx-qty-chips button:focus-visible{border-color:var(--vx-blue);color:var(--vx-blue)}
+.vx-qty-chips button[aria-pressed="true"]{background:var(--vx-blue);border-color:var(--vx-blue);color:#fff}
+.vx-qty output{display:block;padding:14px 16px;border-radius:12px;background:var(--vx-tint);line-height:1.55}
+.vx-qty output strong{font:800 1.2rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue)}
+.vx-qty-tramos{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:0;padding:0;list-style:none;font-size:.92rem}
+.vx-qty-tramos li{padding:10px 12px;border:1px solid var(--vx-line);border-radius:10px;line-height:1.4}
+.vx-qty-tramos span{display:block;color:var(--vx-muted)}
+.vx-qty .btn{justify-self:start}
+.vx-qty-legal{margin:0;font-size:.85rem;line-height:1.5;color:var(--vx-muted)}
+@media (max-width:520px){.vx-qty-chips{margin-left:0;width:100%}.vx-qty .btn{justify-self:stretch;justify-content:center}}
+
 /* ---------- Bloques de texto cortos ---------- */
 .vx-lead{max-width:720px;margin:0 0 20px;line-height:1.6;color:var(--vx-muted)}
 .vx-lead a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
@@ -229,7 +388,7 @@ html.vx-lock{overflow:hidden}                 /* bloquea el scroll mientras hay 
 /* ---------- Enlace a otra sección (home: salud / catálogo) ---------- */
 .vx-links{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:18px}
 .vx-links a{display:block;padding:18px 20px;background:#fff;border:1.5px solid var(--vx-line);border-radius:var(--vx-r)}
-.vx-links strong{display:block;margin-bottom:4px;padding-right:48px;color:var(--vx-blue);font-family:Montserrat,system-ui,sans-serif}
+.vx-links strong{display:block;margin-bottom:4px;padding-right:48px;color:var(--vx-blue);font-family:Montserrat,"Montserrat Fallback",system-ui,sans-serif}
 .vx-links span{display:block;color:var(--vx-muted);font-size:.92rem;line-height:1.5}
 
 /* ---------- Navegadores sin <dialog> (muy antiguos): panel fijo simple ---------- */
@@ -260,7 +419,7 @@ body>footer .vx-hours{margin-top:12px}
 /* ---------- Selector por situación (home): cards compactas que llevan al catálogo ---------- */
 .vx-paths{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:0;padding:0;list-style:none}
 .vx-paths a{display:flex;align-items:center;height:100%;padding:16px 18px;background:#fff;border:1.5px solid var(--vx-line);border-radius:12px;color:var(--vx-ink);text-decoration:none}
-.vx-paths strong{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:Montserrat,system-ui,sans-serif;font-size:.92rem;line-height:1.3;color:var(--vx-blue)}
+.vx-paths strong{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:Montserrat,"Montserrat Fallback",system-ui,sans-serif;font-size:.92rem;line-height:1.3;color:var(--vx-blue)}
 .vx-paths strong::after{content:"\2192";font-weight:700}
 
 /* ---------- Efecto de cards enlace (selector del inicio y "También te puede servir") ----------
@@ -296,9 +455,8 @@ body>footer .vx-hours{margin-top:12px}
 /* ---------- Grillas de 2 columnas con 3 cards: la tercera va centrada ----------
    La grilla es un contenedor (container query); solo cuando tiene espacio para 2 columnas,
    la última card impar (que quedaría sola a la izquierda) se centra con el mismo ancho que las demás. */
-.vx-grid,.vx-steps{container-type:inline-size}
+.vx-grid{container-type:inline-size}
 @container (min-width:536px) and (max-width:900px){.vx-grid>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}}
-@container (min-width:454px) and (max-width:900px){.vx-steps>:last-child:nth-child(odd):not(:first-child){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}}
 
 /* Etiqueta de grupo (ej. "Sesión estratégica") después de una grilla: separación para que no quede pegada a las cards */
 .vx-grid+.vx-group{margin-top:40px}
@@ -341,10 +499,274 @@ body>footer .vx-hours{margin-top:12px}
   .hero-panel h1{max-width:22ch;font-size:2.7rem}
   .hero-panel p.sub{max-width:60ch;font-size:1.08rem}
   .section-head,.vx-lead,.vx-faq,.vx-legal,.ps-block,.vx-pilot,.vx-note,.notes-strip{max-width:860px}
-  .vx-grid{--g:16px}.vx-steps{--g:14px}.vx-links{--g:12px}.vx-paths{--g:10px}
-  :is(.vx-grid,.vx-steps,.vx-links,.vx-paths){display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g)}
-  :is(.vx-grid,.vx-steps,.vx-links,.vx-paths)>*{flex:0 0 calc((100% - 2 * var(--g)) / 3);min-width:0}
-  :is(.vx-grid,.vx-steps,.vx-links,.vx-paths):is(:has(>:last-child:nth-child(1)),:has(>:last-child:nth-child(2)),:has(>:last-child:nth-child(4)))>*{flex-basis:calc((100% - var(--g)) / 2)}
+  .vx-grid{--g:16px}.vx-links{--g:12px}.vx-paths{--g:10px}
+  :is(.vx-grid,.vx-links,.vx-paths){display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g)}
+  :is(.vx-grid,.vx-links,.vx-paths)>*{flex:0 0 calc((100% - 2 * var(--g)) / 3);min-width:0}
+  :is(.vx-grid,.vx-links,.vx-paths):is(:has(>:last-child:nth-child(1)),:has(>:last-child:nth-child(2)),:has(>:last-child:nth-child(4)))>*{flex-basis:calc((100% - var(--g)) / 2)}
   .vx-canales{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
   .vx-canales .pack-card{margin-bottom:0!important}
 }
+
+/* =====================================================================
+   Páginas web y páginas de salud por profesión (oct-2026)
+   ===================================================================== */
+/* ---------- Portada en dos columnas: texto + visual (teléfono o navegador) ---------- */
+.vx-hero-split{display:grid;gap:30px;align-items:center}
+.vx-hero-visual{display:flex;justify-content:center}
+@media (min-width:1024px){.vx-hero-split{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px}.vx-hero-visual{justify-content:flex-end}}
+
+/* ---------- Marco de teléfono ---------- */
+.vx-phone,.vx-phone *{box-sizing:border-box}
+.vx-phone{position:relative;flex:none;width:260px;padding:9px;border-radius:40px;background:#0b1020;box-shadow:0 0 0 1.5px #2a3150 inset,0 24px 50px rgba(5,22,111,.35),0 4px 12px rgba(0,0,0,.18)}
+.vx-phone::before{content:"";position:absolute;z-index:2;top:17px;left:50%;width:74px;height:20px;border-radius:12px;background:#0b1020;transform:translateX(-50%)}
+.vx-phone-screen{position:relative;overflow:hidden;aspect-ratio:9/18.6;border-radius:32px;background:#fff;padding-top:30px}
+.vx-phone-screen:has(>.vx-gbp){padding-top:0}
+.vx-phone-screen>img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.vx-phone--sm{width:220px;border-radius:34px;padding:8px}
+.vx-phone--sm .vx-phone-screen{border-radius:27px;padding-top:26px}
+.vx-phone--sm::before{top:15px;width:62px;height:17px}
+
+/* ---------- Marco de navegador (computador) ---------- */
+.vx-browser{overflow:hidden;border:1px solid var(--vx-line);border-radius:12px;background:#fff;box-shadow:var(--vx-shadow)}
+.vx-browser-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#f1f3f9;border-bottom:1px solid var(--vx-line);font-size:.75rem;color:var(--vx-muted)}
+.vx-browser-bar i{width:9px;height:9px;border-radius:50%;background:#d5d9e6}
+.vx-browser-bar span{margin-left:8px;padding:2px 10px;border-radius:999px;background:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vx-browser img{display:block;width:100%;height:auto}
+
+/* ---------- Vitrina de ejemplos: teléfonos en fila (en celular se deslizan) ---------- */
+.vx-showcase{display:flex;gap:22px;margin:6px -22px 0;padding:10px 22px 26px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;list-style:none}
+.vx-showcase>li{flex:none;scroll-snap-align:center;display:grid;justify-items:center;gap:12px;margin:0}
+.vx-showcase figcaption,.vx-showcase .vx-cap{font-weight:600;font-size:.92rem;color:var(--vx-ink);text-align:center}
+.vx-showcase .vx-cap small{display:block;font-weight:400;color:var(--vx-muted)}
+@media (min-width:1024px){.vx-showcase{justify-content:center;margin:6px 0 0;padding:10px 0 26px;overflow:visible}}
+.vx-actions-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* ---------- Lista de agregados con precio ---------- */
+.vx-addons{display:grid;gap:10px;max-width:860px;margin:22px 0 0;padding:0;list-style:none}
+.vx-addons li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:14px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:12px;line-height:1.45}
+.vx-addons li span{color:var(--vx-muted);font-size:.92rem;flex-basis:100%}
+.vx-addons li strong{color:var(--vx-blue);white-space:nowrap}
+.vx-addons li b{font-weight:600}
+
+/* Agregados con precio en mini-cards (/paginas-web/): ícono como en .vx-feats, hover como .vx-card, precio abajo */
+.vx-extras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0;padding:0;list-style:none}
+.vx-extras li{display:flex;flex-direction:column;gap:8px;padding:20px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+@media (hover:hover){.vx-extras li:hover{transform:translateY(-3px);border-color:#c5cdf0;box-shadow:0 2px 4px rgba(7,32,159,.08),0 16px 36px rgba(7,32,159,.14)}}
+.vx-extras .vx-feat-ic{margin-bottom:6px;background:var(--vx-tint)}
+.vx-extras b{font:700 1rem/1.35 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-extras span{font-size:.92rem;line-height:1.5;color:var(--vx-muted)}
+.vx-extras strong{margin-top:auto;padding-top:14px;border-top:1px dashed var(--vx-line);font:800 1.3rem/1.1 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue)}
+.vx-extras strong small{font:500 .8rem Poppins,"Poppins Fallback",system-ui,sans-serif;color:var(--vx-muted)}
+@media (max-width:860px){.vx-extras{grid-template-columns:1fr}.vx-extras li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px}.vx-extras .vx-feat-ic{grid-row:span 3;margin:0}.vx-extras strong{padding-top:10px}}
+@media (prefers-reduced-motion:reduce){.vx-extras li{transition:none}}
+.vx-note-ic{display:flex;gap:12px;align-items:center;max-width:none;margin:20px 0 0}
+.vx-note-ic svg{flex:none;width:22px;height:22px;fill:none;stroke:var(--vx-blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Calculadora "arma tu sitio" (/paginas-web/sitio-web/) ---------- */
+.vx-webcalc{display:grid;gap:16px;max-width:720px;padding:22px 20px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-webcalc h3{margin:0;font:800 1.15rem/1.25 Montserrat,"Montserrat Fallback",system-ui,sans-serif}
+.vx-webcalc-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding-bottom:14px;border-bottom:1px solid var(--vx-line)}
+.vx-webcalc-row>span{flex:1 1 220px;font-weight:600;line-height:1.4}
+.vx-webcalc-row>span small{display:block;font-weight:400;color:var(--vx-muted);font-size:.88rem}
+.vx-webcalc .vx-stepper{display:flex;align-items:center;gap:8px}
+.vx-webcalc .vx-stepper output{min-width:34px;font:800 1.2rem/1 Montserrat,"Montserrat Fallback",system-ui,sans-serif;text-align:center;padding:0;background:none}
+.vx-webcalc input[type=checkbox]{width:24px;height:24px;accent-color:var(--vx-blue);cursor:pointer}
+.vx-webcalc .vx-total{display:block;padding:14px 16px;border-radius:12px;background:var(--vx-tint);line-height:1.55}
+.vx-webcalc .vx-total strong{font:800 1.3rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-blue)}
+.vx-webcalc .btn{justify-self:start}
+@media (max-width:520px){.vx-webcalc .btn{justify-self:stretch;justify-content:center}}
+
+/* ---------- Ficha de Google Maps dibujada (ejemplo) dentro del teléfono ---------- */
+.vx-gbp{display:flex;flex-direction:column;height:100%;font:400 11px/1.35 Poppins,"Poppins Fallback",system-ui,sans-serif;color:#1f1f1f;background:#fff}
+.vx-gbp-status{display:flex;justify-content:space-between;padding:12px 22px 0;font-weight:600;font-size:10px}
+.vx-gbp-search{display:flex;align-items:center;gap:8px;margin:12px 10px 8px;padding:7px 12px;border:1px solid #dadce0;border-radius:999px;font-size:11.5px;color:#3c4043}
+.vx-gbp-search b{flex:1;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vx-gbp-photo{position:relative;height:118px;background:#cfd6e6 center/cover no-repeat}
+.vx-gbp-body{padding:9px 12px 0}
+.vx-gbp-name{font:700 15px/1.2 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:#1f1f1f}
+.vx-gbp-rating{display:flex;align-items:center;gap:4px;margin-top:3px;font-size:11px}
+.vx-gbp-stars{color:#fbbc04;letter-spacing:1px;font-size:11px}
+.vx-gbp-rating small{color:#70757a}
+.vx-gbp-cat{color:#70757a;font-size:10.5px;margin-top:1px}
+.vx-gbp-open{color:#188038;font-weight:600}
+.vx-gbp-tabs{display:flex;gap:14px;margin:9px 0 0;padding:0 12px;border-bottom:1px solid #e8eaed;font-size:10.5px;color:#5f6368;white-space:nowrap;overflow:hidden}
+.vx-gbp-tabs span{padding-bottom:6px}
+.vx-gbp-tabs .on{color:#1a73e8;font-weight:600;border-bottom:2px solid #1a73e8}
+.vx-gbp-actions{display:flex;justify-content:space-between;padding:10px 12px 4px}
+.vx-gbp-actions span{display:grid;justify-items:center;gap:4px;font-size:9.5px;color:#1a73e8;font-weight:500}
+.vx-gbp-actions i{display:grid;place-items:center;width:32px;height:32px;border:1px solid #d2e3fc;border-radius:50%;font-style:normal;font-size:13px}
+.vx-gbp-section{padding:8px 12px 0}
+.vx-gbp-section .vx-gbp-h{margin:0 0 5px;font:700 12px/1.2 Montserrat,"Montserrat Fallback",system-ui,sans-serif}
+.vx-gbp-chips{display:flex;flex-wrap:wrap;gap:5px}
+.vx-gbp-chips span{padding:3px 8px;border:1px solid #dadce0;border-radius:999px;font-size:9.5px;color:#3c4043}
+.vx-gbp-review{margin-top:7px;padding:8px 9px;border-radius:10px;background:#f8f9fa}
+.vx-gbp-review p{margin:3px 0 0;font-size:10px;color:#3c4043}
+.vx-gbp-review .vx-gbp-owner{margin-top:6px;padding-left:8px;border-left:2px solid #d2e3fc;color:#5f6368}
+.vx-gbp-who{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600}
+.vx-gbp-who i{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#7b5ea7;color:#fff;font-style:normal;font-size:9px}
+.vx-gbp-tag{position:absolute;left:8px;bottom:8px;padding:3px 8px;border-radius:999px;background:rgba(11,16,32,.72);color:#fff;font-size:9px;font-weight:600}
+.vx-phone--sm .vx-phone-screen:has(>.vx-gbp){padding-top:0}
+/* ---------- Etiqueta sobre el título de una card (nombre del plan) y foto con marco ---------- */
+.vx-kicker{margin:0;font:700 .72rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--vx-blue)}
+.is-lit.vx-card--featured .vx-kicker{color:#fff}
+@media (hover:hover){.vx-card--featured:hover .vx-kicker{color:#fff}}
+.vx-photo{margin:0;overflow:hidden;border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.vx-gbp>*{flex:none}
+
+/* ---------- Teléfono en ángulo (3D) para las portadas, como el mockup de los posts ----------
+   El canto grueso se dibuja con sombras apiladas; el giro con perspectiva. */
+.vx-3d{display:flex;justify-content:center;padding:24px 18px 40px;perspective:1500px}
+.vx-3d>.vx-phone{transform:rotateX(12deg) rotateY(22deg) rotateZ(8deg);transform-style:preserve-3d;
+  box-shadow:0 0 0 1.5px #2a3150 inset,-1px 1px 0 #262c4d,-2px 2px 0 #232947,-3px 3px 0 #202642,-4px 4px 0 #1d223d,-5px 5px 0 #1b2039,-6px 6px 0 #191d35,-7px 7px 0 #171b31,-8px 8px 0 #15192e,-9px 9px 0 #14172b,-10px 10px 0 #121528,-11px 11px 0 #111325,-12px 12px 0 #0f1122,-14px 26px 40px rgba(3,10,60,.55),-30px 50px 90px rgba(5,22,111,.35);
+  animation:vx-flotar 7s ease-in-out infinite}
+.vx-3d>.vx-phone::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,rgb(255 255 255 / .18) 0%,rgb(255 255 255 / 0) 38%)}
+@keyframes vx-flotar{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@media (prefers-reduced-motion:reduce){.vx-3d>.vx-phone{animation:none}}
+@media (max-width:640px){.vx-3d>.vx-phone{width:236px}}
+
+/* ---------- Cards cortas: qué incluye en viñetas; el detalle y el ahorro van en la ventana ---------- */
+.vx-incluye{display:grid;gap:7px;margin:4px 0 6px;padding:0;list-style:none;font-size:.93rem;line-height:1.4;color:var(--vx-ink)}
+.vx-incluye li{position:relative;padding-left:26px}
+.vx-incluye li::before{content:"";position:absolute;left:0;top:.12em;width:17px;height:17px;border-radius:50%;background:var(--vx-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.5L12 5.2' fill='none' stroke='%2307209f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.vx-price-note{margin:-4px 0 0;font-size:.8rem;color:var(--vx-muted)}
+:is(.vx-card--featured,.vx-card--glow).is-lit :is(.vx-incluye,.vx-price-note){color:#fff}
+@media (hover:hover){:is(.vx-card--featured,.vx-card--glow):hover :is(.vx-incluye,.vx-price-note){color:#fff}}
+.vx-ahorro{display:inline-block;margin-top:6px;padding:4px 10px;border-radius:999px;background:#e6f4ee;color:var(--vx-yes);font-weight:700;font-size:.85rem}
+
+/* ---------- Aviso de cookies (GA4 solo con consentimiento) ---------- */
+.vx-cookies{position:fixed;z-index:200;left:16px;right:16px;bottom:16px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;max-width:640px;margin:0 auto;padding:16px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:14px;box-shadow:0 18px 40px rgba(7,32,159,.18);font-size:.9rem;line-height:1.5;color:var(--vx-ink)}
+.vx-cookies[hidden]{display:none}
+.vx-cookies p{flex:1 1 300px;margin:0}
+.vx-cookies a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.vx-cookies-btns{display:flex;gap:8px}
+.vx-cookies button{min-height:44px;padding:0 18px;border-radius:10px;font:600 .9rem Poppins,"Poppins Fallback",system-ui,sans-serif;cursor:pointer}
+.vx-cookies-no{border:1.5px solid var(--vx-line);background:#fff;color:var(--vx-ink)}
+.vx-cookies-si{border:1.5px solid var(--vx-blue);background:var(--vx-blue);color:#fff}
+.vx-cookies button:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+@media (max-width:600px){.vx-cookies{left:8px;right:8px;bottom:8px;flex-wrap:nowrap;gap:10px;padding:10px 12px;font-size:.78rem;line-height:1.4;border-radius:12px}.vx-cookies p{flex:1 1 auto}.vx-cookies-btns{flex-direction:column;gap:6px;flex-shrink:0}.vx-cookies button{min-height:40px;padding:0 14px;font-size:.82rem}}
+.vx-price .vx-price-after{flex-basis:100%;font-size:.8rem;color:var(--vx-muted)}
+.vx-panel-head .vx-price .vx-price-after{color:inherit;opacity:.85}
+:is(.vx-card--featured,.vx-card--glow).is-lit .vx-price .vx-price-after{color:#fff}
+@media (hover:hover){:is(.vx-card--featured,.vx-card--glow):hover .vx-price .vx-price-after{color:#fff}}
+
+/* ---------- Pie de página: marca + columnas de enlaces + franja legal ---------- */
+body>footer.vx-foot{padding:48px 0 calc(28px + env(safe-area-inset-bottom,0px));text-align:left;border-top:1px solid var(--vx-line);background:#fff}
+.vx-foot-top{display:grid;gap:36px;padding-bottom:32px;border-bottom:1px solid var(--vx-line)}
+.vx-foot-logo{display:inline-block}
+.vx-foot-logo img{display:block;height:30px;width:auto}
+body>footer.vx-foot .vx-foot-brand p{max-width:34ch;margin:14px 0 0;font-size:.92rem;line-height:1.55;color:var(--vx-muted)}
+.vx-foot-social{display:flex;gap:6px;margin-top:16px;margin-left:-10px}
+.vx-foot-social a{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:10px;color:var(--vx-muted);transition:background .2s,color .2s}
+.vx-foot-social a:hover,.vx-foot-social a:focus-visible{background:var(--vx-tint);color:var(--vx-blue)}
+.vx-foot-social svg{width:20px;height:20px;fill:currentColor}
+.vx-foot-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}
+.vx-foot-cols h2{margin:0 0 14px;font:700 .95rem/1.2 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-foot-cols ul{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.vx-foot-cols a{font-size:.9rem;color:var(--vx-muted);transition:color .2s}
+.vx-foot-cols a:hover,.vx-foot-cols a:focus-visible{color:var(--vx-blue)}
+.vx-foot-hours{font-size:.8rem;line-height:1.5;color:var(--vx-muted)}
+.vx-foot-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-top:20px}
+body>footer.vx-foot .vx-foot-bottom p{margin:0;font-size:.8rem;color:var(--vx-muted)}
+.vx-foot-bottom nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.vx-foot-bottom a{font-size:.8rem;color:var(--vx-muted);text-decoration:underline;text-underline-offset:3px}
+.vx-foot-bottom a:hover{color:var(--vx-blue)}
+@media (min-width:700px){.vx-foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1024px){.vx-foot-top{grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:60px}}
+@media (max-width:640px){body>footer.vx-foot{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}}
+
+/* ---------- Card de plan: nombre, precio, 3 puntos y un botón (borrador aprobado 16-oct-2026) ---------- */
+.vx-plan-note{margin:0 0 18px;text-align:center;font-size:.9rem;color:var(--vx-muted)}
+.vx-plan-note strong{color:var(--vx-blue)}
+.vx-plan{gap:0;padding:24px 20px 18px;contain:none;overflow:visible}   /* sin contain para que la etiqueta pueda salir del borde */
+.vx-plan .vx-badge{position:absolute;top:-12px;left:20px}
+.vx-plan h3{font-size:1.15rem}
+.vx-plan .vx-plan-sub{margin-top:3px;color:var(--vx-muted);font-size:.88rem}
+.vx-plan .vx-price{margin-top:14px}
+.vx-plan .vx-price strong{font-size:1.8rem}
+.vx-plan .vx-plan-after{margin-top:2px;font-size:.78rem;color:var(--vx-muted)}
+.vx-plan .vx-plan-lead{margin-top:16px;padding-top:14px;border-top:1px solid var(--vx-line);font-size:.82rem;font-weight:600;color:var(--vx-ink)}
+.vx-plan .vx-incluye{margin:8px 0 0;gap:5px;font-size:.88rem}
+.vx-plan-cta{display:flex;flex-direction:column;align-items:stretch;gap:2px;margin-top:auto;padding-top:18px}
+.vx-plan-cta .btn{justify-content:center;min-height:44px;font-size:.92rem}
+.vx-plan-link{align-self:center;display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:0;background:none;color:var(--vx-blue);font:600 .85rem Poppins,"Poppins Fallback",system-ui,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.vx-plan-link:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px;border-radius:8px}
+.vx-plan:not(.vx-card--featured) .btn-primary{background:#fff;color:var(--vx-blue);border:1.5px solid var(--vx-blue)}
+.vx-plan:not(.vx-card--featured) .btn-primary:hover,.vx-plan:not(.vx-card--featured) .btn-primary:focus-visible{background:var(--vx-blue);color:#fff}
+.vx-plan :is(.vx-plan-lead,.vx-plan-link){transition:color .35s ease,border-color .35s ease}
+@media (hover:hover){:is(.vx-card--featured,.vx-card--glow).vx-plan:hover :is(.vx-plan-link,.vx-plan-lead){color:#fff}:is(.vx-card--featured,.vx-card--glow).vx-plan:hover .vx-plan-lead{border-color:rgba(255,255,255,.3)}}
+.is-lit:is(.vx-card--featured,.vx-card--glow).vx-plan :is(.vx-plan-link,.vx-plan-lead){color:#fff}
+.is-lit:is(.vx-card--featured,.vx-card--glow).vx-plan .vx-plan-lead{border-color:rgba(255,255,255,.3)}
+.vx-plan-foot{margin:16px 0 0;text-align:center;font-size:.9rem;color:var(--vx-muted)}
+
+/* ---------- Bloques con más volumen (16-oct-2026): casos, búsquedas, mini ventanas, problemas, mosaicos ---------- */
+/* Tarjetas de decisión: "según dónde atiendes" (psicólogos) */
+.vx-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:22px 0 0;padding:0;list-style:none}
+.vx-cases li{display:flex;flex-direction:column;padding:20px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-cases .vx-feat-ic{background:var(--vx-tint);box-shadow:none}
+.vx-cases strong{margin-top:12px;font:700 1.02rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-cases li>span{margin-top:6px;font-size:.92rem;line-height:1.5;color:var(--vx-muted)}
+.vx-pill{align-self:flex-start;font-style:normal;margin-top:12px;padding:3px 10px;border-radius:999px;font-size:.76rem;font-weight:600}
+.vx-pill--si{background:#e3f5ec;color:#0b5c46}
+.vx-pill--depende{background:#fdf1dc;color:#7a4708}
+.vx-pill--no{background:#eef0f4;color:#4a5068}
+.vx-cases .vx-case-foot{margin-top:auto;padding-top:14px}
+.vx-case-foot a{display:block;padding-top:12px;border-top:1px solid var(--vx-line);color:var(--vx-blue);font-weight:600;font-size:.9rem;text-decoration:none}
+.vx-case-foot a:hover,.vx-case-foot a:focus-visible{text-decoration:underline;text-underline-offset:3px}
+/* Búsquedas dibujadas como la barra de Google (dentistas) */
+.vx-queries{display:grid;gap:12px;max-width:900px;margin:22px 0 0;padding:0;list-style:none}
+.vx-queries li{display:grid;grid-template-columns:17rem minmax(0,1fr);gap:10px 22px;align-items:center;padding:16px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-q{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:10px 16px;border:1px solid #dadce0;border-radius:999px;box-shadow:0 1px 4px rgba(32,33,36,.12);font-size:.95rem;color:#202124;min-width:0}
+.vx-q svg{flex:none;width:16px;height:16px;fill:none;stroke:#5f6368;stroke-width:2;stroke-linecap:round}
+.vx-q-alt{display:block;margin:6px 0 0 16px;font-size:.8rem;color:var(--vx-muted)}
+.vx-queries p{margin:0;font-size:.93rem;line-height:1.5;color:var(--vx-muted)}
+.vx-queries p b{color:var(--vx-blue)}
+@media (max-width:640px){.vx-queries li{grid-template-columns:1fr}}
+/* Landing frente a sitio: mini ventanas del navegador */
+.vx-webopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:22px 0 0;padding:0;list-style:none}
+.vx-webopts li{padding:14px;background:#fff;border:1px solid var(--vx-line);border-radius:var(--vx-r);box-shadow:var(--vx-shadow)}
+.vx-mini{border:1px solid var(--vx-line);border-radius:10px;overflow:hidden;background:#fff}
+.vx-mini-bar{display:flex;align-items:center;gap:6px;padding:6px 10px;background:#eef0f4;font-size:.7rem;color:#5f6578;white-space:nowrap;overflow:hidden}
+.vx-mini-bar i{width:7px;height:7px;border-radius:50%;background:#cdd2e0;flex:none}
+.vx-mini-bar b{font-weight:500;padding:1px 7px;border-radius:5px}
+.vx-mini-bar b.on{background:#fff;color:var(--vx-ink)}
+.vx-mini-body{display:grid;gap:6px;padding:12px}
+.vx-mini-body s{display:block;height:8px;border-radius:4px;background:#e8ecfb;text-decoration:none}
+.vx-mini-body s:first-child{width:60%;height:10px;background:#cfd6f2}
+.vx-mini-body s:nth-child(2){width:88%}
+.vx-mini-body s:nth-child(3){width:30%;height:18px;margin-top:4px;border-radius:6px;background:var(--vx-blue)}
+.vx-webopts strong{display:flex;justify-content:space-between;gap:8px;margin-top:12px;font:700 1rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-webopts strong em{font-style:normal;color:var(--vx-blue);white-space:nowrap}
+.vx-webopts li>span{display:block;margin-top:4px;font-size:.9rem;line-height:1.5;color:var(--vx-muted)}
+/* Cards de problema: ícono arriba y la solución abajo */
+.vx-prob .vx-feat-ic{background:var(--vx-tint);box-shadow:none}
+.vx-prob-fix{display:flex;gap:8px;align-items:center;margin-top:auto!important;padding-top:12px;border-top:1px solid var(--vx-line);color:#0b6b50;font-weight:600;font-size:.9rem}
+.vx-prob-fix::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:#e3f5ec url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.5L12 5.2' fill='none' stroke='%230b6b50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.vx-prob-fix a{color:inherit}
+/* Condiciones con ícono: cajas blancas en filas parejas, ícono a la izquierda (16-oct-2026) */
+.notes-strip:has(>.vx-tiles) h2{margin-bottom:16px;font-size:1.15rem}
+.vx-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.vx-tiles li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;min-width:0;padding:16px 18px;background:#fff;border:1px solid var(--vx-line);border-radius:14px}
+.vx-tiles li:last-child:nth-child(odd){grid-column:1/-1}
+.vx-tiles .vx-feat-ic{grid-row:span 2;width:42px;height:42px;padding:10px;border-radius:12px;background:var(--vx-tint);box-shadow:none}
+.vx-tiles strong{display:block;margin-top:1px;font:700 .98rem/1.3 Montserrat,"Montserrat Fallback",system-ui,sans-serif;color:var(--vx-ink)}
+.vx-tiles span{display:block;margin-top:3px;font-size:.88rem;line-height:1.5;color:var(--vx-muted)}
+.vx-tiles a{color:var(--vx-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){.vx-tiles{grid-template-columns:1fr}}
+/* Contacto: ícono en cada canal y mensaje de ejemplo */
+.vx-canales .vx-feat-ic{display:block;margin-bottom:12px;background:var(--vx-tint);box-shadow:none}
+.pack-card.featured:hover .vx-feat-ic{background:rgba(255,255,255,.16)}
+.vx-wa-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center}
+.vx-wa-demo h2{font-size:1.25rem;margin-bottom:10px}
+.vx-wa-demo ol{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none;counter-reset:d}
+.vx-wa-demo ol li{display:flex;gap:10px;align-items:center;font-size:.95rem;counter-increment:d}
+.vx-wa-demo ol li::before{content:counter(d);flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--vx-blue);color:#fff;font:700 .78rem Montserrat,"Montserrat Fallback",system-ui,sans-serif}
+.vx-wa-chat{display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:var(--vx-r);background:#efe7de}
+.vx-wa-msg{align-self:flex-end;max-width:92%;padding:10px 12px;border-radius:12px 12px 3px 12px;background:#d9fdd3;color:#111b21;font-size:.93rem;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.vx-wa-msg mark{background:none;color:inherit;font-weight:600;text-decoration:underline;text-decoration-color:#25a35a;text-decoration-thickness:2px;text-underline-offset:3px}
+.vx-wa-msg small{display:block;margin-top:2px;text-align:right;font-size:.7rem;color:#667781}
+.vx-wa-cap{margin:0;text-align:right;font-size:.8rem;color:#5f5a52}
+@media (max-width:760px){.vx-wa-demo{grid-template-columns:1fr;gap:18px}}
+/* Mini cards de enlaces: solo el título, un poco más grande */
+.vx-links a{display:flex;align-items:center;min-height:76px}
+.vx-links strong{margin:0;font-size:1.1rem;line-height:1.3}

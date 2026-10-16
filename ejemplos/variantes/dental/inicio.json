@@ -1,0 +1,53 @@
+{
+  "tituloSeo": "Dentista en Providencia con urgencias | Clínica Dental Ejemplo",
+  "descripcionSeo": "Clínica dental en Providencia: limpiezas, ortodoncia, implantes y urgencias el mismo día. Agenda por WhatsApp.",
+  "antetitulo": "Clínica dental · Providencia",
+  "titulo": "Sonreír sin miedo al dentista",
+  "bajada": "Limpiezas, ortodoncia, implantes y urgencias.",
+  "boton": "Agendar hora",
+  "servicios": [
+    {
+      "titulo": "Limpieza dental",
+      "texto": "Destartraje, pulido y revisión.",
+      "precio": "Desde $35.000"
+    },
+    {
+      "titulo": "Ortodoncia",
+      "texto": "Brackets y alineadores, con control mensual.",
+      "precio": "Evaluación $20.000"
+    },
+    {
+      "titulo": "Urgencias",
+      "texto": "Dolor, fracturas o infecciones, el mismo día.",
+      "precio": "Desde $30.000"
+    }
+  ],
+  "preguntas": [
+    {
+      "pregunta": "¿Necesito agendar hora?",
+      "respuesta": "Sí, trabajamos con hora para que no esperes. Puedes agendar por WhatsApp."
+    },
+    {
+      "pregunta": "¿Cómo puedo pagar?",
+      "respuesta": "Efectivo, transferencia y tarjetas de débito o crédito."
+    },
+    {
+      "pregunta": "¿Atienden a niños?",
+      "respuesta": "Sí, cortamos a niños desde los 3 años."
+    }
+  ],
+  "fotoPortada": "/img/portadas/dental.webp",
+  "fotoAlt": "Dentistas atendiendo en un box luminoso",
+  "fotoAncho": 900,
+  "fotoAlto": 1350,
+  "datos": [
+    {
+      "valor": "4,8 ★",
+      "texto": "en Google"
+    },
+    {
+      "valor": "Mismo día",
+      "texto": "en urgencias"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+---
+permalink: /blog/
+eleventyComputed:
+  title: "{{ blog.titulo }}"
+  titulo_seo: "Blog | {{ negocio.nombre }}"
+  description: "{{ blog.bajada }}"
+---
+{#- Listado del blog. Se llena solo con los artículos de blog/articulos/. -#}
+{% extends "base.njk" %}
+
+{% block jsonld %}
+{%- set todos = collections.articulos -%}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": {{ (negocio.tipoSchema or "LocalBusiness") | dump | safe }}, "@id": "{{ negocio.url }}/#negocio", "name": {{ negocio.nombre | dump | safe }}, "url": "{{ negocio.url }}/"},
+    {
+      "@type": "Blog",
+      "@id": "{{ negocio.url }}/blog/#blog",
+      "url": "{{ negocio.url }}/blog/",
+      "name": {{ ("Blog de " + negocio.nombre) | dump | safe }},
+      "description": {{ blog.bajada | dump | safe }},
+      "inLanguage": "es-CL",
+      "publisher": {"@id": "{{ negocio.url }}/#negocio"},
+      "blogPost": [
+        {%- for a in todos %}
+        {"@type": "BlogPosting", "headline": {{ a.data.title | dump | safe }}, "url": "{{ negocio.url }}{{ a.url }}", "datePublished": "{{ a.date | fechaISO }}"}{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    },
+    {"@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "{{ negocio.url }}/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog"}
+    ]}
+  ]
+}
+{% endblock %}
+
+{% block contenido %}
+{%- set todos = collections.articulos -%}
+{%- set destacado = todos | destacadoDe -%}
+{%- set resto = todos | sinArticulo(destacado) -%}
+<section class="portada">
+  <div class="wrap">
+    <nav class="migas" aria-label="Migas de pan"><a href="/">Inicio</a> › Blog</nav>
+    <div class="antetitulo">Blog</div>
+    <h1>{{ blog.titulo }}</h1>
+    <p class="bajada">{{ blog.bajada }}</p>
+    <div class="indice" role="group" aria-label="Filtrar por tema">
+      <button type="button" class="activo" data-filtro="todos" aria-pressed="true"><small>00</small>Todos</button>
+      {%- for c in blog.categorias | conArticulos(todos) %}
+      <button type="button" data-filtro="{{ c.slug }}" aria-pressed="false"><small>{{ loop.index | dosCifras }}</small>{{ c.nombre }}</button>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    {%- if destacado %}
+    {%- set cat = blog.categorias | porSlug(destacado.data.categoria) %}
+    <article class="destacado" data-categoria="{{ destacado.data.categoria }}">
+      <span class="franja" aria-hidden="true">{{ "Nuevo" if destacado.url == todos[0].url else "Destacado" }}</span>
+      <div class="miniatura">
+        {%- if destacado.data.miniatura %}<img src="{{ destacado.data.miniatura }}" alt="" width="1200" height="630" fetchpriority="high">{% else %}<span class="sin-imagen" aria-hidden="true">{{ cat.nombre }}</span>{% endif %}
+      </div>
+      <div class="destacado-cuerpo">
+        <span class="num-grande" aria-hidden="true">01</span>
+        <span class="tema">{{ cat.nombre }}</span>
+        <h2><a href="{{ destacado.url }}">{{ destacado.data.title }}</a></h2>
+        <p>{{ destacado.data.resumen or destacado.data.description }}</p>
+        <span class="fecha"><time datetime="{{ destacado.date | fechaISO }}">{{ destacado.date | fechaCorta }}</time> · {{ destacado.content | minutosLectura }} min de lectura</span>
+        <span class="ver-mas" aria-hidden="true">Ver más <span>&rarr;</span></span>
+      </div>
+    </article>
+    {%- else %}
+    <p class="bajada">Pronto publicaremos el primer artículo.</p>
+    {%- endif %}
+
+    {%- if resto.length %}
+    <div class="cabeza"><h2>Más artículos</h2></div>
+    <ul class="cards">
+      {%- for a in resto %}{% set n = loop.index + 1 %}{% include "partes/card.njk" %}{% endfor %}
+    </ul>
+    {%- endif %}
+    <p class="vacio" data-vacio role="status">Todavía no hay artículos de este tema.</p>
+  </div>
+</section>
+
+{% include "partes/contacto.njk" %}
+{% endblock %}

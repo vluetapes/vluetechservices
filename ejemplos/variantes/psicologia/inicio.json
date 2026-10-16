@@ -1,0 +1,44 @@
+{
+  "tituloSeo": "Psicóloga en Ñuñoa y en línea | Consulta de Psicología Ejemplo",
+  "descripcionSeo": "Terapia para adultos en Ñuñoa y en línea: ansiedad, duelo y terapia de pareja. Boleta para reembolso en tu isapre.",
+  "antetitulo": "Psicología para adultos · Ñuñoa y en línea",
+  "titulo": "Un espacio para hablar con calma",
+  "bajada": "Terapia presencial y en línea.",
+  "boton": "Agendar primera sesión",
+  "servicios": [
+    {
+      "titulo": "Terapia individual",
+      "texto": "Ansiedad, duelo, estrés y cambios de etapa.",
+      "precio": "Sesión $35.000"
+    },
+    {
+      "titulo": "Terapia de pareja",
+      "texto": "Sesiones de 60 minutos, presencial o en línea.",
+      "precio": "Sesión $45.000"
+    },
+    {
+      "titulo": "Atención en línea",
+      "texto": "Por videollamada, desde cualquier ciudad.",
+      "precio": "Sesión $35.000"
+    }
+  ],
+  "preguntas": [
+    {
+      "pregunta": "¿Necesito agendar hora?",
+      "respuesta": "Sí, trabajamos con hora para que no esperes. Puedes agendar por WhatsApp."
+    },
+    {
+      "pregunta": "¿Cómo puedo pagar?",
+      "respuesta": "Efectivo, transferencia y tarjetas de débito o crédito."
+    },
+    {
+      "pregunta": "¿Atienden a niños?",
+      "respuesta": "Sí, cortamos a niños desde los 3 años."
+    }
+  ],
+  "fotoPortada": "/img/portadas/psicologia.webp",
+  "fotoAlt": "Sala de consulta luminosa con un sofá y plantas",
+  "fotoAncho": 1500,
+  "fotoAlto": 1116,
+  "datos": []
+}

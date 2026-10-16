@@ -24,11 +24,9 @@
 <meta name="twitter:title" content="Política de privacidad | Vlue Tech Services">
 <meta name="twitter:description" content="Cómo usamos los datos que nos dejas por WhatsApp, formulario o correo.">
 <meta name="twitter:image" content="https://vluetechservices.cl/img/og/inicio.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style_work2.css?v=880f04e8">
-<link rel="stylesheet" href="/vx-ui.css?v=853c24aa">
+<link rel="preload" href="/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style_work2.css?v=afc81abb">
+<link rel="stylesheet" href="/vx-ui.css?v=7d7f7df0">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -53,6 +51,7 @@
       <a href="/">Inicio</a>
       <a href="/catalogo/">Catálogo</a>
       <a href="/salud/">Salud</a>
+      <a href="/paginas-web/">Páginas web</a>
       <a href="/blog/">Blog</a>
       <a href="/contacto/">Contacto</a>
     </nav>
@@ -64,7 +63,7 @@
 <section class="hero-panel pattern-dark">
   <div class="wrap">
     <nav class="vx-crumbs" aria-label="Migas de pan"><a href="/">Inicio</a> &rsaquo; <span aria-current="page">Privacidad</span></nav>
-    <div class="eyebrow">Actualizada el 6 de octubre de 2026</div>
+    <div class="eyebrow">Versión 2 · actualizada el 15 de octubre de 2026</div>
     <h1>Política de privacidad</h1>
     <p class="sub">Qué datos recibimos cuando nos escribes, para qué los usamos y cómo pedirnos que los corrijamos o los borremos.</p>
   </div>
@@ -73,59 +72,126 @@
 <section>
   <div class="wrap vx-legal">
     <h2>Quién es responsable de tus datos</h2>
-    <p>Vlue Tech Services SpA, RUT 78.514.356-6, empresa de Santiago de Chile. Para cualquier pregunta sobre tus datos, escríbenos a <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a>.</p>
+    <p>Vlue Tech Services SpA, RUT 78.514.356-6, con domicilio comercial en Ahumada 131, Santiago de Chile (oficina virtual: no atendemos público en esa dirección). Su representante legal es Cristian Carrasco. Para cualquier pregunta sobre tus datos, escríbenos a <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a>.</p>
 
     <h2>Qué datos recibimos</h2>
     <ul>
       <li><strong>Si nos escribes por WhatsApp:</strong> tu número, tu nombre de perfil y lo que nos cuentes en la conversación.</li>
       <li><strong>Si usas el formulario:</strong> lo que escribas en él, como tu nombre, tu negocio y cómo contactarte. El formulario funciona con Tally, que guarda las respuestas por nosotros.</li>
       <li><strong>Si nos mandas un correo:</strong> tu dirección y lo que nos escribas.</li>
-      <li><strong>Cuando visitas la web:</strong> Google Analytics registra qué páginas ves, desde qué tipo de dispositivo, tu ciudad aproximada y si tocas los botones de contacto. No registra tu nombre ni tu número.</li>
+      <li><strong>Si contratas:</strong> los datos para emitir tu boleta o factura (nombre o razón social, RUT, giro y dirección) y los accesos que nos des a tu ficha de Google o a tu web.</li>
+      <li><strong>Cuando visitas la web, si aceptas las cookies:</strong> Google Analytics registra qué páginas ves, desde qué tipo de dispositivo, tu ciudad aproximada y si tocas los botones de contacto. No registra tu nombre ni tu número.</li>
     </ul>
 
-    <h2>Para qué los usamos</h2>
-    <p>Para responderte, prepararte una cotización, hacer el trabajo que contrates y emitir tu boleta o factura. Los datos de visitas los usamos para saber qué partes de la web sirven y cuáles mejorar. No vendemos tus datos ni los usamos para publicidad de otras empresas.</p>
-    <p>Los usamos porque tú nos escribes para pedir información o contratar un servicio, y para cumplir con las obligaciones tributarias de cada venta.</p>
+    <h2 id="fuentes-publicas">Si te contactamos nosotros primero</h2>
+    <p>Para ofrecer nuestros servicios revisamos fichas de Google Maps, webs y redes sociales públicas de negocios y profesionales. De ahí tomamos solo el nombre del negocio, sus datos de contacto públicos (teléfono, correo, web, redes) y lo que se ve en su ficha, como las reseñas y el horario. En el primer mensaje te decimos de dónde sacamos tu contacto, y si nos pides que no te escribamos más, no lo volvemos a hacer y borramos tus datos.</p>
 
-    <h2>Con quién se comparten</h2>
-    <p>Solo con los servicios que hacen funcionar la web y la conversación: WhatsApp (Meta), Tally para el formulario, Google Analytics para medir visitas y GitHub, que aloja la web. Cada uno trata los datos según su propia política, y los guardan en servidores fuera de Chile, principalmente en Estados Unidos y Europa.</p>
+    <h2>Para qué los usamos y por qué podemos hacerlo</h2>
+    <ul>
+      <li><strong>Responderte y prepararte una cotización:</strong> porque tú nos lo pides.</li>
+      <li><strong>Hacer el trabajo que contrates y emitir tu boleta o factura:</strong> porque es parte del contrato y porque la ley tributaria nos obliga a respaldar cada venta.</li>
+      <li><strong>Escribir a negocios cuyos datos de contacto son públicos:</strong> por nuestro interés legítimo en ofrecer servicios a negocios. Puedes oponerte en cualquier momento.</li>
+      <li><strong>Medir las visitas a la web:</strong> solo con tu consentimiento en el aviso de cookies, que puedes retirar cuando quieras.</li>
+    </ul>
+    <p>No vendemos tus datos ni los usamos para publicidad de otras empresas. No tomamos decisiones automatizadas sobre ti ni armamos perfiles.</p>
+
+    <h2 id="encargo">Cuando trabajamos en tu ficha o en tu web</h2>
+    <p>Al gestionar tu ficha de Google, tus reseñas o tu web, vemos datos de tus clientes o pacientes, como el nombre de quien dejó una reseña o un mensaje que te enviaron. Esos datos son de tu responsabilidad, y nosotros los tratamos solo por encargo tuyo: los usamos únicamente para ese trabajo, no los copiamos a nuestras bases, no los compartimos con nadie y, cuando terminamos, dejamos de acceder y borramos lo que tengamos. Nunca te pedimos fichas clínicas ni datos de salud de tus pacientes.</p>
+
+    <h2>Con quién se comparten y dónde se guardan</h2>
+    <p>Solo con los servicios que hacen funcionar la web y la conversación:</p>
+    <ul>
+      <li><strong>WhatsApp (Meta):</strong> los mensajes. Estados Unidos.</li>
+      <li><strong>Tally:</strong> las respuestas del formulario. Bélgica (Unión Europea).</li>
+      <li><strong>Google Analytics:</strong> las visitas, si aceptas las cookies. Estados Unidos.</li>
+      <li><strong>GitHub:</strong> aloja la web. Estados Unidos.</li>
+      <li><strong>Cloudflare:</strong> entrega la web rápido y la protege de ataques; para eso ve la dirección IP de cada visita. Estados Unidos.</li>
+    </ul>
+    <p>Chile todavía no ha declarado que estos países tengan un nivel de protección adecuado. Por eso trabajamos con proveedores que se comprometen por contrato, en sus acuerdos de tratamiento de datos, a proteger la información y a usarla solo para prestarnos el servicio. Cada uno trata los datos también según su propia política.</p>
+
+    <h2>Cómo los protegemos</h2>
+    <p>Las cuentas donde están tus datos tienen contraseñas únicas y verificación en dos pasos, y solo entra quien en Vlue trabaja en tu caso. Si ocurriera una filtración que te afecte, te avisaremos a ti y a la Agencia de Protección de Datos Personales, como exige la ley.</p>
 
     <h2>Cuánto tiempo los guardamos</h2>
-    <p>Mientras trabajemos juntos y lo que exija la ley para respaldar boletas y facturas. Si no llegamos a trabajar juntos, guardamos tus datos de contacto hasta 2 años desde nuestra última conversación, por si quieres retomar la cotización, y después los borramos. Puedes pedirnos que los borremos antes.</p>
+    <p>Mientras trabajemos juntos y lo que exija la ley tributaria para respaldar boletas y facturas. Si no llegamos a trabajar juntos, guardamos tus datos de contacto hasta 2 años desde nuestra última conversación, por si quieres retomar la cotización, y después los borramos. Puedes pedirnos que los borremos antes.</p>
 
     <h2>Tus derechos</h2>
-    <p>Según la ley chilena de protección de datos personales (Ley 19.628, modificada por la Ley 21.719), puedes pedirnos ver qué datos tenemos de ti, corregirlos, borrarlos, oponerte a que los usemos o recibir una copia para llevarla a otro servicio. Escríbenos a <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a> desde el mismo contacto que usaste con nosotros y te responderemos.</p>
+    <p>Según la ley chilena de protección de datos personales (Ley 19.628, modificada por la Ley 21.719), puedes pedirnos, sin costo:</p>
+    <ul>
+      <li>ver qué datos tenemos de ti (acceso);</li>
+      <li>corregirlos (rectificación);</li>
+      <li>borrarlos (supresión);</li>
+      <li>que dejemos de usarlos (oposición);</li>
+      <li>recibir una copia para llevarla a otro servicio (portabilidad);</li>
+      <li>que los dejemos en pausa mientras revisamos tu solicitud (bloqueo temporal);</li>
+      <li>retirar el consentimiento que nos diste, por ejemplo el de las cookies.</li>
+    </ul>
+    <p>Escríbenos a <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a> desde el mismo contacto que usaste con nosotros, para confirmar que eres tú. Te respondemos en un máximo de 30 días corridos. Si no quedas conforme con la respuesta, puedes reclamar ante la Agencia de Protección de Datos Personales.</p>
 
-    <h2>Cookies</h2>
-    <p>Google Analytics usa cookies para contar visitas. Puedes bloquearlas o borrarlas desde la configuración de tu navegador, y la web sigue funcionando igual.</p>
+    <h2 id="mensajes">Mensajes comerciales</h2>
+    <p>Cada correo o mensaje con una oferta dice quiénes somos. Basta con que respondas «no me escriban más» para que dejemos de hacerlo.</p>
+
+    <h2 id="cookies">Cookies</h2>
+    <p>La web solo usa cookies de Google Analytics, para contar visitas, y únicamente si aceptas en el aviso que aparece en tu primera visita. Si rechazas, Google Analytics no se carga y la web funciona igual. Tu respuesta queda guardada en tu navegador y puedes cambiarla cuando quieras.</p>
+    <p><button type="button" class="btn btn-outline" data-cookies style="margin-top:6px;">Cambiar mi preferencia de cookies</button></p>
 
     <h2>Cambios a esta política</h2>
-    <p>Si cambiamos cómo usamos tus datos, actualizaremos esta página y su fecha.</p>
+    <p>Cada versión lleva número y fecha, arriba de esta página. Si cambiamos cómo usamos tus datos, publicamos una versión nueva, y si el cambio te afecta y tenemos tu contacto, te avisamos.</p>
   </div>
 </section>
 </main>
 
-<footer>
+<footer class="vx-foot">
   <div class="wrap">
-    <div class="logo"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services" width="708" height="120" loading="lazy" decoding="async"></div>
-    <p>Reseñas y Google Maps para negocios de Chile</p>
-    <p>Vlue Tech Services SpA &middot; Santiago, Chile</p>
-    <nav class="foot-links" aria-label="Secciones">
-      <a href="/catalogo/">Catálogo</a>
-      <a href="/salud/">Clínicas y consultas</a>
-      <a href="/blog/">Blog</a>
-      <a href="/contacto/">Contacto</a>
-      <a href="/privacidad/">Privacidad</a>
-    </nav>
-    <div class="foot-links">
-      <a href="mailto:contacto@vluetechservices.cl">contacto@vluetechservices.cl</a>
-      <a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a>
-      <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="pie">WhatsApp</a>
+    <div class="vx-foot-top">
+      <div class="vx-foot-brand">
+        <a class="vx-foot-logo" href="/"><img src="/img/logo-vlue-horizontal.webp" alt="Vlue Tech Services, inicio" width="708" height="120" loading="lazy" decoding="async"></a>
+        <p>Reseñas, Google Maps y páginas web para negocios y consultas de Chile.</p>
+        <div class="vx-foot-social">
+          <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" aria-label="Vlue en Google Maps" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
+          <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" aria-label="Instagram de Vlue, @vluetechservices" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg></a>
+          <a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20Vlue%20Tech%20Services" target="_blank" rel="noopener" aria-label="WhatsApp de Vlue" data-evento="clic_whatsapp" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></a>
+          <a href="mailto:contacto@vluetechservices.cl" aria-label="Correo de Vlue: contacto@vluetechservices.cl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.2 19.4 7H4.6zM20 8.3l-7.4 5.2a1 1 0 0 1-1.2 0L4 8.3V17h16V8.3z"/></svg></a>
+        </div>
+      </div>
+      <nav class="vx-foot-cols" aria-label="Pie de página">
+        <div>
+          <h2>Servicios</h2>
+          <ul>
+            <li><a href="/catalogo/tarjetas-nfc-resenas/">Tarjetas NFC</a></li>
+            <li><a href="/catalogo/ficha-google-maps/">Ficha de Google Maps</a></li>
+            <li><a href="/catalogo/gestion-resenas-google/">Gestión mensual</a></li>
+            <li><a href="/paginas-web/">Páginas web</a></li>
+            <li><a href="/catalogo/">Catálogo y precios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Salud</h2>
+          <ul>
+            <li><a href="/salud/">Clínicas y consultas</a></li>
+            <li><a href="/salud/dentistas/">Dentistas</a></li>
+            <li><a href="/salud/psicologos/">Psicólogos</a></li>
+            <li><a href="/catalogo/tarjeta-profesional/">Tarjeta Profesional</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Vlue</h2>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+            <li><a href="tel:+56926191935" data-evento="clic_llamada" data-ubicacion="pie">+56 9 2619 1935</a></li>
+            <li class="vx-foot-hours">Lun a vie 10:00 a 19:00<br>Sáb y dom 10:00 a 15:00</li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <p class="vx-hours">Atención: lunes a viernes de 10:00 a 19:00<br>Sábado y domingo de 10:00 a 15:00</p>
-    <div class="vx-social">
-      <a href="https://maps.google.com/?cid=330250948353902531" target="_blank" rel="noopener" data-evento="clic_maps" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Vlue en Google Maps</a>
-      <a href="https://www.instagram.com/vluetechservices/" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="pie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .06 2.7.12 4 1.4 4.1 4.1.05 1 .06 1.3.06 4s0 3-.06 4c-.12 2.7-1.4 4-4.1 4.1-1 .05-1.3.06-4 .06s-3 0-4-.06c-2.7-.12-4-1.4-4.1-4.1C3.8 15 3.8 14.7 3.8 12s0-3 .06-4C4 5.3 5.3 4 8 3.9c1-.05 1.3-.06 4-.06zM12 2c-2.7 0-3.1 0-4.1.06C4.2 2.2 2.2 4.2 2.06 7.9 2 8.9 2 9.3 2 12s0 3.1.06 4.1c.16 3.7 2.2 5.7 5.84 5.84 1 .05 1.4.06 4.1.06s3.1 0 4.1-.06c3.7-.17 5.7-2.2 5.84-5.84.05-1 .06-1.4.06-4.1s0-3.1-.06-4.1C21.8 4.2 19.8 2.2 16.1 2.06 15.1 2 14.7 2 12 2z"/></svg>@vluetechservices</a>
+    <div class="vx-foot-bottom">
+      <p>&copy; 2026 Vlue Tech Services SpA &middot; RUT 78.514.356-6 &middot; Ahumada 131, Santiago</p>
+      <nav aria-label="Legal">
+        <a href="/terminos/">Términos y condiciones</a>
+        <a href="/privacidad/">Privacidad</a>
+        <a href="/privacidad/#cookies" data-cookies>Cookies</a>
+      </nav>
     </div>
   </div>
 </footer>
@@ -134,6 +200,6 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.25 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
 </a>
 
-<script src="/vx-ui.js?v=20ef50e8" defer></script>
+<script src="/vx-ui.js?v=f104f590" defer></script>
 </body>
 </html>

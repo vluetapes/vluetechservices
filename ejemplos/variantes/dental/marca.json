@@ -1,0 +1,12 @@
+{
+  "colorPrincipal": "#0d6e6e",
+  "colorAcento": "#e3a33b",
+  "colorTexto": "#0f2424",
+  "colorFondoSuave": "#eef6f5",
+  "fuenteTitulos": "Cabinet Grotesk",
+  "pesoTitulos": "800",
+  "fuenteTexto": "Switzer",
+  "radio": "16px",
+  "diseno": "clinico",
+  "fontshare": "f[]=cabinet-grotesk@700,800&f[]=switzer@400,500,600"
+}

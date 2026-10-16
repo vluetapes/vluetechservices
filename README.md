@@ -10,7 +10,7 @@ Las páginas son HTML, CSS y JavaScript escritos a mano. El blog se arma con [El
 |---|---|
 | `index.html` | Inicio |
 | `catalogo/` | Catálogo con packs y enlaces a las 4 categorías |
-| `catalogo/tarjetas-nfc-resenas/`, `ficha-google-maps/`, `gestion-resenas-google/`, `tarjeta-digital/` | Una página por categoría |
+| `catalogo/tarjetas-nfc-resenas/`, `ficha-google-maps/`, `gestion-resenas-google/`, `tarjeta-profesional/` | Una página por categoría |
 | `salud/` | Planes para clínicas y consultas |
 | `contacto/` | Canales de contacto (WhatsApp, formulario Tally, correo) |
 | `privacidad/` | Política de privacidad |

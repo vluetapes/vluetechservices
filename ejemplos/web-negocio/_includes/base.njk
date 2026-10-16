@@ -1,0 +1,62 @@
+{#- Molde común de todas las páginas: head con SEO, colores de la marca, header y pie.
+    Los textos y datos salen de _data/ (se editan en Pages CMS). -#}
+{#- Título para Google: "Título | Negocio"; si pasa de 60 caracteres, solo el título -#}
+{%- set conMarca = title + " | " + negocio.nombre -%}
+{%- set tituloPagina = titulo_seo or (title if conMarca | length > 60 else conMarca) -%}
+{%- set urlPagina = negocio.url + page.url -%}
+{%- set imagen = imagen_redes or negocio.imagenRedes -%}
+{%- set imagenAbs = imagen if imagen.startsWith("http") else negocio.url + imagen -%}
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.classList.add('js')</script>
+<title>{{ tituloPagina }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ urlPagina }}">
+<meta name="robots" content="{{ 'noindex, follow' if noindex else 'index, follow, max-image-preview:large' }}">
+<meta name="theme-color" content="{{ marca.colorPrincipal }}">
+<meta property="og:type" content="{{ og_tipo or 'website' }}">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="{{ negocio.nombre }}">
+<meta property="og:url" content="{{ urlPagina }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ imagenAbs }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ imagen_alt or title }}">
+{% block metaExtra %}{% endblock %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ imagenAbs }}">
+{%- if marca.fontshare %}
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?{{ marca.fontshare }}&display=swap" rel="stylesheet">
+{%- else %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{ marca | fuentesGoogle }}" rel="stylesheet">
+{%- endif %}
+<style>:root{--c-principal:{{ marca.colorPrincipal }};--c-acento:{{ marca.colorAcento }};--c-texto:{{ marca.colorTexto }};--c-fondo-suave:{{ marca.colorFondoSuave }};--f-titulos:"{{ marca.fuenteTitulos }}";--f-texto:"{{ marca.fuenteTexto }}";--peso-titulos:{{ marca.pesoTitulos }};--radio:{{ marca.radio }}}</style>
+<link rel="stylesheet" href="/assets/estilos.css?v={{ 'assets/estilos.css' | version }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Blog de {{ negocio.nombre }}" href="/blog/feed.xml">
+<script type="application/ld+json">
+{% block jsonld %}{% endblock %}
+</script>
+</head>
+<body class="diseno-{{ marca.diseno or 'dividido' }}">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="demo-aviso" role="note">Web de ejemplo hecha por <a href="https://vluetechservices.cl/paginas-web/?utm_source=ejemplo&utm_medium=referral&utm_campaign=web_ejemplo">Vlue Tech Services</a>. El negocio y sus datos son ficticios. <a class="demo-aviso-cta" href="https://vluetechservices.cl/paginas-web/?utm_source=ejemplo&utm_medium=referral&utm_campaign=web_ejemplo">Quiero una web así &rarr;</a></div>
+{% include "partes/header.njk" %}
+<main id="contenido">
+{% block contenido %}{% endblock %}
+</main>
+{% include "partes/pie.njk" %}
+<script src="/assets/sitio.js?v={{ 'assets/sitio.js' | version }}" defer></script>
+</body>
+</html>

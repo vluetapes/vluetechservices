@@ -1,0 +1,12 @@
+{
+  "colorPrincipal": "#4f4486",
+  "colorAcento": "#7fae95",
+  "colorTexto": "#1f1b2e",
+  "colorFondoSuave": "#f4f1f8",
+  "fuenteTitulos": "Sentient",
+  "pesoTitulos": "400",
+  "fuenteTexto": "General Sans",
+  "radio": "18px",
+  "diseno": "suave",
+  "fontshare": "f[]=sentient@400,400i&f[]=general-sans@400,500,600"
+}

@@ -1,3 +1,12 @@
+/* Fuentes guardadas en /fonts/ (solo caracteres latinos; licencia OFL en esa carpeta).
+   Las "Fallback" ajustan Arial a la medida de cada fuente para que el texto no salte al cargar. */
+@font-face{font-family:"Montserrat";src:url(/fonts/montserrat-variable-latin.woff2) format("woff2");font-weight:700 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-400-latin.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-600-latin.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-700-latin.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat Fallback";src:local("Arial");size-adjust:112.83%;ascent-override:85.79%;descent-override:22.25%;line-gap-override:0%}
+@font-face{font-family:"Poppins Fallback";src:local("Arial");size-adjust:112.16%;ascent-override:93.62%;descent-override:31.21%;line-gap-override:8.92%}
+
 :root{
   --white:#ffffff;
   --tint:#eef1fb;
@@ -15,11 +24,11 @@
 html{scroll-padding-top:74px; scroll-behavior:smooth;}
 body{
   background:var(--white); color:var(--ink);
-  font-family:'Poppins',system-ui,sans-serif;
+  font-family:'Poppins',"Poppins Fallback",system-ui,sans-serif;
   font-weight:400; line-height:1.6; font-size:16px;
   -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{font-family:'Montserrat',system-ui,sans-serif; font-weight:800; letter-spacing:-0.01em; line-height:1.15;}
+h1,h2,h3{font-family:'Montserrat',"Montserrat Fallback",system-ui,sans-serif; font-weight:800; letter-spacing:-0.01em; line-height:1.15;}
 a{color:inherit; text-decoration:none;}
 img{max-width:100%; display:block;}
 
@@ -59,7 +68,7 @@ body>header .wrap{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
 .btn{
   display:inline-flex; align-items:center; gap:8px;
   padding:13px 20px; border-radius:8px;
-  font-family:'Poppins',sans-serif; font-weight:600; font-size:.92rem;
+  font-family:'Poppins',"Poppins Fallback",sans-serif; font-weight:600; font-size:.92rem;
   border:none; cursor:pointer; transition:background-color .2s ease, transform .15s ease, box-shadow .2s ease;
 }
 .btn-primary{background:var(--blue); color:#fff;}
@@ -99,12 +108,12 @@ section{padding:46px 0;}
 .steps{counter-reset:step; margin-top:8px;}
 .step{display:flex; gap:16px; padding:16px 0; border-top:1px solid var(--line);}
 .step:last-child{border-bottom:1px solid var(--line);}
-.step::before{counter-increment:step; content:counter(step); font-family:'Montserrat'; font-weight:800; font-size:1.1rem; color:var(--blue); flex:none; width:32px;}
+.step::before{counter-increment:step; content:counter(step); font-family:'Montserrat',"Montserrat Fallback"; font-weight:800; font-size:1.1rem; color:var(--blue); flex:none; width:32px;}
 .step h3{font-size:.98rem; margin-bottom:4px;}
 .step p{color:var(--muted); font-size:.88rem;}
 
 .notes-strip{background:var(--tint); border:1px solid var(--line); border-radius:12px; padding:22px;}
-.notes-strip h3{font-family:'Montserrat'; font-size:.95rem; margin-bottom:14px;}
+.notes-strip h3{font-family:'Montserrat',"Montserrat Fallback"; font-size:.95rem; margin-bottom:14px;}
 .notes-list{list-style:none; display:flex; flex-direction:column; gap:10px;}
 .notes-list li{display:flex; gap:10px; font-size:.87rem; color:var(--ink); align-items:flex-start;}
 .notes-list li::before{content:"✓"; color:var(--blue); font-weight:800; flex:none;}
@@ -120,7 +129,7 @@ section{padding:46px 0;}
 .svc-card:hover{border-color:var(--blue); box-shadow:0 10px 24px rgba(7,32,159,.12); transform:translateY(-2px);}
 .svc-card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
 .svc-card h3{font-size:1.02rem;}
-.svc-price{font-family:'Montserrat'; font-weight:800; color:var(--blue); font-size:1rem; white-space:nowrap;}
+.svc-price{font-family:'Montserrat',"Montserrat Fallback"; font-weight:800; color:var(--blue); font-size:1rem; white-space:nowrap;}
 .svc-card p{color:var(--muted); font-size:.88rem; margin-top:6px;}
 .svc-note{color:var(--muted); font-size:.78rem; margin-top:8px; font-style:italic;}
 .svc-cta{display:inline-flex; align-items:center; gap:6px; color:var(--blue); font-weight:700; font-size:.83rem; margin-top:12px; transition:gap .2s ease;}
@@ -139,14 +148,14 @@ section{padding:46px 0;}
 .pack-card h3{font-size:1.12rem; margin-bottom:8px;}
 .pack-card .includes{color:var(--muted); font-size:.88rem; margin-bottom:14px;}
 .price-row{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
-.price-now{font-family:'Montserrat'; font-weight:800; font-size:1.5rem;}
+.price-now{font-family:'Montserrat',"Montserrat Fallback"; font-weight:800; font-size:1.5rem;}
 .price-was{color:var(--muted); font-size:.86rem; text-decoration:line-through;}
 .save-tag{color:var(--good); font-size:.76rem; font-weight:700;}
 .pack-cta{display:inline-flex; align-items:center; gap:6px; color:var(--blue); font-weight:700; font-size:.85rem; transition:gap .2s ease;}
 .pack-card:hover .pack-cta{gap:10px;}
 
 .tab-bar{display:flex; gap:8px; overflow-x:auto; margin-bottom:22px; padding-bottom:4px; -webkit-overflow-scrolling:touch;}
-.tab-btn{flex:none; padding:9px 16px; border-radius:20px; border:1.5px solid var(--line); background:#fff; color:var(--muted); font-family:'Montserrat',sans-serif; font-weight:700; font-size:.8rem; cursor:pointer; transition:background-color .3s ease, border-color .3s ease, color .3s ease, transform .15s ease;}
+.tab-btn{flex:none; padding:9px 16px; border-radius:20px; border:1.5px solid var(--line); background:#fff; color:var(--muted); font-family:'Montserrat',"Montserrat Fallback",sans-serif; font-weight:700; font-size:.8rem; cursor:pointer; transition:background-color .3s ease, border-color .3s ease, color .3s ease, transform .15s ease;}
 .tab-btn:hover:not(.is-active){border-color:var(--blue); color:var(--blue); transform:translateY(-1px);}
 .tab-btn.is-active{background:var(--blue); border-color:var(--blue); color:#fff;}
 .tab-panel{display:none;}

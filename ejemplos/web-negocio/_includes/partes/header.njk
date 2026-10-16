@@ -1,0 +1,14 @@
+{%- set wa = "https://wa.me/" + negocio.whatsapp + "?text=" + (negocio.mensajeWhatsapp | urlencode) -%}
+<header class="cabecera">
+  <div class="wrap">
+    <a class="marca" href="/">{% if negocio.logo %}<img src="{{ negocio.logo }}" alt="{{ negocio.nombre }}, inicio" width="160" height="36">{% else %}{{ negocio.nombre }}{% endif %}</a>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Inicio</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/blog/"{% if page.url.startsWith("/blog/") %} aria-current="page"{% endif %}>Blog</a>
+      <a href="/#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-principal" href="{{ wa }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="header">WhatsApp</a>
+    <button type="button" class="hamburguesa" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
