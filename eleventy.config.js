@@ -58,6 +58,15 @@ export default function (eleventyConfig) {
       .sort((a, b) => b.date - a.date)
   );
 
+  /* ---------- Tablas de los artículos ----------
+     Las tablas que se escriben en Pages CMS salen como <table> sin clase.
+     Aquí se les pone el estilo de la web (vx-table) y una caja que deja
+     deslizarlas de lado en el celular, sin ensanchar la página. */
+  eleventyConfig.amendLibrary("md", (md) => {
+    md.renderer.rules.table_open = () => '<div class="vx-table-wrap"><table class="vx-table">\n';
+    md.renderer.rules.table_close = () => "</table></div>\n";
+  });
+
   /* ---------- Filtros que usan los moldes ---------- */
   eleventyConfig.addFilter("slug", slug);
 
