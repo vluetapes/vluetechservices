@@ -8,19 +8,19 @@ logo: /img/simbolo-vlue.svg
 etiqueta: Santiago · Chile
 titulo: Que te encuentren en Google
 titulo_color: Google
-bajada: Webs y fichas de Google Maps para negocios y profesionales.
-description: Webs y fichas de Google Maps para negocios y profesionales de
-  Santiago. Escríbenos por WhatsApp según lo que necesites.
+bajada: Fichas de Google Maps, reseñas y webs para negocios y profesionales.
+description: Fichas de Google Maps, tarjetas NFC y webs para negocios y
+  profesionales de Santiago. Escríbenos por WhatsApp para tu situación
 whatsapp: "56926191935"
 saludo: "Hola, vengo de su página de enlaces. "
-ayuda: ¿Qué te pasa? Toca la tuya y escríbenos por WhatsApp.
+ayuda: ¿Cuál es tu caso? Te ayudamos por WhatsApp
 botones:
   - texto: No aparezco en Google Maps
     resaltar: aparezco en Google Maps
     mensaje: Mi negocio no aparece en Google Maps, ¿me pueden ayudar?
-  - texto: Tengo ficha, pero no me llaman
-    resaltar: no me llaman
-    mensaje: Tengo ficha en Google pero casi no me llaman. ¿Qué me recomiendan?
+  - texto: Tengo ficha en Google Maps, pero no está cuidada
+    resaltar: pero está abandonada
+    mensaje: Tengo ficha en Google pero la tengo muy descuidada. ¿Qué me recomiendan?
   - texto: Necesito una página web
     resaltar: página web
     mensaje: Necesito una página web para mi negocio. ¿Cómo trabajan?
@@ -30,22 +30,15 @@ botones:
   - texto: Cotizar para mi negocio o consulta
     resaltar: Cotizar
     mensaje: "Quiero cotizar para mi negocio o consulta. Mi rubro es: "
+  - texto: Dejar una reseña a Vlue Tech Services
+    resaltar: Vlue Tech Services
+    enlace: https://g.page/r/CcPHXt98SZUEEBM/review
 oferta:
   etiqueta: Sin costo · sin compromiso
   titulo: Auditoría gratis de tu ficha de Google
   texto: Te decimos qué arreglar primero para que te llamen más.
   boton: Pedir mi auditoría
   mensaje: "Quiero la auditoría gratis de mi ficha de Google. Mi negocio es: "
-enlaces_titulo: Para mirar antes de escribir
-enlaces:
-  - texto: Precios
-    url: https://vluetechservices.cl/catalogo/
-  - texto: Webs de ejemplo
-    url: https://vluetechservices.cl/paginas-web/
-  - texto: Tarjeta Profesional
-    url: https://vluetechservices.cl/catalogo/tarjeta-profesional/
-  - texto: Blog
-    url: https://vluetechservices.cl/blog/
 transferencia:
   nombre: VLUE TECH SERVICES SpA
   rut: "785143566"
@@ -53,9 +46,19 @@ transferencia:
   tipo: Cuenta Vista
   numero: "1027748025"
   email: contacto.vlue@gmail.com
+enlaces_titulo: Otras opciones
+enlaces:
+  - texto: Precios
+    url: https://vluetechservices.cl/catalogo/
+  - texto: Webs de Vlue
+    url: https://vluetechservices.cl/paginas-web/
+  - texto: Gestión mensual de Google Maps
+    url: https://vluetechservices.cl/catalogo/gestion-resenas-google/
+  - texto: Blog
+    url: https://vluetechservices.cl/blog/
 contacto:
   guardar: true
-  nombre: ""
+  nombre: Vlue Tech Services
   cargo: Webs y fichas de Google Maps
   telefono: "+56926191935"
   email: contacto@vluetechservices.cl
@@ -63,5 +66,9 @@ contacto:
   foto: /img/icon-512.png
 redes:
   instagram: https://www.instagram.com/vluetechservices/
+  facebook: https://www.facebook.com/profile.php?id=61595030400314
+  tiktok: https://www.tiktok.com/@vlue.tech.services
+  linkedin: https://www.linkedin.com/company/vluetechservices/?viewAsMember=true
   google_maps: https://share.google/z5XjIMo0Oh4afTNmg
+credito: true
 ---
