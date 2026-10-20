@@ -1,0 +1,75 @@
+{#- Piezas que comparten los dos diseños de páginas de enlaces.
+    Se usan con {% from "enlaces/comun.njk" import icono, ev, listaRedes, datos, botonContacto %} -#}
+
+{%- macro icono(n, t=20) -%}
+{%- if n == "wa" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+{%- elif n == "instagram" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+{%- elif n == "facebook" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg>
+{%- elif n == "tiktok" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.9 3.8 4.2 4v3.3c-1.6 0-3-.5-4.2-1.3v6.3a5.8 5.8 0 1 1-5.8-5.8l.9.1v3.4a2.5 2.5 0 1 0 1.6 2.3V3h3.3z"/></svg>
+{%- elif n == "linkedin" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7c.5-.9 1.7-2 3.6-2 3.8 0 4.5 2.4 4.5 5.6V21h-3v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6H9z"/></svg>
+{%- elif n == "maps" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+{%- elif n == "tel" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+{%- elif n == "contacto" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 20c0-2.8-2.7-5-6-5s-6 2.2-6 5M9 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM19 8v6M16 11h6"/></svg>
+{%- elif n == "copiar" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>
+{%- elif n == "lupa" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+{%- elif n == "flecha" -%}<svg width="{{t}}" height="{{t}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+{%- endif -%}
+{%- endmacro %}
+
+{#- Atributo para contar clics sin cookies (Umami). Se ve en el panel como "pagina · botón". -#}
+{%- macro ev(pagina, nombre) %} data-umami-event="{{ pagina }} · {{ nombre }}"{% endmacro %}
+
+{%- macro listaRedes(r, pagina) -%}
+{%- for clave, nombre in { "instagram": "Instagram", "facebook": "Facebook", "tiktok": "TikTok", "linkedin": "LinkedIn", "google_maps": "Google Maps" } -%}
+{%- if r and r[clave] %}<a href="{{ r[clave] }}" aria-label="{{ nombre }}"{{ ev(pagina, nombre) }}>{{ icono("maps" if clave == "google_maps" else clave, 18) }}</a>{% endif -%}
+{%- endfor -%}
+{%- endmacro %}
+
+{#- Datos para copiar (correo, dirección, datos de transferencia...). Un toque los copia. -#}
+{%- macro datos(lista, pagina, titulo) -%}
+{%- if lista and lista.length %}
+<section class="datos" aria-label="{{ titulo or 'Datos' }}">
+  <h2>{{ titulo or "Datos" }}</h2>
+  <ul>
+    {%- for d in lista %}
+    <li><span><small>{{ d.etiqueta }}</small>{{ d.valor }}</span>
+      <button type="button" data-copiar="{{ d.valor }}"{{ ev(pagina, "Copiar " + d.etiqueta) }}>{{ icono("copiar", 16) }}<em>Copiar</em></button></li>
+    {%- endfor %}
+  </ul>
+  {%- if lista.length > 1 %}
+  <button type="button" class="todo" data-copiar="{{ lista | datosTexto(titulo) }}"{{ ev(pagina, "Copiar todos los datos") }}>{{ icono("copiar", 16) }}<em>Copiar todos los datos</em></button>
+  {%- endif %}
+</section>
+{%- endif %}
+{%- endmacro %}
+
+{#- Datos de transferencia, en el orden que usan los bancos. Se ven con "RUT:" y "Número de cuenta:",
+    pero al copiar solo se copian los datos, uno por línea, listos para pegar. -#}
+{%- macro bloqueTransferencia(t, pagina, titulo) -%}
+{%- if t and (t.numero or t.rut) %}
+{%- set filas = [
+  { v: t.nombre, k: "", n: "Nombre" },
+  { v: t.rut, k: "RUT: ", n: "RUT" },
+  { v: t.banco, k: "", n: "Banco" },
+  { v: t.tipo, k: "", n: "Tipo de cuenta" },
+  { v: t.numero, k: "Número de cuenta: ", n: "Número de cuenta" },
+  { v: t.email, k: "", n: "Correo" }
+] %}
+<section class="datos transf" aria-label="{{ titulo or 'Datos para transferir' }}">
+  <h2>{{ titulo or "Datos para transferir" }}</h2>
+  <ul>
+    {%- for f in filas %}{% if f.v %}
+    <li{% if loop.first %} class="nombre"{% endif %}><span>{% if f.k %}<small>{{ f.k }}</small>{% endif %}{{ f.v }}</span>
+      {%- if f.n in ["RUT", "Número de cuenta", "Correo"] %}<button type="button" class="mini" data-copiar="{{ f.v }}" aria-label="Copiar {{ f.n }}"{{ ev(pagina, "Copiar " + f.n) }}>{{ icono("copiar", 15) }}<em></em></button>{% endif %}</li>
+    {%- endif %}{% endfor %}
+  </ul>
+  <button type="button" class="todo" data-copiar="{{ t | transferenciaTexto }}"{{ ev(pagina, "Copiar datos de transferencia") }}>{{ icono("copiar", 16) }}<em>Copiar datos</em></button>
+</section>
+{%- endif %}
+{%- endmacro %}
+
+{%- macro botonContacto(c, pagina, clase) -%}
+{%- if not c or c.guardar != false -%}
+<a class="{{ clase }}" href="/enlaces/{{ pagina }}/contacto.vcf" download="{{ pagina }}.vcf"{{ ev(pagina, "Guardar contacto") }}>{{ icono("contacto", 18) }}<span>Guardar contacto</span></a>
+{%- endif -%}
+{%- endmacro %}

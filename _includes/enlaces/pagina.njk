@@ -1,0 +1,94 @@
+{#- Molde de las páginas de enlaces (link en bio). Arma el <head> y carga el diseño elegido:
+    el campo "Diseño" de Pages CMS es el nombre del archivo en _includes/enlaces/.
+    Ej.: diseno: vitrina -> _includes/enlaces/vitrina.njk. Para un diseño nuevo, copia uno
+    con otro nombre (ej.: vitrina-dental.njk) y agrégalo a las opciones de .pages.yml. -#}
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{ title }}{{ " · " + etiqueta if etiqueta }}</title>
+<meta name="description" content="{{ description or bajada }}">
+<meta name="robots" content="{{ 'noindex, follow' if noindex else 'index, follow' }}">
+<link rel="canonical" href="{{ sitio.url }}{{ page.url }}">
+<meta name="theme-color" content="{{ color or '#07209f' }}">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="{{ sitio.url }}{{ page.url }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description or bajada }}">
+{%- if logo and not logo.endsWith(".svg") %}
+<meta property="og:image" content="{{ logo if logo.startsWith('http') else sitio.url + logo }}">
+{%- endif %}
+<link rel="icon" href="{{ logo if logo and not logo.startsWith('http') else '/favicon.ico' }}">
+<link rel="preload" href="/fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Fuentes de la web de Vlue (locales: cargan al instante) */
+@font-face{font-family:"Montserrat";src:url(/fonts/montserrat-variable-latin.woff2) format("woff2");font-weight:700 800;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-400-latin.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-600-latin.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Montserrat Fallback";src:local("Arial");size-adjust:112.83%;ascent-override:85.79%;descent-override:22.25%;line-gap-override:0%}
+@font-face{font-family:"Poppins Fallback";src:local("Arial");size-adjust:112.16%;ascent-override:93.62%;descent-override:31.21%;line-gap-override:8.92%}
+:root{
+  --c:{{ color or "#07209f" }};                              /* color principal del cliente */
+  --c-2:color-mix(in srgb,var(--c) 70%,#1f4bff);            /* el mismo, un poco más vivo: lo que se toca */
+  --ink:#0b1020;--muted:#505770;--line:#e3e7f3;
+  --paper:color-mix(in srgb,var(--c) 5%,#fff);
+  --soft:color-mix(in srgb,var(--c) 11%,#fff);
+  --wa:#0a7d4f;
+  --r-m:14px;
+  --e1:0 1px 2px color-mix(in srgb,var(--c) 8%,transparent),0 6px 18px color-mix(in srgb,var(--c) 8%,transparent);
+  --e2:0 2px 4px color-mix(in srgb,var(--c) 10%,transparent),0 18px 44px color-mix(in srgb,var(--c) 22%,transparent);
+  --t:"Montserrat","Montserrat Fallback",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font:400 15px/1.5 "Poppins","Poppins Fallback",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid var(--c-2);outline-offset:2px}
+
+/* Datos para copiar (los dos diseños) */
+.datos{margin:30px 20px 0}
+.datos h2{font:700 13px/1.2 var(--t);color:var(--muted)}
+.datos ul{list-style:none;padding:0;margin-top:6px}
+.datos li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.datos li span{flex:1;min-width:0;font-weight:600;font-size:14px;overflow-wrap:anywhere}
+.datos small{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.datos button{flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;font-weight:600;color:var(--c)}
+.datos button em{font-style:normal}
+.datos button.is-ok{background:var(--c);border-color:var(--c);color:#fff}
+.transf ul{margin-top:10px;padding:6px 16px;border:1px solid var(--line);border-radius:var(--r-m);background:#fff}
+.transf li{padding:7px 0;border-bottom:0;min-height:40px}
+.transf li span{font-weight:400}
+.transf li.nombre span{font-weight:600}
+.transf small{display:inline;font-size:14px}
+.datos .mini{padding:0;width:34px;height:34px;justify-content:center;border-color:transparent;background:var(--paper)}
+.datos .mini em:empty{display:none}
+.datos .mini.is-ok::after{content:"✓";font-weight:700}
+.datos .mini.is-ok svg{display:none}
+.datos .todo{margin-top:12px;width:100%;justify-content:center;height:44px;font-size:14px;border-color:var(--c);color:var(--c)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+{% include "enlaces/" + (diseno or "buscador") + ".njk" %}
+<script>
+/* Botones "Copiar": copian el dato y muestran "Copiado" un momento. */
+document.addEventListener("click", function (e) {
+  var b = e.target.closest("[data-copiar]");
+  if (!b) return;
+  var texto = b.getAttribute("data-copiar"), em = b.querySelector("em"), antes = em ? em.textContent : "";
+  function listo() { b.classList.add("is-ok"); if (em) em.textContent = "Copiado"; setTimeout(function () { b.classList.remove("is-ok"); if (em) em.textContent = antes; }, 1600); }
+  function aMano() { var t = document.createElement("textarea"); t.value = texto; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); listo(); } catch (x) {} t.remove(); }
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(texto).then(listo, aMano);
+  else aMano();
+});
+</script>
+{%- if sitio.umami %}
+{#- Cuenta visitas y clics sin cookies. El código del sitio va en _data/sitio.json ("umami"). #}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ sitio.umami }}"></script>
+{%- endif %}
+</body>
+</html>

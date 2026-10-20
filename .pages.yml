@@ -106,3 +106,232 @@ content:
         label: Borrador (no publicar todavía)
         type: boolean
         default: false
+
+  # ---------- Páginas de enlaces (link en bio de clientes) ----------
+  # Cada página es un archivo .md en enlaces/ y queda en vluetechservices.cl/enlaces/<nombre>/
+  # Para un cliente nuevo: crea una entrada nueva copiando los datos de "ejemplo-buscador"
+  # o "ejemplo-vitrina". Déjala en Borrador hasta que el cliente la apruebe.
+  - name: enlaces
+    label: Enlaces de clientes
+    type: collection
+    path: enlaces
+    filename: "{primary}.md"        # el nombre del archivo es la dirección: /enlaces/<nombre>/
+    view:
+      primary: title
+      fields: [title, diseno, borrador]
+    fields:
+      - name: title
+        label: Nombre del negocio o profesional
+        type: string
+        required: true
+        description: "Va arriba en la página, en la pestaña y en el contacto guardado. Al crear, también define la dirección (ej.: dra-perez)."
+
+      - name: diseno
+        label: Diseño
+        type: select
+        required: true
+        default: buscador
+        options:
+          values:
+            - { value: buscador, label: "Buscador (portada blanca y buscador de Google)" }
+            - { value: vitrina, label: "Vitrina (portada de color, accesos rápidos y horario)" }
+
+      - name: borrador
+        label: Borrador (no publicar todavía)
+        type: boolean
+        default: true
+        description: "Mientras esté marcado, solo se ve en tu computador."
+
+      - name: mostrar_en_google
+        label: Mostrar en Google
+        type: boolean
+        default: false
+        description: "Solo para clientes sin web propia. Si no, la página no sale en Google (igual funciona desde Instagram, QR y NFC)."
+
+      - name: color
+        label: Color principal
+        type: string
+        default: "#07209f"
+        description: "Código del color de la marca, con #. Ej.: #2f5d50. Sale en títulos, botones y fondo."
+
+      - name: logo
+        label: Logo o foto
+        type: image
+        description: "Cuadrado, JPG o PNG de menos de 200 KB (así también se guarda en el contacto). En Buscador, un logo PNG o SVG sin fondo sale además como marca de agua."
+
+      - name: inicial
+        label: Letra de fondo (solo Vitrina)
+        type: string
+        description: "La letra gigante del fondo de la portada. Si la dejas vacía, se usa la primera letra del nombre."
+
+      - name: etiqueta
+        label: Etiqueta sobre el título
+        type: string
+        description: "Rubro y comuna. Ej.: Psicóloga · Ñuñoa"
+
+      - name: titulo
+        label: Título grande
+        type: string
+        required: true
+        description: "Corto. Ej.: Tu sonrisa, sin esperas. En Vitrina puede ser el nombre."
+
+      - name: titulo_color
+        label: Palabras del título en color (opcional)
+        type: string
+        description: "Escríbelas igual que en el título. Ej.: sin esperas"
+
+      - name: bajada
+        label: Bajada
+        type: text
+        description: "Una línea: qué hace y dónde."
+
+      - name: description
+        label: Descripción al compartir
+        type: text
+        description: "Lo que sale al compartir el enlace por WhatsApp o redes (y en Google si está activado)."
+
+      - name: whatsapp
+        label: WhatsApp del cliente
+        type: string
+        required: true
+        description: "Con código de país, sin + ni espacios. Ej.: 56912345678"
+
+      - name: saludo
+        label: Saludo al inicio de cada mensaje
+        type: string
+        default: "Hola, "
+        description: "Va antes de cada mensaje de WhatsApp, con un espacio al final. Ej.: Hola, vengo de tu Instagram."
+
+      - name: mensaje_whatsapp
+        label: Mensaje del botón WhatsApp (solo Vitrina)
+        type: string
+        description: "Ej.: Quiero agendar una hora."
+
+      - name: botones_titulo
+        label: Título de los botones (solo Vitrina)
+        type: string
+        description: "Ej.: ¿En qué te ayudo?"
+
+      - name: ayuda
+        label: Texto de ayuda sobre los botones
+        type: string
+        description: "Ej.: ¿Qué necesitas? Toca la tuya y te respondemos por WhatsApp."
+
+      - name: botones
+        label: Botones según la situación
+        type: object
+        list: true
+        description: "De 3 a 6. Cada uno abre WhatsApp con su mensaje, o un enlace si lo pones."
+        fields:
+          - { name: texto, label: Texto del botón, type: string, description: "Como lo diría el cliente. Ej.: Tengo una urgencia dental" }
+          - { name: resaltar, label: Parte en negrita, type: string, description: "Escrita igual que en el texto. Ej.: urgencia" }
+          - { name: mensaje, label: Mensaje de WhatsApp, type: text, description: "Lo que le llega al cliente. Ej.: Tengo una urgencia dental, ¿tienen hora hoy?" }
+          - { name: enlace, label: Enlace (opcional), type: string, description: "Si lo llenas, el botón abre este enlace en vez de WhatsApp." }
+
+      - name: oferta
+        label: Oferta o regalo (opcional)
+        type: object
+        description: "Un recuadro destacado. Si no tiene título, no se muestra."
+        fields:
+          - { name: etiqueta, label: Etiqueta, type: string, description: "Ej.: Este mes · Sin costo" }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto, type: string }
+          - { name: boton, label: Texto del botón, type: string }
+          - { name: mensaje, label: Mensaje de WhatsApp, type: text }
+          - { name: enlace, label: Enlace (opcional), type: string }
+
+      - name: horario
+        label: Horario (solo Vitrina)
+        type: object
+        list: true
+        description: "Con esto la página muestra «Abierto ahora» o «Cerrado · abre a las…» con la hora de Chile."
+        fields:
+          - name: dias
+            label: Días
+            type: select
+            options:
+              multiple: true
+              values:
+                - { value: lun, label: Lunes }
+                - { value: mar, label: Martes }
+                - { value: mie, label: Miércoles }
+                - { value: jue, label: Jueves }
+                - { value: vie, label: Viernes }
+                - { value: sab, label: Sábado }
+                - { value: dom, label: Domingo }
+          - { name: abre, label: Abre, type: string, description: "Formato 24 h. Ej.: 09:00" }
+          - { name: cierra, label: Cierra, type: string, description: "Ej.: 19:30" }
+
+      - name: transferencia_titulo
+        label: Título de los datos de transferencia
+        type: string
+        description: "Si lo dejas vacío: Datos para transferir"
+
+      - name: transferencia
+        label: Datos de transferencia
+        type: object
+        description: "Se muestran en este orden. Al tocar «Copiar datos» se copian solo los datos, uno por línea, sin «RUT:» ni «Número de cuenta:»."
+        fields:
+          - { name: nombre, label: Nombre o razón social, type: string, description: "Ej.: VLUE TECH SERVICES SpA" }
+          - { name: rut, label: RUT, type: string, description: "Como lo pide el banco. Ej.: 785143566" }
+          - { name: banco, label: Banco, type: string, description: "Ej.: Mercado Pago" }
+          - { name: tipo, label: Tipo de cuenta, type: string, description: "Ej.: Cuenta Vista, Cuenta Corriente, Cuenta RUT" }
+          - { name: numero, label: Número de cuenta, type: string }
+          - { name: email, label: Correo para el comprobante, type: string }
+
+      - name: datos_titulo
+        label: Título de otros datos para copiar
+        type: string
+        description: "Ej.: Datos para transferir"
+
+      - name: datos_copiar
+        label: Datos para copiar
+        type: object
+        list: true
+        description: "Otros datos con botón Copiar (dirección, código de descuento, teléfono...). Para transferencias usa «Datos de transferencia»."
+        fields:
+          - { name: etiqueta, label: Nombre del dato, type: string, description: "Ej.: RUT" }
+          - { name: valor, label: Dato, type: string, description: "Lo que se copia. Ej.: 12.345.678-9" }
+
+      - name: enlaces_titulo
+        label: Título de los enlaces
+        type: string
+        description: "Ej.: Antes de venir"
+
+      - name: enlaces
+        label: Enlaces
+        type: object
+        list: true
+        fields:
+          - { name: texto, label: Texto, type: string }
+          - { name: url, label: "Dirección (https://...)", type: string }
+
+      - name: contacto
+        label: Guardar contacto
+        type: object
+        description: "Datos del botón «Guardar contacto»: se guardan en la agenda del celular de quien lo toca."
+        fields:
+          - { name: guardar, label: Mostrar el botón, type: boolean, default: true }
+          - { name: nombre, label: Nombre de la persona (opcional), type: string, description: "Si lo dejas vacío, se guarda con el nombre del negocio." }
+          - { name: cargo, label: Cargo o rubro, type: string }
+          - { name: telefono, label: Teléfono, type: string, description: "Con +56. En Vitrina también activa el botón Llamar." }
+          - { name: email, label: Correo, type: string }
+          - { name: web, label: Web, type: string }
+          - { name: direccion, label: Dirección, type: string, description: "En Vitrina sale bajo el horario." }
+          - { name: nota, label: Nota, type: text, description: "Texto que queda en la ficha del contacto. Ej.: Horario lun a vie 9 a 19 h." }
+          - { name: foto, label: Foto del contacto (opcional), type: image, description: "JPG o PNG de menos de 200 KB. Si no, se usa el logo." }
+
+      - name: redes
+        label: Redes
+        type: object
+        fields:
+          - { name: instagram, label: Instagram, type: string }
+          - { name: facebook, label: Facebook, type: string }
+          - { name: tiktok, label: TikTok, type: string }
+          - { name: linkedin, label: LinkedIn, type: string }
+          - { name: google_maps, label: Ficha de Google Maps, type: string, description: "En Vitrina activa el botón «Cómo llegar»." }
+
+      - name: credito
+        label: Mostrar «Página hecha por Vlue»
+        type: boolean
+        default: true

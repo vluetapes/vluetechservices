@@ -1,0 +1,151 @@
+{#- Diseño 1: "Buscador".
+    Portada blanca como la del blog (brillo suave y el logo de fondo) y un buscador de Google
+    cuyas sugerencias son los botones: cada situación abre WhatsApp con el mensaje escrito.
+    Momento memorable: el buscador escribe solo y marca la sugerencia que coincide. -#}
+{%- from "enlaces/comun.njk" import icono, ev, listaRedes, datos, bloqueTransferencia, botonContacto -%}
+{%- set p = slug_pagina -%}
+{%- set marca = logo and (logo.endsWith(".svg") or logo.endsWith(".png")) -%}
+<style>
+.page{max-width:460px;margin:0 auto;background:var(--paper);min-height:100vh}
+
+/* 1. Portada */
+.top{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(#fff 70%,var(--paper));padding:20px 20px 96px}
+.top::before{content:"";position:absolute;z-index:-1;inset:auto -10% -40% 20%;height:110%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c-2) 22%,transparent),transparent);pointer-events:none}
+.top.con-marca::after{content:"";position:absolute;z-index:-1;right:-60px;top:46px;width:260px;aspect-ratio:652/456;background:var(--c);opacity:.06;-webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.brand{display:flex;align-items:center;gap:10px;color:var(--c);font:800 13px/1 var(--t);letter-spacing:.06em;text-transform:uppercase}
+.brand img{height:26px;width:auto;max-width:120px;object-fit:contain}
+.kicker{display:flex;align-items:center;gap:12px;margin-top:38px;font:700 12px/1 var(--t);letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.kicker::after{content:"";flex:0 0 60px;height:2px;background:var(--c)}
+h1{margin-top:14px;max-width:12ch;font:800 2.2rem/1.08 var(--t);letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--c)}
+.lead{margin-top:14px;max-width:32ch;font-size:1rem;color:var(--muted)}
+
+/* 2. Buscador */
+.search{position:relative;margin:-68px 14px 0;background:#fff;border-radius:var(--r-m);box-shadow:var(--e2);overflow:hidden}
+.bar{display:flex;align-items:center;gap:12px;margin:12px;padding:0 16px;height:48px;border:1px solid var(--line);border-radius:999px;color:#5f6368}
+.typed{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.caret{flex:none;width:1.5px;height:20px;background:var(--c-2);margin-left:-10px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hint{padding:2px 20px 8px;font-size:12px;color:var(--muted)}
+.sugs{list-style:none;padding:0 0 8px}
+.sug a{display:flex;align-items:center;gap:14px;padding:12px 20px;text-decoration:none;transition:background .2s ease}
+.sug a:hover,.sug a:focus-visible,.sug.is-on a{background:var(--paper)}
+.sug .lupa{flex:none;display:flex;color:#9aa1b8}
+.sug .q{flex:1;line-height:1.3}
+.sug .q b{font-weight:600}
+.sug .go{flex:none;display:flex;color:var(--wa);opacity:0;transform:translateX(-4px);transition:opacity .2s ease,transform .2s ease}
+.sug .go.link{color:var(--c-2)}
+.sug a:hover .go,.sug a:focus-visible .go,.sug.is-on .go{opacity:1;transform:none}
+@media (hover:none){.sug .go{opacity:1;transform:none}}
+
+/* 3. Oferta en forma de ticket */
+.ticket{margin:28px 14px 0;display:grid;grid-template-columns:1fr auto;background:var(--ink);color:#fff;border-radius:var(--r-m);
+  -webkit-mask:radial-gradient(circle 11px at calc(100% - 118px) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at calc(100% - 118px) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+          mask:radial-gradient(circle 11px at calc(100% - 118px) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at calc(100% - 118px) 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
+.ticket .txt{padding:20px 18px 20px 20px}
+.ticket .k{font-size:12px;opacity:.7}
+.ticket h2{margin-top:4px;font:800 19px/1.15 var(--t);letter-spacing:-.01em}
+.ticket p{margin-top:6px;font-size:13px;line-height:1.4;opacity:.75}
+.ticket .cut{width:118px;border-left:2px dashed rgba(255,255,255,.25);display:grid;place-items:center;padding:12px}
+.ticket .cut a{display:grid;place-items:center;width:100%;aspect-ratio:1;border-radius:50%;background:var(--c-2);color:#fff;text-decoration:none;font:700 13px/1.15 var(--t);text-align:center;padding:10px;transition:transform .2s ease}
+.ticket .cut a:hover{transform:rotate(-6deg)}
+
+/* 4. Enlaces para mirar antes */
+.more{margin:30px 20px 0}
+.more h2{font:700 13px/1.2 var(--t);color:var(--muted)}
+.more ul{list-style:none;padding:0;margin-top:10px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
+.more a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:14px}
+.more a span{display:flex;color:var(--c-2);transition:transform .2s ease}
+.more a:hover span{transform:translate(2px,-2px)}
+
+/* 5. Pie: guardar contacto y redes */
+.foot{margin-top:30px;padding:22px 20px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.save{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;background:var(--c);color:#fff;text-decoration:none;font-weight:600;font-size:14px}
+.soc{display:flex;gap:8px}
+.soc a{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--c);transition:border-color .2s ease}
+.soc a:hover{border-color:var(--c)}
+.credito{width:100%;font-size:12px;color:var(--muted)}
+@media (min-width:600px){
+  body{padding:40px 0}
+  .page{border-radius:22px;overflow:hidden;box-shadow:var(--e1);min-height:0}
+}
+</style>
+
+<main class="page">
+  <header class="top{{ ' con-marca' if marca }}"{% if marca %} style="--logo:url({{ logo }})"{% endif %}>
+    <div class="brand">{% if logo %}<img src="{{ logo }}" alt="" height="26">{% endif %}{{ title }}</div>
+    {%- if etiqueta %}<div class="kicker">{{ etiqueta }}</div>{% endif %}
+    <h1>{{ titulo | resaltar(titulo_color, "em") | safe }}</h1>
+    {%- if bajada %}<p class="lead">{{ bajada }}</p>{% endif %}
+  </header>
+
+  {%- if botones and botones.length %}
+  <section class="search" aria-label="Elige tu situación">
+    <div class="bar" aria-hidden="true">{{ icono("lupa", 18) }}<span class="typed" id="typed">{{ botones[0].texto | lower }}</span><span class="caret"></span></div>
+    {%- if ayuda %}<p class="hint">{{ ayuda }}</p>{% endif %}
+    <ul class="sugs">
+      {%- for b in botones %}
+      <li class="sug" data-q="{{ b.texto | lower }}"><a href="{{ b.enlace or (whatsapp | wa(b.mensaje, saludo)) }}"{{ ev(p, b.texto) }}>
+        <span class="lupa">{{ icono("lupa", 16) }}</span>
+        <span class="q">{{ b.texto | resaltar(b.resaltar) | safe }}</span>
+        {%- if b.enlace %}<span class="go link" aria-label="Abrir enlace">{{ icono("flecha", 18) }}</span>{% else %}<span class="go" aria-label="Abrir WhatsApp">{{ icono("wa", 20) }}</span>{% endif %}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  {%- if oferta and oferta.titulo %}
+  <section class="ticket" aria-label="{{ oferta.titulo }}">
+    <div class="txt">
+      {%- if oferta.etiqueta %}<p class="k">{{ oferta.etiqueta }}</p>{% endif %}
+      <h2>{{ oferta.titulo }}</h2>
+      {%- if oferta.texto %}<p>{{ oferta.texto }}</p>{% endif %}
+    </div>
+    <div class="cut"><a href="{{ oferta.enlace or (whatsapp | wa(oferta.mensaje, saludo)) }}"{{ ev(p, oferta.boton or oferta.titulo) }}>{{ oferta.boton or "Pedir" }}</a></div>
+  </section>
+  {%- endif %}
+
+  {{ bloqueTransferencia(transferencia, p, transferencia_titulo) }}
+  {{ datos(datos_copiar, p, datos_titulo) }}
+
+  {%- if enlaces and enlaces.length %}
+  <nav class="more" aria-label="{{ enlaces_titulo or 'Enlaces' }}">
+    <h2>{{ enlaces_titulo or "Enlaces" }}</h2>
+    <ul>
+      {%- for l in enlaces %}
+      <li><a href="{{ l.url }}"{{ ev(p, l.texto) }}>{{ l.texto }} <span>{{ icono("flecha", 16) }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {%- endif %}
+
+  <footer class="foot">
+    {{ botonContacto(contacto, p, "save") }}
+    <div class="soc">{{ listaRedes(redes, p) }}{% if whatsapp %}<a href="{{ whatsapp | wa('', saludo) }}" aria-label="WhatsApp"{{ ev(p, "WhatsApp pie") }}>{{ icono("wa", 18) }}</a>{% endif %}</div>
+    {%- if credito != false and p != "vlue" %}<p class="credito">Página hecha por <a href="https://vluetechservices.cl/"{{ ev(p, "Crédito Vlue") }}>Vlue Tech Services</a></p>{% endif %}
+  </footer>
+</main>
+
+<script>
+/* El buscador escribe solo cada situación y marca la sugerencia que coincide. */
+(function () {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var out = document.getElementById("typed");
+  var items = [].slice.call(document.querySelectorAll(".sug"));
+  if (!out || !items.length) return;
+  var i = 0, n = 0, borrando = false;
+  function marcar(k) { items.forEach(function (li, j) { li.classList.toggle("is-on", j === k); }); }
+  function paso() {
+    var q = items[i].dataset.q;
+    if (!borrando) {
+      out.textContent = q.slice(0, ++n);
+      if (n === q.length) { marcar(i); borrando = true; return setTimeout(paso, 1800); }
+      return setTimeout(paso, 55 + Math.random() * 60);
+    }
+    out.textContent = q.slice(0, --n);
+    if (n === 0) { marcar(-1); borrando = false; i = (i + 1) % items.length; return setTimeout(paso, 350); }
+    setTimeout(paso, 22);
+  }
+  out.textContent = ""; setTimeout(paso, 600);
+})();
+</script>

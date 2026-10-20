@@ -67,6 +67,83 @@ export default function (eleventyConfig) {
     md.renderer.rules.table_close = () => "</table></div>\n";
   });
 
+  /* ---------- Páginas de enlaces (link en bio de clientes) ----------
+     Cada cliente es un archivo enlaces/<nombre>.md que se edita en Pages CMS.
+     Los moldes están en _includes/enlaces/. */
+  eleventyConfig.addCollection("enlaces", (api) =>
+    api.getFilteredByGlob("enlaces/*.md").filter((p) => p.url)
+  );
+
+  const escaparHtml = (t) => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+  // "No aparezco en Google Maps" + "aparezco en Google Maps" -> No <b>aparezco en Google Maps</b>
+  eleventyConfig.addFilter("resaltar", (texto, parte, etiqueta = "b") => {
+    const t = escaparHtml(texto);
+    if (!parte) return t;
+    const p = escaparHtml(parte);
+    const i = t.toLowerCase().indexOf(p.toLowerCase());
+    return i < 0 ? t : `${t.slice(0, i)}<${etiqueta}>${t.slice(i, i + p.length)}</${etiqueta}>${t.slice(i + p.length)}`;
+  });
+
+  // Enlace de WhatsApp con el mensaje ya escrito
+  eleventyConfig.addFilter("wa", (numero, mensaje, saludo = "") => {
+    const n = String(numero || "").replace(/\D/g, "");
+    const texto = `${saludo || ""}${mensaje || ""}`.trim();
+    return `https://wa.me/${n}${texto ? "?text=" + encodeURIComponent(texto) : ""}`;
+  });
+
+  // Días del horario: ["lun","mar","mie","jue","vie"] -> "Lun a Vie"
+  const DIAS = ["lun", "mar", "mie", "jue", "vie", "sab", "dom"];
+  const NOMBRE_DIA = { lun: "Lun", mar: "Mar", mie: "Mié", jue: "Jue", vie: "Vie", sab: "Sáb", dom: "Dom" };
+  eleventyConfig.addFilter("dias", (lista) => {
+    const d = [...(lista || [])].filter((x) => DIAS.includes(x)).sort((a, b) => DIAS.indexOf(a) - DIAS.indexOf(b));
+    const seguidos = d.every((x, i) => i === 0 || DIAS.indexOf(x) === DIAS.indexOf(d[i - 1]) + 1);
+    return seguidos && d.length > 2 ? `${NOMBRE_DIA[d[0]]} a ${NOMBRE_DIA[d.at(-1)]}` : d.map((x) => NOMBRE_DIA[x]).join(", ");
+  });
+
+  // Todos los datos para copiar de una vez: solo los valores, uno por línea (sin "RUT:" ni títulos)
+  eleventyConfig.addFilter("datosTexto", (lista) =>
+    (lista || []).map((d) => d.valor).filter(Boolean).join("\n")
+  );
+  // Datos de transferencia en el orden de los bancos, solo los valores
+  eleventyConfig.addFilter("transferenciaTexto", (t) =>
+    ["nombre", "rut", "banco", "tipo", "numero", "email"].map((k) => (t || {})[k]).filter(Boolean).join("\n")
+  );
+
+  // Teléfono para tel: (+56926191935)
+  eleventyConfig.addFilter("tel", (n) => "+" + String(n || "").replace(/\D/g, ""));
+
+  // Archivo de contacto (.vcf) para el botón "Guardar contacto"
+  eleventyConfig.addFilter("vcard", (d, urlPagina) => {
+    const e = (v) => String(v ?? "").replace(/\\/g, "\\\\").replace(/\r?\n/g, "\\n").replace(/([,;])/g, "\\$1");
+    const c = d.contacto || {};
+    const telefono = c.telefono || d.whatsapp;
+    const L = ["BEGIN:VCARD", "VERSION:3.0"];
+    if (c.nombre) {
+      const partes = c.nombre.trim().split(/\s+/);
+      L.push(`N:${e(partes.slice(1).join(" "))};${e(partes[0])};;;`, `FN:${e(c.nombre)}`);
+    } else {
+      L.push(`N:${e(d.title)};;;;`, `FN:${e(d.title)}`, "X-ABShowAs:COMPANY");
+    }
+    L.push(`ORG:${e(d.title)}`);
+    if (c.cargo) L.push(`TITLE:${e(c.cargo)}`);
+    if (telefono) L.push(`TEL;TYPE=CELL,VOICE:+${String(telefono).replace(/\D/g, "")}`);
+    if (c.email) L.push(`EMAIL;TYPE=INTERNET:${e(c.email)}`);
+    if (c.web) L.push(`URL:${e(c.web)}`);
+    L.push(`URL:${e(urlPagina)}`);
+    if (c.direccion) L.push(`ADR;TYPE=WORK:;;${e(c.direccion)};;;;`);
+    if (c.nota) L.push(`NOTE:${e(c.nota)}`);
+    // Foto o logo dentro del contacto (solo JPG o PNG del sitio, de menos de 200 KB)
+    const foto = String(c.foto || d.logo || "").split("?")[0].replace(/^\//, "");
+    const tipo = /\.png$/i.test(foto) ? "PNG" : /\.jpe?g$/i.test(foto) ? "JPEG" : "";
+    if (tipo && fs.existsSync(foto) && fs.statSync(foto).size < 200_000) {
+      L.push(`PHOTO;ENCODING=b;TYPE=${tipo}:${fs.readFileSync(foto).toString("base64")}`);
+    }
+    L.push("END:VCARD");
+    // Las líneas largas se doblan cada 74 caracteres, como pide el formato
+    return L.map((l) => l.match(/.{1,74}/g).join("\r\n ")).join("\r\n") + "\r\n";
+  });
+
   /* ---------- Filtros que usan los moldes ---------- */
   eleventyConfig.addFilter("slug", slug);
 
@@ -157,7 +234,7 @@ export default function (eleventyConfig) {
 
   return {
     dir: { input: ".", includes: "_includes", data: "_data", output: "_site" },
-    templateFormats: ["njk", "md", "html"],
+    templateFormats: ["njk", "md", "html", "11ty.js"],
     htmlTemplateEngine: false,       // las páginas .html se copian tal cual
     markdownTemplateEngine: false,   // el texto de los artículos no ejecuta código
   };
