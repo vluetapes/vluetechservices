@@ -49,7 +49,7 @@ clientes_titulo: ¿Ya eres cliente?
 clientes_bajada: Datos para pagar y dejar tu reseña
 transferencia:
   nombre: VLUE TECH SERVICES SpA
-  rut: "785143566"
+  rut: 78.514.356-6
   banco: Mercado Pago
   tipo: Cuenta Vista
   numero: "1027748025"
