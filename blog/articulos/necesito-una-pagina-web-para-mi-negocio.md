@@ -15,7 +15,7 @@ date: 2026-10-21
 categoria: paginas-web
 servicio: paginas-web
 miniatura: /img/blog/necesito-una-pagina-web-para-mi-negocio.jpg
-miniatura_alt: "Portada: ¿Necesito web?, con la página web de una peluquería de
+miniatura_alt: "Portada: ¿Necesito una web?, con la página web de una peluquería de
   ejemplo en un computador y un celular, la búsqueda «peluquería en ñuñoa» y su
   ficha de Google con el botón Sitio web"
 preguntas:
