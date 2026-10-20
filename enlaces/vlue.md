@@ -6,14 +6,13 @@ mostrar_en_google: false
 color: "#07209f"
 logo: /img/simbolo-vlue.svg
 etiqueta: Santiago · Chile
-titulo: Que te encuentren en Google
-titulo_color: Google
-bajada: Fichas de Google Maps, reseñas y webs para negocios y profesionales.
+titulo: Que te encuentren  en Google
+titulo_color: en Google
+bajada: ¿Cuál es tu caso? Te ayudamos por WhatsApp
 description: Fichas de Google Maps, tarjetas NFC y webs para negocios y
   profesionales de Santiago. Escríbenos por WhatsApp para tu situación
 whatsapp: "56926191935"
 saludo: "Hola, vengo de su página de enlaces. "
-ayuda: ¿Cuál es tu caso? Te ayudamos por WhatsApp
 botones:
   - texto: No aparezco en Google Maps
     resaltar: aparezco en Google Maps
@@ -34,7 +33,6 @@ botones:
     resaltar: Vlue Tech Services
     enlace: https://g.page/r/CcPHXt98SZUEEBM/review
 oferta:
-  etiqueta: Sin costo · sin compromiso
   titulo: Auditoría gratis de tu ficha de Google
   texto: Te decimos qué arreglar primero para que te llamen más.
   boton: Pedir mi auditoría
@@ -52,7 +50,7 @@ enlaces:
     url: https://vluetechservices.cl/catalogo/
   - texto: Webs de Vlue
     url: https://vluetechservices.cl/paginas-web/
-  - texto: Gestión mensual de Google Maps
+  - texto: Gestión de ficha
     url: https://vluetechservices.cl/catalogo/gestion-resenas-google/
   - texto: Blog
     url: https://vluetechservices.cl/blog/
