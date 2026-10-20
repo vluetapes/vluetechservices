@@ -68,6 +68,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--c-2);outline-offset
 .datos .mini em:empty{display:none}
 .datos .mini.is-ok::after{content:"✓";font-weight:700}
 .datos .mini.is-ok svg{display:none}
+/* Plegable "¿Ya eres cliente?" */
+.cli{margin:26px 14px 0;border:1px solid var(--line);border-radius:var(--r-m);background:#fff}
+.cli summary{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;list-style:none}
+.cli summary::-webkit-details-marker{display:none}
+.cli summary span{flex:1}
+.cli summary b{display:block;font:800 15px/1.25 var(--t)}
+.cli summary small{display:block;margin-top:2px;font-size:13px;color:var(--muted)}
+.cli summary i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--soft);position:relative;transition:transform .25s ease}
+.cli summary i::before,.cli summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--c);border-radius:2px}
+.cli summary i::after{transform:rotate(90deg);transition:transform .25s ease}
+.cli[open] summary i::after{transform:rotate(0)}
+.cli-in{padding:0 18px 18px}
+.cli-bot{list-style:none;padding:0;margin:0}
+.cli-bot a{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);text-decoration:none;font-size:14px}
+.cli-bot a span{flex:1}
+.cli-bot a b{font-weight:600}
+.cli-bot a svg{flex:none;color:var(--c-2)}
+.cli .transf{margin:14px 0 0}
 .datos .todo{margin-top:12px;width:100%;justify-content:center;height:44px;font-size:14px;border-color:var(--c);color:var(--c)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>

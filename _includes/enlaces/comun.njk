@@ -28,7 +28,7 @@
 {#- Datos para copiar (correo, dirección, datos de transferencia...). Un toque los copia. -#}
 {%- macro datos(lista, pagina, titulo) -%}
 {%- if lista and lista.length %}
-<section class="datos" aria-label="{{ titulo or 'Datos' }}">
+<!--email_off--><section class="datos" aria-label="{{ titulo or 'Datos' }}">
   <h2>{{ titulo or "Datos" }}</h2>
   <ul>
     {%- for d in lista %}
@@ -39,7 +39,7 @@
   {%- if lista.length > 1 %}
   <button type="button" class="todo" data-copiar="{{ lista | datosTexto(titulo) }}"{{ ev(pagina, "Copiar todos los datos") }}>{{ icono("copiar", 16) }}<em>Copiar todos los datos</em></button>
   {%- endif %}
-</section>
+</section><!--/email_off-->
 {%- endif %}
 {%- endmacro %}
 
@@ -55,7 +55,7 @@
   { v: t.numero, k: "Número de cuenta: ", n: "Número de cuenta" },
   { v: t.email, k: "", n: "Correo" }
 ] %}
-<section class="datos transf" aria-label="{{ titulo or 'Datos para transferir' }}">
+<!--email_off--><section class="datos transf" aria-label="{{ titulo or 'Datos para transferir' }}">
   <h2>{{ titulo or "Datos para transferir" }}</h2>
   <ul>
     {%- for f in filas %}{% if f.v %}
@@ -64,7 +64,28 @@
     {%- endif %}{% endfor %}
   </ul>
   <button type="button" class="todo" data-copiar="{{ t | transferenciaTexto }}"{{ ev(pagina, "Copiar datos de transferencia") }}>{{ icono("copiar", 16) }}<em>Copiar datos</em></button>
-</section>
+</section><!--/email_off-->
+{%- endif %}
+{%- endmacro %}
+
+{#- Plegable "¿Ya eres cliente?": junta lo que sirve a quien ya compró (pagar, dejar una reseña...)
+    para que no alargue la página de quien llega por primera vez. -#}
+{%- macro yaCliente(botones, t, pagina, titulo, bajada, saludo, whatsapp) -%}
+{%- set propios = (botones or []) | selectattr("cliente") -%}
+{%- if propios.length or (t and (t.numero or t.rut)) %}
+<details class="cli">
+  <summary{{ ev(pagina, "Abrir ya eres cliente") }}><span><b>{{ titulo or "¿Ya eres cliente?" }}</b><small>{{ bajada or ("Datos para pagar y más" if t and t.numero else "Para clientes") }}</small></span><i aria-hidden="true"></i></summary>
+  <div class="cli-in">
+    {%- if propios.length %}
+    <ul class="cli-bot">
+      {%- for b in propios %}
+      <li><a href="{{ b.enlace or (whatsapp | wa(b.mensaje, saludo)) }}"{{ ev(pagina, b.texto) }}><span>{{ b.texto | resaltar(b.resaltar) | safe }}</span>{{ icono("flecha", 16) if b.enlace else icono("wa", 18) }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {{ bloqueTransferencia(t, pagina, "Datos para transferir") }}
+  </div>
+</details>
 {%- endif %}
 {%- endmacro %}
 

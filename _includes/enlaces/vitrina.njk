@@ -3,8 +3,9 @@
     y la inicial gigante de fondo; debajo, una barra de 4 accesos (WhatsApp, Llamar, Cómo llegar,
     Guardar contacto); los motivos de contacto como píldoras y el horario.
     Momento memorable: el estado "Abierto ahora · cierra a las 19:00", calculado con la hora de Chile. -#}
-{%- from "enlaces/comun.njk" import icono, ev, listaRedes, datos, bloqueTransferencia, botonContacto -%}
+{%- from "enlaces/comun.njk" import icono, ev, listaRedes, datos, bloqueTransferencia, yaCliente, botonContacto -%}
 {%- set p = slug_pagina -%}
+{%- set principales = (botones or []) | rejectattr("cliente") -%}
 <style>
 .v{max-width:460px;margin:0 auto;padding-bottom:8px;background:var(--paper);min-height:100vh}
 
@@ -87,12 +88,12 @@
     {%- if not contacto or contacto.guardar != false %}<a href="/enlaces/{{ p }}/contacto.vcf" download="{{ p }}.vcf"{{ ev(p, "Guardar contacto") }}><span class="ic">{{ icono("contacto", 20) }}</span>Guardar contacto</a>{% endif %}
   </nav>
 
-  {%- if botones and botones.length %}
+  {%- if principales.length %}
   <section class="v-sec" aria-label="{{ botones_titulo or '¿En qué te ayudo?' }}">
     <h2>{{ botones_titulo or "¿En qué te ayudo?" }}</h2>
     {%- if ayuda %}<p>{{ ayuda }}</p>{% endif %}
     <div class="v-chips">
-      {%- for b in botones %}
+      {%- for b in principales %}
       <a{% if b.enlace %} class="link"{% endif %} href="{{ b.enlace or (whatsapp | wa(b.mensaje, saludo)) }}"{{ ev(p, b.texto) }}><span>{{ b.texto | resaltar(b.resaltar) | safe }}</span>{{ icono("flecha", 16) if b.enlace else icono("wa", 16) }}</a>
       {%- endfor %}
     </div>
@@ -120,7 +121,7 @@
   </section>
   {%- endif %}
 
-  {{ bloqueTransferencia(transferencia, p, transferencia_titulo) }}
+  {{ yaCliente(botones, transferencia, p, clientes_titulo, clientes_bajada, saludo, whatsapp) }}
   {{ datos(datos_copiar, p, datos_titulo) }}
 
   <footer class="v-foot">

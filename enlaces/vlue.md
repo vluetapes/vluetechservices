@@ -18,7 +18,7 @@ botones:
     resaltar: aparezco en Google Maps
     mensaje: Mi negocio no aparece en Google Maps, ¿me pueden ayudar?
   - texto: Tengo ficha en Google Maps, pero no está cuidada
-    resaltar: pero está abandonada
+    resaltar: no está cuidada
     mensaje: Tengo ficha en Google pero la tengo muy descuidada. ¿Qué me recomiendan?
   - texto: Necesito una página web
     resaltar: página web
@@ -30,13 +30,16 @@ botones:
     resaltar: Cotizar
     mensaje: "Quiero cotizar para mi negocio o consulta. Mi rubro es: "
   - texto: Dejar una reseña a Vlue Tech Services
-    resaltar: Vlue Tech Services
+    resaltar: reseña
     enlace: https://g.page/r/CcPHXt98SZUEEBM/review
+    cliente: true
 oferta:
   titulo: Auditoría gratis de tu ficha de Google
   texto: Te decimos qué arreglar primero para que te llamen más.
   boton: Pedir mi auditoría
   mensaje: "Quiero la auditoría gratis de mi ficha de Google. Mi negocio es: "
+clientes_titulo: ¿Ya eres cliente?
+clientes_bajada: Datos para pagar y dejar tu reseña
 transferencia:
   nombre: VLUE TECH SERVICES SpA
   rut: "785143566"
@@ -56,7 +59,7 @@ enlaces:
     url: https://vluetechservices.cl/blog/
 contacto:
   guardar: true
-  nombre: Vlue Tech Services
+  nombre: ""
   cargo: Webs y fichas de Google Maps
   telefono: "+56926191935"
   email: contacto@vluetechservices.cl
@@ -66,7 +69,7 @@ redes:
   instagram: https://www.instagram.com/vluetechservices/
   facebook: https://www.facebook.com/profile.php?id=61595030400314
   tiktok: https://www.tiktok.com/@vlue.tech.services
-  linkedin: https://www.linkedin.com/company/vluetechservices/?viewAsMember=true
+  linkedin: https://www.linkedin.com/company/vluetechservices/
   google_maps: https://share.google/z5XjIMo0Oh4afTNmg
 credito: true
 ---

@@ -2,8 +2,9 @@
     Portada blanca como la del blog (brillo suave y el logo de fondo) y un buscador de Google
     cuyas sugerencias son los botones: cada situación abre WhatsApp con el mensaje escrito.
     Momento memorable: el buscador escribe solo y marca la sugerencia que coincide. -#}
-{%- from "enlaces/comun.njk" import icono, ev, listaRedes, datos, bloqueTransferencia, botonContacto -%}
+{%- from "enlaces/comun.njk" import icono, ev, listaRedes, datos, bloqueTransferencia, yaCliente, botonContacto -%}
 {%- set p = slug_pagina -%}
+{%- set principales = (botones or []) | rejectattr("cliente") -%}
 {%- set marca = logo and (logo.endsWith(".svg") or logo.endsWith(".png")) -%}
 <style>
 .page{max-width:460px;margin:0 auto;background:var(--paper);min-height:100vh}
@@ -79,12 +80,12 @@ h1 em{font-style:normal;color:var(--c)}
     {%- if bajada %}<p class="lead">{{ bajada }}</p>{% endif %}
   </header>
 
-  {%- if botones and botones.length %}
+  {%- if principales.length %}
   <section class="search" aria-label="Elige tu situación">
-    <div class="bar" aria-hidden="true">{{ icono("lupa", 18) }}<span class="typed" id="typed">{{ botones[0].texto | lower }}</span><span class="caret"></span></div>
+    <div class="bar" aria-hidden="true">{{ icono("lupa", 18) }}<span class="typed" id="typed">{{ principales[0].texto | lower }}</span><span class="caret"></span></div>
     {%- if ayuda %}<p class="hint">{{ ayuda }}</p>{% endif %}
     <ul class="sugs">
-      {%- for b in botones %}
+      {%- for b in principales %}
       <li class="sug" data-q="{{ b.texto | lower }}"><a href="{{ b.enlace or (whatsapp | wa(b.mensaje, saludo)) }}"{{ ev(p, b.texto) }}>
         <span class="lupa">{{ icono("lupa", 16) }}</span>
         <span class="q">{{ b.texto | resaltar(b.resaltar) | safe }}</span>
@@ -105,7 +106,7 @@ h1 em{font-style:normal;color:var(--c)}
   </section>
   {%- endif %}
 
-  {{ bloqueTransferencia(transferencia, p, transferencia_titulo) }}
+  {{ yaCliente(botones, transferencia, p, clientes_titulo, clientes_bajada, saludo, whatsapp) }}
   {{ datos(datos_copiar, p, datos_titulo) }}
 
   {%- if enlaces and enlaces.length %}

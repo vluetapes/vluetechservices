@@ -227,6 +227,7 @@ content:
           - { name: resaltar, label: Parte en negrita, type: string, description: "Escrita igual que en el texto. Ej.: urgencia" }
           - { name: mensaje, label: Mensaje de WhatsApp, type: text, description: "Lo que le llega al cliente. Ej.: Tengo una urgencia dental, ¿tienen hora hoy?" }
           - { name: enlace, label: Enlace (opcional), type: string, description: "Si lo llenas, el botón abre este enlace en vez de WhatsApp." }
+          - { name: cliente, label: Para clientes, type: boolean, default: false, description: "Lo mueve al plegable «¿Ya eres cliente?» (ej.: dejar una reseña, pagar)." }
 
       - name: oferta
         label: Oferta o regalo (opcional)
@@ -262,15 +263,20 @@ content:
           - { name: abre, label: Abre, type: string, description: "Formato 24 h. Ej.: 09:00" }
           - { name: cierra, label: Cierra, type: string, description: "Ej.: 19:30" }
 
-      - name: transferencia_titulo
-        label: Título de los datos de transferencia
+      - name: clientes_titulo
+        label: Título del plegable para clientes
         type: string
-        description: "Si lo dejas vacío: Datos para transferir"
+        description: "Junta los datos de transferencia y los botones marcados «Para clientes». Si lo dejas vacío: ¿Ya eres cliente? (ej. para salud: ¿Ya eres paciente?)"
+
+      - name: clientes_bajada
+        label: Texto bajo el título del plegable
+        type: string
+        description: "Ej.: Datos para pagar y dejar tu reseña"
 
       - name: transferencia
         label: Datos de transferencia
         type: object
-        description: "Se muestran en este orden. Al tocar «Copiar datos» se copian solo los datos, uno por línea, sin «RUT:» ni «Número de cuenta:»."
+        description: "Van dentro del plegable «¿Ya eres cliente?», en este orden. Al tocar «Copiar datos» se copian solo los datos, uno por línea, sin «RUT:» ni «Número de cuenta:»."
         fields:
           - { name: nombre, label: Nombre o razón social, type: string, description: "Ej.: VLUE TECH SERVICES SpA" }
           - { name: rut, label: RUT, type: string, description: "Como lo pide el banco. Ej.: 785143566" }
