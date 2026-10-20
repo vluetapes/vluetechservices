@@ -36,7 +36,7 @@ preguntas:
     respuesta: Ayuda. Enlazarla desde tu ficha le da a Google más información sobre
       lo que haces y a tus clientes un lugar donde ver precios y servicios antes
       de llamarte.
-destacado: true
+destacado: false
 titulo_seo: 3 claves para destacar en Google Maps con tu negocio | Vlue
 borrador: false
 ---
