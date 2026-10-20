@@ -6,7 +6,7 @@ mostrar_en_google: false
 color: "#07209f"
 logo: /img/simbolo-vlue.svg
 etiqueta: Santiago · Chile
-titulo: Que te encuentren  en Google
+titulo: Que te encuentren    en Google
 titulo_color: en Google
 bajada: ¿Cuál es tu caso? Te ayudamos por WhatsApp
 description: Fichas de Google Maps, tarjetas NFC y webs para negocios y
