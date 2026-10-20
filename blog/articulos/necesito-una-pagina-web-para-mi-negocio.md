@@ -15,9 +15,9 @@ date: 2026-10-21
 categoria: paginas-web
 servicio: paginas-web
 miniatura: /img/blog/necesito-una-pagina-web-para-mi-negocio.jpg
-miniatura_alt: "Portada: ¿Necesito una web?, con la página web de una peluquería de
-  ejemplo en un computador y un celular, la búsqueda «peluquería en ñuñoa» y su
-  ficha de Google con el botón Sitio web"
+miniatura_alt: "Portada: ¿Necesito una web?, con la página web de una peluquería
+  de ejemplo en un computador y un celular, la búsqueda «peluquería en ñuñoa» y
+  su ficha de Google con el botón Sitio web"
 preguntas:
   - pregunta: ¿Google Maps me sirve como página web?
     respuesta: Te sirve para que te encuentren cerca y te llamen, pero no reemplaza
@@ -38,7 +38,7 @@ preguntas:
       a los posibles clientes. "
 destacado: false
 titulo_seo: ¿Necesito una página web para mi negocio? | Vlue
-borrador: true
+borrador: false
 ---
 Muchos dueños de negocio llegan a la misma pregunta: «Ya estoy en Google Maps, tengo Instagram y me escriben por WhatsApp. ¿Para qué quiero una página web?». Es una buena pregunta, y la respuesta no siempre es sí. Depende de cómo te buscan tus clientes y de lo que tienen que saber antes de elegirte.
 
