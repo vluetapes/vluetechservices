@@ -279,7 +279,7 @@ content:
         description: "Van dentro del plegable «¿Ya eres cliente?», en este orden. Al tocar «Copiar datos» se copian solo los datos, uno por línea, sin «RUT:» ni «Número de cuenta:»."
         fields:
           - { name: nombre, label: Nombre o razón social, type: string, description: "Ej.: VLUE TECH SERVICES SpA" }
-          - { name: rut, label: RUT, type: string, description: "Como lo pide el banco. Ej.: 785143566" }
+          - { name: rut, label: RUT, type: string, description: "Escríbelo como quieras: en la página siempre sale y se copia con puntos y guion (78.514.356-6)." }
           - { name: banco, label: Banco, type: string, description: "Ej.: Mercado Pago" }
           - { name: tipo, label: Tipo de cuenta, type: string, description: "Ej.: Cuenta Vista, Cuenta Corriente, Cuenta RUT" }
           - { name: numero, label: Número de cuenta, type: string }

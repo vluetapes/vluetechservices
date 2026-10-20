@@ -36,6 +36,19 @@ function fechaArchivo(ruta) {
   return fecha;
 }
 
+/* RUT siempre con puntos y guion, se escriba como se escriba: "785143566" -> "78.514.356-6".
+   Si el dígito verificador no calza, lo avisa al armar la web (pero igual lo muestra). */
+export function formatoRut(valor) {
+  const limpio = String(valor ?? "").replace(/[^0-9kK]/g, "").toUpperCase();
+  if (limpio.length < 2) return String(valor ?? "");
+  const cuerpo = limpio.slice(0, -1), dv = limpio.slice(-1);
+  let suma = 0, factor = 2;
+  for (let i = cuerpo.length - 1; i >= 0; i--) { suma += +cuerpo[i] * factor; factor = factor === 7 ? 2 : factor + 1; }
+  const esperado = { 11: "0", 10: "K" }[11 - (suma % 11)] ?? String(11 - (suma % 11));
+  if (esperado !== dv) console.warn(`[enlaces] Revisa el RUT ${valor}: el dígito verificador debería ser ${esperado}.`);
+  return `${cuerpo.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}-${dv}`;
+}
+
 function aFecha(valor) {
   return valor instanceof Date ? valor : new Date(valor);
 }
@@ -106,12 +119,13 @@ export default function (eleventyConfig) {
 
   // Todos los datos para copiar de una vez: solo los valores, uno por línea (sin "RUT:" ni títulos)
   eleventyConfig.addFilter("datosTexto", (lista) =>
-    (lista || []).map((d) => d.valor).filter(Boolean).join("\n")
+    (lista || []).map((d) => (/\brut\b/i.test(d.etiqueta || "") ? formatoRut(d.valor) : d.valor)).filter(Boolean).join("\n")
   );
   // Datos de transferencia en el orden de los bancos, solo los valores
   eleventyConfig.addFilter("transferenciaTexto", (t) =>
-    ["nombre", "rut", "banco", "tipo", "numero", "email"].map((k) => (t || {})[k]).filter(Boolean).join("\n")
+    ["nombre", "rut", "banco", "tipo", "numero", "email"].map((k) => (k === "rut" ? formatoRut((t || {})[k]) : (t || {})[k])).filter(Boolean).join("\n")
   );
+  eleventyConfig.addFilter("rut", formatoRut);
 
   // Teléfono para tel: (+56926191935)
   eleventyConfig.addFilter("tel", (n) => "+" + String(n || "").replace(/\D/g, ""));

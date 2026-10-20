@@ -32,8 +32,8 @@
   <h2>{{ titulo or "Datos" }}</h2>
   <ul>
     {%- for d in lista %}
-    <li><span><small>{{ d.etiqueta }}</small>{{ d.valor }}</span>
-      <button type="button" data-copiar="{{ d.valor }}"{{ ev(pagina, "Copiar " + d.etiqueta) }}>{{ icono("copiar", 16) }}<em>Copiar</em></button></li>
+    <li><span><small>{{ d.etiqueta }}</small>{{ (d.valor | rut) if (d.etiqueta | lower) == "rut" else d.valor }}</span>
+      <button type="button" data-copiar="{{ (d.valor | rut) if (d.etiqueta | lower) == "rut" else d.valor }}"{{ ev(pagina, "Copiar " + d.etiqueta) }}>{{ icono("copiar", 16) }}<em>Copiar</em></button></li>
     {%- endfor %}
   </ul>
   {%- if lista.length > 1 %}
@@ -49,7 +49,7 @@
 {%- if t and (t.numero or t.rut) %}
 {%- set filas = [
   { v: t.nombre, k: "", n: "Nombre" },
-  { v: t.rut, k: "RUT: ", n: "RUT" },
+  { v: t.rut | rut if t.rut, k: "RUT: ", n: "RUT" },
   { v: t.banco, k: "", n: "Banco" },
   { v: t.tipo, k: "", n: "Tipo de cuenta" },
   { v: t.numero, k: "Número de cuenta: ", n: "Número de cuenta" },
