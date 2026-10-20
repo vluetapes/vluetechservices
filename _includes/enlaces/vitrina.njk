@@ -77,8 +77,8 @@
       {%- if horario and horario.length %}<span class="v-estado" id="estado" aria-live="polite"><i></i><span></span></span>{% endif %}
     </div>
     {%- if etiqueta %}<p class="v-k">{{ etiqueta }}</p>{% endif %}
-    <h1>{{ (titulo or title) | resaltar(titulo_color, "em") | safe }}</h1>
-    {%- if bajada %}<p class="v-b">{{ bajada }}</p>{% endif %}
+    <h1>{{ (titulo or title) | resaltar(titulo_color, "em") | saltos | safe }}</h1>
+    {%- if bajada %}<p class="v-b">{{ bajada | resaltar("") | saltos | safe }}</p>{% endif %}
   </header>
 
   <nav class="v-dock" style="--n:{{ accesos }}" aria-label="Accesos rápidos">

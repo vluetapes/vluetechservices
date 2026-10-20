@@ -171,9 +171,9 @@ content:
 
       - name: titulo
         label: Título grande
-        type: string
+        type: text
         required: true
-        description: "Corto. Ej.: Tu sonrisa, sin esperas. En Vitrina puede ser el nombre."
+        description: "Corto. Ej.: Tu sonrisa, sin esperas. Para elegir dónde cambia de línea, aprieta Enter ahí. En Vitrina puede ser el nombre."
 
       - name: titulo_color
         label: Palabras del título en color (opcional)
@@ -183,7 +183,7 @@ content:
       - name: bajada
         label: Bajada
         type: text
-        description: "Una línea: qué hace y dónde."
+        description: "Una línea: qué hace y dónde. Para elegir dónde cambia de línea, aprieta Enter ahí. Si no, la página corta las líneas parejas sola."
 
       - name: description
         label: Descripción al compartir

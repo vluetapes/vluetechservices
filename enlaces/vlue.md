@@ -8,7 +8,9 @@ logo: /img/simbolo-vlue.svg
 etiqueta: Santiago · Chile
 titulo: Aparece en Google
 titulo_color: en Google
-bajada: ¿Cuál es tu caso? Te ayudamos por WhatsApp
+bajada: |-
+  ¿Cuál es tu caso?
+  Te ayudamos por WhatsApp
 description: Fichas de Google Maps, tarjetas NFC y webs para negocios y
   profesionales de Santiago. Escríbenos por WhatsApp para tu situación
 whatsapp: "56926191935"

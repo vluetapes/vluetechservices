@@ -85,6 +85,9 @@ export default function (eleventyConfig) {
     return i < 0 ? t : `${t.slice(0, i)}<${etiqueta}>${t.slice(i, i + p.length)}</${etiqueta}>${t.slice(i + p.length)}`;
   });
 
+  // Saltos de línea que se escriben con Enter en Pages CMS -> <br> (se usa después de "resaltar")
+  eleventyConfig.addFilter("saltos", (html) => String(html ?? "").trim().replace(/\s*\r?\n\s*/g, "<br>"));
+
   // Enlace de WhatsApp con el mensaje ya escrito
   eleventyConfig.addFilter("wa", (numero, mensaje, saludo = "") => {
     const n = String(numero || "").replace(/\D/g, "");

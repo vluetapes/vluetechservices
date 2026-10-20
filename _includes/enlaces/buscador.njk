@@ -76,8 +76,8 @@ h1 em{font-style:normal;color:var(--c)}
   <header class="top{{ ' con-marca' if marca }}"{% if marca %} style="--logo:url({{ logo }})"{% endif %}>
     <div class="brand">{% if logo %}<img src="{{ logo }}" alt="" height="26">{% endif %}{{ title }}</div>
     {%- if etiqueta %}<div class="kicker">{{ etiqueta }}</div>{% endif %}
-    <h1>{{ titulo | resaltar(titulo_color, "em") | safe }}</h1>
-    {%- if bajada %}<p class="lead">{{ bajada }}</p>{% endif %}
+    <h1>{{ titulo | resaltar(titulo_color, "em") | saltos | safe }}</h1>
+    {%- if bajada %}<p class="lead">{{ bajada | resaltar("") | saltos | safe }}</p>{% endif %}
   </header>
 
   {%- if principales.length %}
