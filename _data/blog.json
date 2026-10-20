@@ -5,7 +5,8 @@
     { "slug": "google-maps", "nombre": "Google Maps" },
     { "slug": "resenas", "nombre": "Reseñas" },
     { "slug": "tarjetas-nfc", "nombre": "Tarjetas NFC" },
-    { "slug": "salud", "nombre": "Salud" }
+    { "slug": "salud", "nombre": "Salud" },
+    { "slug": "paginas-web", "nombre": "Páginas web" }
   ],
   "servicios": {
     "tarjetas-nfc": {
@@ -39,6 +40,14 @@
       "boton": "Ver planes para salud",
       "enlace": "Clínicas y consultas",
       "resumen": "Reseñas y Google Maps para clínicas y consultas."
+    },
+    "paginas-web": {
+      "titulo": "Una web que termina en tu WhatsApp",
+      "texto": "Landing page desde $99.990 o sitio web desde $300.000, IVA incluido. Conectada a tu ficha de Google y sin mensualidad de alojamiento.",
+      "url": "/paginas-web/",
+      "boton": "Ver páginas web y precios",
+      "enlace": "Páginas web para negocios",
+      "resumen": "Landing o sitio web conectado a tu ficha de Google."
     }
   },
   "autor": {
