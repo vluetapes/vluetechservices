@@ -17,18 +17,23 @@ botones:
   - texto: No aparezco en Google Maps
     resaltar: aparezco en Google Maps
     mensaje: Mi negocio no aparece en Google Maps, ¿me pueden ayudar?
+    cliente: false
   - texto: Tengo ficha en Google Maps, pero no está cuidada
     resaltar: no está cuidada
     mensaje: Tengo ficha en Google pero la tengo muy descuidada. ¿Qué me recomiendan?
+    cliente: false
   - texto: Necesito una página web
     resaltar: página web
     mensaje: Necesito una página web para mi negocio. ¿Cómo trabajan?
+    cliente: false
   - texto: Quiero más reseñas en Google
     resaltar: más reseñas
     mensaje: Quiero conseguir más reseñas en Google.
+    cliente: false
   - texto: Cotizar para mi negocio o consulta
     resaltar: Cotizar
     mensaje: "Quiero cotizar para mi negocio o consulta. Mi rubro es: "
+    cliente: false
   - texto: Dejar una reseña a Vlue Tech Services
     resaltar: reseña
     enlace: https://g.page/r/CcPHXt98SZUEEBM/review
@@ -53,13 +58,12 @@ enlaces:
     url: https://vluetechservices.cl/catalogo/
   - texto: Webs de Vlue
     url: https://vluetechservices.cl/paginas-web/
-  - texto: Gestión de ficha
+  - texto: Gestión mensual
     url: https://vluetechservices.cl/catalogo/gestion-resenas-google/
   - texto: Blog
     url: https://vluetechservices.cl/blog/
 contacto:
   guardar: true
-  nombre: ""
   cargo: Webs y fichas de Google Maps
   telefono: "+56926191935"
   email: contacto@vluetechservices.cl
