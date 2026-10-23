@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vlue Tech Services · Enlaces</title>
+<meta name="description" content="Webs y fichas de Google Maps para negocios y profesionales de Santiago. Escríbenos por WhatsApp según lo que necesites.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07209f">
+<link rel="icon" href="/favicon.ico">
+<link rel="preload" href="/fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Dirección: "El buscador". La página es una búsqueda de Google: arriba el mapa
+   de la marca, al medio un buscador cuyas sugerencias son los botones (cada
+   situación abre WhatsApp con el mensaje escrito). Por qué: Vlue vende aparecer
+   en Google; el visitante se reconoce en la búsqueda que él mismo haría.
+   Momento memorable: el buscador escribe solo y la sugerencia que coincide se marca.
+   Fuentes: Montserrat 800 (títulos de la marca) + Poppins (texto de la marca), locales = carga instantánea.
+   Radios: 6 (chips) · 14 (buscador, ticket) · 999 (barra). Sombras con tinte azul, 2 niveles. */
+@font-face{font-family:"Montserrat";src:url(/fonts/montserrat-variable-latin.woff2) format("woff2");font-weight:700 800;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-400-latin.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-600-latin.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Montserrat Fallback";src:local("Arial");size-adjust:112.83%;ascent-override:85.79%;descent-override:22.25%;line-gap-override:0%}
+@font-face{font-family:"Poppins Fallback";src:local("Arial");size-adjust:112.16%;ascent-override:93.62%;descent-override:31.21%;line-gap-override:8.92%}
+
+:root{
+  --blue:#07209f;        /* azul Vlue: el bloque del mapa */
+  --electric:#1f4bff;    /* lo que se puede tocar */
+  --ink:#0b1020;
+  --muted:#505770;
+  --line:#e3e7f3;
+  --paper:#f4f6fd;
+  --wa:#0a7d4f;          /* verde de WhatsApp, solo en el ícono de llegada */
+  --r-s:6px;--r-m:14px;
+  --e1:0 1px 2px rgba(7,32,159,.08),0 6px 18px rgba(7,32,159,.08);
+  --e2:0 2px 4px rgba(7,32,159,.10),0 18px 44px rgba(7,32,159,.22);
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font:400 15px/1.5 "Poppins","Poppins Fallback",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit}
+.page{max-width:460px;margin:0 auto;background:var(--paper);min-height:100vh}
+
+/* ---------- 1. Portada (la misma del blog: .bb-hero) ----------
+   Blanca, brillo azul suave abajo a la derecha y las tres pelotitas del logo de fondo. */
+.map{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(#fff 70%,var(--paper));color:var(--ink);padding:20px 20px 96px}
+.map::before{content:"";position:absolute;z-index:-1;inset:auto -10% -40% 20%;height:110%;background:radial-gradient(closest-side,rgba(31,75,255,.22),rgba(31,75,255,0));pointer-events:none}
+.map::after{content:"";position:absolute;z-index:-1;right:-60px;top:46px;width:260px;aspect-ratio:652/456;background:var(--blue);opacity:.06;-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+.brand{display:flex;align-items:center;gap:10px;color:var(--blue);font:800 13px/1 "Montserrat","Montserrat Fallback",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.brand i{width:34px;height:24px;background:var(--blue);-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+.kicker{display:flex;align-items:center;gap:12px;margin-top:38px;font:700 12px/1 "Montserrat","Montserrat Fallback",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.kicker::after{content:"";flex:0 0 60px;height:2px;background:var(--blue)}
+h1{margin-top:14px;max-width:12ch;font:800 2.2rem/1.08 "Montserrat","Montserrat Fallback",system-ui,sans-serif;letter-spacing:-.02em;color:var(--ink)}
+h1 em{font-style:normal;color:var(--blue)}
+.lead{margin-top:14px;max-width:32ch;font-size:1rem;line-height:1.5;color:var(--muted)}
+
+/* ---------- 2. El buscador ---------- */
+.search{position:relative;margin:-68px 14px 0;background:#fff;border-radius:var(--r-m);box-shadow:var(--e2);overflow:hidden}
+.bar{display:flex;align-items:center;gap:12px;margin:12px;padding:0 16px;height:48px;border:1px solid var(--line);border-radius:999px;font-size:15px;color:var(--ink)}
+.bar svg{flex:none}
+.typed{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.caret{width:1.5px;height:20px;background:var(--electric);margin-left:-10px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hint{padding:2px 20px 8px;font-size:12px;color:var(--muted)}
+.sugs{list-style:none;padding:0 0 8px}
+.sug a{display:flex;align-items:center;gap:14px;padding:12px 20px;text-decoration:none;transition:background .2s ease}
+.sug a:hover,.sug a:focus-visible,.sug.is-on a{background:var(--paper)}
+.sug .q{flex:1;font-size:15px;line-height:1.3}
+.sug .q b{font-weight:600}
+.sug .go{flex:none;display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--wa);opacity:.0;transform:translateX(-4px);transition:opacity .2s ease,transform .2s ease}
+.sug a:hover .go,.sug a:focus-visible .go,.sug.is-on .go{opacity:1;transform:none}
+@media (hover:none){.sug .go{opacity:1;transform:none}}
+.sug svg.lupa{flex:none;color:#9aa1b8}
+
+/* ---------- 3. Ticket de auditoría ---------- */
+.ticket{position:relative;margin:28px 14px 0;display:grid;grid-template-columns:1fr auto;background:var(--ink);color:#fff;border-radius:var(--r-m);
+  -webkit-mask:radial-gradient(circle 11px at calc(100% - 118px) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at calc(100% - 118px) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+          mask:radial-gradient(circle 11px at calc(100% - 118px) 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at calc(100% - 118px) 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
+.ticket .txt{padding:20px 18px 20px 20px}
+.ticket .k{font-size:12px;opacity:.7}
+.ticket h2{margin-top:4px;font:800 19px/1.15 "Montserrat","Montserrat Fallback",system-ui,sans-serif;letter-spacing:-.01em}
+.ticket p{margin-top:6px;font-size:13px;line-height:1.4;opacity:.75}
+.ticket .cut{width:118px;border-left:2px dashed rgba(255,255,255,.25);display:grid;place-items:center;padding:12px}
+.ticket .cut a{display:grid;place-items:center;width:100%;aspect-ratio:1;border-radius:50%;background:var(--electric);color:#fff;text-decoration:none;font:700 13px/1.15 "Montserrat","Montserrat Fallback",system-ui,sans-serif;text-align:center;padding:10px;transition:transform .2s ease,background .2s ease}
+.ticket .cut a:hover{background:#3a62ff;transform:rotate(-6deg)}
+
+/* ---------- 4. Para mirar antes ---------- */
+.more{margin:30px 20px 0}
+.more h2{font:700 13px/1.2 "Montserrat","Montserrat Fallback",system-ui,sans-serif;color:var(--muted)}
+.more ul{list-style:none;padding:0;margin-top:10px;display:grid;grid-template-columns:1fr 1fr;column-gap:20px}
+.more a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:14px}
+.more a span{color:var(--electric);transition:transform .2s ease}
+.more a:hover span{transform:translate(2px,-2px)}
+
+/* ---------- 5. Pie ---------- */
+.foot{margin-top:30px;padding:22px 20px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)}
+.foot .soc{display:flex;gap:8px}
+.foot .soc a{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--blue);transition:border-color .2s ease}
+.foot .soc a:hover{border-color:var(--blue)}
+
+a:focus-visible{outline:2px solid var(--electric);outline-offset:2px}
+@media (min-width:600px){
+  body{padding:40px 0}
+  .page{border-radius:22px;overflow:hidden;box-shadow:var(--e1);min-height:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol></svg>
+<main class="page">
+
+  <header class="map">
+    <div class="brand"><i aria-hidden="true"></i>Vlue Tech Services</div>
+    <div class="kicker">Santiago · Chile</div>
+    <h1>Que te encuentren en <em>Google</em></h1>
+    <p class="lead">Webs y fichas de Google Maps para negocios y profesionales.</p>
+  </header>
+
+  <section class="search" aria-label="Elige tu situación">
+    <div class="bar" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5f6368" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+      <span class="typed" id="typed">no aparezco en google maps</span><span class="caret"></span>
+    </div>
+    <p class="hint">¿Qué te pasa? Toca la tuya y escríbenos por WhatsApp.</p>
+    <ul class="sugs" id="sugs">
+      <li class="sug" data-q="no aparezco en google maps"><a href="https://wa.me/56926191935?text=Hola%2C%20vengo%20de%20su%20Instagram.%20Mi%20negocio%20no%20aparece%20en%20Google%20Maps%2C%20%C2%BFme%20pueden%20ayudar%3F">
+        <svg class="lupa" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        <span class="q">No <b>aparezco en Google Maps</b></span><span class="go" aria-label="Abrir WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></span></a></li>
+      <li class="sug" data-q="tengo ficha pero no me llaman"><a href="https://wa.me/56926191935?text=Hola%2C%20vengo%20de%20su%20Instagram.%20Tengo%20ficha%20en%20Google%20pero%20casi%20no%20me%20llaman.%20%C2%BFQu%C3%A9%20me%20recomiendan%3F">
+        <svg class="lupa" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        <span class="q">Tengo ficha, pero <b>no me llaman</b></span><span class="go" aria-label="Abrir WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></span></a></li>
+      <li class="sug" data-q="necesito una página web"><a href="https://wa.me/56926191935?text=Hola%2C%20vengo%20de%20su%20Instagram.%20Necesito%20una%20p%C3%A1gina%20web%20para%20mi%20negocio.%20%C2%BFC%C3%B3mo%20trabajan%3F">
+        <svg class="lupa" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        <span class="q">Necesito una <b>página web</b></span><span class="go" aria-label="Abrir WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></span></a></li>
+      <li class="sug" data-q="quiero más reseñas en google"><a href="https://wa.me/56926191935?text=Hola%2C%20vengo%20de%20su%20Instagram.%20Quiero%20conseguir%20m%C3%A1s%20rese%C3%B1as%20en%20Google.">
+        <svg class="lupa" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        <span class="q">Quiero <b>más reseñas</b> en Google</span><span class="go" aria-label="Abrir WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></span></a></li>
+      <li class="sug" data-q="tarjeta profesional nfc"><a href="https://wa.me/56926191935?text=Hola%2C%20vengo%20de%20su%20Instagram.%20Me%20interesa%20la%20Tarjeta%20Profesional.">
+        <svg class="lupa" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5"/></svg>
+        <span class="q">Quiero la <b>Tarjeta Profesional</b></span><span class="go" aria-label="Abrir WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></span></a></li>
+    </ul>
+  </section>
+
+  <section class="ticket" aria-label="Auditoría gratis">
+    <div class="txt">
+      <p class="k">Sin costo · sin compromiso</p>
+      <h2>Auditoría gratis de tu ficha de Google</h2>
+      <p>Te decimos qué arreglar primero para que te llamen más.</p>
+    </div>
+    <div class="cut"><a href="https://wa.me/56926191935?text=Hola%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20ficha%20de%20Google.%20Mi%20negocio%20es%3A%20">Pedir mi auditoría</a></div>
+  </section>
+
+  <nav class="more" aria-label="Para mirar antes">
+    <h2>Para mirar antes de escribir</h2>
+    <ul>
+      <li><a href="https://vluetechservices.cl/catalogo/">Precios <span>↗</span></a></li>
+      <li><a href="https://vluetechservices.cl/paginas-web/">Webs de ejemplo <span>↗</span></a></li>
+      <li><a href="https://vluetechservices.cl/catalogo/tarjeta-profesional/">Tarjeta Profesional <span>↗</span></a></li>
+      <li><a href="https://vluetechservices.cl/blog/">Blog <span>↗</span></a></li>
+    </ul>
+  </nav>
+
+  <footer class="foot">
+    <span>vluetechservices.cl</span>
+    <div class="soc">
+      <a href="https://www.instagram.com/vluetechservices/" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://wa.me/56926191935" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
+    </div>
+  </footer>
+
+</main>
+<script>
+/* El buscador escribe solo cada situación y marca la sugerencia que coincide. */
+(function(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var out = document.getElementById("typed");
+  var items = [].slice.call(document.querySelectorAll(".sug"));
+  var i = 0, n = 0, borrando = false;
+  function marcar(k){ items.forEach(function(li, j){ li.classList.toggle("is-on", j === k); }); }
+  function paso(){
+    var q = items[i].dataset.q;
+    if (!borrando){
+      out.textContent = q.slice(0, ++n);
+      if (n === q.length){ marcar(i); borrando = true; return setTimeout(paso, 1800); }
+      return setTimeout(paso, 55 + Math.random() * 60);
+    }
+    out.textContent = q.slice(0, --n);
+    if (n === 0){ marcar(-1); borrando = false; i = (i + 1) % items.length; return setTimeout(paso, 350); }
+    setTimeout(paso, 22);
+  }
+  out.textContent = ""; setTimeout(paso, 600);
+})();
+</script>
+</body>
+</html>

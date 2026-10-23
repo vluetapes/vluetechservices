@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- Imágenes Open Graph (1200x630) con el estilo de las portadas del blog:
+     2 o 3 palabras grandes a la izquierda + el símbolo de Vlue, y a la derecha un visual
+     hecho con las mismas piezas de la web (teléfono 3D con la ficha, capturas de las webs de ejemplo).
+     Uso: servir la raíz del sitio (python -m http.server) y abrir /herramientas/og/og.html?p=catalogo
+     Para generar todas: python herramientas/og/generar.py -->
+<html lang="es"><head><meta charset="utf-8">
+<link rel="stylesheet" href="/style_work2.css">
+<link rel="stylesheet" href="/vx-ui.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden;background:#fff}
+.lienzo{position:relative;width:1200px;height:630px;overflow:hidden;background:#fff}
+.azul{position:absolute;left:700px;top:0;right:0;bottom:0;background:linear-gradient(160deg,#1f4bff 0%,#0a2bd6 55%,#07209f 100%)}
+.brillo{position:absolute;left:0;top:0;bottom:0;width:700px;background:radial-gradient(ellipse 520px 360px at 0% 108%,rgba(31,75,255,.20),rgba(31,75,255,0) 70%)}
+h1{position:absolute;left:84px;top:50%;transform:translateY(-58%);max-width:560px;white-space:nowrap;font:800 104px/1 Montserrat,"Montserrat Fallback",sans-serif;letter-spacing:-.03em;color:#07209f}
+.simbolo{position:absolute;left:84px;bottom:56px;width:92px;aspect-ratio:652/456;background:#07209f;-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+.v{position:absolute}
+
+/* Teléfono: usa .vx-3d y .vx-phone de la web, un poco más grande */
+.tel .vx-3d{padding:0}
+.tel .vx-phone{width:300px;animation:none}
+.tel .vx-phone-screen>img{object-position:top}
+
+/* Página de enlaces de una profesional */
+.enl{display:flex;flex-direction:column;align-items:center;gap:9px;height:100%;padding:34px 18px 0;background:linear-gradient(#eef2ff,#fff 45%);font:400 12px/1.3 Poppins,"Poppins Fallback",sans-serif;color:#0b1020;text-align:center}
+.enl .foto{width:86px;height:86px;border-radius:50%;background:center/cover;box-shadow:0 0 0 4px #fff,0 6px 16px rgba(7,32,159,.25)}
+.enl b{margin-top:6px;font:700 16px/1.2 Montserrat,"Montserrat Fallback",sans-serif}
+.enl small{margin-bottom:8px;color:#505770}
+.enl span{width:100%;padding:11px;border-radius:12px;background:#fff;border:1.5px solid #dfe4f5;font-weight:600}
+.enl span.pri{background:#07209f;border-color:#07209f;color:#fff}
+
+/* Barra de búsqueda como en el blog */
+.chip{position:absolute;display:flex;align-items:center;gap:16px;padding:20px 30px 20px 24px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(7,32,159,.28),0 2px 6px rgba(7,32,159,.12);font:600 30px/1 Poppins,"Poppins Fallback",sans-serif;color:#0b1020;white-space:nowrap;transform:rotate(-3deg)}
+.chip svg{width:32px;height:32px;fill:none;stroke:#07209f;stroke-width:3;stroke-linecap:round}
+
+/* Computador con una web de ejemplo */
+.laptop{width:600px}
+.laptop .pantalla{padding:12px 12px 0;border-radius:18px 18px 0 0;background:#0b1020;box-shadow:0 30px 60px rgba(5,22,111,.4)}
+.laptop .pantalla img{display:block;width:100%;aspect-ratio:960/570;object-fit:cover;object-position:top;border-radius:6px 6px 0 0}
+.laptop .base{height:20px;margin:0 -34px;border-radius:0 0 16px 16px;background:linear-gradient(#d9deea,#aeb6c9);box-shadow:0 18px 30px rgba(5,22,111,.35)}
+
+/* Tarjeta NFC de Vlue */
+.nfc{width:330px;height:208px;border-radius:20px;padding:26px 28px;background:linear-gradient(135deg,#0b1020 0%,#16206b 60%,#1f4bff 140%);color:#fff;box-shadow:0 30px 60px rgba(5,22,111,.45),0 0 0 1px rgba(255,255,255,.08) inset;font-family:Poppins,"Poppins Fallback",sans-serif}
+.nfc .s{width:58px;aspect-ratio:652/456;background:#fff;-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+.nfc b{display:block;margin-top:22px;font:700 26px/1.15 Montserrat,"Montserrat Fallback",sans-serif}
+.nfc small{display:block;margin-top:6px;font-size:15px;opacity:.75}
+.nfc .ondas{position:absolute;right:26px;top:24px;width:44px;height:44px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;opacity:.9}
+.nfc .qr{position:absolute;right:26px;bottom:24px;width:62px;height:62px;border-radius:8px;background:#fff;padding:7px}
+.nfc .qr i{display:block;width:100%;height:100%;background:conic-gradient(#0b1020 25%,#fff 0 50%,#0b1020 0 75%,#fff 0) 0 0/12px 12px}
+
+/* Chat de WhatsApp */
+.chat{width:420px;border-radius:24px;overflow:hidden;background:#efe7dc;box-shadow:0 30px 60px rgba(5,22,111,.4);font:400 21px/1.35 Poppins,"Poppins Fallback",sans-serif;color:#0b1020}
+.chat .top{display:flex;align-items:center;gap:14px;padding:18px 22px;background:#0a7d4f;color:#fff;font-weight:600}
+.chat .top i{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.chat .top i span{width:30px;aspect-ratio:652/456;background:#07209f;-webkit-mask:url(/img/simbolo-vlue.svg) center/contain no-repeat;mask:url(/img/simbolo-vlue.svg) center/contain no-repeat}
+.chat .top small{display:block;font-weight:400;font-size:15px;opacity:.85}
+.chat .cuerpo{display:flex;flex-direction:column;gap:12px;padding:22px}
+.chat p{max-width:84%;padding:12px 16px;border-radius:14px;background:#fff;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.chat p.yo{align-self:flex-end;background:#d9fdd3}
+
+/* Resultados de Google */
+.serp{width:470px;padding:24px;border-radius:22px;background:#fff;box-shadow:0 30px 60px rgba(5,22,111,.4);font:400 17px/1.35 Poppins,"Poppins Fallback",sans-serif;color:#4d5156}
+.serp .r{padding:14px 0;border-top:1px solid #e3e7f3}
+.serp .r:first-child{border-top:0;padding-top:0}
+.serp .r small{display:block;font-size:14px;color:#5f6368}
+.serp .r b{display:block;margin:2px 0 4px;font:600 21px/1.25 Poppins,"Poppins Fallback",sans-serif;color:#1a0dab}
+.serp .r.tu{margin:0 -12px;padding:14px 12px;border-radius:12px;background:#eef2ff;border-top-color:transparent;box-shadow:0 0 0 2px #1f4bff inset}
+.serp .r.tu+.r{border-top-color:transparent}
+.serp .gris{height:10px;border-radius:5px;background:#e8ebf3;margin-top:8px}
+</style></head>
+<body><div class="lienzo" id="lienzo"></div>
+<script>
+var LUPA='<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>';
+var ONDAS='<svg class="ondas" viewBox="0 0 24 24"><path d="M7 7a7 7 0 0 1 0 10"/><path d="M11 4a11 11 0 0 1 0 16"/><path d="M15 1.5a14 14 0 0 1 0 21"/></svg>';
+
+var FICHAS={
+  cafe:{n:'Café del Barrio (ejemplo)',c:'Cafetería · Providencia',h:'Cierra a las 20:00',f:'/img/paginas-web/ejemplo-cafe-computador.webp',pos:'100% 58%;background-size:260%',r:'4,8',k:'(214)',chips:['Desayunos','Brunch','Para llevar','Wifi'],w:'Andrea P.',t:'El mejor café de la zona. Atención rápida y muy amable, volveremos.',o:'Gracias, Andrea. ¡Te esperamos pronto!'},
+  dental:{n:'Clínica Dental (ejemplo)',c:'Clínica dental · Providencia',h:'Cierra a las 20:00',f:'/img/salud/dental-box-600.webp',pos:'center',r:'4,8',k:'(126)',chips:['Limpieza','Ortodoncia','Implantes','Urgencias'],w:'Carolina M.',t:'Me atendieron el mismo día por un dolor fuerte. Me explicaron todo y el valor antes de empezar.',o:'Gracias por escribirnos, Carolina. Nos alegra que te hayas sentido bien atendida.'},
+  psico:{n:'Consulta de Psicología (ejemplo)',c:'Psicólogo · Ñuñoa',h:'Cierra a las 21:00',f:'/img/salud/psico-consulta-600.webp',pos:'center',r:'5,0',k:'(48)',chips:['Terapia adultos','Ansiedad','Terapia de pareja','En línea'],w:'Daniela R.',t:'Un espacio muy cálido. La primera sesión fue clara y me sentí escuchada desde el inicio.',o:'Muchas gracias por tus palabras, Daniela.'}
+};
+function ficha(k){var d=FICHAS[k];return '<div class="vx-gbp">'+
+ '<div class="vx-gbp-status"><span>9:41</span><span>●●● ▮</span></div>'+
+ '<div class="vx-gbp-search"><span>&larr;</span><b>'+d.n+'</b><span>&times;</span></div>'+
+ '<div class="vx-gbp-photo" style="background-image:url('+d.f+');background-position:'+d.pos+'"></div>'+
+ '<div class="vx-gbp-body"><div class="vx-gbp-name">'+d.n+'</div>'+
+ '<div class="vx-gbp-rating"><b>'+d.r+'</b><span class="vx-gbp-stars">★★★★★</span><small>'+d.k+'</small></div>'+
+ '<div class="vx-gbp-cat">'+d.c+'</div><div class="vx-gbp-cat"><span class="vx-gbp-open">Abierto</span> · '+d.h+'</div></div>'+
+ '<div class="vx-gbp-tabs"><span class="on">Resumen</span><span>Servicios</span><span>Reseñas</span><span>Fotos</span></div>'+
+ '<div class="vx-gbp-actions"><span><i>☎</i>Llamar</span><span><i>➤</i>Cómo llegar</span><span><i>▣</i>Reservar</span><span><i>◍</i>Sitio web</span></div>'+
+ '<div class="vx-gbp-section"><p class="vx-gbp-h">Servicios</p><div class="vx-gbp-chips">'+d.chips.map(function(c){return '<span>'+c+'</span>'}).join('')+'</div></div>'+
+ '<div class="vx-gbp-section"><p class="vx-gbp-h">Reseñas</p><div class="vx-gbp-review"><div class="vx-gbp-who"><i>'+d.w[0]+'</i>'+d.w+' <span class="vx-gbp-stars">★★★★★</span></div><p>'+d.t+'</p><p class="vx-gbp-owner"><b>Respuesta del propietario:</b> '+d.o+'</p></div></div>'+
+ '</div>';}
+
+function enlaces(){return '<div class="enl"><div class="foto" style="background-image:url(/img/salud/psico-sillon-600.webp)"></div><b>Ps. Daniela Rojas</b><small>Psicóloga clínica · Ñuñoa</small>'+
+ ['Agendar hora','WhatsApp','Cómo llegar','Reseñas en Google','Guardar contacto'].map(function(t,i){return '<span'+(i==0?' class="pri"':'')+'>'+t+'</span>'}).join('')+'</div>';}
+function tel(x,y,contenido,giro){return '<div class="v tel" style="left:'+x+'px;top:'+y+'px"><div class="vx-3d"><div class="vx-phone"'+(giro?' style="transform:'+giro+'"':'')+'><div class="vx-phone-screen">'+contenido+'</div></div></div></div>';}
+function telImg(x,y,src,giro){return tel(x,y,'<img src="'+src+'" alt="">',giro);}
+function telFicha(x,y,k,giro){return tel(x,y,ficha(k),giro);}
+function chip(x,y,texto,giro){return '<div class="chip" style="left:'+x+'px;top:'+y+'px'+(giro?';transform:rotate('+giro+'deg)':'')+'">'+LUPA+texto+'</div>';}
+function laptop(x,y,src,w){return '<div class="v laptop" style="left:'+x+'px;top:'+y+'px'+(w?';width:'+w+'px':'')+'"><div class="pantalla"><img src="'+src+'" alt=""></div><div class="base"></div></div>';}
+function nfc(x,y,giro,texto){return '<div class="v nfc" style="left:'+x+'px;top:'+y+'px;transform:rotate('+giro+'deg)"><div class="s"></div>'+ONDAS+'<b>'+(texto||'Déjanos tu<br>reseña')+'</b><small>Acerca tu celular</small><div class="qr"><i></i></div></div>';}
+function chat(x,y,msgs){return '<div class="v chat" style="left:'+x+'px;top:'+y+'px;transform:rotate(-2deg)"><div class="top"><i><span></span></i><div>Vlue Tech Services<small>en línea</small></div></div><div class="cuerpo">'+msgs.map(function(m){return '<p'+(m[0]?' class="yo"':'')+'>'+m[1]+'</p>'}).join('')+'</div></div>';}
+function serp(x,y){return '<div class="v serp" style="left:'+x+'px;top:'+y+'px;transform:rotate(2deg)">'+
+ '<div class="r tu"><small>tunegocio.cl</small><b>Tu negocio · Servicios en Santiago</b><div class="gris" style="width:92%"></div><div class="gris" style="width:70%"></div></div>'+
+ '<div class="r"><small>competencia.cl</small><b style="color:#5f6368">Otro negocio</b><div class="gris" style="width:85%"></div></div>'+
+ '<div class="r"><small>directorio.cl</small><b style="color:#5f6368">Directorio de negocios</b><div class="gris" style="width:60%"></div></div></div>';}
+
+var P={
+  inicio:{t:'Que te<br>encuentren',v:function(){return telFicha(820,20,'cafe')+chip(560,90,'café cerca de mí')}},
+  catalogo:{t:'Catálogo<br>y precios',v:function(){return telFicha(860,20,'cafe')+nfc(640,380,-8)}},
+  contacto:{t:'Hablemos',v:function(){return chat(690,110,[[1,'Hola, quiero aparecer en Google Maps 👋'],[0,'¡Hola! Cuéntanos de tu negocio y te mandamos una auditoría gratis de tu ficha.'],[1,'¡Perfecto, gracias!']])}},
+  'ficha-google-maps':{t:'Tu ficha<br>en Maps',v:function(){return telFicha(830,20,'cafe')+chip(570,100,'café en providencia')}},
+  'gestion-resenas-google':{t:'Más<br>reseñas',v:function(){return telFicha(830,-210,'dental')+chip(580,420,'clínica dental cerca de mí',3)}},
+  'tarjetas-nfc-resenas':{t:'Reseñas<br>en un toque',v:function(){return telFicha(880,-40,'cafe')+nfc(650,360,-10)}},
+  'tarjeta-profesional':{t:'Tarjeta<br>profesional',v:function(){return tel(860,20,enlaces())+nfc(660,370,-8,'Ps. Daniela<br>Rojas')}},
+  'paginas-web':{t:'Tu web,<br>lista',v:function(){return laptop(640,170,'/img/paginas-web/ejemplo-dental-computador.webp')+telImg(1010,150,'/img/paginas-web/ejemplo-dental-celular.webp','none;width:180px;border-radius:28px;padding:7px')+chip(600,60,'dentista en providencia')}},
+  'landing-page':{t:'Landing<br>page',v:function(){return telImg(840,-30,'/img/paginas-web/ejemplo-cafe-celular.webp')+chip(580,90,'café en providencia')}},
+  'sitio-web':{t:'Sitio<br>web',v:function(){return laptop(640,150,'/img/paginas-web/ejemplo-peluqueria-computador.webp')+telImg(1010,140,'/img/paginas-web/ejemplo-peluqueria-celular.webp','none;width:180px;border-radius:28px;padding:7px')+chip(600,50,'peluquería en ñuñoa')}},
+  'mejora-seo':{t:'Mejora<br>tu SEO',v:function(){return serp(690,150)+chip(600,50,'servicios en santiago',-2)}},
+  salud:{t:'Tu consulta<br>en Maps',v:function(){return telFicha(830,10,'dental')+chip(590,100,'dentista cerca de mí')}},
+  'salud-dentistas':{t:'Dentistas',v:function(){return telFicha(830,10,'dental')+chip(580,100,'dentista en providencia')}},
+  'salud-psicologos':{t:'Psicólogos',v:function(){return telFicha(830,10,'psico')+chip(590,100,'psicólogo en ñuñoa')}}
+};
+
+var p=P[new URLSearchParams(location.search).get('p')||'catalogo'];
+document.getElementById('lienzo').innerHTML='<div class="brillo"></div><div class="azul"></div>'+p.v()+'<h1>'+p.t+'</h1><div class="simbolo"></div>';
+// El título nunca pasa de 560px de ancho
+document.fonts.ready.then(function(){var h=document.querySelector('h1'),s=104;while(h.scrollWidth>560&&s>60){s-=2;h.style.fontSize=s+'px'}document.body.dataset.listo='1'});
+</script>
+</body></html>

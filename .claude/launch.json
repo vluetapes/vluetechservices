@@ -8,6 +8,13 @@
       "port": 8123
     },
     {
+      "name": "vts-web-2",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8177"],
+      "port": 8177,
+      "autoPort": false
+    },
+    {
       "name": "vts-site",
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8124", "--directory", "_site"],
