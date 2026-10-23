@@ -21,5 +21,6 @@
   "tiktok": "",
   "googleMaps": "https://maps.google.com/",
   "logo": "",
-  "imagenRedes": "/img/redes.jpg"
+  "imagenRedes": "/img/redes.jpg",
+  "creditoVlue": true
 }
