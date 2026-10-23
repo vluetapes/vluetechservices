@@ -4,7 +4,7 @@
    herramientas/revisar.py (córrelo antes de publicar).
    Hace 4 cosas (más el aviso de cookies, que carga GA4 solo si la persona acepta):
      1. Paneles de detalle (<dialog>) con fondo difuminado: abrir, cerrar,
-        enlace propio (#pack-despegue) y botón Atrás del celular.
+        enlace propio (#despegue-maps) y botón Atrás del celular.
      2. Calculadoras: retorno (/salud/), cantidad de tarjetas NFC y "arma tu sitio" (/paginas-web/sitio-web/).
      3. Carga Google Analytics 4 (si GA4_ID tiene tu ID) y le envía los clics
         marcados con data-evento. Sin ID no carga nada ni envía nada.
@@ -290,11 +290,22 @@
       // Un enlace a WhatsApp dentro del panel abre otra pestaña: el panel se queda abierto
     });
 
-    // Atrás / Adelante del navegador y enlaces del tipo #pack-despegue
+    // Atrás / Adelante del navegador y enlaces del tipo #despegue-maps
     window.addEventListener('popstate', syncWithHash);
     window.addEventListener('hashchange', syncWithHash);
 
-    // Enlace directo: /catalogo/#pack-despegue abre el panel al cargar
+    // Enlaces viejos ya compartidos (nombres de antes de oct-2026) → nombres nuevos
+    var nuevo = {
+      'pack-despegue': 'despegue-maps', 'card-pack-despegue': 'card-despegue-maps',
+      'consulta-visible': 'maps-salud', 'card-consulta-visible': 'card-maps-salud',
+      'consulta-visible-pro': 'maps-salud-pro', 'card-consulta-visible-pro': 'card-maps-salud-pro'
+    }[location.hash.slice(1)];
+    if (nuevo) {
+      history.replaceState(null, '', '#' + nuevo);
+      if (!getDialog(nuevo) && d.getElementById(nuevo)) d.getElementById(nuevo).scrollIntoView();
+    }
+
+    // Enlace directo: /catalogo/#despegue-maps abre el panel al cargar
     if (getDialog(location.hash.slice(1))) syncWithHash();
   }
 

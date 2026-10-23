@@ -15,6 +15,24 @@
       "autoPort": false
     },
     {
+      "name": "vts-ejemplos",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8188", "--directory", "ejemplos"],
+      "port": 8188
+    },
+    {
+      "name": "vts-ejemplo-web",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8192", "--directory", "ejemplos/web-negocio/_site"],
+      "port": 8192
+    },
+    {
+      "name": "vts-web-3",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8191"],
+      "port": 8191
+    },
+    {
       "name": "vts-site",
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8124", "--directory", "_site"],

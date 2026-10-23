@@ -1,0 +1,14 @@
+{
+  "titulo": "Consejos para cuidar tu pelo",
+  "bajada": "Ideas cortas y prácticas de nuestro equipo, para que tu corte y tu color duren más.",
+  "categorias": [
+    { "slug": "consejos", "nombre": "Consejos" },
+    { "slug": "tendencias", "nombre": "Tendencias" },
+    { "slug": "novedades", "nombre": "Novedades" }
+  ],
+  "autor": {
+    "nombre": "Equipo de Peluquería Ejemplo",
+    "foto": "",
+    "bio": "Peluqueras y peluqueros de Ñuñoa. Escribimos lo que más nos preguntan en el sillón."
+  }
+}

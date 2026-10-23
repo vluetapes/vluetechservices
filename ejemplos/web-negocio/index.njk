@@ -50,6 +50,31 @@ eleventyComputed:
 
 {% block contenido %}
 {%- set wa = "https://wa.me/" + negocio.whatsapp + "?text=" + (negocio.mensajeWhatsapp | urlencode) -%}
+{%- if marca.diseno == "minimal" %}
+{#- Portada minimal: el título manda; sin foto, con la próxima hora libre al lado. -#}
+<section class="portada portada-minimal">
+  <div class="wrap">
+    <div class="minimal-grid">
+      <div>
+        <h1>{{ inicio.titulo }}</h1>
+        <p class="bajada">{{ inicio.bajada }}</p>
+      </div>
+      <div class="minimal-hora">
+        {%- if inicio.proximaHora %}
+        <dl><dt>{{ inicio.proximaHora.titulo }}</dt><dd>{{ inicio.proximaHora.fecha }}<small>{{ inicio.proximaHora.detalle }}</small></dd></dl>
+        {%- endif %}
+        <div class="minimal-botones">
+          <a class="btn btn-principal" href="{{ wa }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="portada">{{ inicio.boton }}<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          {%- if inicio.botonSecundario %}<a class="btn btn-borde" href="{{ inicio.botonSecundario.enlace }}">{{ inicio.botonSecundario.texto }}</a>{% endif %}
+        </div>
+      </div>
+      {%- if inicio.datos %}
+      <ul class="minimal-datos">{% for d in inicio.datos %}<li><strong>{{ d.valor }}</strong> {{ d.texto }}</li>{% endfor %}</ul>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+{%- else %}
 <section class="portada{% if inicio.fotoPortada %} con-foto{% endif %}">
   <div class="wrap portada-grid">
     <div class="portada-texto">
@@ -69,10 +94,11 @@ eleventyComputed:
     {%- endif %}
   </div>
 </section>
+{%- endif %}
 
 <section id="servicios">
   <div class="wrap">
-    <div class="cabeza"><h2>Servicios</h2></div>
+    <div class="cabeza"><h2>{{ inicio.serviciosTitulo or "Servicios" }}</h2></div>
     <ul class="servicios">
       {%- for s in inicio.servicios %}
       <li class="servicio"><span class="servicio-n">{{ loop.index | dosCifras }}</span><h3>{{ s.titulo }}</h3><p>{{ s.texto }}</p>{% if s.precio %}<span class="precio">{{ s.precio }}</span>{% endif %}</li>
@@ -81,10 +107,36 @@ eleventyComputed:
   </div>
 </section>
 
+{%- if inicio.sobreMi %}
+<section class="fondo-suave sobre-mi">
+  <div class="wrap sobre-grid">
+    <figure><img src="{{ inicio.sobreMi.foto }}" alt="{{ inicio.sobreMi.fotoAlt }}" width="{{ inicio.sobreMi.fotoAncho }}" height="{{ inicio.sobreMi.fotoAlto }}" loading="lazy" decoding="async"></figure>
+    <div>
+      <h2>{{ inicio.sobreMi.titulo }}</h2>
+      {%- for p in inicio.sobreMi.parrafos %}<p>{{ p }}</p>{% endfor %}
+      {%- if inicio.sobreMi.credenciales %}
+      <ul class="credenciales">{% for c in inicio.sobreMi.credenciales %}<li>{{ c }}</li>{% endfor %}</ul>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if inicio.pasos %}
+<section>
+  <div class="wrap">
+    <div class="cabeza"><h2>{{ inicio.pasosTitulo }}</h2></div>
+    <ol class="pasos">
+      {%- for p in inicio.pasos %}<li><h3>{{ p.titulo }}</h3><p>{{ p.texto }}</p></li>{% endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}
+
 {%- if collections.articulos.length %}
 <section class="fondo-suave">
   <div class="wrap">
-    <div class="cabeza"><h2>Del blog</h2><a href="/blog/">Ver todos los artículos &rarr;</a></div>
+    <div class="cabeza"><h2>{{ blog.titulo or "Del blog" }}</h2><a href="/blog/">Ver todos los artículos &rarr;</a></div>
     <ul class="cards">
       {%- for a in collections.articulos | primeros(3) %}{% set n = loop.index %}{% include "partes/card.njk" %}{% endfor %}
     </ul>
@@ -95,7 +147,7 @@ eleventyComputed:
 {%- if inicio.preguntas.length %}
 <section>
   <div class="wrap">
-    <div class="cabeza"><h2>Preguntas frecuentes</h2></div>
+    <div class="cabeza"><h2>{{ inicio.preguntasTitulo or "Preguntas frecuentes" }}</h2></div>
     <div class="preguntas">
       {%- for p in inicio.preguntas %}
       <details><summary>{{ p.pregunta }}</summary><div><p>{{ p.respuesta }}</p></div></details>

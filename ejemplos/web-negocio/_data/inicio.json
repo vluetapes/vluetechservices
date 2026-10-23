@@ -1,49 +1,106 @@
 {
-  "tituloSeo": "Peluquería en Ñuñoa con hora agendada | Peluquería Ejemplo",
-  "descripcionSeo": "Peluquería en Ñuñoa con hora agendada. Cortes, color y peinados para mujer y hombre. Escríbenos por WhatsApp y agenda tu hora hoy.",
-  "antetitulo": "Peluquería · Ñuñoa",
-  "titulo": "Tu pelo, en buenas manos",
-  "bajada": "Cortes, color y peinados con hora agendada.",
-  "boton": "Agendar por WhatsApp",
-  "servicios": [
-    {
-      "titulo": "Corte de pelo",
-      "texto": "Para mujer, hombre y niños. Incluye lavado.",
-      "precio": "Desde $12.000"
-    },
-    {
-      "titulo": "Color y mechas",
-      "texto": "Tintura completa, raíz, mechas y balayage.",
-      "precio": "Desde $35.000"
-    },
-    {
-      "titulo": "Peinados",
-      "texto": "Para matrimonios, graduaciones y eventos.",
-      "precio": "Desde $20.000"
-    }
-  ],
-  "preguntas": [
-    {
-      "pregunta": "¿Necesito agendar hora?",
-      "respuesta": "Sí, trabajamos con hora para que no esperes. Puedes agendar por WhatsApp."
-    },
-    {
-      "pregunta": "¿Cómo puedo pagar?",
-      "respuesta": "Efectivo, transferencia y tarjetas de débito o crédito."
-    },
-    {
-      "pregunta": "¿Atienden a niños?",
-      "respuesta": "Sí, cortamos a niños desde los 3 años."
-    }
-  ],
-  "fotoPortada": "/img/portadas/peluqueria.webp",
-  "fotoAlt": "Interior de una peluquería con sillones y espejos en arco",
-  "fotoAncho": 900,
-  "fotoAlto": 1600,
+  "tituloSeo": "Psicóloga en Ñuñoa, presencial y en línea | Camila Ejemplo",
+  "descripcionSeo": "Psicóloga para adultos en Ñuñoa y en línea: ansiedad, duelo y terapia de pareja. Sesión de 50 minutos, $40.000, con boleta para reembolso.",
+  "titulo": "Psicóloga en Ñuñoa, presencial y en línea",
+  "bajada": "Terapia para adultos: ansiedad, duelo y momentos de cambio. Sesiones de 50 minutos.",
+  "boton": "Agendar primera sesión",
+  "botonSecundario": {
+    "texto": "Ver valores y modalidades",
+    "enlace": "#servicios"
+  },
+  "proximaHora": {
+    "titulo": "Próxima hora libre",
+    "fecha": "Martes 28, 18:30",
+    "detalle": "Presencial o por videollamada"
+  },
   "datos": [
     {
-      "valor": "Lun a sáb",
-      "texto": "10:00 a 19:00"
+      "valor": "$40.000",
+      "texto": "por sesión, con boleta para reembolso"
+    },
+    {
+      "valor": "A 4 cuadras",
+      "texto": "del metro Ñuñoa"
+    },
+    {
+      "valor": "Respondo el mismo día",
+      "texto": "por WhatsApp"
     }
-  ]
+  ],
+  "serviciosTitulo": "Terapia para adultos en Ñuñoa y en línea",
+  "servicios": [
+    {
+      "titulo": "Terapia individual",
+      "texto": "Para ansiedad, duelo, estrés laboral y cambios de etapa. Sesiones de 50 minutos en la consulta de Ñuñoa.",
+      "precio": "$40.000"
+    },
+    {
+      "titulo": "Terapia de pareja",
+      "texto": "Para conversar lo que en casa se vuelve discusión. Sesiones de 60 minutos.",
+      "precio": "$55.000"
+    },
+    {
+      "titulo": "Terapia en línea",
+      "texto": "Por videollamada, desde cualquier ciudad de Chile. El mismo valor y la misma boleta.",
+      "precio": "$40.000"
+    }
+  ],
+  "sobreMi": {
+    "titulo": "Sobre mí: Camila Ejemplo, psicóloga clínica",
+    "parrafos": [
+      "Soy psicóloga clínica y atiendo a adultos hace más de diez años, en mi consulta de Ñuñoa y por videollamada.",
+      "Trabajo con un enfoque cognitivo-conductual: buscamos juntos qué te está pasando y qué puedes hacer distinto, a tu ritmo y sin juicios."
+    ],
+    "credenciales": [
+      "Psicóloga, Universidad de Chile",
+      "Magíster en Psicología Clínica",
+      "Registro en la Superintendencia de Salud"
+    ],
+    "foto": "/img/portadas/psicologa-en-sesion.webp",
+    "fotoAlt": "Psicóloga escuchando a una paciente en una consulta luminosa",
+    "fotoAncho": 800,
+    "fotoAlto": 996
+  },
+  "pasosTitulo": "Cómo es la primera sesión",
+  "pasos": [
+    {
+      "titulo": "Me escribes por WhatsApp",
+      "texto": "Te respondo el mismo día con las horas libres de la semana."
+    },
+    {
+      "titulo": "Conversamos 50 minutos",
+      "texto": "Me cuentas qué te trae a consulta. No tienes que llegar con nada preparado."
+    },
+    {
+      "titulo": "Definimos cómo seguir",
+      "texto": "Si te acomoda, acordamos la frecuencia: lo habitual es una sesión a la semana."
+    }
+  ],
+  "preguntasTitulo": "Preguntas frecuentes sobre la terapia",
+  "preguntas": [
+    {
+      "pregunta": "¿Cuánto cuesta una sesión?",
+      "respuesta": "La terapia individual cuesta $40.000 la sesión de 50 minutos, presencial o en línea. La terapia de pareja, $55.000 la sesión de 60 minutos."
+    },
+    {
+      "pregunta": "¿Puedo pedir reembolso en mi isapre?",
+      "respuesta": "Sí. Te entrego boleta de honorarios para que pidas el reembolso en tu isapre o seguro complementario. El monto depende de tu plan."
+    },
+    {
+      "pregunta": "¿La terapia en línea funciona igual?",
+      "respuesta": "Para la mayoría de las personas, sí. Solo necesitas un lugar tranquilo y conexión a internet; la sesión dura lo mismo."
+    },
+    {
+      "pregunta": "¿Qué pasa si necesito cancelar?",
+      "respuesta": "Avísame con 24 horas de anticipación y cambiamos la hora sin costo."
+    },
+    {
+      "pregunta": "¿Atiendes a niños o adolescentes?",
+      "respuesta": "No, atiendo solo a adultos desde los 18 años. Si me escribes, te recomiendo a colegas que trabajan con niños."
+    }
+  ],
+  "contactoTitulo": "Agenda tu primera sesión en Ñuñoa o en línea",
+  "contactoTexto": "Escríbeme por WhatsApp y te respondo el mismo día con las horas libres.",
+  "fotoPortada": "",
+  "fotoAlt": ""
 }

@@ -1,0 +1,49 @@
+{
+  "tituloSeo": "Peluquería en Ñuñoa con hora agendada | Peluquería Ejemplo",
+  "descripcionSeo": "Peluquería en Ñuñoa con hora agendada. Cortes, color y peinados para mujer y hombre. Escríbenos por WhatsApp y agenda tu hora hoy.",
+  "antetitulo": "Peluquería · Ñuñoa",
+  "titulo": "Tu pelo, en buenas manos",
+  "bajada": "Cortes, color y peinados con hora agendada.",
+  "boton": "Agendar por WhatsApp",
+  "servicios": [
+    {
+      "titulo": "Corte de pelo",
+      "texto": "Para mujer, hombre y niños. Incluye lavado.",
+      "precio": "Desde $12.000"
+    },
+    {
+      "titulo": "Color y mechas",
+      "texto": "Tintura completa, raíz, mechas y balayage.",
+      "precio": "Desde $35.000"
+    },
+    {
+      "titulo": "Peinados",
+      "texto": "Para matrimonios, graduaciones y eventos.",
+      "precio": "Desde $20.000"
+    }
+  ],
+  "preguntas": [
+    {
+      "pregunta": "¿Necesito agendar hora?",
+      "respuesta": "Sí, trabajamos con hora para que no esperes. Puedes agendar por WhatsApp."
+    },
+    {
+      "pregunta": "¿Cómo puedo pagar?",
+      "respuesta": "Efectivo, transferencia y tarjetas de débito o crédito."
+    },
+    {
+      "pregunta": "¿Atienden a niños?",
+      "respuesta": "Sí, cortamos a niños desde los 3 años."
+    }
+  ],
+  "fotoPortada": "/img/portadas/peluqueria.webp",
+  "fotoAlt": "Interior de una peluquería con sillones y espejos en arco",
+  "fotoAncho": 900,
+  "fotoAlto": 1600,
+  "datos": [
+    {
+      "valor": "Lun a sáb",
+      "texto": "10:00 a 19:00"
+    }
+  ]
+}

@@ -4,8 +4,8 @@
   <div class="wrap">
     <div class="contacto">
       <div class="cta-caja">
-        <h2>¿Agendamos?</h2>
-        <p>Escríbenos por WhatsApp y te respondemos con las horas disponibles. {{ negocio.horario }}.</p>
+        <h2>{{ inicio.contactoTitulo or "¿Agendamos?" }}</h2>
+        <p>{{ inicio.contactoTexto or "Escríbenos por WhatsApp y te respondemos con las horas disponibles." }} {{ negocio.horario }}.</p>
         <a class="btn btn-claro" href="{{ wa }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="contacto">{{ inicio.boton }}</a>
       </div>
       <div class="canales">

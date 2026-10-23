@@ -249,6 +249,12 @@ export default function (eleventyConfig) {
     return `${url.split("?")[0]}?v=${cacheVersiones.get(archivo)}`;
   });
 
+  /* Imagen visible en WebP si existe la copia .webp al lado (la JPG queda para redes) */
+  eleventyConfig.addFilter("webp", (url) => {
+    const webp = String(url || "").replace(/\.(jpe?g|png)$/i, ".webp");
+    return webp !== url && fs.existsSync(webp.replace(/^\//, "")) ? webp : url;
+  });
+
   return {
     dir: { input: ".", includes: "_includes", data: "_data", output: "_site" },
     templateFormats: ["njk", "md", "html", "11ty.js"],

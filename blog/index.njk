@@ -69,7 +69,7 @@ estilos: ["blog-listado.css"]
     <article class="bb-feature" data-categoria="{{ destacado.data.categoria }}">
       <span class="bb-strip" aria-hidden="true">{{ "Nuevo" if destacado.url == todos[0].url else "Destacado" }}</span>
       <div class="bb-feature-img">
-        {%- if destacado.data.miniatura %}<img src="{{ destacado.data.miniatura | conVersion }}" alt="" width="1200" height="630" fetchpriority="high">{% endif %}
+        {%- if destacado.data.miniatura %}<img src="{{ destacado.data.miniatura | webp | conVersion }}" alt="" width="1200" height="630" fetchpriority="high">{% endif %}
       </div>
       <div class="bb-feature-body">
         <div class="bb-feature-top"><span class="bb-num" aria-hidden="true">01</span><span class="bb-cat">{{ cat.nombre }}</span></div>
@@ -89,7 +89,7 @@ estilos: ["blog-listado.css"]
       {%- for a in resto %}
       {%- set cat = blog.categorias | porSlug(a.data.categoria) %}
       <li class="bb-card" data-categoria="{{ a.data.categoria }}">
-        <div class="bb-thumb">{% if a.data.miniatura %}<img src="{{ a.data.miniatura | conVersion }}" alt="" width="1200" height="630" loading="lazy" decoding="async">{% endif %}<span class="bb-tag" aria-hidden="true">{{ (loop.index + 1) | dosCifras }}</span></div>
+        <div class="bb-thumb">{% if a.data.miniatura %}<img src="{{ a.data.miniatura | webp | conVersion }}" alt="" width="1200" height="630" loading="lazy" decoding="async">{% endif %}<span class="bb-tag" aria-hidden="true">{{ (loop.index + 1) | dosCifras }}</span></div>
         <div class="bb-body">
           <span class="bb-cat">{{ cat.nombre }}</span>
           <h3><a href="{{ a.url }}">{{ a.data.title }}</a></h3>

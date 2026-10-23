@@ -1,12 +1,12 @@
 {
-  "colorPrincipal": "#7a2e4d",
-  "colorAcento": "#c9895d",
-  "colorTexto": "#1d1a1f",
-  "colorFondoSuave": "#f7f1ee",
-  "fuenteTitulos": "Zodiak",
-  "pesoTitulos": "700",
+  "colorPrincipal": "#2e3a69",
+  "colorAcento": "#7fae95",
+  "colorTexto": "#1f2420",
+  "colorFondoSuave": "#eceee9",
+  "fuenteTitulos": "Sentient",
+  "pesoTitulos": "300",
   "fuenteTexto": "General Sans",
-  "radio": "14px",
-  "diseno": "dividido",
-  "fontshare": "f[]=zodiak@400,700&f[]=general-sans@400,500,600"
+  "radio": "10px",
+  "diseno": "minimal",
+  "fontshare": "f[]=sentient@300,400&f[]=general-sans@400,500,600"
 }

@@ -1,7 +1,7 @@
 # Web de ejemplo · ejemplo.vluetechservices.cl
 
 Copia de la **Plantilla Web Cliente** que se muestra a los clientes como ejemplo de lo que hace Vlue.
-El negocio ("Peluquería Ejemplo") y todos sus datos son **ficticios**.
+El negocio (Camila Ejemplo, psicóloga en Ñuñoa, diseño "minimal") y todos sus datos son **ficticios**. La foto de "Sobre mí" es de Unsplash (licencia libre). La versión de peluquería quedó en `../variantes/peluqueria/` (con sus artículos).
 
 - No se indexa en Google (`_data/noindex.json` = true) y lleva una franja azul que lo avisa y enlaza a vluetechservices.cl/paginas-web/.
 - La web principal (GitHub Pages) **ignora esta carpeta** (`eleventy.config.js` → ignores `ejemplos/**`).

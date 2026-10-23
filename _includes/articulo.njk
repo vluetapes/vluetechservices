@@ -91,7 +91,7 @@
 
     {%- if miniatura %}
     <figure class="bl-cover">
-      <img src="{{ miniatura | conVersion }}" alt="{{ miniatura_alt }}" width="1200" height="630" fetchpriority="high">
+      <img src="{{ miniatura | webp | conVersion }}" alt="{{ miniatura_alt }}" width="1200" height="630" fetchpriority="high">
     </figure>
     {%- endif %}
 

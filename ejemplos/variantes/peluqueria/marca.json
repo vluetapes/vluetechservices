@@ -1,0 +1,12 @@
+{
+  "colorPrincipal": "#7a2e4d",
+  "colorAcento": "#c9895d",
+  "colorTexto": "#1d1a1f",
+  "colorFondoSuave": "#f7f1ee",
+  "fuenteTitulos": "Zodiak",
+  "pesoTitulos": "700",
+  "fuenteTexto": "General Sans",
+  "radio": "14px",
+  "diseno": "dividido",
+  "fontshare": "f[]=zodiak@400,700&f[]=general-sans@400,500,600"
+}

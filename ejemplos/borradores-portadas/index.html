@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Borradores de portada · webs de ejemplo</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=sentient@300,400&f[]=general-sans@400,500,600&f[]=cabinet-grotesk@700,800&f[]=switzer@400,500,600&f[]=erode@500,600,700&f[]=satoshi@400,500,700&f[]=clash-display@500,600&display=swap">
+<style>
+/* Borradores de portada para las 4 webs de ejemplo (23-oct-2026). Solo para revisar; no se publica.
+   Móvil primero (390 px). Cada portada tiene su propia dirección:
+   1 Psicología  · minimal japonés: el vacío da calma; serif liviana; un dato humano (próxima hora libre).
+   2 Dental      · utilitario: tipo grotesca enorme y apretada; precios a la vista como prueba de confianza.
+   3 Café        · oscuro cinematográfico: la foto de la barra manda, el texto sigue su luz; la hora de apertura es el gancho.
+   4 Peluquería  · local con oficio: horas libres de hoy como botones; la foto en arco repite los espejos del local.
+   Escalas: radios 0 / 2 / 999 px (chips) · espacios 8-12-16-24-32-48-64-96. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#d9d9d6;font:16px/1.55 system-ui,sans-serif}
+img{display:block;max-width:100%;height:auto}
+h1{text-wrap:balance}
+a{color:inherit}
+.rotulo{padding:12px 20px;font:500 .78rem/1.3 "General Sans",sans-serif;color:#45464a;background:#d9d9d6}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+@media (min-width:768px){.wrap{padding:0 40px}}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.nav .marca{font-weight:600;text-decoration:none}
+.nav-links{display:none;gap:28px;font-size:.92rem}
+.nav-links a{text-decoration:none}
+@media (min-width:900px){.nav-links{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:0;font-weight:600;font-size:.98rem;text-decoration:none;white-space:nowrap}
+.btn-1{background:var(--b1);color:var(--b1t)}
+.btn-1:hover{background:var(--b1h)}
+.btn-2{box-shadow:inset 0 0 0 1px var(--b2);color:inherit}
+.btn-2:hover{background:var(--b2h)}
+.flecha{display:none;flex:none}
+.flecha svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (prefers-reduced-motion:no-preference){.btn,.chip,.flecha{transition:background-color .2s ease-out,color .2s ease-out,box-shadow .2s ease-out,transform .2s ease-out,width .2s ease-out,opacity .2s ease-out}}
+
+/* Variantes de botón para comparar (selector abajo) */
+[data-btn="a"] .btn{border-radius:2px}
+[data-btn="b"] .btn{border-radius:8px}
+[data-btn="b"] .flecha{display:inline-flex;width:0;margin-left:-10px;opacity:0;overflow:hidden}
+[data-btn="b"] .btn:hover .flecha{width:16px;margin-left:0;opacity:1}
+[data-btn="b"] .btn-1:hover{transform:translateY(-1px);box-shadow:0 8px 20px -6px var(--b1)}
+[data-btn="c"] .btn{border-radius:999px}
+[data-btn="c"] .btn:has(.flecha){padding-right:6px}
+[data-btn="c"] .flecha{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--b1t);color:var(--b1)}
+[data-btn="c"] .btn:hover .flecha{transform:translateX(3px)}
+[data-btn="d"] .btn{border-radius:10px}
+[data-btn="d"] .btn-1{background-image:linear-gradient(to bottom,rgb(255 255 255/.14),rgb(255 255 255/0));box-shadow:inset 0 1px 0 rgb(255 255 255/.22),0 1px 2px rgb(0 0 0/.18),0 6px 16px -6px var(--b1)}
+[data-btn="d"] .btn-2{background:var(--b2h);box-shadow:inset 0 0 0 1px var(--b2),0 1px 2px rgb(0 0 0/.06)}
+[data-btn="d"] .btn:active{transform:translateY(1px)}
+[data-btn="e"] .btn{min-height:44px;padding:0 2px;border-radius:0;background:none;box-shadow:inset 0 -1.5px 0 currentColor}
+[data-btn="e"] .btn-1{color:var(--b1e,var(--b1))}
+[data-btn="e"] .btn:hover{background:none;box-shadow:inset 0 -3px 0 currentColor}
+[data-btn="e"] .flecha{display:inline-flex}
+[data-btn="e"] .btn:hover .flecha{transform:translateX(3px)}
+[data-btn="e"] :is(.psi-botones,.den-botones,.cafe-botones){display:flex;flex-wrap:wrap;gap:12px 28px}
+.muestra{padding:24px 0 8px}
+.muestra-fila{display:grid;gap:12px;padding:20px 0;border-top:1px solid var(--linea)}
+.muestra-fila:first-child{border-top:0}
+.muestra-fila p{margin:0;font-size:.85rem;color:var(--suave)}
+.muestra .psi-botones{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+.selector{position:fixed;left:50%;bottom:16px;z-index:9;display:flex;flex-wrap:wrap;justify-content:center;gap:4px;width:max-content;max-width:calc(100% - 24px);padding:6px;border-radius:14px;background:#141414;transform:translateX(-50%);font:500 .8rem/1 "General Sans",sans-serif;box-shadow:0 10px 30px rgb(0 0 0/.3)}
+.selector button{min-height:36px;padding:0 12px;border:0;border-radius:9px;background:none;color:#cfcfcf;font:inherit;cursor:pointer}
+.selector button[aria-pressed="true"]{background:#fff;color:#141414}
+
+/* ---------- 1 · Psicología ---------- */
+.psi{--bg:#eceee9;--tinta:#1f2420;--suave:#5a615b;--linea:#cdd2ca;--acento:#2e3a69;--b1:#2e3a69;--b1t:#fff;--b1h:#222c52;--b2:#b9bfb7;--b2h:#e3e6e0;background:var(--bg);color:var(--tinta);font-family:"General Sans",sans-serif}
+.psi .nav .marca{font-family:"Sentient",serif;font-weight:400;font-size:1.12rem}
+.psi .nav-links a{color:var(--suave)}
+.psi .nav-cta{color:var(--acento);font-weight:600;text-decoration:none;font-size:.95rem}
+.psi-hero{padding:72px 0 40px}
+.psi h1{max-width:13ch;margin:0;font:300 clamp(2.7rem,10.5vw,4.6rem)/1.02 "Sentient",serif;letter-spacing:-.015em}
+.psi-bajada{max-width:34ch;margin:28px 0 0;font-size:1.06rem;color:var(--suave)}
+.psi-hora{display:grid;gap:20px;margin-top:56px;padding-top:24px;border-top:1px solid var(--linea)}
+.psi-hora dl{margin:0}
+.psi-hora dt{font-size:.85rem;color:var(--suave)}
+.psi-hora dd{margin:2px 0 0;font:400 1.5rem/1.2 "Sentient",serif}
+.psi-hora dd small{display:block;margin-top:4px;font:400 .9rem/1.4 "General Sans",sans-serif;color:var(--suave)}
+.psi-botones{display:grid;gap:10px}
+.psi-datos{display:grid;gap:0;margin:40px 0 0;padding:0;list-style:none;font-size:.92rem;color:var(--suave)}
+.psi-datos li{padding:12px 0;border-top:1px solid var(--linea)}
+.psi-datos strong{color:var(--tinta);font-weight:500}
+@media (min-width:900px){
+  .psi-hero{display:grid;grid-template-columns:7fr 4fr;gap:64px;align-items:end;padding:120px 0 72px}
+  .psi-hora{margin-top:0}
+  .psi-datos{grid-column:1/-1;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:24px}
+}
+
+/* ---------- 2 · Dental ---------- */
+.den{--bg:#f6f8f8;--tinta:#0f2424;--suave:#4d6262;--linea:#d3dfde;--acento:#0d6e6e;--b1:#0d6e6e;--b1t:#fff;--b1h:#0a5656;--b2:#0f2424;--b2h:#e8efee;background:var(--bg);color:var(--tinta);font-family:"Switzer",sans-serif}
+.den-aviso{background:var(--tinta);color:#e7efee;font-size:.84rem}
+.den-aviso .wrap{display:flex;justify-content:space-between;gap:12px;min-height:36px;align-items:center}
+.den-aviso a{color:#fff;font-weight:600;text-decoration:none}
+.den .nav .marca{font-family:"Cabinet Grotesk",sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-.01em}
+.den .nav-cta{min-height:40px;padding:0 14px;font-size:.9rem}
+.den-hero{padding:40px 0 56px}
+.den h1{margin:0;font:800 clamp(2.9rem,12.5vw,4.9rem)/.92 "Cabinet Grotesk",sans-serif;letter-spacing:-.035em}
+.den-bajada{max-width:38ch;margin:20px 0 0;font-size:1.04rem;color:var(--suave)}
+.den-botones{display:grid;gap:10px;margin-top:28px}
+.den-precios{margin-top:44px}
+.den-precios h2{margin:0 0 8px;font:600 .88rem/1.3 "Switzer",sans-serif;color:var(--suave)}
+.den-precios table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.den-precios td{padding:11px 0;border-top:1px solid var(--linea);font-size:.98rem}
+.den-precios td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.den-precios tr:last-child td{border-bottom:1px solid var(--linea)}
+.den-nota{margin:12px 0 0;font-size:.84rem;color:var(--suave)}
+@media (min-width:900px){
+  .den-hero{display:grid;grid-template-columns:7fr 4fr;gap:72px;align-items:end;padding:88px 0 88px}
+  .den-botones{display:flex}
+  .den-precios{margin-top:0}
+}
+
+/* ---------- 3 · Café ---------- */
+.cafe{--bg:#1a130f;--tinta:#f1e8dc;--suave:#b8a795;--laton:#d6a24a;--b1:#d6a24a;--b1t:#1a130f;--b1h:#e4b664;--b2:#5a4636;--b2h:#2a1f18;background:var(--bg);color:var(--tinta);font-family:"Satoshi",sans-serif}
+.cafe .nav .marca{font-family:"Erode",serif;font-weight:700;font-size:1.15rem}
+.cafe .nav-links a{color:var(--suave)}
+.cafe .nav-cta{color:var(--laton);font-weight:700;text-decoration:none;font-size:.95rem}
+.cafe-foto{position:relative}
+.cafe-foto img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%}
+.cafe-foto::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(to bottom,transparent,var(--bg))}
+.cafe-hero{position:relative;margin-top:-40px;padding-bottom:56px}
+.cafe h1{max-width:12ch;margin:0;font:600 clamp(2.6rem,10.5vw,5.4rem)/1 "Erode",serif;letter-spacing:-.02em}
+.cafe-abre{display:flex;align-items:baseline;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid #3a2c22}
+.cafe-abre b{font:700 3.2rem/1 "Erode",serif;color:var(--laton);font-variant-numeric:tabular-nums}
+.cafe-abre span{font-size:.95rem;color:var(--suave);line-height:1.4}
+.cafe-botones{display:grid;gap:10px;margin-top:28px}
+@media (min-width:900px){
+  .cafe-foto img{aspect-ratio:21/8}
+  .cafe-hero{display:grid;grid-template-columns:7fr 4fr;gap:64px;align-items:end;margin-top:-120px;padding-bottom:88px}
+  .cafe-abre{margin-top:0;border-top:0;padding-top:0;flex-direction:column;gap:6px}
+  .cafe-abre b{font-size:5rem}
+  .cafe-botones{display:flex;grid-column:1/-1;margin-top:8px}
+}
+
+/* ---------- 4 · Peluquería ---------- */
+.pelu{--bg:#f2f0ee;--tinta:#1b1718;--suave:#5f585a;--linea:#d9d4d1;--ciruela:#6c2945;--b1:#1b1718;--b1t:#fff;--b1h:#6c2945;--b2:#1b1718;--b2h:#e7e3e0;background:var(--bg);color:var(--tinta);font-family:"General Sans",sans-serif}
+.pelu .nav .marca{font-family:"Clash Display",sans-serif;font-weight:600;font-size:1.12rem}
+.pelu .nav-links a{color:var(--suave)}
+.pelu .nav-cta{min-height:40px;padding:0 16px;font-size:.9rem}
+.pelu-hero{padding:48px 0 0}
+.pelu h1{margin:0;font:600 clamp(2.7rem,11.5vw,4.6rem)/.96 "Clash Display",sans-serif;letter-spacing:-.01em;word-spacing:.06em}
+.pelu-bajada{max-width:36ch;margin:20px 0 0;font-size:1.04rem;color:var(--suave)}
+.pelu-horas{margin-top:28px}
+.pelu-horas p{margin:0 0 10px;font-size:.88rem;font-weight:600}
+.pelu-horas ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--tinta);border-radius:999px;font-weight:600;font-variant-numeric:tabular-nums;text-decoration:none}
+.chip:hover{background:var(--ciruela);border-color:var(--ciruela);color:#fff}
+.pelu-otro{display:inline-block;margin-top:14px;font-size:.92rem;font-weight:500;color:var(--ciruela)}
+.pelu-foto{margin:40px 0 0}
+.pelu-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:30% 40%;border-radius:999px 999px 0 0}
+@media (min-width:900px){
+  .pelu-hero{display:grid;grid-template-columns:6fr 5fr;column-gap:72px;padding-top:72px}
+  .pelu h1{grid-column:1/-1;max-width:16ch}
+  .pelu-texto{align-self:start;padding-top:8px}
+  .pelu-foto{margin-top:32px;max-width:440px;justify-self:end}
+  .pelu-texto{margin-top:32px}
+}
+</style>
+</head>
+<body>
+<p class="rotulo">Botones · los 5 estilos con los colores de psicología (pasa el mouse para ver el movimiento)</p>
+<section class="psi muestra">
+  <div class="wrap">
+    <div class="muestra-fila" data-btn="a"><p>A · Recto (el de antes)</p><div class="psi-botones"><a class="btn btn-1" href="#">Agendar primera sesión<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn btn-2" href="#">Ver valores y modalidades</a></div></div>
+    <div class="muestra-fila" data-btn="b"><p>B · Como Vlue: la flecha aparece al pasar el mouse</p><div class="psi-botones"><a class="btn btn-1" href="#">Agendar primera sesión<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn btn-2" href="#">Ver valores y modalidades</a></div></div>
+    <div class="muestra-fila" data-btn="c"><p>C · Píldora con flecha</p><div class="psi-botones"><a class="btn btn-1" href="#">Agendar primera sesión<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn btn-2" href="#">Ver valores y modalidades</a></div></div>
+    <div class="muestra-fila" data-btn="d"><p>D · Táctil</p><div class="psi-botones"><a class="btn btn-1" href="#">Agendar primera sesión<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn btn-2" href="#">Ver valores y modalidades</a></div></div>
+    <div class="muestra-fila" data-btn="e"><p>E · Editorial</p><div class="psi-botones"><a class="btn btn-1" href="#">Agendar primera sesión<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn btn-2" href="#">Ver valores y modalidades</a></div></div>
+  </div>
+</section>
+
+
+<p class="rotulo">Borrador 1 · Psicología · solo tipografía (minimal)</p>
+<section class="psi" data-btn="d">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#">Camila Ejemplo, psicóloga</a>
+      <span class="nav-links"><a href="#">Terapia</a><a href="#">Valores</a><a href="#">Blog</a><a href="#">Contacto</a></span>
+      <a class="nav-cta" href="#">Agendar</a>
+    </nav>
+    <div class="psi-hero">
+      <div>
+        <h1>Psicóloga en Ñuñoa, presencial y en línea</h1>
+        <p class="psi-bajada">Terapia para adultos: ansiedad, duelo y momentos de cambio. Sesiones de 50 minutos.</p>
+      </div>
+      <div class="psi-hora">
+        <dl><dt>Próxima hora libre</dt><dd>Martes 28, 18:30<small>Presencial o por videollamada</small></dd></dl>
+        <div class="psi-botones"><a class="btn btn-1" href="#">Agendar primera sesión<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn btn-2" href="#">Ver valores y modalidades</a></div>
+      </div>
+      <ul class="psi-datos">
+        <li><strong>$40.000</strong> por sesión, con boleta para reembolso</li>
+        <li><strong>A 4 cuadras</strong> del metro Ñuñoa</li>
+        <li><strong>Respondo el mismo día</strong> por WhatsApp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<p class="rotulo">Borrador 2 · Dental · solo tipografía (utilitario, precios a la vista)</p>
+<section class="den" data-btn="d">
+  <div class="den-aviso"><div class="wrap"><span>Urgencias hoy hasta las 19:00</span><a href="#">+56 9 0000 0000</a></div></div>
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#">Clínica Dental Ejemplo</a>
+      <span class="nav-links"><a href="#">Tratamientos</a><a href="#">Precios</a><a href="#">Equipo</a><a href="#">Cómo llegar</a></span>
+      <a class="btn btn-2 nav-cta" href="#">Llamar</a>
+    </nav>
+    <div class="den-hero">
+      <div>
+        <h1>Dentista en Providencia con urgencias</h1>
+        <p class="den-bajada">Limpieza, ortodoncia, implantes y urgencias el mismo día, a pasos del metro Pedro de Valdivia.</p>
+        <div class="den-botones">
+          <a class="btn btn-1" href="#">Pedir hora por WhatsApp<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn btn-2" href="#">Llamar ahora</a>
+        </div>
+      </div>
+      <div class="den-precios">
+        <h2>Precios a la vista</h2>
+        <table>
+          <tr><td>Evaluación</td><td>Sin costo</td></tr>
+          <tr><td>Limpieza</td><td>$35.000</td></tr>
+          <tr><td>Urgencia</td><td>desde $25.000</td></tr>
+          <tr><td>Ortodoncia</td><td>desde $45.000 al mes</td></tr>
+        </table>
+        <p class="den-nota">Fonasa y todas las Isapres · 4,8 en Google</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p class="rotulo">Borrador 3 · Café · imagen antes del título</p>
+<section class="cafe" data-btn="d">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#">Café Ejemplo</a>
+      <span class="nav-links"><a href="#">Carta</a><a href="#">Café en grano</a><a href="#">Cómo llegar</a></span>
+      <a class="nav-cta" href="#">Ver la carta</a>
+    </nav>
+  </div>
+  <div class="cafe-foto"><img src="../web-negocio/img/portadas/cafe.webp" alt="Barista preparando café detrás de una barra de madera" width="1800" height="1200" fetchpriority="high"></div>
+  <div class="wrap cafe-hero">
+    <h1>Café para madrugadores en Providencia</h1>
+    <p class="cafe-abre"><b>7:30</b><span>Abrimos de lunes a viernes.<br>Sábado desde las 9:00.</span></p>
+    <div class="cafe-botones">
+      <a class="btn btn-1" href="#">Ver la carta<span class="flecha" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+      <a class="btn btn-2" href="#">Pedir para llevar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<p class="rotulo">Borrador 4 · Peluquería · imagen después del título</p>
+<section class="pelu" data-btn="d">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="marca" href="#">Peluquería Ejemplo</a>
+      <span class="nav-links"><a href="#">Servicios</a><a href="#">Precios</a><a href="#">Cómo llegar</a></span>
+      <a class="btn btn-1 nav-cta" href="#">Agendar</a>
+    </nav>
+    <div class="pelu-hero">
+      <h1>Peluquería en Ñuñoa con hora para hoy</h1>
+      <div class="pelu-texto">
+        <p class="pelu-bajada">Corte, color y peinados para mujer y hombre. Elige una hora y te la confirmamos por WhatsApp.</p>
+        <div class="pelu-horas">
+          <p>Horas libres hoy</p>
+          <ul>
+            <li><a class="chip" href="#">15:00</a></li>
+            <li><a class="chip" href="#">16:30</a></li>
+            <li><a class="chip" href="#">18:00</a></li>
+          </ul>
+          <a class="pelu-otro" href="#">Ver otro día</a>
+        </div>
+      </div>
+      <figure class="pelu-foto"><img src="../web-negocio/img/portadas/peluqueria.webp" alt="Interior de la peluquería con sillones y espejos en arco" width="900" height="1600" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

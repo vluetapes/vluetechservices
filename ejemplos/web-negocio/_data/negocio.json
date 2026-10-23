@@ -1,9 +1,9 @@
 {
-  "nombre": "Peluquería Ejemplo",
-  "rubro": "Peluquería",
-  "tipoSchema": "HairSalon",
-  "eslogan": "Cortes y color en Ñuñoa",
-  "descripcion": "Peluquería de barrio en Ñuñoa. Cortes, color y peinados con hora agendada.",
+  "nombre": "Camila Ejemplo, psicóloga",
+  "rubro": "Psicóloga",
+  "tipoSchema": "Psychologist",
+  "eslogan": "Psicología para adultos en Ñuñoa y en línea",
+  "descripcion": "Psicóloga para adultos en Ñuñoa y en línea: ansiedad, duelo, estrés y terapia de pareja.",
   "url": "https://ejemplo.vluetechservices.cl",
   "comuna": "Ñuñoa",
   "ciudad": "Santiago",
@@ -13,14 +13,13 @@
   "telefono": "+56900000000",
   "telefonoVisible": "+56 9 0000 0000",
   "whatsapp": "56900000000",
-  "mensajeWhatsapp": "Hola, quiero agendar una hora",
+  "mensajeWhatsapp": "Hola Camila, quiero agendar una primera sesión",
   "email": "contacto@ejemplo.cl",
-  "horario": "Lunes a viernes de 10:00 a 19:00 · Sábado de 10:00 a 14:00",
+  "horario": "Lunes a viernes de 10:00 a 20:00 · Sábado de 10:00 a 14:00",
   "instagram": "https://www.instagram.com/",
   "facebook": "",
   "tiktok": "",
   "googleMaps": "https://maps.google.com/",
   "logo": "",
-  "imagenRedes": "/img/redes.jpg",
-  "creditoVlue": true
+  "imagenRedes": "/img/redes.jpg"
 }

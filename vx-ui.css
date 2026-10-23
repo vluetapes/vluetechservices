@@ -770,3 +770,6 @@ body>footer.vx-foot .vx-foot-bottom p{margin:0;font-size:.8rem;color:var(--vx-mu
 /* Mini cards de enlaces: solo el título, un poco más grande */
 .vx-links a{display:flex;align-items:center;min-height:76px}
 .vx-links strong{margin:0;font-size:1.1rem;line-height:1.3}
+
+/* Portada: datos rápidos bajo los botones del hero */
+.vx-hero-facts{margin:18px 0 0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.8)}
