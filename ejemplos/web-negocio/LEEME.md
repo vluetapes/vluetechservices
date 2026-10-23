@@ -7,19 +7,20 @@ El negocio ("Peluquería Ejemplo") y todos sus datos son **ficticios**.
 - La web principal (GitHub Pages) **ignora esta carpeta** (`eleventy.config.js` → ignores `ejemplos/**`).
 - Para cambiar colores o fuentes: `_data/marca.json`. Textos: `_data/inicio.json` y `_data/negocio.json`.
 
-## Publicarla (una sola vez) en Cloudflare Pages
+## Publicarla (una sola vez) en Cloudflare
 
-1. dash.cloudflare.com → **Workers & Pages → Create → Pages → Connect to Git** → elige el repositorio de vluetechservices.cl.
-2. Configuración de compilación:
-   - Production branch: `main`
-   - Framework preset: **Eleventy**
+Cloudflare juntó Workers y Pages: la pantalla «Create» ofrece plantillas que crean un repositorio nuevo y vacío. **No usar plantillas**: hay que importar el repositorio existente. Esta carpeta ya trae `wrangler.jsonc`, así que funciona como Worker.
+
+1. dash.cloudflare.com → **Workers & Pages → Create application** → **Import a repository** (o «Continue with GitHub») → elige `vluetapes/vluetechservices`.
+2. Configuración:
+   - Project name: `vlue-ejemplo`
    - Build command: `npm ci && npx @11ty/eleventy`
-   - Build output directory: `_site`
-   - **Root directory (advanced): `ejemplos/web-negocio`**
+   - Deploy command: `npx wrangler deploy`
+   - **Advanced settings → Path (Root directory): `ejemplos/web-negocio`**
    - Variable de entorno: `NODE_VERSION` = `22`
-3. **Save and Deploy.**
-4. En el proyecto → **Custom domains → Set up a custom domain** → `ejemplo.vluetechservices.cl`. Como el dominio ya está en Cloudflare, el registro DNS se crea solo.
-5. Opcional: en **Settings → Builds → Build watch paths** pon `ejemplos/web-negocio/*` para que solo se vuelva a publicar cuando cambie esta carpeta.
+3. **Deploy.**
+4. En el Worker → **Settings → Domains & Routes → Add → Custom domain** → `ejemplo.vluetechservices.cl`. Como el dominio ya está en Cloudflare, el registro DNS se crea solo.
+5. Opcional: en **Settings → Build → Build watch paths** pon `ejemplos/web-negocio/*` para que solo se vuelva a publicar cuando cambie esta carpeta.
 
 ## Verla en tu computador
 

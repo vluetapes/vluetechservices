@@ -1,0 +1,10 @@
+// Publicación en Cloudflare Workers (sitio estático): sube la carpeta _site que arma Eleventy.
+// En Cloudflare: Root directory = ejemplos/web-negocio · Build command = npm ci && npx @11ty/eleventy · Deploy command = npx wrangler deploy
+{
+  "name": "vlue-ejemplo",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  }
+}
