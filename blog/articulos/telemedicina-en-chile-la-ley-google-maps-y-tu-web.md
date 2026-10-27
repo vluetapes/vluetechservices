@@ -41,6 +41,10 @@ preguntas:
     respuesta: No. Google no permite fichas separadas por modalidad ni por
       especialidad. Tienes una por lugar donde atiendes, y la teleconsulta la
       muestras en ella y en tu web.
+cta_titulo: ¿Atiendes online? Revisamos tu web gratis
+cta_texto: Te decimos si tu web explica bien la teleconsulta, si Google la puede
+  encontrar y qué cambiar primero. Sin costo y sin compromiso.
+cta_boton: Quiero que revisen mi web
 destacado: false
 titulo_seo: "Ley de telemedicina en Chile: requisitos y Google Maps"
 direccion: telemedicina-en-chile-ley-y-google-maps

@@ -151,10 +151,12 @@
 
 <section class="cta-panel pattern-dark">
   <div class="wrap">
-    <h2>Empieza con una auditoría gratis</h2>
-    <p>Revisamos tu ficha y te decimos qué mejorar primero. Sin costo y sin compromiso.</p>
+    {#- Si el artículo trae sus propios campos del llamado final, se usan esos; si no, la auditoría de la ficha -#}
+    <h2>{{ cta_titulo or "Empieza con una auditoría gratis" }}</h2>
+    <p>{{ cta_texto or "Revisamos tu ficha y te decimos qué mejorar primero. Sin costo y sin compromiso." }}</p>
     <div class="btn-row">
-      <a class="btn vx-audit-btn" href="https://wa.me/{{ sitio.whatsapp }}?text={{ ('Hola, leí el artículo «' + title + '» y quiero la auditoría gratis de mi ficha') | urlencode }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="blog-cta-final" data-producto="auditoria-gratis">Quiero mi auditoría gratis<span class="btn-arrow">&rarr;</span></a>
+      {%- set mensajeCta = ('Hola, leí el artículo «' + title + '». ' + cta_boton + '.') if cta_boton else ('Hola, leí el artículo «' + title + '» y quiero la auditoría gratis de mi ficha') %}
+      <a class="btn vx-audit-btn" href="https://wa.me/{{ sitio.whatsapp }}?text={{ mensajeCta | urlencode }}" target="_blank" rel="noopener" data-evento="clic_whatsapp" data-ubicacion="blog-cta-final" data-producto="{{ 'cta-propio' if cta_boton else 'auditoria-gratis' }}">{{ cta_boton or "Quiero mi auditoría gratis" }}<span class="btn-arrow">&rarr;</span></a>
       <a class="btn btn-outline" href="{{ sitio.instagram }}" target="_blank" rel="noopener" data-evento="clic_instagram" data-ubicacion="blog-cta-final">Síguenos en Instagram<span class="btn-arrow">&rarr;</span></a>
     </div>
   </div>

@@ -93,6 +93,21 @@ content:
           - { name: pregunta, label: Pregunta, type: string }
           - { name: respuesta, label: Respuesta, type: text }
 
+      - name: cta_titulo
+        label: Llamado final · Título (opcional)
+        type: string
+        description: "El recuadro oscuro del final. Si lo dejas vacío dice «Empieza con una auditoría gratis». Ej.: ¿Atiendes online? Revisamos tu web gratis"
+
+      - name: cta_texto
+        label: Llamado final · Texto (opcional)
+        type: text
+        description: "Una o dos frases bajo el título. Si lo dejas vacío habla de revisar la ficha de Google."
+
+      - name: cta_boton
+        label: Llamado final · Botón (opcional)
+        type: string
+        description: "En primera persona, corto. Ej.: Quiero que revisen mi web. También es el mensaje que llega a tu WhatsApp: «Hola, leí el artículo «…». Quiero que revisen mi web.»"
+
       - name: destacado
         label: Destacar arriba en el blog
         type: boolean
