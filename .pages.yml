@@ -11,7 +11,7 @@ content:
     label: Blog
     type: collection
     path: blog/articulos
-    filename: "{primary}.md"        # el nombre del archivo (y la dirección web) sale del título
+    filename: "{primary}.md"        # el nombre del archivo sale del título; la dirección web también, salvo que se llene "Dirección"
     view:
       primary: title
       fields: [title, categoria, date, borrador]
@@ -103,6 +103,11 @@ content:
         label: Título para Google (opcional)
         type: string
         description: "Solo si quieres que en Google salga distinto. Termina en | Vlue. Máximo 60 caracteres."
+
+      - name: direccion
+        label: Dirección (opcional)
+        type: string
+        description: "Lo que va después de /blog/. Ej.: telemedicina-en-chile-ley-y-google-maps. Corta, sin tildes y con la palabra clave. Si la dejas vacía, sale del título. No la cambies después de publicar: los enlaces viejos dejarían de funcionar."
 
       - name: borrador
         label: Borrador (no publicar todavía)
