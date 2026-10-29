@@ -8,29 +8,15 @@ logo: /img/simbolo-vlue.svg
 etiqueta: Santiago · Chile
 titulo: Aparece en Google
 titulo_color: en Google
-bajada: |-
-  ¿Cuál es tu caso?
-  Te ayudamos por WhatsApp
+bajada: Escríbenos y te ayudamos
 description: Fichas de Google Maps, tarjetas NFC y webs para negocios y
   profesionales de Santiago. Escríbenos por WhatsApp para tu situación
 whatsapp: "56926191935"
 saludo: "Hola, vengo de su página de enlaces. "
 botones:
-  - texto: No aparezco en Google Maps
-    resaltar: aparezco en Google Maps
-    mensaje: Mi negocio no aparece en Google Maps, ¿me pueden ayudar?
-    cliente: false
-  - texto: Tengo ficha en Google Maps, pero no está cuidada
-    resaltar: no está cuidada
-    mensaje: Tengo ficha en Google pero la tengo muy descuidada. ¿Qué me recomiendan?
-    cliente: false
-  - texto: Necesito una página web
-    resaltar: página web
-    mensaje: Necesito una página web para mi negocio. ¿Cómo trabajan?
-    cliente: false
-  - texto: Quiero más reseñas en Google
-    resaltar: más reseñas
-    mensaje: Quiero conseguir más reseñas en Google.
+  - texto: Quiero más clientes para mi negocio (con Google Maps)
+    resaltar: más clientes
+    mensaje: Quiero conseguir más clientes para mi negocio con mi Google Maps
     cliente: false
   - texto: Cotizar para mi negocio o consulta
     resaltar: Cotizar
